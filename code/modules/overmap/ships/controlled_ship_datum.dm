@@ -82,12 +82,12 @@
 	shuttle_port?.name = new_name
 	ship_account.account_holder = new_name
 	if(shipkey)
-		shipkey.name = "ship key ([new_name])"
+		shipkey.name = "ключ ([new_name])"
 	for(var/area/shuttle_area as anything in shuttle_port?.shuttle_areas)
 		shuttle_area.rename_area("[new_name] [initial(shuttle_area.name)]")
 	if(!force)
 		COOLDOWN_START(src, rename_cooldown, 5 MINUTES)
-		priority_announce("The [oldname] has been renamed to the [new_name].", "Docking Announcement", sender_override = new_name, zlevel = shuttle_port.virtual_z())
+		priority_announce("\"[oldname]\" переименован в \"[new_name]\".", "Автоматическая система судна", sender_override = new_name, zlevel = shuttle_port.virtual_z())
 	return TRUE
 
 /**
@@ -143,7 +143,7 @@
 	log_shuttle("[src] [REF(src)] DOCKING: STARTED REQUEST FOR [to_dock] AT [ticket.target_port]")
 	refresh_engines()
 	shuttle_port.movement_force = list("KNOCKDOWN" = FLOOR(est_thrust / 50, 1), "THROW" = FLOOR(est_thrust / 500, 1))
-	priority_announce("Beginning docking procedures. Completion in [dock_time/10] seconds.", "Docking Announcement", sender_override = name, zlevel = shuttle_port.virtual_z())
+	priority_announce("Начинаем стыковку, время до завершения: [dock_time/10] секунд.", "Автоматическая система судна", sender_override = name, zlevel = shuttle_port.virtual_z())
 	shuttle_port.create_ripples(ticket.target_port, dock_time)
 	shuttle_port.play_engine_sound(shuttle_port, shuttle_port.landing_sound)
 	shuttle_port.play_engine_sound(ticket.target_port, shuttle_port.landing_sound)
@@ -167,7 +167,7 @@
 			SSshuttle.transit_requesters -= shuttle_port
 			SSshuttle.generate_transit_dock(shuttle_port) // We need a port, NOW.
 
-	priority_announce("Beginning undocking procedures. Completion in [dock_time/10] seconds.", "Docking Announcement", sender_override = name, zlevel = shuttle_port.virtual_z())
+	priority_announce("Начинаем отстыковку, время до завершения [dock_time/10] секунд.", "Автоматическая система судна", sender_override = name, zlevel = shuttle_port.virtual_z())
 	shuttle_port.play_engine_sound(shuttle_port, shuttle_port.takeoff_sound)
 
 	. = ..()
@@ -401,7 +401,7 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 
 	if(shipkey.master_ship != src)
-		target_helm?.say("Invalid shipkey usage attempted, forcibly locking down.")
+		target_helm?.say("Обнаружен неизвестный ключ, производим блокировку консоли в целях безопасности.")
 		helm_locked = TRUE
 	else
 		helm_locked = !helm_locked
@@ -409,11 +409,11 @@
 
 	for(var/obj/machinery/computer/helm/helm as anything in helms)
 		SStgui.close_uis(helm)
-		helm.say(helm_locked ? "Helm console is now locked." : "Helm console has been unlocked.")
+		helm.say(helm_locked ? "Управление судном заблокировано." : "Управление судном разблокировано.")
 
 /obj/item/key/ship
-	name = "ship key"
-	desc = "A key for locking and unlocking the helm of a ship, comes with a ball chain so it can be worn around the neck."
+	name = "ключ"
+	desc = "Ключ для блокировки и разблокировки с цепочкой для ношения на шее."
 	icon_state = "keyship"
 	var/datum/overmap/ship/controlled/master_ship
 	var/static/list/key_colors = list(

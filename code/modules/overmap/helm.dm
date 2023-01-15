@@ -7,8 +7,8 @@
 #define JUMP_CHARGEUP_TIME (3 MINUTES)
 
 /obj/machinery/computer/helm
-	name = "helm control console"
-	desc = "Used to view or control the ship."
+	name = "консоль управления судном"
+	desc = "Используется для управления судном."
 	icon_screen = "navigation"
 	icon_keyboard = "tech_key"
 	circuit = /obj/item/circuitboard/computer/shuttle/helm
@@ -44,20 +44,20 @@
 
 /obj/machinery/computer/helm/proc/calibrate_jump(inline = FALSE)
 	if(jump_allowed < 0)
-		say("Bluespace Jump Calibration offline. Please contact your system administrator.")
+		say("Система прыжка в синем пространстве отключена. Свяжитесь с уполномоченным специалистом нажав на консоли кнопку F1.")
 		return
 	if(current_ship.docked_to || current_ship.docking)
-		say("Bluespace Jump Calibration detected interference in the local area.")
+		say("Система прыжка в синем пространстве обнаружила помехи в локальной области.")
 		return
 	if(world.time < jump_allowed)
 		var/jump_wait = DisplayTimeText(jump_allowed - world.time)
-		say("Bluespace Jump Calibration is currently recharging. ETA: [jump_wait].")
+		say("Система прыжка в синем пространстве накапливает энергию. Время до завершения: [jump_wait].")
 		return
 	if(jump_state != JUMP_STATE_OFF && !inline)
 		return // This exists to prefent Href exploits to call process_jump more than once by a client
 	message_admins("[ADMIN_LOOKUPFLW(usr)] has initiated a bluespace jump in [ADMIN_VERBOSEJMP(src)]")
 	jump_timer = addtimer(CALLBACK(src, .proc/jump_sequence, TRUE), JUMP_CHARGEUP_TIME, TIMER_STOPPABLE)
-	priority_announce("Bluespace jump calibration initialized. Calibration completion in [JUMP_CHARGEUP_TIME/600] minutes.", sender_override="[current_ship.name] Bluespace Pylon", zlevel=virtual_z())
+	priority_announce("Система прыжка в синем пространстве завершила накопление энергии. Время до завершения калибровки [JUMP_CHARGEUP_TIME/600] минут.", sender_override="Автоматическая система [current_ship.name]", zlevel=virtual_z())
 	calibrating = TRUE
 	return TRUE
 
@@ -71,7 +71,7 @@
 		current_ship = null
 
 /obj/machinery/computer/helm/proc/cancel_jump()
-	priority_announce("Bluespace Pylon spooling down. Jump calibration aborted.", sender_override="[current_ship.name] Bluespace Pylon", zlevel=virtual_z())
+	priority_announce("Система прыжка в синем пространстве обнаружила отключение калибровочного модуля. Отмена калибровки.", sender_override="Автоматическая система [current_ship.name]", zlevel=virtual_z())
 	calibrating = FALSE
 	deltimer(jump_timer)
 
@@ -82,19 +82,19 @@
 			SStgui.close_uis(src)
 		if(JUMP_STATE_CHARGING)
 			jump_state = JUMP_STATE_IONIZING
-			priority_announce("Bluespace Jump Calibration completed. Ionizing Bluespace Pylon.", sender_override="[current_ship.name] Bluespace Pylon", zlevel=virtual_z())
+			priority_announce("Калибровка завершена, ионизируем пилон синего пространства.", sender_override="Автоматическая система [current_ship.name]", zlevel=virtual_z())
 		if(JUMP_STATE_IONIZING)
 			jump_state = JUMP_STATE_FIRING
-			priority_announce("Bluespace Ionization finalized; preparing to fire Bluespace Pylon.", sender_override="[current_ship.name] Bluespace Pylon", zlevel=virtual_z())
+			priority_announce("Ионизация пилона завершена, запускаем пилон синего пространства.", sender_override="Автоматическая система [current_ship.name]", zlevel=virtual_z())
 		if(JUMP_STATE_FIRING)
 			jump_state = JUMP_STATE_FINALIZED
-			priority_announce("Bluespace Pylon launched.", sender_override="[current_ship.name] Bluespace Pylon", sound='sound/magic/lightning_chargeup.ogg', zlevel=virtual_z())
+			priority_announce("Пилон синего пространства запущен.", sender_override="Автоматическая система [current_ship.name]", sound='sound/magic/lightning_chargeup.ogg', zlevel=virtual_z())
 			addtimer(CALLBACK(src, .proc/do_jump), 10 SECONDS)
 			return
 	addtimer(CALLBACK(src, .proc/jump_sequence, TRUE), JUMP_CHARGE_DELAY)
 
 /obj/machinery/computer/helm/proc/do_jump()
-	priority_announce("Bluespace Jump Initiated.", sender_override="[current_ship.name] Bluespace Pylon", sound='sound/magic/lightningbolt.ogg', zlevel=virtual_z())
+	priority_announce("Прыжок в синее пространство инициализирован.", sender_override="Автоматическая система [current_ship.name]", sound='sound/magic/lightningbolt.ogg', zlevel=virtual_z())
 	current_ship.shuttle_port.intoTheSunset()
 
 /obj/machinery/computer/helm/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
@@ -123,7 +123,7 @@
 		return
 
 	if(!current_ship.shipkey && istype(user) && Adjacent(user) && !viewer)
-		say("Generated new shipkey, do not lose it!")
+		say("Создаю ключ от судна - не потеряй его!")
 		var/key = new /obj/item/key/ship(get_turf(src), current_ship)
 		user.put_in_hands(key)
 		return
@@ -228,11 +228,11 @@
 			new_name = trim(new_name)
 			if (!length(new_name) || new_name == current_ship.name)
 				return
-			if(!reject_bad_text(new_name, MAX_CHARTER_LEN))
-				say("Error: Replacement designation rejected by system.")
+			if(!reject_bad_text(new_name, MAX_CHARTER_LEN, FALSE))
+				say("Ошибка: данное имя не подходит для судна")
 				return
 			if(!current_ship.Rename(new_name))
-				say("Error: [COOLDOWN_TIMELEFT(current_ship, rename_cooldown)/10] seconds until ship designation can be changed.")
+				say("Ошибка: подождите [COOLDOWN_TIMELEFT(current_ship, rename_cooldown)/10] секунд перед следующей сменой имени судна.")
 			update_static_data(usr, ui)
 			return
 		if("reload_ship")
@@ -244,21 +244,23 @@
 			return
 		if("toggle_ai_control")
 			if(issilicon(usr))
-				to_chat(usr, "<span class='warning'>You are unable to toggle AI controls.</span>")
+				to_chat(usr, "<span class='warning'>Ты не можешь переключить управление судном.</span>")
+					if(prob(10))
+					say("Внимание - обнаружена удалённая попытка перехвата управления исскуственным интелектом.")
 				return
 			allow_ai_control = !allow_ai_control
-			say(allow_ai_control ? "AI Control has been enabled." : "AI Control is now disabled.")
+			say(allow_ai_control ? "Удалённое управление исскуственным интелектом включено." : "Удалённое управление исскуственным интелектом отключено.")
 			return
 
 	if(jump_state != JUMP_STATE_OFF)
-		say("Bluespace Jump in progress. Controls suspended.")
+		say("Управление отключено - выполняется прыжок в синее пространство.")
 		return
 
 	if(!current_ship.docked_to && !current_ship.docking)
 		switch(action)
 			if("act_overmap")
 				if(SSshuttle.jump_mode > BS_JUMP_CALLED)
-					to_chat(usr, "<span class='warning'>Cannot dock due to bluespace jump preperations!</span>")
+					to_chat(usr, "<span class='warning'>Я не могу пристыковаться когда идёт подготовка к прыжку в синее простанство!</span>")
 					return
 				var/datum/overmap/to_act = locate(params["ship_to_act"]) in current_ship.get_nearby_overmap_objects()
 				say(current_ship.Dock(to_act))
@@ -279,7 +281,7 @@
 					cancel_jump()
 					return
 				else
-					if(tgui_alert(usr, "Do you want to bluespace jump? Your ship and everything on it will be removed from the round.", "Jump Confirmation", list("Yes", "No")) != "Yes")
+					if(tgui_alert(usr, "Начинаем инициализацию прыжка в синее пространство? Корабль удалит из раунда навсегда.", "Подтверждение", list("Yes", "No")) != "Yes")
 						return
 					calibrate_jump()
 					return
@@ -289,7 +291,7 @@
 	else if(current_ship.docked_to)
 		if(action == "undock")
 			current_ship.calculate_avg_fuel()
-			if(current_ship.avg_fuel_amnt < 25 && tgui_alert(usr, "Ship only has ~[round(current_ship.avg_fuel_amnt)]% fuel remaining! Are you sure you want to undock?", name, list("Yes", "No")) != "Yes")
+			if(current_ship.avg_fuel_amnt < 25 && tgui_alert(usr, "Судно имеет на борту ~[round(current_ship.avg_fuel_amnt)]% топлива в запасе! Отстыковываемся?", name, list("Yes", "No")) != "Yes")
 				return
 			current_ship.Undock()
 
@@ -319,7 +321,7 @@
 
 /obj/machinery/computer/helm/emag_act(mob/user)
 	. = ..()
-	say("Warning, database corruption present, resetting local database state.")
+	say("Внимание, база данных управления судном повреждена, сброс настроек по умолчанию.")
 	playsound(src, 'sound/effects/fuse.ogg')
 	current_ship.helm_locked = FALSE
 
@@ -327,15 +329,15 @@
 	if(!Adjacent(user))
 		return
 
-	to_chat(user, "<span class='warning'>You begin to manually override the local database...</span>")
+	to_chat(user, "<span class='warning'>Начинаю сброс базы данных управления судном...</span>")
 	if(!do_after_mob(user, list(src), 2 SECONDS))
 		return COMPONENT_BLOCK_TOOL_ATTACK
 
-	priority_announce("Illegal access to local ship database detected.", sender_override="[src.name]", zlevel=virtual_z())
+	priority_announce("Обнаружен несанкционированный доступ к управлению судном, требуется срочное вмешательство персонала!", sender_override="Автоматическая система [src.name]", zlevel=virtual_z())
 	if(!do_after_mob(user, list(src), 10 SECONDS))
 		return COMPONENT_BLOCK_TOOL_ATTACK
 
-	say("Warning, database corruption present, resetting local database state.")
+	say("Обнаружено повреждение базы данных судна, сброс настроек по умолчанию.")
 	playsound(src, 'sound/effects/fuse.ogg')
 	current_ship.helm_locked = FALSE
 	return COMPONENT_BLOCK_TOOL_ATTACK
@@ -352,12 +354,12 @@
 	if(issilicon(usr) && allow_ai_control)
 		return FALSE
 	if(!silent)
-		say("[src] is currently locked; please insert your key to continue.")
+		say("[src] заблокирована. Вставьте ключ для разблокировки.")
 		playsound(src, 'sound/machines/buzz-two.ogg')
 	return TRUE
 
 /obj/machinery/computer/helm/viewscreen
-	name = "ship viewscreen"
+	name = "обзорный экран"
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "telescreen"
 	layer = SIGN_LAYER
