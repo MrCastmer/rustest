@@ -25,7 +25,9 @@ export const HelmConsole = (_props, context) => {
       <div className="CameraConsole__right">
         <div className="CameraConsole__toolbar">
           {!!data.docked && (
-            <div className="NoticeBox">Ship docked to: {data.docked}</div>
+            <div className="NoticeBox">
+              Корабль сейчас пристыкован к: {data.docked}
+            </div>
           )}
         </div>
         <ByondUi
@@ -60,7 +62,7 @@ const SharedContent = (_props, context) => {
         }
         buttons={
           <Button
-            tooltip="Refresh Ship Stats"
+            tooltip="Обновить статус судна"
             tooltipPosition="left"
             icon="sync"
             disabled={isViewer}
@@ -69,8 +71,8 @@ const SharedContent = (_props, context) => {
         }
       >
         <LabeledList>
-          <LabeledList.Item label="Class">{shipInfo.class}</LabeledList.Item>
-          <LabeledList.Item label="Sensor Range">
+          <LabeledList.Item label="Класс">{shipInfo.class}</LabeledList.Item>
+          <LabeledList.Item label="Радиус сканирования">
             <ProgressBar
               value={shipInfo.sensor_range}
               minValue={1}
@@ -80,13 +82,13 @@ const SharedContent = (_props, context) => {
             </ProgressBar>
           </LabeledList.Item>
           {shipInfo.mass && (
-            <LabeledList.Item label="Mass">
-              {shipInfo.mass + 'tonnes'}
+            <LabeledList.Item label="Масса">
+              {shipInfo.mass + ' тонн'}
             </LabeledList.Item>
           )}
         </LabeledList>
       </Section>
-      <Section title="Radar">
+      <Section title="Радар">
         <Table>
           <Table.Row bold>
             <Table.Cell>Name</Table.Cell>
@@ -98,7 +100,7 @@ const SharedContent = (_props, context) => {
               {!isViewer && (
                 <Table.Cell>
                   <Button
-                    tooltip="Interact"
+                    tooltip="Начать стыковку"
                     tooltipPosition="left"
                     icon="circle"
                     disabled={
@@ -127,9 +129,9 @@ const ShipContent = (_props, context) => {
   const { isViewer, engineInfo, shipInfo, speed, heading, eta, x, y } = data;
   return (
     <>
-      <Section title="Velocity">
+      <Section title="Статус">
         <LabeledList>
-          <LabeledList.Item label="Speed">
+          <LabeledList.Item label="Скорость">
             <ProgressBar
               ranges={{
                 good: [0, 4],
@@ -146,25 +148,25 @@ const ShipContent = (_props, context) => {
               spM
             </ProgressBar>
           </LabeledList.Item>
-          <LabeledList.Item label="Heading">
+          <LabeledList.Item label="Направление">
             <AnimatedNumber value={heading} />
           </LabeledList.Item>
-          <LabeledList.Item label="Position">
+          <LabeledList.Item label="Координаты">
             X
             <AnimatedNumber value={x} />
             /Y
             <AnimatedNumber value={y} />
           </LabeledList.Item>
-          <LabeledList.Item label="ETA">
+          <LabeledList.Item label="ЕТА">
             <AnimatedNumber value={eta} />
           </LabeledList.Item>
         </LabeledList>
       </Section>
       <Section
-        title="Engines"
+        title="Двигатели"
         buttons={
           <Button
-            tooltip="Refresh Engine"
+            tooltip="Обновить лист двигателей"
             tooltipPosition="left"
             icon="sync"
             disabled={isViewer}
@@ -258,25 +260,25 @@ const ShipControlContent = (_props, context) => {
   };
   return (
     <Section
-      title="Navigation"
+      title="Управление"
       buttons={
         <>
           <Button
-            tooltip="Undock"
+            tooltip="Отстыковка"
             tooltipPosition="left"
             icon="sign-out-alt"
             disabled={!data.docked || data.docking}
             onClick={() => act('undock')}
           />
           <Button
-            tooltip="Dock in Empty Space"
+            tooltip="Пристыковка в пустое место"
             tooltipPosition="left"
             icon="sign-in-alt"
             disabled={!flyable}
             onClick={() => act('dock_empty')}
           />
           <Button
-            tooltip={calibrating ? 'Cancel Jump' : 'Bluespace Jump'}
+            tooltip={calibrating ? 'Отменить прыжок' : 'Запустить прыжок'}
             tooltipPosition="left"
             icon={calibrating ? 'times' : 'angle-double-right'}
             color={calibrating ? 'bad' : undefined}
@@ -284,7 +286,11 @@ const ShipControlContent = (_props, context) => {
             onClick={() => act('bluespace_jump')}
           />
           <Button
-            tooltip={ai_controls ? 'Disable AI Control' : 'Enable AI Control'}
+            tooltip={
+              ai_controls
+                ? 'Отключить удалённый доступ'
+                : 'Включить удалённый доступ'
+            }
             tooltipPosition="left"
             icon="lock-a"
             color={ai_controls ? 'green' : 'red'}
