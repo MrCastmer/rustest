@@ -53,9 +53,9 @@
 
 	if(CONFIG_GET(flag/auth_only))
 		if(client?.holder && CONFIG_GET(flag/auth_admin_testing))
-			to_chat(src, "<span class='userdanger'>This server is allowed to be used for admin testing. Please ensure you are able to clean up anything you do. If the server needs to be restarted contact someone with TGS access.</span>")
+			to_chat(src, "<span class='userdanger'>Этот сервер сейчас используется для адмистраторских тестов. Пожалуйста, убедитесь, что вы можете потом удалить за собой всё. Если сервер необходимо рестартануть сервер, свяжитесь с кем-нибудь, у кого есть доступ к TGS.</span>")
 		else
-			to_chat(src, "<span class='userdanger'>This server is for authentication only.</span>")
+			to_chat(src, "<span class='userdanger'>Этот сервер предназначен только для аутентификации.</span>")
 			auth_check = TRUE
 			return
 
@@ -64,19 +64,19 @@
 
 	var/datum/asset/asset_datum = get_asset_datum(/datum/asset/simple/lobby)
 	asset_datum.send(client)
-	var/list/output = list("<center><p><a href='byond://?src=[REF(src)];show_preferences=1'>Setup Character</a></p>")
+	var/list/output = list("<center><p><a href='byond://?src=[REF(src)];show_preferences=1'>Настройки</a></p>")
 
 	if(SSticker.current_state <= GAME_STATE_PREGAME)
 		switch(ready)
 			if(PLAYER_NOT_READY)
-				output += "<p>\[ <b>Not Ready</b> | [LINKIFY_READY("Observe", PLAYER_READY_TO_OBSERVE)] \]</p>"
+				output += "<p>\[ <b>Не готов</b> | [LINKIFY_READY("Наблюдать", PLAYER_READY_TO_OBSERVE)] \]</p>"
 			if(PLAYER_READY_TO_PLAY)
-				output += "<p>\[ [LINKIFY_READY("Not Ready", PLAYER_NOT_READY)] | [LINKIFY_READY("Observe", PLAYER_READY_TO_OBSERVE)] \]</p>"
+				output += "<p>\[ [LINKIFY_READY("Не готов", PLAYER_NOT_READY)] | [LINKIFY_READY("Наблюдать", PLAYER_READY_TO_OBSERVE)] \]</p>"
 			if(PLAYER_READY_TO_OBSERVE)
-				output += "<p>\[ [LINKIFY_READY("Not Ready", PLAYER_NOT_READY)] | <b> Observe </b> \]</p>"
+				output += "<p>\[ [LINKIFY_READY("Не готов", PLAYER_NOT_READY)] | <b> Наблюдать </b> \]</p>"
 	else
-		output += "<p><a href='byond://?src=[REF(src)];manifest=1'>View the Crew Manifest</a></p>"
-		output += "<p><a href='byond://?src=[REF(src)];late_join=1'>Join Game!</a></p>"
+		output += "<p><a href='byond://?src=[REF(src)];manifest=1'>Активный экипаж</a></p>"
+		output += "<p><a href='byond://?src=[REF(src)];late_join=1'>Войти в игру</a></p>"
 		output += "<p>[LINKIFY_READY("Observe", PLAYER_READY_TO_OBSERVE)]</p>"
 
 	if(!IsGuestKey(src.key))
@@ -84,7 +84,7 @@
 
 	output += "</center>"
 
-	var/datum/browser/popup = new(src, "playersetup", "<div align='center'>New Player Options</div>", 250, 265)
+	var/datum/browser/popup = new(src, "playersetup", "<div align='center'>Настройки нового персонажа</div>", 250, 265)
 	popup.set_window_options("can_close=0")
 	popup.set_content(output.Join())
 	popup.open(FALSE)
@@ -116,9 +116,9 @@
 			qdel(query_get_new_polls)
 			return "Failed to get player polls!"
 		if(query_get_new_polls.NextRow())
-			output += "<p><b><a href='byond://?src=[rs];showpoll=1'>Show Player Polls</A> (NEW!)</b></p>"
+			output += "<p><b><a href='byond://?src=[rs];showpoll=1'>Опрос</A> (НОВОЕ!)</b></p>"
 		else
-			output += "<p><a href='byond://?src=[rs];showpoll=1'>Show Player Polls</A></p>"
+			output += "<p><a href='byond://?src=[rs];showpoll=1'>Опрос</A></p>"
 		qdel(query_get_new_polls)
 		if(QDELETED(src))
 			return
@@ -169,7 +169,7 @@
 
 	if(href_list["late_join"])
 		if(!SSticker?.IsRoundInProgress())
-			to_chat(usr, "<span class='boldwarning'>The round is either not ready, or has already finished...</span>")
+			to_chat(usr, "<span class='boldwarning'>Раунд уже завершён или еще не начался...</span>")
 			return
 
 		if(href_list["late_join"] == "override")
@@ -181,12 +181,12 @@
 
 			var/queue_position = SSticker.queued_players.Find(usr)
 			if(queue_position == 1)
-				to_chat(usr, "<span class='notice'>You are next in line to join the game. You will be notified when a slot opens up.</span>")
+				to_chat(usr, "<span class='notice'>Вы следующий в очереди, чтобы присоединиться к игре. Вы будете уведомлены, когда слот откроется.</span>")
 			else if(queue_position)
-				to_chat(usr, "<span class='notice'>There are [queue_position-1] players in front of you in the queue to join the game.</span>")
+				to_chat(usr, "<span class='notice'>Ты в очереди, текущая позиция: [queue_position].</span>")
 			else
 				SSticker.queued_players += usr
-				to_chat(usr, "<span class='notice'>You have been added to the queue to join the game. Your position in queue is [SSticker.queued_players.len].</span>")
+				to_chat(usr, "<span class='notice'>Ты добавлен на очередь в игру, текущая позиция в очереди: [SSticker.queued_players.len].</span>")
 			return
 		LateChoices()
 
@@ -220,9 +220,9 @@
 		ready = PLAYER_NOT_READY
 		return FALSE
 
-	var/this_is_like_playing_right = alert(src,"Are you sure you wish to observe? You will not be able to play this round!","Player Setup","Yes","No")
+	var/this_is_like_playing_right = alert(src,"Ты хочешь наблюдать? У тебя возможно не будет больше шанса вернуться в лобби.","Наблюдать","Да","Нет")
 
-	if(QDELETED(src) || !src.client || this_is_like_playing_right != "Yes")
+	if(QDELETED(src) || !src.client || this_is_like_playing_right != "Да")
 		ready = PLAYER_NOT_READY
 		src << browse(null, "window=playersetup") //closes the player setup window
 		new_player_panel()
@@ -234,7 +234,7 @@
 	observer.started_as_observer = TRUE
 	close_spawn_windows()
 	var/obj/effect/landmark/observer_start/O = locate(/obj/effect/landmark/observer_start) in GLOB.landmarks_list
-	to_chat(src, "<span class='notice'>Now teleporting.</span>")
+	to_chat(src, "<span class='notice'>Телепортируем.</span>")
 	if (O)
 		observer.forceMove(O.loc)
 	observer.key = key
@@ -246,7 +246,7 @@
 		observer.client.init_verbs()
 	observer.update_icon()
 	observer.stop_sound_channel(CHANNEL_LOBBYMUSIC)
-	deadchat_broadcast(" has observed.", "<b>[observer.real_name]</b>", follow_target = observer, turf_target = get_turf(observer), message_type = DEADCHAT_DEATHRATTLE)
+	deadchat_broadcast(" наблюдает за игрой.", "<b>[observer.real_name]</b>", follow_target = observer, turf_target = get_turf(observer), message_type = DEADCHAT_DEATHRATTLE)
 	QDEL_NULL(mind)
 	qdel(src)
 	return TRUE
@@ -254,17 +254,17 @@
 /proc/get_job_unavailable_error_message(retval, jobtitle)
 	switch(retval)
 		if(JOB_AVAILABLE)
-			return "[jobtitle] is available."
+			return "[jobtitle] доступен для игры."
 		if(JOB_UNAVAILABLE_GENERIC)
-			return "[jobtitle] is unavailable."
+			return "[jobtitle] недоступен для игры.."
 		if(JOB_UNAVAILABLE_BANNED)
-			return "You are currently banned from [jobtitle]."
+			return "[jobtitle] недоступен для игры по причине блокировки."
 		if(JOB_UNAVAILABLE_PLAYTIME)
-			return "You do not have enough relevant playtime for [jobtitle]."
+			return "[jobtitle] недоступен для игры по причине малого наигранного времени."
 		if(JOB_UNAVAILABLE_ACCOUNTAGE)
-			return "Your account is not old enough for [jobtitle]."
+			return "[jobtitle] недоступен для игры по причине подозрений в мультиаккерстве."
 		if(JOB_UNAVAILABLE_SLOTFULL)
-			return "[jobtitle] is already filled to capacity."
+			return "[jobtitle] недоступен для игры по причине заполненного слота."
 	return "Error: Unknown job availability."
 
 /mob/dead/new_player/proc/IsJobUnavailable(datum/job/job, datum/overmap/ship/controlled/ship, latejoin = FALSE)
@@ -337,7 +337,7 @@
 	log_manifest(character.mind.key, character.mind, character, TRUE)
 
 	if(length(ship.job_slots) > 1 && ship.job_slots[1] == job) // if it's the "captain" equivalent job of the ship. checks to make sure it's not a one-job ship
-		minor_announce("[job.name] [character.real_name] on deck!", zlevel = ship.shuttle_port.virtual_z())
+		minor_announce("[job.name] [character.real_name] на борту!", zlevel = ship.shuttle_port.virtual_z())
 	return TRUE
 
 /mob/dead/new_player/proc/AddEmploymentContract(mob/living/carbon/human/employee)
@@ -354,14 +354,14 @@
 	if(!can_join_round(FALSE))
 		return
 
-	var/list/shuttle_choices = list("Purchase ship..." = "Purchase") //Dummy for purchase option
+	var/list/shuttle_choices = list("Приобретаем судно..." = "Судно") //Dummy for purchase option
 
 	for(var/datum/overmap/ship/controlled/S as anything in SSovermap.controlled_ships)
 		if(!S.is_join_option())
 			continue
 		shuttle_choices[S.name + " ([S.source_template.short_name ? S.source_template.short_name : "Unknown-class"])"] = S //Try to get the class name
 
-	var/chosen_ship = tgui_input_list(src, "Select ship to spawn on.", "Welcome, [client?.prefs.real_name || "User"].", shuttle_choices)
+	var/chosen_ship = tgui_input_list(src, "Выберите корабль для игры на нём.", "Добро пожаловать, [client?.prefs.real_name || "User"].", shuttle_choices)
 	if(!can_join_round(FALSE))
 		return
 
@@ -370,7 +370,7 @@
 		return
 
 	if(selected_ship == "Purchase")
-		var/datum/map_template/shuttle/template = SSmapping.ship_purchase_list[tgui_input_list(src, "Please select ship to purchase!", "Welcome, [client.prefs.real_name].", SSmapping.ship_purchase_list)]
+		var/datum/map_template/shuttle/template = SSmapping.ship_purchase_list[tgui_input_list(src, "Выберите судно для приобретения.", "Добро пожаловать, [client.prefs.real_name].", SSmapping.ship_purchase_list)]
 		if(!template)
 			return LateChoices()
 		if(template.limit)
@@ -379,18 +379,18 @@
 				if(X.source_template == template)
 					count++
 					if(template.limit <= count)
-						alert(src, "The ship limit of [template.limit] has been reached this round.")
+						alert(src, "В данном секторе достигнут лимит судов. Текущий лимит [template.limit] судов.")
 						return LateChoices() //Send them back to shuttle selection
 		close_spawn_windows()
-		to_chat(usr, "<span class='danger'>Your [template.name] is being prepared. Please be patient!</span>")
+		to_chat(usr, "<span class='danger'>[template.name] заправляется и готовится к отправке в сектор, подождите.</span>")
 		var/datum/overmap/ship/controlled/target = new(SSovermap.get_unused_overmap_square(), template)
 		if(!target?.shuttle_port)
-			to_chat(usr, "<span class='danger'>There was an error loading the ship. Please contact admins!</span>")
+			to_chat(usr, "<span class='danger'>Судно потерялось в глубинах космоса, свяжитесь с администрацией.</span>")
 			new_player_panel()
 			return
 		SSblackbox.record_feedback("tally", "ship_purchased", 1, template.name) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		if(!AttemptLateSpawn(target.job_slots[1], target)) //Try to spawn as the first listed job in the job slots (usually captain)
-			to_chat(usr, "<span class='danger'>Ship spawned, but you were unable to be spawned. You can likely try to spawn in the ship through joining normally, but if not, please contact an admin.</span>")
+			to_chat(usr, "<span class='danger'>Корабль прибыл в сектор, но вы не смогли войти в игру. Ты можешь попытаться войти на судно обычным способом, но если не получается, обратитись к администратору.</span>")
 			new_player_panel()
 		return
 
@@ -401,11 +401,11 @@
 		job_choices["[job.name] ([selected_ship.job_slots[job]] positions)"] = job
 
 	if(!length(job_choices))
-		to_chat(usr, "<span class='danger'>There are no jobs available on this ship!</span>")
+		to_chat(usr, "<span class='danger'>На этом корабле не обнаруженно свободных мест!</span>")
 		return LateChoices() //Send them back to shuttle selection
 
 	if(selected_ship.memo)
-		var/memo_accept = tgui_alert(src, "Current ship memo: [selected_ship.memo]", "[selected_ship.name] Memo", list("OK", "Cancel"))
+		var/memo_accept = tgui_alert(src, "Сообщение для нового члена судна: [selected_ship.memo]", "Сообщение оставленное капитаном [selected_ship.name]", list("OK", "Cancel"))
 		if(memo_accept == "Cancel")
 			return LateChoices() //Send them back to shuttle selection
 
@@ -417,21 +417,21 @@
 			return LateChoices()
 		switch(current_application.status)
 			if(SHIP_APPLICATION_ACCEPTED)
-				to_chat(usr, "<span class='notice'>Your ship application was accepted, continuing...</span>")
+				to_chat(usr, "<span class='notice'>Заявка на вход отправлена, ожидайте...</span>")
 			if(SHIP_APPLICATION_PENDING)
-				alert(src, "You already have a pending application for this ship!")
+				alert(src, "У тебя уже есть заявка, наберись терпения!")
 				return LateChoices()
 			if(SHIP_APPLICATION_DENIED)
-				alert(src, "You can't join this ship, as a previous application was denied!")
+				alert(src, "Ты не можешь войти на данное судно так как прошлую заявку отклонили!")
 				return LateChoices()
 		did_application = TRUE
 
-	var/datum/job/selected_job = job_choices[tgui_input_list(src, "Select job.", "Welcome, [client.prefs.real_name].", job_choices)]
+	var/datum/job/selected_job = job_choices[tgui_input_list(src, "Выбери профессию.", "Привет, [client.prefs.real_name].", job_choices)]
 	if(!selected_job)
 		return LateChoices() //Send them back to shuttle selection
 
 	if(selected_ship.join_mode == SHIP_JOIN_MODE_CLOSED || (selected_ship.join_mode == SHIP_JOIN_MODE_APPLY && !did_application))
-		to_chat(usr, "<span class='warning'>You cannot join this ship anymore, as its join mode has changed!</span>")
+		to_chat(usr, "<span class='warning'>Режим присоединения корабля изменился!</span>")
 		return LateChoices()
 
 	// one last check
@@ -452,12 +452,12 @@
 /mob/dead/new_player/proc/can_join_round(silent = FALSE)
 	if(!GLOB.enter_allowed)
 		if(!silent)
-			to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
+			to_chat(usr, "<span class='notice'>Ты не можешь сейчас войти в игру.</span>")
 		return FALSE
 
 	if(!SSticker?.IsRoundInProgress())
 		if(!silent)
-			to_chat(usr, "<span class='danger'>The round is either not ready, or has already finished...</span>")
+			to_chat(usr, "<span class='danger'>Раунд уже закончился или ещё не начался...</span>")
 		return FALSE
 
 	var/relevant_cap
@@ -471,7 +471,7 @@
 	if(SSticker.queued_players.len && !(ckey(key) in GLOB.admin_datums))
 		if((living_player_count() >= relevant_cap) || (src != SSticker.queued_players[1]))
 			if(!silent)
-				to_chat(usr, "<span class='warning'>Server is full.</span>")
+				to_chat(usr, "<span class='warning'>Слишком много игроков.</span>")
 			return FALSE
 	return TRUE
 
