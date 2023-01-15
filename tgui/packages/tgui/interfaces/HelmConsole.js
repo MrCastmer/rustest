@@ -91,8 +91,8 @@ const SharedContent = (_props, context) => {
       <Section title="Радар">
         <Table>
           <Table.Row bold>
-            <Table.Cell>Name</Table.Cell>
-            {!isViewer && <Table.Cell>Act</Table.Cell>}
+            <Table.Cell>Имя</Table.Cell>
+            {!isViewer && <Table.Cell>Цель</Table.Cell>}
           </Table.Row>
           {otherInfo.map((ship) => (
             <Table.Row key={ship.name}>
