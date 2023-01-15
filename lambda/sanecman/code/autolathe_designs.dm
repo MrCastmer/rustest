@@ -27,7 +27,7 @@
 	name = "Плата РнД консоли"
 	id = "rdconsole_in_autolathe"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 10000, /datum/material/glass = 10000, /datum/material/diamond = 1000)
+	materials = list(/datum/material/iron = 10000, /datum/material/glass = 10000, /datum/material/gold = 2000, /datum/material/silver = 2000)
 	build_path = /obj/item/circuitboard/computer/rdconsole
 	category = list("initial", "Base Curcuit")
 
