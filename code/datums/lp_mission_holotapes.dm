@@ -1,204 +1,206 @@
 /obj/item/disk/holodisk/lp/combat/syndicate1
-	name = "Combat Mission Eliminate Force"
-	desc = "A holodisk containing a combat mission for the LP."
+	name = "Боевая задача по уничтожению сил"
+	desc = "Голодиск с боевой задачей для LP."
 	preset_image_type = /datum/preset_holoimage/commissioner
 	preset_record_text = {"
 	NAME Commissioner Gorre Donn
-	SAY This mission, should you choose to accept it, revolves around a combat objective. The LP will have to get their hands dirty for this one.
+	SAY Эта миссия, если вы решите ее принять, вращается вокруг боевой цели. Вам придётся очень сильно постараться.
 	DELAY 25
-	SAY The LP is to respond to a hostile threat from a Syndicate vessel. In such action they are to kill or otherwise subdue the primary fighting force.
+	SAY LP должен ответить на враждебную угрозу со стороны корабля Синдиката. Это значит что они должны быть уничтожены или усмирены.
 	DELAY 25
 	"}
 
 /obj/item/disk/holodisk/lp/combat/syndicate2
-	name = "Combat Mission Capture"
-	desc = "A holodisk containing a combat mission for the LP."
+	name = "Боевая задача по захвату"
+	desc = "Голодиск с боевой задачей для LP."
 	preset_image_type = /datum/preset_holoimage/commissioner
 	preset_record_text = {"
 	NAME Commissioner Gorre Donn
-	SAY This mission, should you choose to accept it, revolves around a combat objective. The LP will have to get their hands dirty for this one.
+	SAY Эта миссия, если вы решите ее принять, вращается вокруг боевой цели. Вам придётся очень сильно постараться.
 	DELAY 25
-	SAY The LP is to respond to a hostile threat from a Syndicate vessel. In such action they are to subdue and capture one of the armed members of the crew. They should be stripped of gear, interrogated, and converted to NT if possible. If not possible, release them to whatever ship they belonged to or will accept them.
+	SAY LP должен отреагировать на враждебную угрозу со стороны корабля Синдиката. Это значит что вы должны обезвредить и захватить одного из вооруженных членов экипажа.
+	DELAY 25
+	SAY Их следует лишить снаряжения, допросить и, если возможно, перевести в НТ. Если это невозможно, отпустите их на любое судно, которому они принадлежали, или которое их примет.
 	DELAY 25
 	"}
 
 /obj/item/disk/holodisk/lp/combat/syndicate3
-	name = "Combat Mission Capture Commander"
-	desc = "A holodisk containing a combat mission for the LP."
+	name = "Боевая задача по захвату главнокомандующих"
+	desc = "Голодиск с боевой задачей для LP."
 	preset_image_type = /datum/preset_holoimage/commissioner
 	preset_record_text = {"
 	NAME Commissioner Gorre Donn
-	SAY This mission, should you choose to accept it, revolves around a combat objective. The LP will have to get their hands dirty for this one.
+	SAY Эта миссия, если вы решите ее принять, вращается вокруг боевой цели. Вам придётся очень сильно постараться.
 	DELAY 25
-	SAY The LP is to respond to a hostile threat from a Syndicate vessel. In such action they are to eliminate whatever leader or captain of such vession and bring their body back to the vault in a bodybag. The Medical Specialist has been given a box of them for such an occasion.
+	SAY LP должен отреагировать на враждебную угрозу со стороны корабля Синдиката. В таком действии они должны устранить любого лидера или капитана такой организации и принести его тело обратно в мешке для трупов. Для такого случая Медицинскому специалисту была подарена коробка с мешками.
 	DELAY 25
 	"}
 
 /obj/item/disk/holodisk/lp/combat/syndicate4
-	name = "Combat Mission Secret Documents"
-	desc = "A holodisk containing a combat mission for the LP."
+	name = "Боевая задача по захвату секретных документов"
+	desc = "Голодиск с боевой задачей для LP."
 	preset_image_type = /datum/preset_holoimage/commissioner
 	preset_record_text = {"
 	NAME Commissioner Gorre Donn
-	SAY This mission, should you choose to accept it, revolves around a combat objective. The LP will have to get their hands dirty for this one.
+	SAY Эта миссия, если вы решите ее принять, вращается вокруг боевой цели. Вам придётся очень сильно постараться.
 	DELAY 25
-	SAY The LP is to respond to a hostile threat from a Syndicate vessel. In such action they are to retrieve a set of secret documents from the syndicate vessel. This will likely require a boarding operation. Good luck.
+	SAY LP должен отреагировать на враждебную угрозу со стороны корабля Синдиката. В таком действии вам предстоит получить набор секретных документов с корабля Синдиката. Для этого, вероятно, потребуется операция по проникновению. Удачи.
 	DELAY 25
 	"}
 
 /obj/item/disk/holodisk/lp/combat/syndicate5
-	name = "Combat Mission Vessel Sabotage"
-	desc = "A holodisk containing a combat mission for the LP."
+	name = "Боевая задача по саботажу"
+	desc = "Голодиск с боевой задачей для LP."
 	preset_image_type = /datum/preset_holoimage/commissioner
 	preset_record_text = {"
 	NAME Commissioner Gorre Donn
-	SAY This mission, should you choose to accept it, revolves around a combat objective. The LP will have to get their hands dirty for this one.
+	SAY Эта миссия, если вы решите ее принять, вращается вокруг боевой цели. Вам придётся очень сильно постараться.
 	DELAY 25
-	SAY The LP is to respond to a hostile threat from a Syndicate vessel. In such action the LP is to perform a boarding operation and cause significant damage to said vessel.
+	SAY LP должен ответить на враждебную угрозу со стороны корабля Синдиката. При таком раскладе LP должны совершить нападение и причинить значительный ущерб указанному судну.
 	DELAY 25
 	"}
 
 /obj/item/disk/holodisk/lp/combat/megafauna
-	name = "Combat Mission Megafauna"
-	desc = "A holodisk containing a combat mission for the LP."
+	name = "Боевая задача по уничтожению мегафауны"
+	desc = "Голодиск с боевой задачей для LP."
 	preset_image_type = /datum/preset_holoimage/commissioner
 	preset_record_text = {"
 	NAME Commissioner Gorre Donn
-	SAY This mission, should you choose to accept it, revolves around a combat objective. The LP will have to get their hands dirty for this one.
+	SAY Эта миссия, если вы решите ее принять, вращается вокруг боевой цели. Вам придётся очень сильно постараться.
 	DELAY 25
-	SAY This mission is very simple. The LP is to seek out a megafauna specimen and slay it. In doing so they will retrieve the body and store it in the vault.
+	SAY Эта миссия очень проста. LP должны найти образец мегафауны и убить его. После этого необходимо поместить тело в хранилище.
 	DELAY 25
 	"}
 
 /obj/item/disk/holodisk/lp/combat/bdm
-	name = "Combat Mission Blood Drunk"
-	desc = "A holodisk containing a combat mission for the LP."
+	name = "Боевая задача \"Blood Drunk\""
+	desc = "Голодиск с боевой задачей для LP."
 	preset_image_type = /datum/preset_holoimage/commissioner
 	preset_record_text = {"
 	NAME Commissioner Gorre Donn
-	SAY This mission, should you choose to accept it, revolves around a combat objective. The LP will have to get their hands dirty for this one.
+	SAY Эта миссия, если вы решите ее принять, вращается вокруг боевой цели. Вам придётся очень сильно постараться.
 	DELAY 25
-	SAY This mission is straightforward. The LP team is to seek out two blood drunk mines and termninate them. Bring back whatever weapons they wield and recover the bodies for the vault.
+	SAY Эта миссия является простой. Команда LP должна найти двух Кроваых Шахтёров или же Blood Drunk Miners и уничтожить их. Затем необходимо поместить всё оружие что принадлежало им и их тела в хранилище.
 	DELAY 25
 	"}
 
 /obj/item/disk/holodisk/lp/combat/tumor
-	name = "Combat Mission Tumor"
-	desc = "A holodisk containing a combat mission for the LP."
+	name = "Боевая задача по уничтожению опухоли"
+	desc = "Голодиск с боевой задачей для LP."
 	preset_image_type = /datum/preset_holoimage/commissioner
 	preset_record_text = {"
 	NAME Commissioner Gorre Donn
-	SAY This mission, should you choose to accept it, revolves around a combat objective. The LP will have to get their hands dirty for this one.
+	SAY Эта миссия, если вы решите ее принять, вращается вокруг боевой цели. Вам придётся очень сильно постараться.
 	DELAY 25
-	SAY This mission is rather straightforward. Seak out 2 pulsing tumors and elimate the threat they produce. Return the body of the threat to the vault.
+	SAY Эта миссия довольно проста. Найдите 2 пульсирующие опухоли или же Tumor и устраните угрозу, которую они представляют. Поместите тело угрозы в хранилище.
 	DELAY 25
 	"}
 
 /obj/item/disk/holodisk/lp/combat/bloodred
-	name = "Combat Mission Blood Red"
-	desc = "A holodisk containing a combat mission for the LP."
+	name = "Боевая задача \"Кроваво-красный\""
+	desc = "Голодиск с боевой задачей для LP."
 	preset_image_type = /datum/preset_holoimage/commissioner
 	preset_record_text = {"
 	NAME Commissioner Gorre Donn
-	SAY This mission, should you choose to accept it, revolves around a combat objective. The LP will have to get their hands dirty for this one.
+	SAY Эта миссия, если вы решите ее принять, вращается вокруг боевой цели. Вам придётся очень сильно постараться.
 	DELAY 25
-	SAY This mission overlaps with the retrieval missions. The LP is simply to obtain and store a Blood Red Hardsuit in the vault. This may include responding to a hostile syndicate vessel to take it by force.
+	SAY Эта миссия пересекается с поисковой миссией. Задача LP заключается в том, чтобы просто получить и хранить кроваво-красный костюм для выхода в космос в хранилище. Это может включать в себя негативную реакцию на судно враждебного синдиката так как возможно вам придётся проникнуть на их судно с целью захвата.
 	DELAY 25
 	"}
 
 /obj/item/disk/holodisk/lp/retrieval/rnd
-	name = "Retrieval Mission Research"
-	desc = "A holodisk containing a retrieval mission for the LP."
+	name = "Поисковая миссия \"Исследования\""
+	desc = "Голодиск с миссией по поиску для LP."
 	preset_image_type = /datum/preset_holoimage/commissioner
 	preset_record_text = {"
 	NAME Commissioner Gorre Donn
-	SAY This mission, should you choose to accept it, revolves around a retrieval objective. The LP will need to obtain or create something.
+	SAY Эта миссия, если вы решите ее принять, вращается вокруг поисковой цели. LP нужно будет получить или создать что-то.
 	DELAY 25
-	SAY The LP team is to procure and set up a full and functional RnD setup in the science office. This includes: RnD console, circuit Imprinter, Protolathe, Exosuit Fabricator, and Destructive Analyzer.
+	SAY Команда LP должна приобрести и установить полную и функциональную установку RnD в научном отделе. Сюда входят: RnD console, circuit Imprinter, Protolathe, Exosuit Fabricator, и Destructive Analyzer.
 	DELAY 25
 	"}
 
 /obj/item/disk/holodisk/lp/retrieval/supersuit
-	name = "Retrieval Mission Lost Hardsuit"
-	desc = "A holodisk containing a retrieval mission for the LP."
+	name = "Поисковая миссия \"Потеряный скафандр\""
+	desc = "Голодиск с миссией по поиску для LP."
 	preset_image_type = /datum/preset_holoimage/commissioner
 	preset_record_text = {"
 	NAME Commissioner Gorre Donn
-	SAY This mission, should you choose to accept it, revolves around a retrieval objective. The LP will need to obtain or create something.
+	SAY Эта миссия, если вы решите ее принять, вращается вокруг поисковой цели. LP нужно будет получить или создать что-то.
 	DELAY 25
-	SAY This one is a bit difficult but completing it is extremely rewarding. Our sources show that two of our experimental hardsuits have been lost to the necropolis. Retrieve a Champion's Hardsuit or an Inquisitor's Hardsuit. These are often found in necropolis chests or held by certain megafauna.
+	SAY Это немного сложно, но завершение этого чрезвычайно полезно. Наши источники сообщают, что два из наших экспериментальных скафандров были потеряны в некрополе. Получите скафандр чемпиона или скафандр инквизитора. Их часто можно найти в сундуках некрополей или у некоторых представителей мегафауны.
 	DELAY 25
 	"}
 
 /obj/item/disk/holodisk/lp/retrieval/phazon
-	name = "Retrieval Mission Secret Mecha"
-	desc = "A holodisk containing a retrieval mission for the LP."
+	name = "Поисковая миссия \"Фазон\""
+	desc = "Голодиск с миссией по поиску для LP."
 	preset_image_type = /datum/preset_holoimage/commissioner
 	preset_record_text = {"
 	NAME Commissioner Gorre Donn
-	SAY This mission, should you choose to accept it, revolves around a retrieval objective. The LP will need to obtain or create something.
+	SAY Эта миссия, если вы решите ее принять, вращается вокруг поисковой цели. LP нужно будет получить или создать что-то.
 	DELAY 25
-	SAY Central Command needs a very experimental exosuit to be constructed but have found a lack of funds. Please procure the parts and means to create a Phazon.
+	SAY Центральному командованию нужно построить очень экспериментальный экзокостюм, но у него не хватает средств. Пожалуйста, добудьте детали и средства для создания меха типа Phazon.
 	DELAY 25
 	"}
 
 /obj/item/disk/holodisk/lp/retrieval/durand
-	name = "Retrieval Mission Durand"
-	desc = "A holodisk containing a retrieval mission for the LP."
+	name = "Поисковая миссия \"Дуранд\""
+	desc = "Голодиск с миссией по поиску для LP."
 	preset_image_type = /datum/preset_holoimage/commissioner
 	preset_record_text = {"
 	NAME Commissioner Gorre Donn
-	SAY This mission, should you choose to accept it, revolves around a retrieval objective. The LP will need to obtain or create something.
+	SAY Эта миссия, если вы решите ее принять, вращается вокруг поисковой цели. LP нужно будет получить или создать что-то.
 	DELAY 25
-	SAY Everyone knows that big STOMPY MECHS are hysterical. But when you make a murder machine that makes it funnier. Build a Durand.
+	SAY Все знают, что меха полезны. Но когда вы делаете мех для убийства, это становится вдвойне полезно. Соберите мех типа Durand.
 	DELAY 25
 	"}
 
 /obj/item/disk/holodisk/lp/retrieval/gunstock
-	name = "Retrieval Mission Firearms"
-	desc = "A holodisk containing a retrieval mission for the LP."
+	name = "Поисковая миссия \"Пушки\""
+	desc = "Голодиск с миссией по поиску для LP."
 	preset_image_type = /datum/preset_holoimage/commissioner
 	preset_record_text = {"
 	NAME Commissioner Gorre Donn
-	SAY This mission, should you choose to accept it, revolves around a retrieval objective. The LP will need to obtain or create something.
+	SAY Эта миссия, если вы решите ее принять, вращается вокруг поисковой цели. LP нужно будет получить или создать что-то.
 	DELAY 25
-	SAY Nanotrasen has sent you a very limited supply of weaponry. Increase it. We want five unique guns stored in your vault.
+	SAY Нанотрасен прислал вам очень ограниченный запас оружия. Увеличьте его. Мы хотим, чтобы в вашем хранилище хранилось пять уникальных орудий.
 	DELAY 25
 	"}
 
 /obj/item/disk/holodisk/lp/retrieval/artifact
-	name = "Retrieval Mission Artifact"
-	desc = "A holodisk containing a retrieval mission for the LP."
+	name = "Поисковая миссия \"Артифакт\""
+	desc = "Голодиск с миссией по поиску для LP."
 	preset_image_type = /datum/preset_holoimage/commissioner
 	preset_record_text = {"
 	NAME Commissioner Gorre Donn
-	SAY This mission, should you choose to accept it, revolves around a retrieval objective. The LP will need to obtain or create something.
+	SAY Эта миссия, если вы решите ее принять, вращается вокруг поисковой цели. LP нужно будет получить или создать что-то.
 	DELAY 25
-	SAY For this mission the LP is to find three artifacts and store them in the vault. These include but are not limited to, anything stored in a necropolis chest, most megafauna loot, anything befitting someone magical or otherwise special.
+	SAY Для этой миссии LP требует, чтобы вы нашли три артефакта и положили их в хранилище. К ним относятся, помимо прочего, все, что хранится в сундуке некрополя, большая часть добычи мегафауны, все, что похоже на артефакт ну вы поняли.
 	DELAY 25
 	"}
 
 /obj/item/disk/holodisk/lp/retrieval/research
-	name = "Retrieval Mission Research"
-	desc = "A holodisk containing a retrieval mission for the LP."
+	name = "Поисковая миссия \"Изучения\""
+	desc = "Голодиск с миссией по поиску для LP."
 	preset_image_type = /datum/preset_holoimage/commissioner
 	preset_record_text = {"
 	NAME Commissioner Gorre Donn
-	SAY This mission, should you choose to accept it, revolves around a retrieval objective. The LP will need to obtain or create something.
+	SAY Эта миссия, если вы решите ее принять, вращается вокруг поисковой цели. LP нужно будет получить или создать что-то.
 	DELAY 25
-	SAY Nanotrasen wants research. Get it for us. We want the LP to procure level 6 research on the following topics: Weapons, Illegal, Bluespace. Add them to a techdisk and store it in your vault.
+	SAY Нанотрайзен хочет провести исследование. Получите это для нас. Мы хотим, чтобы LP создал исследования 6-го уровня по следующим категориям: Weapons, Illegal, Bluespace. Добавьте их на технический диск и сохраните в своем хранилище.
 	DELAY 25
 	"}
 
 /obj/item/disk/holodisk/lp/retrieval/materials
-	name = "Retrieval Mission Materials"
-	desc = "A holodisk containing a retrieval mission for the LP."
+	name = "Поисковая миссия \"Материалы\""
+	desc = "Голодиск с миссией по поиску для LP."
 	preset_image_type = /datum/preset_holoimage/commissioner
 	preset_record_text = {"
 	NAME Commissioner Gorre Donn
-	SAY This mission, should you choose to accept it, revolves around a retrieval objective. The LP will need to obtain or create something.
+	SAY Эта миссия, если вы решите ее принять, вращается вокруг поисковой цели. LP нужно будет получить или создать что-то.
 	DELAY 25
-	SAY Nanotrasen is short on funds and materials. Procure 150 sheets of the following and store it in the vault: Diamond, Bluespace Polycrystals, Plastitanium.
+	SAY Нанотрайзен испытывает недостаток в средствах и материалах. Добудьте 150 единиц следующих материалов и поместите в хранилище: Diamond, Bluespace Polycrystals, Plastitanium.
 	DELAY 25
 	"}
 
