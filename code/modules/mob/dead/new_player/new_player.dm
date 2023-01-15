@@ -354,7 +354,7 @@
 	if(!can_join_round(FALSE))
 		return
 
-	var/list/shuttle_choices = list("Приобретаем судно..." = "Судно") //Dummy for purchase option
+	var/list/shuttle_choices = list("Приобретаем судно..." = "Purchase") //Dummy for purchase option
 
 	for(var/datum/overmap/ship/controlled/S as anything in SSovermap.controlled_ships)
 		if(!S.is_join_option())
