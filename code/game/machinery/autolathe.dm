@@ -45,7 +45,8 @@
 							"Machinery",
 							"Medical",
 							"Misc",
-							"Dinnerware"
+							"Dinnerware",
+							"Base Curcuit"
 							)
 
 /obj/machinery/autolathe/Initialize()
