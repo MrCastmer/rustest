@@ -57,7 +57,7 @@
 
 	SScommunications.send_message(M)
 
-/proc/minor_announce(message, title = "Attention:", alert, mob/from, zlevel)
+/proc/minor_announce(message, title = "Внимание:", alert, mob/from, zlevel)
 	if(!message)
 		return
 
