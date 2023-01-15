@@ -22,13 +22,13 @@ export const Holopad = (props, context) => {
             <Flex.Item mr={2} mt={2}>
               <Icon name="phone-alt" rotation={25} />
             </Flex.Item>
-            <Flex.Item mr={2}>{'Dialing...'}</Flex.Item>
+            <Flex.Item mr={2}>{'Звоним...'}</Flex.Item>
           </Flex>
           <Box mt={2} textAlign="center" fontSize="24px">
             <Button
               lineHeight="40px"
               icon="times"
-              content="Hang Up"
+              content="Звоним"
               color="bad"
               onClick={() => act('hang_up')}
             />
@@ -61,13 +61,11 @@ const HolopadContent = (props, context) => {
   return (
     <>
       <Section
-        title="Holopad"
+        title="Гоопад"
         buttons={
           <Button
             icon="bell"
-            content={
-              on_cooldown ? "AI's Presence Requested" : "Request AI's Presence"
-            }
+            content={on_cooldown ? 'ИИ вызван' : 'Вызвать ИИ'}
             disabled={!on_network || on_cooldown}
             onClick={() => act('AIrequest')}
           />
@@ -80,8 +78,8 @@ const HolopadContent = (props, context) => {
                 icon="bell"
                 content={
                   em_active
-                    ? 'Deactivate emergency ' + em_hologram + ' hologram'
-                    : 'Activate emergency ' + em_hologram + ' hologram'
+                    ? 'Отключить экстренный вызов ' + em_hologram + ' hologram'
+                    : 'Включить экстренный вызов ' + em_hologram + ' hologram'
                 }
                 disabled={em_cooldown}
                 color={em_active ? 'bad' : 'good'}
@@ -89,10 +87,10 @@ const HolopadContent = (props, context) => {
               />
             </LabeledList.Item>
           )}
-          <LabeledList.Item label="Communicator">
+          <LabeledList.Item label="Связь:">
             <Button
               icon="phone-alt"
-              content={allowed ? 'Connect To Holopad' : 'Call Holopad'}
+              content={allowed ? 'Подключиться' : 'Позвонить'}
               disabled={!on_network}
               onClick={() => act('holocall', { headcall: allowed })}
             />
@@ -100,15 +98,15 @@ const HolopadContent = (props, context) => {
           {holo_calls.map((call) => {
             return (
               <LabeledList.Item
-                label={call.connected ? 'Current Call' : 'Incoming Call'}
+                label={call.connected ? 'Текущий вызов' : 'Входящий звонок'}
                 key={call.ref}
               >
                 <Button
                   icon={call.connected ? 'phone-slash' : 'phone-alt'}
                   content={
                     call.connected
-                      ? 'Disconnect call from ' + call.caller
-                      : 'Answer call from ' + call.caller
+                      ? 'Отключиться от ' + call.caller
+                      : 'Ответить на звонок от ' + call.caller
                   }
                   color={call.connected ? 'bad' : 'good'}
                   disabled={!on_network}
@@ -124,7 +122,7 @@ const HolopadContent = (props, context) => {
         </LabeledList>
       </Section>
       <Section
-        title="Holodisk"
+        title="Голодиск"
         buttons={
           <Button
             icon="eject"
@@ -136,39 +134,39 @@ const HolopadContent = (props, context) => {
       >
         {(!disk && <NoticeBox>No holodisk</NoticeBox>) || (
           <LabeledList>
-            <LabeledList.Item label="Disk Player">
+            <LabeledList.Item label="Управление">
               <Button
                 icon={replay_mode ? 'pause' : 'play'}
-                content={replay_mode ? 'Stop' : 'Replay'}
+                content={replay_mode ? 'Стоп' : 'Играть'}
                 selected={replay_mode}
                 disabled={record_mode || !disk_record}
                 onClick={() => act('replay_mode')}
               />
               <Button
                 icon={'sync'}
-                content={loop_mode ? 'Looping' : 'Loop'}
+                content={loop_mode ? 'Зациклено' : 'Зациклить'}
                 selected={loop_mode}
                 disabled={record_mode || !disk_record}
                 onClick={() => act('loop_mode')}
               />
               <Button
                 icon="exchange-alt"
-                content="Change Offset"
+                content="Сместить"
                 disabled={!replay_mode}
                 onClick={() => act('offset')}
               />
             </LabeledList.Item>
-            <LabeledList.Item label="Recorder">
+            <LabeledList.Item label="Запись">
               <Button
                 icon={record_mode ? 'pause' : 'video'}
-                content={record_mode ? 'End Recording' : 'Record'}
+                content={record_mode ? 'Остановить' : 'Record'}
                 selected={record_mode}
                 disabled={(disk_record && !record_mode) || replay_mode}
                 onClick={() => act('record_mode')}
               />
               <Button
                 icon="trash"
-                content="Clear Recording"
+                content="Очистить диск"
                 color="bad"
                 disabled={!disk_record || replay_mode || record_mode}
                 onClick={() => act('record_clear')}

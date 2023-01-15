@@ -1,6 +1,6 @@
 
 /obj/machinery/holopad/emergency
-	name = "advanced holopad"
+	name = "продвинутый голопад"
 	icon_state = "holopad3"
 	///The linked Emergency Hologram
 	var/mob/living/simple_animal/hologram/em
@@ -37,11 +37,11 @@
 	if(!SSticker.HasRoundStarted() || !loc || !em_starting || em)
 		return ..()
 	if(is_banned_from(user.key, ROLE_POSIBRAIN))
-		to_chat(user, "<span class='warning'>You are banned from becoming a hologram!</span>")
+		to_chat(user, "<span class='warning'>Тебе нельзя.</span>")
 		return
 	if(QDELETED(src) || QDELETED(user))
 		return
-	var/ghost_role = alert("Become a hologram? (Warning, You can no longer be revived!)", "Become Hologram", "Yes", "No")
+	var/ghost_role = alert("Стать голограммой? (Внимание, тебя не смогут воскресить!)", "Стать голограммой", "Yes", "No")
 	if(ghost_role == "No" || !loc || !istype(user))
 		return
 	if(!em)
@@ -72,7 +72,7 @@
 	calling = FALSE
 	em_starting = FALSE
 	em_cooldown = TRUE
-	say("Failed to initiate hologram personality matrices. Please try again later.")
+	say("Не удалось инициировать матрицу личности. Пожалуйста, повторите попытку позже.")
 	addtimer(VARSET_CALLBACK(src, em_cooldown, FALSE), 600)
 
 /obj/machinery/holopad/emergency/ui_data(mob/user)
@@ -94,7 +94,7 @@
 		if("em_action")
 			if(!em_active)
 				var/area/A = get_area(src)
-				notify_ghosts("An emergency hologram is being requested in \the [A.name].", source = src, action=NOTIFY_ATTACK, flashwindow = FALSE, ignore_key = POLL_IGNORE_DRONE, notify_suiciders = FALSE)
+				notify_ghosts("Запрос на становление голограммой в \the [A.name].", source = src, action=NOTIFY_ATTACK, flashwindow = FALSE, ignore_key = POLL_IGNORE_DRONE, notify_suiciders = FALSE)
 				em_starting = TRUE
 				icon_state = "holopad_ringing"
 				calling = TRUE
@@ -103,7 +103,7 @@
 				QDEL_NULL(em)
 				em_cooldown = TRUE
 				em_active = FALSE
-				say("Recharging holoemitters...")
+				say("Перезаряжаю голоэммитеры...")
 				addtimer(VARSET_CALLBACK(src, em_cooldown, FALSE), 600)
 			return TRUE
 		if("hang_up")
@@ -113,26 +113,26 @@
 
 
 /obj/machinery/holopad/emergency/medical
-	name = "advanced medical holopad"
+	name = "продвинутый медицинский голопад"
 	em_name = "medical"
 	em_spawn_type = /mob/living/simple_animal/hologram/medical
 
 /obj/machinery/holopad/emergency/bar
-	name = "advanced bar holopad"
+	name = "продвинутый сервисный голопад"
 	em_name = "bartending"
 	em_spawn_type = /mob/living/simple_animal/hologram/bar
 
 /obj/machinery/holopad/emergency/science
-	name = "advanced science holopad"
+	name = "продвинутый научный голопад"
 	em_name = "scientific"
 	em_spawn_type = /mob/living/simple_animal/hologram/science
 
 /obj/machinery/holopad/emergency/engineering
-	name = "advanced engineering holopad"
+	name = "продвинутый инженерный голопад"
 	em_name = "engineering"
 	em_spawn_type = /mob/living/simple_animal/hologram/engineering
 
 /obj/machinery/holopad/emergency/command
-	name = "advanced command holopad"
+	name = "продвинутый главный голопад"
 	em_name = "command"
 	em_spawn_type = /mob/living/simple_animal/hologram/command
