@@ -77,7 +77,7 @@
 	else
 		output += "<p><a href='byond://?src=[REF(src)];manifest=1'>Активный экипаж</a></p>"
 		output += "<p><a href='byond://?src=[REF(src)];late_join=1'>Войти в игру</a></p>"
-		output += "<p>[LINKIFY_READY("Observe", PLAYER_READY_TO_OBSERVE)]</p>"
+		output += "<p>[LINKIFY_READY("Наблюдать", PLAYER_READY_TO_OBSERVE)]</p>"
 
 	if(!IsGuestKey(src.key))
 		output += playerpolls()
