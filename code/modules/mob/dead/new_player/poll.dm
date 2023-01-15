@@ -3,7 +3,7 @@
  *
  */
 /mob/dead/new_player/proc/handle_player_polling()
-	var/list/output = list("<div align='center'><B>Player polls</B><hr><table>")
+	var/list/output = list("<div align='center'><B>Опросы</B><hr><table>")
 	var/rs = REF(src)
 	for(var/p in GLOB.polls)
 		var/datum/poll_question/poll = p
@@ -21,7 +21,7 @@
 	if(!poll)
 		return
 	if(!SSdbcore.Connect())
-		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
+		to_chat(src, "<span class='danger'>Ошибка DBx00.</span>")
 		return
 	switch(poll.poll_type)
 		if(POLLTYPE_OPTION)
@@ -53,12 +53,12 @@
 	if(query_option_get_voted.NextRow())
 		voted_option_id = text2num(query_option_get_voted.item[1])
 	qdel(query_option_get_voted)
-	var/list/output = list("<div align='center'><B>Player poll</B><hr><b>Question: [poll.question]</b><br>")
+	var/list/output = list("<div align='center'><B>Опрос</B><hr><b>Вопрос: [poll.question]</b><br>")
 	if(poll.subtitle)
 		output += "[poll.subtitle]<br>"
-	output += "<font size='2'>Poll runs from <b>[poll.start_datetime]</b> until <b>[poll.end_datetime]</b></font><br>"
+	output += "<font size='2'>Опрос был создан <b>[poll.start_datetime]</b> и завершится <b>[poll.end_datetime]</b></font><br>"
 	if(poll.allow_revoting)
-		output += "<font size='2'>Revoting is enabled.</font>"
+		output += "<font size='2'>В данном опросе можно переголосовать.</font>"
 	if(!voted_option_id || poll.allow_revoting)
 		output += {"<form action='?src=[REF(src)]' method='get'>
 		<input type='hidden' name='src' value='[REF(src)]'>
@@ -97,17 +97,17 @@
 	if(query_text_get_replytext.NextRow())
 		reply_text = query_text_get_replytext.item[1]
 	qdel(query_text_get_replytext)
-	var/list/output = list("<div align='center'><B>Player poll</B><hr><b>Question: [poll.question]</b><br>")
+	var/list/output = list("<div align='center'><B>Опрос</B><hr><b>Вопрос: [poll.question]</b><br>")
 	if(poll.subtitle)
 		output += "[poll.subtitle]<br>"
-	output += "<font size='2'>Feedback gathering runs from <b>[poll.start_datetime]</b> until <b>[poll.end_datetime]</b></font><br>"
+	output += "<font size='2'>Сбор опросов начался <b>[poll.start_datetime]</b> и закончится <b>[poll.end_datetime]</b></font><br>"
 	if(poll.allow_revoting)
-		output += "<font size='2'>Revoting is enabled.</font>"
+		output += "<font size='2'>В этом опросе можно переголосовать.</font>"
 	if(!reply_text || poll.allow_revoting)
 		output += {"<form action='?src=[REF(src)]' method='get'>
 		<input type='hidden' name='src' value='[REF(src)]'>
 		<input type='hidden' name='votepollref' value='[REF(poll)]'>
-		<font size='2'>Please provide feedback below. You can use any letters of the English alphabet, numbers and the symbols: . , ! ? : ; -</font><br>
+		<font size='2'>PПожалуйста, оставьте отзыв ниже. Вы можете использовать любые буквы английского алфавита, цифры и символы: . , ! ? : ; -</font><br>
 		<textarea name='replytext' cols='50' rows='14'>[reply_text]</textarea>
 		<p><input type='submit' value='Submit'></form>
 		"}
@@ -134,12 +134,12 @@
 	while(query_rating_get_votes.NextRow())
 		voted_ratings += list("[query_rating_get_votes.item[1]]" = query_rating_get_votes.item[2])
 	qdel(query_rating_get_votes)
-	var/list/output = list("<div align='center'><B>Player poll</B><hr><b>Question: [poll.question]</b><br>")
+	var/list/output = list("<div align='center'><B>Опрос</B><hr><b>Вопрос: [poll.question]</b><br>")
 	if(poll.subtitle)
 		output += "[poll.subtitle]<br>"
-	output += "<font size='2'>Poll runs from <b>[poll.start_datetime]</b> until <b>[poll.end_datetime]</b></font><br>"
+	output += "<font size='2'>Опрос начат <b>[poll.start_datetime]</b> и закончится <b>[poll.end_datetime]</b></font><br>"
 	if(poll.allow_revoting)
-		output += "<font size='2'>Revoting is enabled.</font>"
+		output += "<font size='2'>В этом опросе можно переголосовать.</font>"
 	if(!length(voted_ratings) || poll.allow_revoting)
 		output += {"<form action='?src=[REF(src)]' method='get'>
 		<input type='hidden' name='src' value='[REF(src)]'>
@@ -189,12 +189,12 @@
 	while(query_multi_get_votes.NextRow())
 		voted_for += text2num(query_multi_get_votes.item[1])
 	qdel(query_multi_get_votes)
-	var/list/output = list("<div align='center'><B>Player poll</B><hr><b>Question: [poll.question]</b><br>")
+	var/list/output = list("<div align='center'><B>Опрос</B><hr><b>Вопрос: [poll.question]</b><br>")
 	if(poll.subtitle)
 		output += "[poll.subtitle]<br>"
 	output += "You can select up to [poll.options_allowed] options. If you select more, the first [poll.options_allowed] will be saved.<br><font size='2'>Poll runs from <b>[poll.start_datetime]</b> until <b>[poll.end_datetime]</b></font><br>"
 	if(poll.allow_revoting)
-		output += "<font size='2'>Revoting is enabled.</font>"
+		output += "<font size='2'>В этом опросе можно переголосовать.</font>"
 	if(!length(voted_for) || poll.allow_revoting)
 		output += {"<form action='?src=[REF(src)]' method='get'>
 		<input type='hidden' name='src' value='[REF(src)]'>
@@ -280,13 +280,13 @@
 	</script>
 	</head>
 	<body>
-	<div align='center'><B>Player poll</B><hr><b>Question: [poll.question]</b><br>"})
+	<div align='center'><B>Опрос</B><hr><b>Вопрос: [poll.question]</b><br>"})
 	if(poll.subtitle)
 		output += "[poll.subtitle]<br>"
-	output += "<font size='2'>Poll runs from <b>[poll.start_datetime]</b> until <b>[poll.end_datetime]</b></font><br>"
+	output += "<font size='2'>Опрос начат <b>[poll.start_datetime]</b> и закончится <b>[poll.end_datetime]</b></font><br>"
 	if(poll.allow_revoting)
-		output += "<font size='2'>Revoting is enabled.</font>"
-	output += "Please sort the options in the order of <b>most preferred</b> to <b>least preferred</b><br></div>"
+		output += "<font size='2'>В этом опросе можно переголосовать.</font>"
+	output += "Пожалуйста, рассортируйте варианты в порядке <b>наиболее предпочтительный</b> до <b>наименее предпочтительный</b><br></div>"
 	if(!length(voted_for) || poll.allow_revoting)
 		output += {"<form action='?src=[REF(src)]' method='POST'>
 		<input type='hidden' name='src' value='[REF(src)]'>
@@ -313,7 +313,7 @@
  */
 /mob/dead/new_player/proc/vote_on_poll_handler(datum/poll_question/poll, href_list)
 	if(!SSdbcore.Connect())
-		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
+		to_chat(src, "<span class='danger'>Ошибка DBx00.</span>")
 		return
 	if(!poll || !href_list)
 		return
@@ -353,7 +353,7 @@
 			qdel(query_validate_poll_vote)
 			return
 	else
-		to_chat(usr, "<span class='danger'>Selected poll is not open.</span>")
+		to_chat(usr, "<span class='danger'>Опрос не открыт.</span>")
 		qdel(query_validate_poll_vote)
 		return
 	qdel(query_validate_poll_vote)
@@ -372,7 +372,7 @@
 	if(vote_success)
 		if(!vote_id)
 			poll.poll_votes++
-		to_chat(usr, "<span class='notice'>Vote successful.</span>")
+		to_chat(usr, "<span class='notice'>Успешно!</span>")
 
 /**
  * Processes vote form data and saves results to the database for an option type poll.
@@ -412,13 +412,13 @@
  */
 /mob/dead/new_player/proc/vote_on_poll_text(href_list, admin_rank, sql_poll_id, vote_id)
 	if(!SSdbcore.Connect())
-		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
+		to_chat(src, "<span class='danger'>Ошибка DBx00.</span>")
 		return
 	if(IsAdminAdvancedProcCall())
 		return
 	var/reply_text = href_list["replytext"]
 	if(!reply_text || (length(reply_text) > 2048))
-		to_chat(src, "<span class='danger'>The text you entered was blank or too long. Please correct the text and submit again.</span>")
+		to_chat(src, "<span class='danger'>Введенный текст был пустым или слишком длинным. Пожалуйста, исправьте текст и отправьте снова.</span>")
 		return
 	var/datum/DBQuery/query_vote_text = SSdbcore.NewQuery({"
 		INSERT INTO [format_table_name("poll_textreply")] (id, datetime, pollid, ckey, ip, replytext, adminrank)
@@ -444,7 +444,7 @@
  */
 /mob/dead/new_player/proc/vote_on_poll_rating(datum/poll_question/poll, list/href_list, admin_rank, sql_poll_id)
 	if(!SSdbcore.Connect())
-		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
+		to_chat(src, "<span class='danger'>Ошибка DBx00.</span>")
 		return
 	if(IsAdminAdvancedProcCall())
 		return
@@ -487,7 +487,7 @@
  */
 /mob/dead/new_player/proc/vote_on_poll_multi(datum/poll_question/poll, list/href_list, admin_rank, sql_poll_id)
 	if(!SSdbcore.Connect())
-		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
+		to_chat(src, "<span class='danger'>Ошибка DBx00.</span>")
 		return
 	if(IsAdminAdvancedProcCall())
 		return
@@ -534,7 +534,7 @@
  */
 /mob/dead/new_player/proc/vote_on_poll_irv(datum/poll_question/poll, list/href_list, admin_rank, sql_poll_id)
 	if(!SSdbcore.Connect())
-		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
+		to_chat(src, "<span class='danger'>Ошибка DBx00.</span>")
 		return
 	if(IsAdminAdvancedProcCall())
 		return
