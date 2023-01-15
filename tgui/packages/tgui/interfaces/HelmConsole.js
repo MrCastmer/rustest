@@ -72,7 +72,7 @@ const SharedContent = (_props, context) => {
       >
         <LabeledList>
           <LabeledList.Item label="Класс">{shipInfo.class}</LabeledList.Item>
-          <LabeledList.Item label="Радиус сканирования">
+          <LabeledList.Item label="Радиус скана">
             <ProgressBar
               value={shipInfo.sensor_range}
               minValue={1}
