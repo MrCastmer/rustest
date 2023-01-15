@@ -461,7 +461,7 @@
 		playsound(src, 'sound/effects/supermatter.ogg', 50, 3, -1)
 		var/obj/item/relic/R = loaded_item
 		if (!R.revealed)
-			var/points = rand(3500,3750) // discovery reward
+			var/points = rand(14000,17500) // discovery reward
 			new /obj/item/research_notes(drop_location(src), points, "experimentation")
 			visible_message("<span class='notice'> This discovery netted [points] points for research.</span>")
 		R.reveal()

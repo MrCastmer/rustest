@@ -26,7 +26,7 @@
 	var/drainratio = 1
 	var/powerproduction_drain = 0.001
 
-	var/bitcoinproduction_drain = 0.15
+	var/bitcoinproduction_drain = 0.60
 	var/bitcoinmining = FALSE
 	///research points stored
 	var/stored_research = 0
