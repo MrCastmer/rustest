@@ -358,13 +358,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SPECIES]'>Всегда рандомная раса: [(randomise[RANDOM_SPECIES]) ? "Да" : "Нет"]</A><br>"
 
 			if(!(NO_UNDERWEAR in pref_species.species_traits))
-				dat += "<b>Нижнее бельё:</b><BR><a href ='?_src_=prefs;preference=underwear;task=input'>[underwear]</a>"
+				dat += "<b>Трусы:</b><BR><a href ='?_src_=prefs;preference=underwear;task=input'>[underwear]</a>"
 				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERWEAR]'>[(randomise[RANDOM_UNDERWEAR]) ? "Lock" : "Unlock"]</A>"
 
-				dat += "<br><b>Цвет белья:</b><BR><span style='border: 1px solid #161616; background-color: #[underwear_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=underwear_color;task=input'>Сменить</a>"
+				dat += "<br><b>Цвет трусов:</b><BR><span style='border: 1px solid #161616; background-color: #[underwear_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=underwear_color;task=input'>Сменить</a>"
 				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERWEAR_COLOR]'>[(randomise[RANDOM_UNDERWEAR_COLOR]) ? "Lock" : "Unlock"]</A>"
 
-				dat += "<BR><b>Трусы:</b><BR><a href ='?_src_=prefs;preference=undershirt;task=input'>[undershirt]</a>"
+				dat += "<BR><b>Нижнее бельё:</b><BR><a href ='?_src_=prefs;preference=undershirt;task=input'>[undershirt]</a>"
 				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERSHIRT]'>[(randomise[RANDOM_UNDERSHIRT]) ? "Lock" : "Unlock"]</A>"
 
 
