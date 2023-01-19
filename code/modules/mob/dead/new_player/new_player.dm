@@ -382,7 +382,7 @@
 						alert(src, "В данном секторе достигнут лимит судов. Текущий лимит [template.limit] судов.")
 						return LateChoices() //Send them back to shuttle selection
 		close_spawn_windows()
-		to_chat(usr, "<span class='danger'>[template.name] заправляется и готовится к отправке в сектор, подождите.</span>")
+		to_chat(usr, "<span class='danger'>[template.name] заправляется и готовится к отправке в сектор, подождите. Не забудьте сгенерировать ключ в консоли управления шаттлом.</span>")
 		var/datum/overmap/ship/controlled/target = new(SSovermap.get_unused_overmap_square(), template)
 		if(!target?.shuttle_port)
 			to_chat(usr, "<span class='danger'>Судно потерялось в глубинах космоса, свяжитесь с администрацией.</span>")
