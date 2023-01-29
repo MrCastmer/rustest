@@ -1,5 +1,5 @@
 /datum/overmap/dynamic/outpost
-	name = "outpost"
+	name = "аванпост"
 	char_rep = "T"
 	token_icon_state = "station"
 
