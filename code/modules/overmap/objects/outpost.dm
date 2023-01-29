@@ -57,18 +57,7 @@
 // Shamelessly cribbed from how Elite: Dangerous does station names.
 /datum/overmap/dynamic/outpost/proc/gen_outpost_name()
 	var/person_name
-	if(prob(40))
-		person_name = pick(GLOB.last_names)
-	else
-		switch(rand(1, 4))
-			if(1)
-				person_name = pick(GLOB.moth_last)
-			if(2)
-				person_name = pick(prob(50) ? GLOB.lizard_names_male : GLOB.lizard_names_female)
-			if(3)
-				person_name = pick(GLOB.spider_last)
-			if(4)
-				person_name = kepori_name()
+	person_name = pick(GLOB.outpost_names)
 
 	return "[person_name] [pick(GLOB.station_suffixes)]"
 
