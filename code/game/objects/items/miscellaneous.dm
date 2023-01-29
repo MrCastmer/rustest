@@ -38,7 +38,7 @@
 	var/list/display_names = generate_display_names()
 	if(!display_names.len)
 		return
-	var/choice = input(M,"Which item would you like to order?","Select an Item") as null|anything in sortList(display_names)
+	var/choice = input(M,"Что заказываем?","Выбери предмет") as null|anything in sortList(display_names)
 	if(!choice || !M.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return
 
@@ -54,11 +54,11 @@
 	var/obj/structure/closet/supplypod/bluespacepod/pod = new()
 	pod.explosionSize = list(0,0,0,0)
 	new_item.forceMove(pod)
-	var/msg = "<span class=danger>After making your selection, you notice a strange target on the ground. It might be best to step back!</span>"
+	var/msg = "<span class=danger>Сделав свой выбор, я чувствую что лучше отойти в сторону!</span>"
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(istype(H.ears, /obj/item/radio/headset))
-			msg = "You hear something crackle in your ears for a moment before a voice speaks.  \"Please stand by for a message from Central Command.  Message as follows: <span class='bold'>Item request received. Your package is inbound, please stand back from the landing site.</span> Message ends.\""
+			msg = "Вы слышите, как что-то вам говорят.  \"Прослушайте сообщение от Space-Ozon.  Сообщение следующего содержания: <span class='bold'>Запрос получен. Ваша посылка отправлена, пожалуйста, отойдите от места посадки.</span> Конец сообщения.\""
 	to_chat(M, msg)
 
 	new /obj/effect/DPtarget(get_turf(src), pod)
