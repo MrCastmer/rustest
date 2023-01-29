@@ -8,7 +8,7 @@ GLOBAL_LIST_INIT(dwarf_last, world.file2list("strings/names/dwarf_last.txt")) //
 	default_color = "FFFFFF"
 	default_features = list("mcolor" = "FFF", "wings" = "None", "body_size" = "Normal")
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS)
-	inherent_traits = list(TRAIT_DWARF,TRAIT_SNOB,TRAIT_QUICK_CARRY)
+	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_DWARF,TRAIT_SNOB,TRAIT_QUICK_CARRY)
 	use_skintones = 1
 	armor = 15 //True dwarves are a bit sturdier than humans
 	speedmod = 0.6 //They are also slower

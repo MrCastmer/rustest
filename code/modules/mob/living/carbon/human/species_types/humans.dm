@@ -3,6 +3,7 @@
 	id = SPECIES_HUMAN
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,SCLERA,EMOTE_OVERLAY)
+	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER)
 	default_features = list("mcolor" = "FFF", "tail_human" = "None", "ears" = "None", "wings" = "None", "body_size" = "Normal")
 	mutant_bodyparts = list("ears", "tail_human")
 	use_skintones = TRUE
