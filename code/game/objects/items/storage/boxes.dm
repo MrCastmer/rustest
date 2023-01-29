@@ -143,6 +143,8 @@
 	else
 		new /obj/item/tank/internals/plasmaman/belt(src)
 
+	new /obj/item/choice_beacon/spawnshit(src)
+
 /obj/item/storage/box/survival/radio/PopulateContents()
 	..() // we want the survival stuff too.
 	new /obj/item/radio/off(src)
@@ -1171,6 +1173,7 @@
 	new /obj/item/circuitboard/machine/destructive_analyzer(src)
 	new /obj/item/circuitboard/machine/circuit_imprinter(src)
 	new /obj/item/circuitboard/computer/rdconsole(src)
+	new /obj/item/circuitboard/machine/rdserver(src)
 
 /obj/item/storage/box/rndboards/old
 	name = "\proper Nanotrasen R&D Construction Kit"
@@ -1187,6 +1190,7 @@
 	new /obj/item/circuitboard/machine/destructive_analyzer(src)
 	new /obj/item/circuitboard/machine/circuit_imprinter/department/cargo(src)
 	new /obj/item/circuitboard/computer/rdconsole(src)
+	new /obj/item/circuitboard/machine/rdserver(src)
 
 /obj/item/storage/box/rndengi
 	name = "\proper QWIK-RND: A.T.L.A.S. Module"
@@ -1198,6 +1202,7 @@
 	new /obj/item/circuitboard/machine/destructive_analyzer(src)
 	new /obj/item/circuitboard/machine/circuit_imprinter/department/engi(src)
 	new /obj/item/circuitboard/computer/rdconsole(src)
+	new /obj/item/circuitboard/machine/rdserver(src)
 
 /obj/item/storage/box/rndmed
 	name = "\proper QWIK-RND: C.A.R.E. Module"
@@ -1209,6 +1214,7 @@
 	new /obj/item/circuitboard/machine/destructive_analyzer(src)
 	new /obj/item/circuitboard/machine/circuit_imprinter/department/med(src)
 	new /obj/item/circuitboard/computer/rdconsole(src)
+	new /obj/item/circuitboard/machine/rdserver(src)
 
 /obj/item/storage/box/rndsec
 	name = "\proper QWIK-RND: P.E.A.C.E. Module"
@@ -1220,6 +1226,7 @@
 	new /obj/item/circuitboard/machine/destructive_analyzer(src)
 	new /obj/item/circuitboard/machine/circuit_imprinter/department/sec(src)
 	new /obj/item/circuitboard/computer/rdconsole(src)
+	new /obj/item/circuitboard/machine/rdserver(src)
 
 /obj/item/storage/box/rndciv
 	name = "\proper QWIK-RND: H.O.M.E. Module"
@@ -1231,6 +1238,7 @@
 	new /obj/item/circuitboard/machine/destructive_analyzer(src)
 	new /obj/item/circuitboard/machine/circuit_imprinter/department/civ(src)
 	new /obj/item/circuitboard/computer/rdconsole(src)
+	new /obj/item/circuitboard/machine/rdserver(src)
 
 /obj/item/storage/box/rndbasic
 	name = "\proper QWIK-RND: B.A.S.I.C. Module"
@@ -1242,6 +1250,7 @@
 	new /obj/item/circuitboard/machine/destructive_analyzer(src)
 	new /obj/item/circuitboard/machine/circuit_imprinter/department/basic(src)
 	new /obj/item/circuitboard/computer/rdconsole(src)
+	new /obj/item/circuitboard/machine/rdserver(src)
 
 /obj/item/storage/box/rndsci
 	name = "\proper QWIK-RND: K.N.O.W. Module"
@@ -1253,6 +1262,7 @@
 	new /obj/item/circuitboard/machine/destructive_analyzer(src)
 	new /obj/item/circuitboard/machine/circuit_imprinter/department/science(src)
 	new /obj/item/circuitboard/computer/rdconsole(src)
+	new /obj/item/circuitboard/machine/rdserver(src)
 
 /obj/item/storage/box/silver_sulf
 	name = "box of silver sulfadiazine patches"
