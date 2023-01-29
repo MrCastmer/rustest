@@ -2155,6 +2155,8 @@
 /obj/item/stack/spacecash/c1000,
 /obj/item/stack/spacecash/c1000,
 /obj/item/stack/spacecash/c1000,
+/obj/item/antag_spawner/contract,
+/obj/item/antag_spawner/contract,
 /turf/open/floor/carpet/stellar,
 /area/ship/bridge)
 "OQ" = (
