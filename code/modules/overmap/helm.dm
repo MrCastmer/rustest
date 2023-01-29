@@ -260,6 +260,7 @@
 				if(SSshuttle.jump_mode > BS_JUMP_CALLED)
 					to_chat(usr, "<span class='warning'>Я не могу пристыковаться когда идёт подготовка к прыжку в синее простанство!</span>")
 					return
+				say("Запущен протокол стыковки, ожидайте.")
 				var/datum/overmap/to_act = locate(params["ship_to_act"]) in current_ship.get_nearby_overmap_objects()
 				say(current_ship.Dock(to_act))
 				return
@@ -284,13 +285,16 @@
 					calibrate_jump()
 					return
 			if("dock_empty")
+				say("Запущен протокол стыковки в пустое пространство, ожидайте.")
 				current_ship.dock_in_empty_space(usr)
+				say("Забавный факт: вы можете увеличить ваше судно в данном пространстве сделав пристройку и присоеденив с помощью чертежей.")
 				return
 	else if(current_ship.docked_to)
 		if(action == "undock")
 			current_ship.calculate_avg_fuel()
-			if(current_ship.avg_fuel_amnt < 25 && tgui_alert(usr, "Судно имеет на борту ~[round(current_ship.avg_fuel_amnt)]% топлива в запасе! Отстыковываемся?", name, list("Yes", "No")) != "Yes")
+			if(current_ship.avg_fuel_amnt < 25 && tgui_alert(usr, "Судно имеет на борту около [round(current_ship.avg_fuel_amnt)] процентов топлива в запасе! Отстыковываемся?", name, list("Yes", "No")) != "Yes")
 				return
+			say("Начинаем отстыковку, ожидайте.")
 			current_ship.Undock()
 
 /obj/machinery/computer/helm/ui_close(mob/user)
