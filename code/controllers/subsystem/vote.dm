@@ -140,7 +140,8 @@ SUBSYSTEM_DEF(vote)
 						GLOB.master_mode = .
 			if("transfer")
 				if(. == "Initiate Crew Transfer")
-					SSshuttle.request_jump()
+					to_chat(world, "<span style='boldannounce'>Внимание: прок SSshuttle.request_jump() отключён, конец раунда только через рестарт.</span>")
+					// SSshuttle.request_jump()
 
 	if(restart)
 		var/active_admins = FALSE
