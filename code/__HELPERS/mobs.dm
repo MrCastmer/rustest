@@ -649,7 +649,7 @@ GLOBAL_LIST_EMPTY(species_list)
 	var/list/borgs = active_free_borgs()
 	if(borgs.len)
 		if(user)
-			. = input(user,"Unshackled cyborg signals detected:", "Cyborg Selection", borgs[1]) in sortList(borgs)
+			. = input(user,"Обнаруженые сигналы непривязанных киборгов:", "Выберите киборга", borgs[1]) in sortList(borgs)
 		else
 			. = pick(borgs)
 	return .
@@ -658,7 +658,7 @@ GLOBAL_LIST_EMPTY(species_list)
 	var/list/ais = active_ais(FALSE, z)
 	if(ais.len)
 		if(user)
-			. = input(user,"AI signals detected:", "AI Selection", ais[1]) in sortList(ais)
+			. = input(user,"Обнаруженые сигналы ИИ:", "Выберите ИИ", ais[1]) in sortList(ais)
 		else
 			. = pick(ais)
 	return .
