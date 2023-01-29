@@ -130,8 +130,8 @@
 		chosen = pickweight(probabilities)
 	switch(chosen)
 		if(DYNAMIC_WORLD_LAVA)
-			Rename("lava planet")
-			token.desc = "A very weak energy signal originating from a planet with lots of seismic and volcanic activity."
+			Rename("лавовая планета")
+			token.desc = "Очень слабый энергетический сигнал, исходящий от планеты с высокой сейсмической и вулканической активностью."
 			planet = DYNAMIC_WORLD_LAVA
 			token.icon_state = "globe"
 			token.color = COLOR_ORANGE
@@ -144,8 +144,8 @@
 			planet_template = /datum/planet/lava
 			weather_controller_type = /datum/weather_controller/lavaland
 		if(DYNAMIC_WORLD_ICE)
-			Rename("frozen planet")
-			token.desc = "A very weak energy signal originating from a planet with traces of water and extremely low temperatures."
+			Rename("ледяная планета")
+			token.desc = "Очень слабый энергетический сигнал, исходящий от планеты со следами воды и чрезвычайно низкой температурой."
 			planet = DYNAMIC_WORLD_ICE
 			token.icon_state = "globe"
 			token.color = COLOR_BLUE_LIGHT
@@ -158,8 +158,8 @@
 			planet_template = /datum/planet/snow
 			weather_controller_type = /datum/weather_controller/snow_planet
 		if(DYNAMIC_WORLD_JUNGLE)
-			Rename("jungle planet")
-			token.desc = "A very weak energy signal originating from a planet teeming with life."
+			Rename("лесная планета")
+			token.desc = "Очень слабый энергетический сигнал, исходящий от планеты, изобилующей жизнью."
 			planet = DYNAMIC_WORLD_JUNGLE
 			token.icon_state = "globe"
 			token.color = COLOR_LIME
@@ -172,8 +172,8 @@
 			planet_template = /datum/planet/jungle
 			weather_controller_type = /datum/weather_controller/lush
 		if(DYNAMIC_WORLD_SAND)
-			Rename("sand planet")
-			token.desc = "A very weak energy signal originating from a planet with many traces of silica."
+			Rename("пустынная планета")
+			token.desc = "Очень слабый энергетический сигнал, исходящий от планеты со множеством следов кремния."
 			planet = DYNAMIC_WORLD_SAND
 			token.icon_state = "globe"
 			token.color = COLOR_GRAY
@@ -186,8 +186,8 @@
 			planet_template = /datum/planet/sand //TODO, MAKE NEW PLANET TEMPLATE
 			weather_controller_type = /datum/weather_controller/desert
 		if(DYNAMIC_WORLD_WASTEPLANET)
-			Rename("waste disposal planet")
-			token.desc = "A very weak energy signal originating from a planet marked as waste disposal."
+			Rename("мусорная планета")
+			token.desc = "Очень слабый энергетический сигнал, исходящий от планеты, помеченной как мусорная."
 			planet = DYNAMIC_WORLD_WASTEPLANET
 			token.icon_state = "globe"
 			token.color = "#a9883e"
@@ -200,8 +200,8 @@
 			weather_controller_type = /datum/weather_controller/chlorine //let's go??
 			//planet_template = /datum/planet/lava //TODO, MAKE NEW PLANET TEMPLATE
 		if(DYNAMIC_WORLD_ROCKPLANET)
-			Rename("rock planet")
-			token.desc = "A very weak energy signal originating from a iron rich and rocky planet."
+			Rename("каменистая планета")
+			token.desc = "Очень слабый энергетический сигнал, исходящий от богатой железом и каменистой планеты."
 			planet = DYNAMIC_WORLD_ROCKPLANET
 			token.icon_state = "globe"
 			token.color = "#bd1313"
@@ -214,8 +214,8 @@
 			weather_controller_type = /datum/weather_controller/rockplanet
 			planet_template = /datum/planet/rock
 		if(DYNAMIC_WORLD_BEACHPLANET)
-			Rename("beach planet")
-			token.desc = "A very weak energy signal originating from a warm, oxygen rich planet."
+			Rename("океаническая планета")
+			token.desc = "Очень слабый энергетический сигнал, исходящий от теплой, богатой кислородом планеты."
 			planet = DYNAMIC_WORLD_BEACHPLANET
 			token.icon_state = "globe"
 			token.color = "#c6b597"
@@ -229,7 +229,7 @@
 			weather_controller_type = /datum/weather_controller/lush
 		if(DYNAMIC_WORLD_REEBE)
 			Rename("???")
-			token.desc = "Some sort of strange portal. Theres no identification of what this is."
+			token.desc = "Какой-то странный портал. Нет никакой идентификации того, что это такое."
 			planet = DYNAMIC_WORLD_REEBE
 			token.icon_state = "wormhole"
 			token.color = COLOR_YELLOW
@@ -240,8 +240,8 @@
 			target_area = /area/overmap_encounter/planetoid/reebe
 			surface = /turf/open/chasm/reebe_void
 		if(DYNAMIC_WORLD_ASTEROID)
-			Rename("large asteroid")
-			token.desc = "A large asteroid with significant traces of minerals."
+			Rename("большой астеройд")
+			token.desc = "Крупный астероид со значительными следами полезных ископаемых."
 			planet = DYNAMIC_WORLD_ASTEROID
 			token.icon_state = "asteroid"
 			token.color = COLOR_GRAY
@@ -251,8 +251,8 @@
 			mapgen = /datum/map_generator/cave_generator/asteroid
 			weather_controller_type = null
 		if(DYNAMIC_WORLD_SPACERUIN)
-			Rename("weak energy signal")
-			token.desc = "A very weak energy signal emenating from space."
+			Rename("слабый энергетический сигнал")
+			token.desc = "Очень слабый энергетический сигнал, исходящий из космоса."
 			planet = DYNAMIC_WORLD_SPACERUIN
 			token.icon_state = "strange_event"
 			token.color = null
@@ -273,7 +273,7 @@
 // #endif
 
 	if(!preserve_level)
-		token.desc += "It may not still be here if you leave it."
+		token.desc += "Если вы улетите отсюда - он исчезнет."
 
 /datum/overmap/dynamic/proc/gen_planet_name()
 	. = ""
