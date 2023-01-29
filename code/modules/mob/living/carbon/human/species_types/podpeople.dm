@@ -4,7 +4,7 @@
 	id = SPECIES_POD
 	default_color = "59CE00"
 	species_traits = list(MUTCOLORS,EYECOLOR)
-	inherent_traits = list(TRAIT_ALWAYS_CLEAN)
+	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,TRAIT_ALWAYS_CLEAN)
 	inherent_factions = list("plants", "vines")
 	fixed_mut_color = "59CE00"
 	attack_verb = "slash"
