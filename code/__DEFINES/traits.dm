@@ -152,6 +152,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_CLUMSY "clumsy"
 #define TRAIT_CHUNKYFINGERS "chunkyfingers" //means that you can't use weapons with normal trigger guards.
 #define TRAIT_DUMB "dumb"
+/// Whether a mob is dexterous enough to use machines and certain items or not.
+#define TRAIT_ADVANCEDTOOLUSER "advancedtooluser"
 #define TRAIT_MONKEYLIKE "monkeylike" //sets IsAdvancedToolUser to FALSE
 #define TRAIT_PACIFISM "pacifism"
 #define TRAIT_IGNORESLOWDOWN "ignoreslow"
@@ -368,6 +370,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define ABDUCTOR_ANTAGONIST "abductor-antagonist"
 #define NUKEOP_TRAIT "nuke-op"
 #define DEATHSQUAD_TRAIT "deathsquad"
+#define JUNGLE_FEVER_TRAIT "jungle_fever"
 #define MEGAFAUNA_TRAIT "megafauna"
 #define CLOWN_NUKE_TRAIT "clown-nuke"
 #define STICKY_MOUSTACHE_TRAIT "sticky-moustache"
