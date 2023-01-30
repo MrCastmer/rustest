@@ -44,3 +44,18 @@
 	cost = 1000
 	contains = list(/obj/item/vending_refill/games)
 	crate_name = "games supply crate"
+
+/datum/supply_pack/vendor_refill/botany
+	name = "Botany Supply Crate"
+	desc = "You feel there is not enough war crimes? Solve that issue with this pack."
+	cost = 2000
+	contains = list(/obj/item/vending_refill/hydroseeds,
+					/obj/item/vending_refill/hydronutrients)
+	crate_name = "botany supply crate"
+
+/datum/supply_pack/vendor_refill/mining
+	name = "Mining Supply Crate"
+	desc = "Rock and Stone!"
+	cost = 1500
+	contains = list(/obj/item/vending_refill/mining_equipment)
+	crate_name = "mining supply crate"
