@@ -137,7 +137,7 @@
 				emag_on = FALSE
 
 /obj/item/card/emagfake
-	name = "cryptographic sequencer"
+	name = "криптографический секвестер"
 	desc = "Криптографический секвестер или в простонародье ЕлектроМАГнитная карта которая взламы... А нет это подделка разработаная компанией \"Донк-Ко\"."
 	icon_state = "emag"
 	item_state = "card-id"
