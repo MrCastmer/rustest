@@ -1,5 +1,5 @@
 /datum/mission/acquire
-	desc = "Get me some things."
+	desc = "Необходимо достать некоторые предметы."
 
 	/// The type of container to be spawned when the mission is accepted.
 	var/atom/movable/container_type
@@ -69,7 +69,7 @@
 */
 
 /datum/mission/acquire/true_love
-	name = "Diamond needed (urgent!!)"
+	name = "Нужен алмаз (срочно!!)"
 	weight = 3
 	value = 700
 	duration = 20 MINUTES
@@ -81,9 +81,9 @@
 /datum/mission/acquire/true_love/New(...)
 	var/datum/species/beloved = pick(subtypesof(/datum/species))
 
-	desc = "I was going to gift \a [initial(objective_type.name)] to my [pick("beautiful", "handsome", "lovely")] \
-			[initial(beloved.name)] [pick("boyfriend", "girlfriend", "lover", "SO", "spouse", "husband", "wife", "boywife")], \
-			but I just lost it! Could you please find me a replacement? I don't have long!"
+	desc = "Я собираюсь подарить [initial(objective_type.name)] своей [pick("любимой", "красивой", "сногшибательной")] \
+			[initial(beloved.name)] для которой я являюсь [pick("бойфрендом", "гёрлфрендом", "вайфу", "не знаю кем", "секс куклой")], \
+			но я просто потерял его! Не могли бы вы найти мне замену? Я не могу долго ждать вас!"
 	. = ..()
 
 /datum/mission/acquire/true_love/puce
