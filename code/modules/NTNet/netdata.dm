@@ -5,6 +5,7 @@
 
 	var/list/recipient_ids = list()
 	var/sender_id
+	var/receiver_id
 	var/broadcast = FALSE			//Whether this is a broadcast packet.
 
 	var/list/data = list()
