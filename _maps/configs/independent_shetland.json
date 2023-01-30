@@ -40,5 +40,6 @@
 			"slots": 5
 		}
 	},
-	"cost": 750
+	"cost": 750,
+	"enabled": true
 }
