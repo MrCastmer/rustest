@@ -112,10 +112,17 @@
 
 #define NO_CHARS_DETECTED 0
 #define SPACES_DETECTED 1
-#define CHARS_DETECTED 2
+#define SYMBOLS_DETECTED 2
+#define NUMBERS_DETECTED 3
+#define LETTERS_DETECTED 4
 
-//Filters out undesirable characters from names
-/proc/reject_bad_name(t_in, max_length = MAX_NAME_LEN, ascii_only = FALSE)
+/**
+ * Filters out undesirable characters from names.
+ *
+ * * strict - return null immidiately instead of filtering out
+ * * allow_numbers - allows numbers and common special characters - used for silicon/other weird things names
+ */
+/proc/reject_bad_name(t_in, allow_numbers = FALSE, max_length = MAX_NAME_LEN, ascii_only = FALSE, strict = FALSE)
 	if(!t_in)
 		return //Rejects the input if it is null
 
@@ -126,62 +133,99 @@
 	var/charcount = 0
 	var/char = ""
 
-
+	// This is a sanity short circuit, if the users name is three times the maximum allowable length of name
+	// We bail out on trying to process the name at all, as it could be a bug or malicious input and we dont
+	// Want to iterate all of it.
+	if(t_len > 3 * MAX_NAME_LEN)
+		return
 	for(var/i = 1, i <= t_len, i += length(char))
 		char = t_in[i]
-
 		switch(text2ascii(char))
+			// A  .. Z
+			if(65 to 90)			//Uppercase Letters
+				number_of_alphanumeric++
+				last_char_group = LETTERS_DETECTED
+
+			// a  .. z
+			if(97 to 122)			//Lowercase Letters
+				if(last_char_group == NO_CHARS_DETECTED || last_char_group == SPACES_DETECTED || last_char_group == SYMBOLS_DETECTED) //start of a word
+					char = uppertext(char)
+				number_of_alphanumeric++
+				last_char_group = LETTERS_DETECTED
+
+			if(1040 to 1071)			//Русские буковки
+				number_of_alphanumeric++
+				last_char_group = LETTERS_DETECTED
+
+			if(1072 to 1105)			//Русские буковки
+				if(last_char_group == NO_CHARS_DETECTED || last_char_group == SPACES_DETECTED || last_char_group == SYMBOLS_DETECTED) //start of a word
+					char = uppertext(char)
+				number_of_alphanumeric++
+				last_char_group = LETTERS_DETECTED
+
+			// 0  .. 9
+			if(48 to 57)			//Numbers
+				if(last_char_group == NO_CHARS_DETECTED || !allow_numbers) //suppress at start of string
+					if(strict)
+						return
+					continue
+				number_of_alphanumeric++
+				last_char_group = NUMBERS_DETECTED
+
+			// '  -  .
+			if(39,45,46)			//Common name punctuation
+				if(last_char_group == NO_CHARS_DETECTED)
+					if(strict)
+						return
+					continue
+				last_char_group = SYMBOLS_DETECTED
+
+			// ~   |   @  :  #  $  %  &  *  +
+			if(126,124,64,58,35,36,37,38,42,43)			//Other symbols that we'll allow (mainly for AI)
+				if(last_char_group == NO_CHARS_DETECTED || !allow_numbers) //suppress at start of string
+					if(strict)
+						return
+					continue
+				last_char_group = SYMBOLS_DETECTED
 
 			//Space
 			if(32)
 				if(last_char_group == NO_CHARS_DETECTED || last_char_group == SPACES_DETECTED) //suppress double-spaces and spaces at start of string
+					if(strict)
+						return
 					continue
 				last_char_group = SPACES_DETECTED
 
-			//A .. Z
-			if(65 to 90)
-				number_of_alphanumeric++
-				last_char_group = CHARS_DETECTED
-
-			//a .. z
-			if(97 to 122)
-				number_of_alphanumeric++
-				last_char_group = CHARS_DETECTED
-
-			//0 .. 9
-			if(48 to 57)
-				number_of_alphanumeric++
-				last_char_group = CHARS_DETECTED
-
-			// ' - . ~ | @ : # $ % & * +
-			if(39, 45, 46, 126, 124, 64, 58, 35, 36, 37, 38, 42, 43)
-				number_of_alphanumeric++
-				last_char_group = CHARS_DETECTED
-
-			if(127 to INFINITY) //this pulls non-ascii text from the name for now, since filtering that is much more of a headache
+			if(127 to INFINITY)
 				if(ascii_only)
+					if(strict)
+						return
 					continue
-				last_char_group = CHARS_DETECTED //for now, we'll treat all non-ascii characters like symbols even though most are letters
+				last_char_group = SYMBOLS_DETECTED //for now, we'll treat all non-ascii characters like symbols even though most are letters
 
 			else
 				continue
-
 		t_out += char
 		charcount++
 		if(charcount >= max_length)
 			break
 
 	if(number_of_alphanumeric < 2)
-		return		//protects against tiny names like "A"
+		return		//protects against tiny names like "A" and also names like "' ' ' ' ' ' ' '"
 
 	if(last_char_group == SPACES_DETECTED)
-		t_out = copytext_char(t_out, 1, -1) //pulls trailing spaces from the name
+		t_out = copytext_char(t_out, 1, -1) //removes the last character (in this case a space)
+
+	for(var/bad_name in list("space","floor","wall","r-wall","monkey","неизвестный","inactive ai"))	//prevents these common metagamey names
+		if(cmptext(t_out,bad_name))
+			return	//(not case sensitive)
 
 	return t_out
 
 #undef NO_CHARS_DETECTED
 #undef SPACES_DETECTED
-#undef CHARS_DETECTED
+#undef NUMBERS_DETECTED
+#undef LETTERS_DETECTED
 
 
 
