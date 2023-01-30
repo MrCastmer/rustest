@@ -16,10 +16,10 @@ SUBSYSTEM_DEF(materials)
 	var/list/materialtypes_by_category
 	///List of stackcrafting recipes for materials using rigid materials
 	var/list/rigid_stack_recipes = list(
-		new /datum/stack_recipe("Chair", /obj/structure/chair/greyscale, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE),
-		new /datum/stack_recipe("Toilet", /obj/structure/toilet/greyscale, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE),
-		new /datum/stack_recipe("Sink", /obj/structure/sink/greyscale, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE),
-		new /datum/stack_recipe("Material floor tile", /obj/item/stack/tile/material, 1, 4, 20, applies_mats = TRUE),
+		new /datum/stack_recipe("Стул", /obj/structure/chair/greyscale, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE),
+		new /datum/stack_recipe("Туалет", /obj/structure/toilet/greyscale, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE),
+		new /datum/stack_recipe("Раковина", /obj/structure/sink/greyscale, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE),
+		new /datum/stack_recipe("Декоративная плитка", /obj/item/stack/tile/material, 1, 4, 20, applies_mats = TRUE),
 	)
 
 ///Ran on initialize, populated the materials and materials_by_category dictionaries with their appropiate vars (See these variables for more info)
