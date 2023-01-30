@@ -115,7 +115,7 @@
 #define CHARS_DETECTED 2
 
 //Filters out undesirable characters from names
-/proc/reject_bad_name(t_in, max_length = MAX_NAME_LEN, ascii_only = TRUE)
+/proc/reject_bad_name(t_in, max_length = MAX_NAME_LEN, ascii_only = FALSE)
 	if(!t_in)
 		return //Rejects the input if it is null
 
