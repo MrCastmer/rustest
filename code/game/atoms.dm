@@ -1551,3 +1551,9 @@
 	base_pixel_y = new_value
 
 	pixel_y = pixel_y + base_pixel_y - .
+
+/**
+ * Gets the total amount of materials in this atom.
+ */
+/atom/proc/get_custom_material_amount()
+	return isnull(custom_materials) ? 0 : counterlist_sum(custom_materials)
