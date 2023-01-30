@@ -21,5 +21,6 @@
 			"slots": 3
 		}
 	},
-	"cost": 450
+	"cost": 450,
+	"enabled": true
 }

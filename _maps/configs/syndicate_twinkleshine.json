@@ -30,5 +30,6 @@
 			"outfit": "/datum/outfit/syndicate_empty/sbc",
 			"slots": 2
 		}
-	}
+	},
+	"enabled": true
 }
