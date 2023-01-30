@@ -344,13 +344,20 @@
 
 
 // FUKKEN UPGRADE DISKS
+/obj/item/disk/integrated_circuit_old
+	name = "модернизация принтера интегральных схем - ОШИБКА"
+	desc = "Обратись к админам - такого не должно быть."
+	icon = 'icons/obj/assemblies/electronic_tools.dmi'
+	color = "#1C1C1C"
+	random_color = FALSE
+	blueshift_pallete = FALSE
+	illustration = "made_by_sanecman"
+	w_class = WEIGHT_CLASS_SMALL
+
 /obj/item/disk/integrated_circuit_old/upgrade
 	name = "модернизация принтера интегральных схем"
 	desc = "Устанавливается в принтер интегральных схем, для его модернизации."
-	icon = 'icons/obj/assemblies/electronic_tools.dmi'
-	icon_state = "upgrade_disk"
-//	inhand_icon_state = "card-id"
-	w_class = WEIGHT_CLASS_SMALL
+	illustration = "upgrade_disk"
 
 /obj/item/disk/integrated_circuit_old/upgrade/advanced
 	name = "модернизация принтера интегральных схем - расширенное ПО"
@@ -359,7 +366,7 @@
 /obj/item/disk/integrated_circuit_old/upgrade/clone
 	name = "модернизация принтера интегральных схем - клонирование"
 	desc = "Модернизация позволяющая принтеру мгновенно дублировать сборки интегральных схем."
-	icon_state = "upgrade_disk_clone"
+	illustration = "upgrade_disk_clone"
 
 /obj/item/integrated_circuit_printer/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	if(over == usr)
