@@ -13,8 +13,8 @@
  */
 
 /obj/item/card
-	name = "card"
-	desc = "Does card things."
+	name = "карта"
+	desc = "Не для игры в покер."
 	icon = 'icons/obj/card.dmi'
 	w_class = WEIGHT_CLASS_TINY
 
@@ -25,8 +25,8 @@
 	return BRUTELOSS
 
 /obj/item/card/data
-	name = "data card"
-	desc = "A plastic magstripe card for simple and speedy data storage and transfer. This one has a stripe running down the middle."
+	name = "магнитная карта"
+	desc = "Пластиковая магнитная карта для хранения данных. У этой видно полоску по середине."
 	icon_state = "data_1"
 	obj_flags = UNIQUE_RENAME
 	var/function = "storage"
@@ -49,20 +49,25 @@
 	detail_overlay.color = detail_color
 	. += detail_overlay
 
+/obj/item/proc/GetCard()
+
+/obj/item/card/data/GetCard()
+	return src
+
 /obj/item/card/data/full_color
-	desc = "A plastic magstripe card for simple and speedy data storage and transfer. This one has the entire card colored."
+	desc = "Пластиковая магнитная карта для хранения данных. Эта полностью цветная."
 	icon_state = "data_2"
 
 /obj/item/card/data/disk
-	desc = "A plastic magstripe card for simple and speedy data storage and transfer. This one inexplicibly looks like a floppy disk."
+	desc = "Пластиковая магнитная карта для хранения данных. Эта похожа на дискету конца 20 века."
 	icon_state = "data_3"
 
 /*
  * ID CARDS
  */
 /obj/item/card/emag
-	desc = "It's a card with a magnetic strip attached to some circuitry."
-	name = "cryptographic sequencer"
+	name = "криптографический секвестер"
+	desc = "Криптографический секвестер или в простонародье ЕлектроМАГнитная карта которая взламывает или открывает новое в различной электронике. Запрещена в большинстве известного космоса."
 	icon_state = "emag"
 	item_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
@@ -74,20 +79,20 @@
 
 //multi-purpose emag tool example- used in syndicate borgs.
 /obj/item/card/emag/borg
-	name = "/INFILTRATE/ module"
-	desc = "A cyborg subsystem of debatable legality, designed to defeat security systems and unlock backdoor functionality."
+	name = "Модуль /ИНФИЛЬТРАТОР/"
+	desc = "Версия криптографического секвестера для киборгов."
 	icon_state = "inf_emag"
 	icon = 'icons/obj/items_cyborg.dmi'
 
 /obj/item/card/emag/borg/examine()
 	. = ..()
-	. += "<span class='notice'> Capable of interchanging between electromagnetic, electrical, & screw turning functionality.</span>"
+	. += "<span class='notice'> Capable of interchanging between electromagnetic, electrical, & screw turning functionality.</span>" //Я не знаю как это перевести
 	if(uses_left > -1)
-		. += "<span class='notice'> It has [uses_left] charge\s left.</span>"
+		. += "<span class='notice'> У неё видно [uses_left] делений оставшихся использований.</span>"
 
 /obj/item/card/emag/limited
-	name = "limited cryptographic sequencer"
-	desc = "It's a card with a magnetic strip attached to some circuitry. It has limited charges."
+	name = "ограниченный криптографический секвестор"
+	desc = "Криптографический секвестер или в простонародье ЕлектроМАГнитная карта которая взламывает или открывает новое в различной электронике. Запрещена в большинстве известного космоса. Имеет всего один заряд."
 	uses_left = 1
 
 /obj/item/card/emag/borg/attack_self(mob/user)
@@ -109,8 +114,8 @@
 		emag_on = TRUE
 
 /obj/item/card/emag/bluespace
-	name = "bluespace cryptographic sequencer"
-	desc = "It's a blue card with a magnetic strip attached to some circuitry. It appears to have some sort of transmitter attached to it."
+	name = "странный криптографический секвестор"
+	desc = "Криптографический секвестер или в простонародье ЕлектроМАГнитная карта которая взламывает или открывает новое в различной электронике. Запрещена в большинстве известного космоса. В неё встроен блюспейс кристалл."
 	color = rgb(40, 130, 255)
 	prox_check = FALSE
 
@@ -132,8 +137,8 @@
 				emag_on = FALSE
 
 /obj/item/card/emagfake
-	desc = "It's a card with a magnetic strip attached to some circuitry. Closer inspection shows that this card is a poorly made replica, with a \"DonkCo\" logo stamped on the back."
 	name = "cryptographic sequencer"
+	desc = "Криптографический секвестер или в простонародье ЕлектроМАГнитная карта которая взламы... А нет это подделка разработаная компанией \"Донк-Ко\"."
 	icon_state = "emag"
 	item_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
