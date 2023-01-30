@@ -149,7 +149,7 @@
 "AM" = (/obj/structure/window/reinforced/spawner{dir = 4},/obj/structure/window/reinforced/spawner,/obj/machinery/power/smes/shuttle/precharged{dir = 1},/obj/structure/cable/pink{icon_state = "0-2"},/turf/open/floor/plating,/area/ship/engineering)
 "AN" = (/obj/effect/spawner/structure/window/reinforced,/obj/machinery/door/poddoor/shutters{name = "Body Shutters"; id = "body_shutters"},/turf/open/floor/plating,/area/ship/roumain)
 "AQ" = (/obj/structure/cable/orange{icon_state = "1-8"},/obj/machinery/door/poddoor{id = "port_blasts"; name = "Port Blast Door"},/turf/open/floor/wood,/area/ship/storage)
-"AY" = (/obj/machinery/power/terminal,/obj/structure/cable/orange{icon_state = "0-4"},/obj/item/candle/tribal_torch,/obj/item/candle/tribal_torch,/turf/open/floor/plating/rust,/area/ship/engineering)
+"AY" = (/obj/machinery/power/terminal,/obj/structure/cable/orange{icon_state = "0-4"},/obj/item/candle/tribal_torch,/turf/open/floor/plating/rust,/area/ship/engineering)
 "AZ" = (/turf/closed/wall/mineral/wood/nonmetal,/area/ship/engineering/electrical)
 "Bu" = (/obj/effect/spawner/structure/window/reinforced,/obj/structure/cable/orange{icon_state = "1-2"},/obj/structure/curtain/cloth/grey,/turf/open/floor/plating,/area/ship/medical)
 "Bx" = (/obj/machinery/smartfridge/drying_rack,/obj/structure/railing/corner/wood{dir = 8},/turf/open/floor/plating/asteroid/basalt/lava_land_surface,/area/ship/roumain)
