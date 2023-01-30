@@ -13,8 +13,8 @@
 	attack_verb = list("warned", "cautioned", "smashed")
 
 /obj/item/choice_beacon
-	name = "choice beacon"
-	desc = "Hey, why are you viewing this?!! Please let CentCom know about this odd occurrence."
+	name = "маяк предметов"
+	desc = "Абсолютно пустой, обратись на ЦК за помощью."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "gangtool-blue"
 	item_state = "radio"
@@ -47,7 +47,7 @@
 	if(!uses)
 		qdel(src)
 	else
-		to_chat(M, "<span class='notice'>[uses] use[uses > 1 ? "s" : ""] remaining on the [src].</span>")
+		to_chat(M, "<span class='notice'>[uses] активирует [src].[uses > 1 ? " Похоже ещё остались заряды!" : ""]</span>")
 
 /obj/item/choice_beacon/proc/spawn_option(obj/choice,mob/living/M)
 	var/obj/new_item = new choice()
@@ -134,8 +134,8 @@
 	new /obj/item/grenade/chem_grenade/ghostbuster(src)
 
 /obj/item/choice_beacon/augments
-	name = "augment beacon"
-	desc = "Summons augmentations. Can be used 3 times!"
+	name = "маяк аугментаций"
+	desc = "Различные аугментации. Можно использовать 3 раза!"
 	uses = 3
 
 /obj/item/choice_beacon/augments/generate_display_names()
