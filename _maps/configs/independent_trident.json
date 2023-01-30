@@ -1,0 +1,15 @@
+{
+	"$schema": "https://raw.githubusercontent.com/shiptest-ss13/Shiptest/master/_maps/ship_config_schema.json",
+	"map_name": "Trident-class Tribal Ark",
+	"prefix": "SV",
+	"namelists": ["MYTHOLOGICAL", "BEASTS"],
+	"map_short_name": "Trident-class",
+	"map_path": "lambda/MrSamu99/shuttles/independent_trident.dmm",
+	"job_slots": {
+		"Corpse": {
+			"outfit": "/datum/outfit/job/assistant",
+			"slots": 0
+		}
+	},
+	"enabled": false
+}
