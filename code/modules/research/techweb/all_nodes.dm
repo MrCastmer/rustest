@@ -174,6 +174,14 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 	export_price = 5000
 
+/datum/techweb_node/adv_datatheory
+	id = "adv_datatheory"
+	display_name = "Продвинутая теория данных"
+	description = "Новый взгляд на программирование."
+	prereq_ids = list("datatheory")
+	design_ids = list("icprinter", "icupgadv", "icupgclo")
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
+	export_price = 5000
 
 /////////////////////////engineering tech/////////////////////////
 /datum/techweb_node/engineering
