@@ -171,3 +171,12 @@
 
 /area/ctf/flag_room2
 	name = "Flag Room B"
+
+/area/saferoom
+	name = "вне пространства"
+	icon_state = "centcom"
+	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	requires_power = FALSE
+	has_gravity = STANDARD_GRAVITY
+	area_flags = VALID_TERRITORY | UNIQUE_AREA | SAFEZONE
+	flags_1 = NONE
