@@ -4,13 +4,13 @@
 
 
 /obj/structure/closet/crate/necropolis
-	name = "necropolis chest"
-	desc = "It's watching you closely."
+	name = "странный сундук"
+	desc = "Он смотрит на тебя."
 	icon_state = "necrocrate"
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
 /obj/structure/closet/crate/necropolis/tendril
-	desc = "It's watching you suspiciously."
+	desc = "Он наблюдает за тобой."
 
 /obj/structure/closet/crate/necropolis/tendril/PopulateContents()
 	var/loot = rand(1,29)
@@ -87,7 +87,7 @@
 			new /obj/item/kitchen/knife/envy(src)
 
 /obj/structure/closet/crate/necropolis/tendril/greater
-	desc = "It's watching you wearily. It seems terribly bloated."
+	desc = "Он смотрит уставшим глазом на тебя."
 
 /obj/structure/closet/crate/necropolis/tendril/greater/PopulateContents()
 	for(var/i in 1 to 3)
@@ -166,8 +166,8 @@
 
 //KA modkit design discs
 /obj/item/disk/design_disk/modkit_disc
-	name = "KA Mod Disk"
-	desc = "A design disc containing the design for a unique kinetic accelerator modkit. It's compatible with a research console."
+	name = "диск создания модкита"
+	desc = "Диск, содержащий дизайн уникального модкита кинетического ускорителя. Он совместим с исследовательской консолью."
 	illustration = "accel"
 	color = "#6F6F6F"
 	var/modkit_design = /datum/design/unique_modkit
@@ -177,19 +177,19 @@
 	blueprints[1] = new modkit_design
 
 /obj/item/disk/design_disk/modkit_disc/mob_and_turf_aoe
-	name = "Offensive Mining Explosion Mod Disk"
+	name = "диск создания взрывного модкита"
 	modkit_design = /datum/design/unique_modkit/offensive_turf_aoe
 
 /obj/item/disk/design_disk/modkit_disc/rapid_repeater
-	name = "Rapid Repeater Mod Disk"
+	name = "диск создания ускоренного модкита"
 	modkit_design = /datum/design/unique_modkit/rapid_repeater
 
 /obj/item/disk/design_disk/modkit_disc/resonator_blast
-	name = "Resonator Blast Mod Disk"
+	name = "диск создания резонирующего модкита"
 	modkit_design = /datum/design/unique_modkit/resonator_blast
 
 /obj/item/disk/design_disk/modkit_disc/bounty
-	name = "Death Syphon Mod Disk"
+	name = "диск создания кровопьющего модкита"
 	modkit_design = /datum/design/unique_modkit/bounty
 
 /datum/design/unique_modkit
@@ -230,8 +230,8 @@
 
 //drip
 /obj/item/clothing/under/drip
-	name = "incredibly fashionable outfit"
-	desc = "Why don't you go test some shi-"
+	name = "модная футболка"
+	desc = "Почему бы тебе не проверить некоторое го-"
 	icon = 'icons/obj/clothing/under/suits.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/suits.dmi'
 	mob_overlay_state = "drippy"
@@ -242,8 +242,8 @@
 	can_adjust = FALSE
 
 /obj/item/clothing/shoes/drip
-	name = "fashionable shoes"
-	desc = "Expensive-looking designer sneakers. Loud, ostentatious, agressively attractive. The elaborate design on the sole could probably give you some decent traction."
+	name = "модные кроссовки"
+	desc = "Дорогие на вид дизайнерские кроссовки. Очень привлекательны. Сложный дизайн подошвы, вероятно, может дать вам приличное сцепление с поверхностью."
 	icon = 'icons/obj/clothing/shoes.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/feet.dmi'
 	mob_overlay_state = "dripshoes"
@@ -336,7 +336,7 @@
 //Memento Mori
 /obj/item/clothing/neck/necklace/memento_mori
 	name = "Memento Mori"
-	desc = "A mysterious pendant. An inscription on it says: \"Certain death tomorrow means certain life today.\""
+	desc = "Таинственный кулон. Надпись на нем гласит: \"Верная смерть завтра означает верную жизнь сегодня.\""
 	icon = 'icons/obj/lavaland/artefacts.dmi'
 	icon_state = "memento_mori"
 	actions_types = list(/datum/action/item_action/hands_free/memento_mori)
@@ -358,9 +358,9 @@
 	return ..()
 
 /obj/item/clothing/neck/necklace/memento_mori/proc/memento(mob/living/carbon/human/user)
-	to_chat(user, "<span class='warning'>You feel your life being drained by the pendant...</span>")
+	to_chat(user, "<span class='warning'>Кулон высасывает мою жизнь...</span>")
 	if(do_after(user, 40, target = user))
-		to_chat(user, "<span class='notice'>Your lifeforce is now linked to the pendant! You feel like removing it would kill you, and yet you instinctively know that until then, you won't die.</span>")
+		to_chat(user, "<span class='notice'>Теперь я связан с кулоном! Если я его сниму - я умру, и все же я знаю, что до тех пор я буду жить вечно.</span>")
 		ADD_TRAIT(user, TRAIT_NODEATH, "memento_mori")
 		ADD_TRAIT(user, TRAIT_NOHARDCRIT, "memento_mori")
 		ADD_TRAIT(user, TRAIT_NOCRITDAMAGE, "memento_mori")
@@ -373,13 +373,13 @@
 		return
 	var/mob/living/carbon/human/H = active_owner //to avoid infinite looping when dust unequips the pendant
 	active_owner = null
-	to_chat(H, "<span class='userdanger'>You feel your life rapidly slipping away from you!</span>")
+	to_chat(H, "<span class='userdanger'>Моя жизнь пролетает перед глазами!</span>")
 	H.dust(TRUE, TRUE)
 
 /datum/action/item_action/hands_free/memento_mori
 	check_flags = NONE
 	name = "Memento Mori"
-	desc = "Bind your life to the pendant."
+	desc = "Свяжи свою жизнь с ним."
 
 /datum/action/item_action/hands_free/memento_mori/Trigger()
 	var/obj/item/clothing/neck/necklace/memento_mori/MM = target
@@ -390,8 +390,8 @@
 
 //Wisp Lantern
 /obj/item/wisp_lantern
-	name = "spooky lantern"
-	desc = "This lantern gives off no light, but is home to a friendly wisp."
+	name = "призрачная лампа"
+	desc = "Этот фонарь не излучает света, но является домом для дружелюбного огонька."
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "lantern-blue"
 	item_state = "lantern"
@@ -401,19 +401,19 @@
 
 /obj/item/wisp_lantern/attack_self(mob/user)
 	if(!wisp)
-		to_chat(user, "<span class='warning'>The wisp has gone missing!</span>")
+		to_chat(user, "<span class='warning'>Огонька нету!</span>")
 		icon_state = "lantern"
 		return
 
 	if(wisp.loc == src)
-		to_chat(user, "<span class='notice'>You release the wisp. It begins to bob around your head.</span>")
+		to_chat(user, "<span class='notice'>Выпускаю огонёк на свободу. Он начинает кружиться около меня.</span>")
 		icon_state = "lantern"
 		wisp.orbit(user, 20)
 		ADD_TRAIT(user, ORBITED_TRAIT, "orbited")
 		SSblackbox.record_feedback("tally", "wisp_lantern", 1, "Freed")
 
 	else
-		to_chat(user, "<span class='notice'>You return the wisp to the lantern.</span>")
+		to_chat(user, "<span class='notice'>Возращаю огонёк в лампу.</span>")
 		icon_state = "lantern-blue"
 		wisp.forceMove(src)
 		REMOVE_TRAIT(user, ORBITED_TRAIT, "orbited")
@@ -428,12 +428,12 @@
 		if(wisp.loc == src)
 			qdel(wisp)
 		else
-			wisp.visible_message("<span class='notice'>[wisp] has a sad feeling for a moment, then it passes.</span>")
+			wisp.visible_message("<span class='notice'>[wisp] на мгновение становится грустным.</span>")
 	return ..()
 
 /obj/effect/wisp
-	name = "friendly wisp"
-	desc = "Happy to light your way."
+	name = "огонёк"
+	desc = "Твой друг во тьме."
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "orb"
 	light_system = MOVABLE_LIGHT
@@ -449,13 +449,13 @@
 		RegisterSignal(thing, COMSIG_MOB_UPDATE_SIGHT, .proc/update_user_sight)
 		var/mob/being = thing
 		being.update_sight()
-		to_chat(thing, "<span class='notice'>The wisp enhances your vision.</span>")
+		to_chat(thing, "<span class='notice'>Огонёк улучшает моё зрение.</span>")
 
 /obj/effect/wisp/stop_orbit(datum/component/orbiter/orbits)
 	. = ..()
 	if(ismob(orbits.parent))
 		UnregisterSignal(orbits.parent, COMSIG_MOB_UPDATE_SIGHT)
-		to_chat(orbits.parent, "<span class='notice'>Your vision returns to normal.</span>")
+		to_chat(orbits.parent, "<span class='notice'>Моё зрение приходит в норму.</span>")
 
 /obj/effect/wisp/proc/update_user_sight(mob/user)
 	user.sight |= sight_flags
@@ -464,8 +464,8 @@
 
 //Red/Blue Cubes
 /obj/item/warp_cube
-	name = "blue cube"
-	desc = "A mysterious blue cube."
+	name = "синий куб"
+	desc = "Мистический синий куб."
 	icon = 'icons/obj/lavaland/artefacts.dmi'
 	icon_state = "blue_cube"
 	var/teleport_color = "#3FBAFD"
@@ -476,7 +476,7 @@
 	var/turf/current_location = get_turf(user)
 	var/area/current_area = current_location.loc
 	if(!linked || (current_area.area_flags & NOTELEPORT))
-		to_chat(user, "<span class='warning'>[src] fizzles uselessly.</span>")
+		to_chat(user, "<span class='warning'>Активирую [src], но ничего не происходит.</span>")
 		return
 	if(teleporting)
 		return
@@ -508,8 +508,8 @@
 	qdel(link_holder)
 
 /obj/item/warp_cube/red
-	name = "red cube"
-	desc = "A mysterious red cube."
+	name = "красный куб"
+	desc = "Мистический красный куб."
 	icon_state = "red_cube"
 	teleport_color = "#FD3F48"
 
@@ -529,8 +529,8 @@
 
 //Meat Hook
 /obj/item/gun/magic/hook
-	name = "meat hook"
-	desc = "A light hooked blade, attached by the handle to a long chain. Can be used to make quick strikes in hand, or thrown at enemies, magically dragging them to the user. <b>Get over here!</b>"
+	name = "крюк мясника"
+	desc = "Легкий крючковатый клинок, прикрепленный рукоятью к длинной цепи. Можно использовать для нанесения быстрых ударов рукой или метать во врагов, волшебным образом притягивая их к крюку. <b>Иди сюда!</b>"
 	ammo_type = /obj/item/ammo_casing/magic/hook
 	icon_state = "hook"
 	item_state = "hook"
@@ -553,14 +553,14 @@
 	AddComponent(/datum/component/butchering, 15, 130, 0, hitsound)
 
 /obj/item/ammo_casing/magic/hook
-	name = "hook"
-	desc = "A hook."
+	name = "крюк"
+	desc = "Крюкает."
 	projectile_type = /obj/projectile/hook
 	caliber = "hook"
 	icon_state = "hook"
 
 /obj/projectile/hook
-	name = "hook"
+	name = "крюк"
 	icon_state = "hook"
 	icon = 'icons/obj/lavaland/artefacts.dmi'
 	pass_flags = PASSTABLE
@@ -584,7 +584,7 @@
 		var/atom/movable/A = target
 		if(A.anchored)
 			return
-		A.visible_message("<span class='danger'>[A] is snagged by [firer]'s hook!</span>")
+		A.visible_message("<span class='danger'>[A] ловит [firer] на крючок!</span>")
 		new /datum/forced_movement(A, get_turf(firer), 5, TRUE)
 		if (isliving(target))
 			var/mob/living/fresh_meat = target
@@ -603,7 +603,7 @@
 	ammo_type = /obj/item/ammo_casing/magic/hook/bounty
 
 /obj/item/gun/magic/hook/bounty/shoot_with_empty_chamber(mob/living/user)
-	to_chat(user, "<span class='warning'>The [src] isn't ready to fire yet!</span>")
+	to_chat(user, "<span class='warning'>[src] ещё не готов!</span>")
 
 /obj/item/ammo_casing/magic/hook/bounty
 	projectile_type = /obj/projectile/hook/bounty
@@ -614,25 +614,25 @@
 
 //Immortality Talisman: Now with state-of-the-art panic button technology
 /obj/item/immortality_talisman
-	name = "\improper Immortality Talisman"
-	desc = "A dread talisman, connecting to a plane of total emptiness. It can render you completely invulnerable."
+	name = "талисман бессмертия"
+	desc = "Ужасный талисман, соединяющий твоё ничтожное тело с полотном полной тьмы."
 	icon = 'icons/obj/lavaland/artefacts.dmi'
 	icon_state = "talisman"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	actions_types = list(/datum/action/item_action/hands_free/immortality)
 	var/cooldown = 0
 	w_class = 2
-	var/warcry = "DOOOOOM"
+	var/warcry = "ТЬМААААА"
 
 /obj/item/immortality_talisman/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Alt-click to set your activation wail.</span>"
+	. += "<span class='notice'>Alt-click для установки сигнала активации.</span>"
 
 /obj/item/immortality_talisman/AltClick(mob/user)
 	if(user.canUseTopic(src, BE_CLOSE))
 		..()
 		if(istype(user) && loc == user)
-			var/input = stripped_input(user,"What do you wish to bellow when dragged into the abyss? (Capitalization provides best impact)", ,"", 50)
+			var/input = stripped_input(user,"Что ты крикнешь, когда тебя затянет в бездну? (Заглавные буквы обеспечивают наилучшую передачу ощущений)", ,"", 50)
 			if(input)
 				src.warcry = input
 
@@ -650,14 +650,14 @@
 		user.say("[warcry]!!!", forced="talisman warcry")
 		new /obj/effect/immortality_talisman(get_turf(user), user)
 	else
-		to_chat(user, "<span class='warning'>[src] is not ready yet!</span>")
+		to_chat(user, "<span class='warning'>[src] ещё не готов!</span>")
 
 /obj/effect/immortality_talisman
-	name = "hole in reality"
-	desc = "It's shaped an awful lot like a person."
+	name = "дыра реальности"
+	desc = "Напоминает человека."
 	icon_state = "blank"
 	icon = 'icons/effects/effects.dmi'
-	var/vanish_description = "vanishes from reality"
+	var/vanish_description = "исчезает из реальности"
 	var/can_destroy = TRUE
 
 /obj/effect/immortality_talisman/Initialize(mapload, mob/new_user)
@@ -666,9 +666,9 @@
 		vanish(new_user)
 
 /obj/effect/immortality_talisman/proc/vanish(mob/user)
-	user.visible_message("<span class='danger'>[user] [vanish_description], leaving a hole in [user.p_their()] place!</span>")
+	user.visible_message("<span class='danger'>[user] [vanish_description], оставляя вместо себя [user.p_their()]!</span>")
 
-	desc = "It's shaped an awful lot like [user.name]."
+	desc = "Он похож на [user.name]."
 	setDir(user.dir)
 
 	user.forceMove(src)
@@ -684,7 +684,7 @@
 	user.notransform = FALSE
 	user.forceMove(get_turf(src))
 
-	user.visible_message("<span class='danger'>[user] pops back into reality!</span>")
+	user.visible_message("<span class='danger'>[user] возращается в реальность!</span>")
 	can_destroy = TRUE
 	qdel(src)
 
@@ -704,13 +704,13 @@
 		. = ..()
 
 /obj/effect/immortality_talisman/void
-	vanish_description = "is dragged into the void"
+	vanish_description = "уходит в пустоту"
 
 //Shared Bag
 
 /obj/item/shared_storage
-	name = "paradox bag"
-	desc = "Somehow, it's in two places at once."
+	name = "парадоксальная сумка"
+	desc = "Что положишь в одну."
 	icon = 'icons/obj/lavaland/artefacts.dmi'
 	icon_state = "paradox_bag"
 	mob_overlay_icon = 'icons/mob/clothing/belt.dmi'
@@ -719,8 +719,8 @@
 	resistance_flags = INDESTRUCTIBLE
 
 /obj/item/shared_storage/red
-	name = "paradox bag"
-	desc = "Somehow, it's in two places at once."
+	name = "парадоксальная сумка"
+	desc = "Появится в другом."
 
 /obj/item/shared_storage/red/Initialize()
 	. = ..()
