@@ -90,17 +90,17 @@
 	if(istype(I, /obj/item/stack) && precise_insertion)
 		var/atom/current_parent = parent
 		var/obj/item/stack/S = I
-		requested_amount = input(user, "How much do you want to insert?", "Inserting [S.singular_name]s") as num|null
+		requested_amount = input(user, "Сколько вставляем?", "Вставляю [S.singular_name]") as num|null
 		if(isnull(requested_amount) || (requested_amount <= 0))
 			return
 		if(QDELETED(I) || QDELETED(user) || QDELETED(src) || parent != current_parent || user.physical_can_use_topic(current_parent) < UI_INTERACTIVE || user.get_active_held_item() != active_held)
 			return
 	if(!user.temporarilyRemoveItemFromInventory(I))
-		to_chat(user, "<span class='warning'>[I] is stuck to you and cannot be placed into [parent].</span>")
+		to_chat(user, "<span class='warning'>Я не могу вставить [I] в [parent] так как не могу разжать его.</span>")
 		return
 	var/inserted = insert_item(I, stack_amt = requested_amount)
 	if(inserted)
-		to_chat(user, "<span class='notice'>You insert a material total of [inserted] into [parent].</span>")
+		to_chat(user, "<span class='notice'>Вставляю около [inserted] материалов в [parent].</span>")
 		qdel(I)
 		if(after_insert)
 			after_insert.Invoke(I, last_inserted_id, inserted)
