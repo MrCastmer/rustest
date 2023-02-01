@@ -475,7 +475,7 @@
 /obj/item/warp_cube/attack_self(mob/user)
 	var/turf/current_location = get_turf(user)
 	var/area/current_area = current_location.loc
-	if(!linked || (current_area.area_flags & NOTELEPORT))
+	if(!linked)
 		to_chat(user, "<span class='warning'>Активирую [src], но ничего не происходит.</span>")
 		return
 	if(teleporting)
