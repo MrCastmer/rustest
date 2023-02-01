@@ -104,9 +104,11 @@
 			playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
 			W.update_icon()
 		else
-			log_bomber(user, "detonated a", src, "via welding tool")
-			boom()
 			user.visible_message("<span class='danger'>[user] нагревает [user.p_their()] [I.name]! Сейчас взорвётся!</span>", "<span class='userdanger'>Щас ёбанет [pick("кажись", "")]...</span>")
+			playsound(get_turf(src), 'lambda/sanecman/sound/steam_hit.ogg', 80, TRUE, 5)
+			spawn(rand(30, 50))
+				log_bomber(user, "detonated a", src, "via welding tool")
+				boom()
 		return
 	return ..()
 
