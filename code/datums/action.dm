@@ -343,23 +343,23 @@
 	..()
 
 /datum/action/item_action/toggle_helmet_flashlight
-	name = "Toggle Helmet Flashlight"
+	name = "переключить встроенный фонарик"
 
 /datum/action/item_action/toggle_helmet_mode
-	name = "Toggle Helmet Mode"
+	name = "переключить шлем"
 
 /datum/action/item_action/crew_monitor
-	name = "Interface With Crew Monitor"
+	name = "интерфейс мониторинга экипажа"
 
 /datum/action/item_action/toggle
 
 /datum/action/item_action/toggle/New(Target)
 	..()
-	name = "Toggle [target.name]"
+	name = "переключить [target.name]"
 	button.name = name
 
 /datum/action/item_action/halt
-	name = "HALT!"
+	name = "ВНИМАНИЕ!"
 
 /datum/action/item_action/toggle_voice_box
 	name = "Toggle Voice Box"
