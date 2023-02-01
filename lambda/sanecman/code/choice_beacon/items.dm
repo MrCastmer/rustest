@@ -54,6 +54,7 @@
 	icon = 'lambda/sanecman/icons/items/emergency_signaler.dmi'
 	icon_state = "em_signal"
 	var/emagged = FALSE
+	var/list/templist
 
 /obj/item/circuitboard/computer/cargo/express/multitool_act(mob/living/user)
 	to_chat(usr, "<span class='notice'>Не могу взломать маяк с помощью такого инструмента, может стоит попытаться взломать чем-то нелегальным?</span>")
@@ -66,10 +67,23 @@
 	playsound(src, "sparks", 100, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	say("Подключение к другой платформе снабжения.")
 	obj_flags |= EMAGGED
+	templist = list(/obj/item/storage/box/rndboards/old,
+				/obj/item/storage/box/oreredemtionandsilo,
+				/obj/effect/mob_spawn/drone,
+				/obj/item/storage/belt/utility/chief/full,
+				/obj/item/storage/firstaid/advanced,
+				/obj/structure/reagent_dispensers/beerkeg,
+				/obj/item/storage/box/stockparts/deluxe,
+				/obj/item/storage/box/spacecash_c10000,
+				/obj/item/pickaxe/drill/jackhammer,
+				/obj/item/storage/toolbox/mechanical,
+				/obj/item/gps,
+				/obj/item/uplink/emengercy
+				)
+
 
 /obj/item/choice_beacon/spawnshit/generate_display_names()
 	var/static/list/spawnshit
-	var/list/templist
 	if(!spawnshit)
 		spawnshit = list()
 		if(emagged == FALSE)
@@ -84,20 +98,6 @@
 								/obj/item/pickaxe/drill/jackhammer,
 								/obj/item/storage/toolbox/mechanical,
 								/obj/item/gps
-								)
-		else
-			templist = list(/obj/item/storage/box/rndboards/old,
-								/obj/item/storage/box/oreredemtionandsilo,
-								/obj/effect/mob_spawn/drone,
-								/obj/item/storage/belt/utility/chief/full,
-								/obj/item/storage/firstaid/advanced,
-								/obj/structure/reagent_dispensers/beerkeg,
-								/obj/item/storage/box/stockparts/deluxe,
-								/obj/item/storage/box/spacecash_c10000,
-								/obj/item/pickaxe/drill/jackhammer,
-								/obj/item/storage/toolbox/mechanical,
-								/obj/item/gps,
-								/obj/item/uplink/emengercy
 								)
 		for(var/V in templist)
 			var/atom/A = V
