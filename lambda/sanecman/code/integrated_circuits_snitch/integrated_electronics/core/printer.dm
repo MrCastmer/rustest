@@ -25,7 +25,7 @@
 	fast_clone = TRUE
 
 /obj/item/integrated_circuit_printer/debug //translation: "integrated_circuit_printer/local_server"
-	name = "debug circuit printer"
+	name = "особый принтер интегральных схем"
 	debug = TRUE
 	upgraded = TRUE
 	can_clone = TRUE
