@@ -172,6 +172,7 @@
 /area/ctf/flag_room2
 	name = "Flag Room B"
 
+// Безопасная комната для экстренной телепортации
 /area/saferoom
 	name = "вне пространства"
 	icon_state = "centcom"

@@ -36,6 +36,7 @@ GLOBAL_LIST_EMPTY(deathsquadspawn)
 GLOBAL_LIST_EMPTY(emergencyresponseteamspawn)
 GLOBAL_LIST_EMPTY(ruin_landmarks)
 GLOBAL_LIST_EMPTY(stationroom_landmarks) //List of all spawns for stationrooms
+GLOBAL_LIST_EMPTY(saferoom) //Безопасная комната
 
 //away missions
 GLOBAL_LIST_EMPTY(vr_spawnpoints)

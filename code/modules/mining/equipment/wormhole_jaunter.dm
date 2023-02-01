@@ -1,7 +1,7 @@
 /**********************Jaunter**********************/
 /obj/item/wormhole_jaunter
-	name = "wormhole jaunter"
-	desc = "A single use device harnessing outdated wormhole technology, Nanotrasen has since turned its eyes to bluespace for more accurate teleportation. The wormholes it creates are unpleasant to travel through, to say the least.\nThanks to modifications provided by the Free Golems, this jaunter can be worn on the belt to provide protection from chasms."
+	name = "экстренный эвакуатор"
+	desc = "Одноразовое устройство, использующее устаревшую технологию червоточин. Создаваемые им червоточины, по меньшей мере, неприятны для путешествия.\nБлагодаря модификациям, предоставленным Свободными големами, этот эвакуатор можно носить на поясе, чтобы обеспечить защиту от пропастей."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "Jaunter"
 	item_state = "electronic"
@@ -15,14 +15,14 @@
 	custom_price = 700
 
 /obj/item/wormhole_jaunter/attack_self(mob/user)
-	user.visible_message("<span class='notice'>[user.name] activates the [src.name]!</span>")
+	user.visible_message("<span class='notice'>[user.name] активирует [src.name]!</span>")
 	SSblackbox.record_feedback("tally", "jaunter", 1, "User") // user activated
 	activate(user, TRUE)
 
 /obj/item/wormhole_jaunter/proc/turf_check(mob/user)
 	var/turf/device_turf = get_turf(user)
 	if(!device_turf || is_centcom_level(device_turf))
-		to_chat(user, "<span class='notice'>You're having difficulties getting the [src.name] to work.</span>")
+		to_chat(user, "<span class='notice'>У вас возникли трудности с получением [src.name].</span>")
 		return FALSE
 	return TRUE
 
