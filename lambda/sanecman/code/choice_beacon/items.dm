@@ -99,6 +99,20 @@
 								/obj/item/storage/toolbox/mechanical,
 								/obj/item/gps
 								)
+		else if(emagged == TRUE)
+			templist = list(/obj/item/storage/box/rndboards/old,
+						/obj/item/storage/box/oreredemtionandsilo,
+						/obj/effect/mob_spawn/drone,
+						/obj/item/storage/belt/utility/chief/full,
+						/obj/item/storage/firstaid/advanced,
+						/obj/structure/reagent_dispensers/beerkeg,
+						/obj/item/storage/box/stockparts/deluxe,
+						/obj/item/storage/box/spacecash_c10000,
+						/obj/item/pickaxe/drill/jackhammer,
+						/obj/item/storage/toolbox/mechanical,
+						/obj/item/gps,
+						/obj/item/uplink/emengercy
+						)
 		for(var/V in templist)
 			var/atom/A = V
 			spawnshit[initial(A.name)] = A
