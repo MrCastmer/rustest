@@ -61,5 +61,5 @@
 	id = "spawnshit"
 	build_type = AUTOLATHE
 	materials = list(/datum/material/iron = 500000, /datum/material/glass = 10000, /datum/material/gold = 10000)
-	build_path = /obj/item/circuitboard/computer/cargo/express
 	category = list("initial", "Base Curcuit")
+	build_path = /obj/item/choice_beacon/spawnshit
