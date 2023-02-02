@@ -56,7 +56,7 @@
 	var/emagged = FALSE
 	var/list/templist
 
-/obj/item/circuitboard/computer/cargo/express/multitool_act(mob/living/user)
+/obj/item/circuitboard/computer/cargo/express/multitool_act(mob/user)
 	to_chat(usr, "<span class='notice'>Не могу взломать маяк с помощью такого инструмента, может стоит попытаться взломать чем-то нелегальным?</span>")
 	return
 
