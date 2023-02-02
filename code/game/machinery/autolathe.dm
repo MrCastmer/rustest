@@ -46,7 +46,7 @@
 							"Medical",
 							"Misc",
 							"Dinnerware",
-							"Base Curcuit"
+							"Exotic"
 							)
 
 /obj/machinery/autolathe/Initialize()
