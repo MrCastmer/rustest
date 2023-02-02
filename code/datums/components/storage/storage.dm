@@ -14,6 +14,12 @@
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 	var/datum/component/storage/concrete/master		//If not null, all actions act on master and this is just an access point.
 
+	/// the actual item we're attached to
+	var/datum/weakref/parent_location
+	/// the actual item we're storing in
+	var/datum/weakref/storage_location
+
+
 	var/list/can_hold								//if this is set, only items, and their children, will fit
 	var/list/cant_hold								//if this is set, items, and their children, won't fit
 	var/list/exception_hold           //if set, these items will be the exception to the max size of object that can fit.
@@ -38,7 +44,7 @@
 
 	var/collection_mode = COLLECT_EVERYTHING
 
-	var/insert_preposition = "in"					//you put things "in" a bag, but "on" a tray.
+	var/insert_preposition = "в"					//you put things "in" a bag, but "on" a tray.
 
 	var/display_numerical_stacking = FALSE			//stack things of the same type and show as a single object with a number.
 
@@ -66,6 +72,8 @@
 		return COMPONENT_INCOMPATIBLE
 	if(master)
 		change_master(master)
+	src.parent_location = WEAKREF(parent)
+	src.storage_location = src.parent_location
 	boxes = new(null, src)
 	closer = new(null, src)
 	orient2hud()
@@ -110,6 +118,8 @@
 	update_actions()
 
 /datum/component/storage/Destroy()
+	parent_location = null
+	storage_location = null
 	close_all()
 	QDEL_NULL(boxes)
 	QDEL_NULL(closer)
@@ -621,6 +631,14 @@
 //This proc return 1 if the item can be picked up and 0 if it can't.
 //Set the stop_messages to stop it from printing messages
 /datum/component/storage/proc/can_be_inserted(obj/item/I, stop_messages = FALSE, mob/M)
+	var/obj/item/resolve_parent = parent_location?.resolve()
+	if(!resolve_parent)
+		return
+
+	var/obj/item/resolve_location = storage_location?.resolve()
+	if(!resolve_location)
+		return
+
 	if(!istype(I) || (I.item_flags & ABSTRACT))
 		return FALSE //Not an item
 	if(I == parent)
@@ -688,6 +706,9 @@
 /datum/component/storage/proc/handle_item_insertion(obj/item/I, prevent_warning = FALSE, mob/M, datum/component/storage/remote)
 	var/atom/parent = src.parent
 	var/datum/component/storage/concrete/master = master()
+	var/obj/item/resolve_location = storage_location?.resolve()
+	if(!resolve_location)
+		return FALSE
 	if(!istype(master))
 		return FALSE
 	if(silent)
@@ -885,3 +906,39 @@
 			to_chat(user, "<span class='notice'>[parent] now picks up all items in a tile at once.</span>")
 		if(COLLECT_ONE)
 			to_chat(user, "<span class='notice'>[parent] now picks up one item at a time.</span>")
+
+/**
+ * Sets where items are physically being stored in the case it shouldn't be on the parent.
+ *
+ * @param atom/real the new real location of the datum
+ * @param should_drop if TRUE, all the items in the old real location will be dropped
+ */
+/datum/component/storage/proc/set_real_location(atom/real, should_drop = FALSE)
+	if(!real)
+		return
+	change_master(src)
+	var/atom/resolve_location = src.storage_location?.resolve()
+	if(!resolve_location)
+		return
+	//if(I == parent)
+	//	return FALSE
+	var/datum/component/storage/concrete/master = master()
+	if(!istype(master))
+		return FALSE
+	//real.on_slave_link()
+	var/atom/resolve_parent = src.parent_location?.resolve()
+	if(!resolve_parent)
+		return
+
+	if(should_drop)
+		dump_content_at(get_turf(resolve_parent))
+
+	resolve_location.flags_1 &= ~HAS_DISASSOCIATED_STORAGE_1
+	real.flags_1 |= HAS_DISASSOCIATED_STORAGE_1
+
+	UnregisterSignal(resolve_location, list(COMSIG_ATOM_ENTERED, COMSIG_ATOM_EXITED))
+
+	//RegisterSignal(real, COMSIG_ATOM_ENTERED, PROC_REF(handle_enter))
+	//RegisterSignal(real, COMSIG_ATOM_EXITED, PROC_REF(handle_exit))
+
+	storage_location = WEAKREF(real)
