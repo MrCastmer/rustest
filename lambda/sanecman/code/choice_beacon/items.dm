@@ -41,7 +41,7 @@
 	icon = 'lambda/sanecman/icons/items/uplink.dmi'
 	icon_state = "emergency"
 
-/obj/item/uplink/emengercy/Initialize(mapload, owner, tc_amount = 10)
+/obj/item/uplink/emengercy/Initialize(mapload, owner, tc_amount = 5)
 	. = ..()
 	var/datum/component/uplink/hidden_uplink = GetComponent(/datum/component/uplink)
 	hidden_uplink.name = "экстренный аплинк"
