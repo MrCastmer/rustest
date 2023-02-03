@@ -40,7 +40,7 @@
 	. = ..()
 	. += "<hr><span class='info'>Примерное время создания объекта: [time2text(get_replication_speed(tier_rate), "mm:ss")].</span>\n"
 	. += "<span class='info'>Оставшееся время: [timeleft(timer)] секунд.</span>\n"
-	. += "<span class='info'>Внутри запасено: <b>[crystals]/[max_crystals] человеческой кожи</b>.</span>\n"
+	. += "<span class='info'>Внутри запасено: <b>[crystals]/[max_crystals] блюспейс кристалов</b>.</span>\n"
 	. += span_info("Накоплено энергии: <b>[num2loadingbar((siphon_max-siphoned_power)/siphon_max, 10, reverse = TRUE)] [display_power(siphoned_power)]/[display_power(siphon_max)]</b>.")
 	. += "<hr><span class='notice'>Похоже, ему требуется подключение к энергосети через кабель.</span>"
 
@@ -56,7 +56,7 @@
 		icon_state = "apparatus"
 
 /obj/machinery/copytech/attacked_by(obj/item/I, mob/living/user)
-	if(istype(I, /obj/item/stack/sheet/animalhide/human))
+	if(istype(I, /obj/item/stack/ore/bluespace_crystal) || istype(I, /obj/item/stack/sheet/bluespace_crystal))
 		if(crystals >= max_crystals)
 			to_chat(user, span_warning("Перебор!"))
 			return
@@ -87,7 +87,7 @@
 		say("Не обнаружено дизайна. Разберите что-то сперва на дезинтегрирующей платформе!")
 		return
 	if(!crystals)
-		say("Недостаточно человеческой кожи для начала работы!")
+		say("Недостаточно блюспейс кристалов для начала работы!")
 		return
 	start_working()
 
