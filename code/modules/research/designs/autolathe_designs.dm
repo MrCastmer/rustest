@@ -344,26 +344,26 @@
 	category = list("initial","Construction")
 
 /datum/design/kitchen_knife
-	name = "Kitchen Knife"
+	name = "Тесак"
 	id = "kitchen_knife"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 12000)
+	materials = list(MAT_CATEGORY_RIGID = 12000)
 	build_path = /obj/item/kitchen/knife
 	category = list("initial","Dinnerware")
 
 /datum/design/plastic_knife
-	name = "Plastic Knife"
+	name = "Нож"
 	id = "plastic_knife"
 	build_type = AUTOLATHE | PROTOLATHE
-	materials = list(/datum/material/plastic = 100)
+	materials = list(MAT_CATEGORY_RIGID = 100)
 	build_path = /obj/item/kitchen/knife/plastic
 	category = list("initial", "Tool Designs","Dinnerware")
 
 /datum/design/fork
-	name = "Fork"
+	name = "Вилка"
 	id = "fork"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 80)
+	materials = list(MAT_CATEGORY_RIGID = 80)
 	build_path = /obj/item/kitchen/fork
 	category = list("initial","Dinnerware")
 
