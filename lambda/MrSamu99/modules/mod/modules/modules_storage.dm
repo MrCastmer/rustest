@@ -11,8 +11,9 @@
 	//var/max_combined_w_class = 15
 	/// Max amount of items in the storage.
 	//var/max_items = 7
+	locked = FALSE
 
-/obj/item/mod/module/storage/Initialize()
+/obj/item/mod/module/storage/Initialize(mapload)
 	. = ..()
 	PopulateContents()
 
@@ -32,14 +33,17 @@
 	modstorage.max_w_class = max_w_class
 	modstorage.max_items = max_items
 	modstorage.locked = FALSE
+	mod.locked = FALSE
 	modstorage.change_master(mod)
 	RegisterSignal(mod.chestplate, COMSIG_ITEM_PRE_UNEQUIP, PROC_REF(on_chestplate_unequip))
 
 /obj/item/mod/module/storage/on_uninstall(deleting = FALSE)
-	//var/datum/component/storage/modstorage = mod.GetComponent(/datum/component/storage)
-	mod.locked = TRUE
+	var/datum/component/storage/modstorage = mod.GetComponent(/datum/component/storage)
+	//mod.locked = TRUE
 	mod.max_combined_w_class = 0
 	mod.max_items = 0
+	modstorage.locked = TRUE
+	modstorage.dump_content_at(get_dumping_location(mod, mod.wearer), mod.wearer)
 	//qdel(modstorage)
 	//if(!deleting)
 	//	mod.dump_content_at(get_dumping_location(mod, mod.wearer), mod.wearer)
@@ -64,6 +68,7 @@
 	STR.max_combined_w_class = 15
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_items = 7
+	STR.allow_big_nesting = TRUE
 	STR.use_sound = 'sound/items/storage/briefcase.ogg'
 
 /obj/item/mod/module/storage/large_capacity
@@ -77,6 +82,7 @@
 	STR.max_combined_w_class = 21
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_items = 14
+	STR.allow_big_nesting = TRUE
 	STR.use_sound = 'sound/items/storage/briefcase.ogg'
 
 /obj/item/mod/module/storage/syndicate
@@ -90,6 +96,7 @@
 	STR.max_combined_w_class = 30
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_items = 21
+	STR.allow_big_nesting = TRUE
 	STR.use_sound = 'sound/items/storage/briefcase.ogg'
 
 /obj/item/mod/module/storage/bluespace
@@ -103,6 +110,7 @@
 	STR.max_combined_w_class = 60
 	STR.max_w_class = WEIGHT_CLASS_GIGANTIC
 	STR.max_items = 21
+	STR.allow_big_nesting = TRUE
 	STR.use_sound = 'sound/items/storage/briefcase.ogg'
 
 
