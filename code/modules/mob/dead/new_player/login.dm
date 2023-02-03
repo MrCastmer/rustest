@@ -13,6 +13,10 @@
 	if(!. || !client)
 		return FALSE
 
+	if(!SSviolence.active) // we don't care about fuckers in this mode
+		spawn(-1)
+			client.crawler_sanity_check()
+
 	var/motd = global.config.motd
 	if(motd)
 		to_chat(src, "<div class=\"motd\">[motd]</div>", handle_whitespace=FALSE)
