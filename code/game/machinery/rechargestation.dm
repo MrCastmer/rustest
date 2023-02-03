@@ -1,6 +1,6 @@
 /obj/machinery/recharge_station
-	name = "cyborg recharging station"
-	desc = "This device recharges cyborgs and resupplies them with materials."
+	name = "станция зарядки киборгов"
+	desc = "Станция для зарядки киборгов, МОД скафандров и устроиств с портом зарядки."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "borgcharger0"
 	density = FALSE
@@ -36,9 +36,9 @@
 /obj/machinery/recharge_station/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += "<span class='notice'>The status display reads: Recharging <b>[recharge_speed]J</b> per cycle.</span>"
+		. += "<span class='notice'>Дисплей показывает: Зарядка идёт на <b>[recharge_speed]J</b> каждый цикл.</span>"
 		if(repairs)
-			. += "<span class='notice'>[src] has been upgraded to support automatic repairs.</span>"
+			. += "<span class='notice'>- Автопочинка киборгов включена.</span>"
 
 
 /obj/machinery/recharge_station/on_set_is_operational(old_value)

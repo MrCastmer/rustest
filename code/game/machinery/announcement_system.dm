@@ -2,8 +2,8 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 
 /obj/machinery/announcement_system
 	density = TRUE
-	name = "\improper Automated Announcement System"
-	desc = "An automated announcement system that handles minor announcements over the radio."
+	name = "автоматическая система оповещения"
+	desc = "Оповещает в стандартный канал о новых членах экипажа."
 	icon = 'icons/obj/machines/telecomms.dmi'
 	icon_state = "AAS_On"
 
@@ -17,9 +17,9 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	circuit = /obj/item/circuitboard/machine/announcement_system
 
 	var/obj/item/radio/headset/radio
-	var/arrival = "%PERSON has signed up as %RANK"
+	var/arrival = "%PERSON проснулся в крио с должностью %RANK"
 	var/arrivalToggle = 1
-	var/newhead = "%PERSON, %RANK, is the department head."
+	var/newhead = "%PERSON, %RANK, важная персона."
 	var/newheadToggle = 1
 
 	var/greenlight = "Light_Green"
@@ -58,12 +58,12 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	if(P.tool_behaviour == TOOL_SCREWDRIVER)
 		P.play_tool_sound(src)
 		panel_open = !panel_open
-		to_chat(user, "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of [src].</span>")
+		balloon_alert(user, "[panel_open ? "Открываю" : "Закрываю"] панель обслуживания.")
 		update_icon()
 	else if(default_deconstruction_crowbar(P))
 		return
 	else if(P.tool_behaviour == TOOL_MULTITOOL && panel_open && (machine_stat & BROKEN))
-		to_chat(user, "<span class='notice'>You reset [src]'s firmware.</span>")
+		balloon_alert(user, "Перезагружаю систему...")
 		set_machine_stat(machine_stat & ~BROKEN)
 		update_icon()
 	else
@@ -85,11 +85,11 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	else if(message_type == "NEWHEAD" && newheadToggle)
 		message = CompileText(newhead, user, rank)
 	else if(message_type == "AIWIPE" && newheadToggle)
-		message = CompileText("%PERSON has been moved to intelligence storage.", user, rank)
+		message = CompileText("%PERSON был перемещён в камеру хранения.", user, rank)
 	else if(message_type == "CRYOSTORAGE")
-		message = CompileText("%PERSON, %RANK has been moved to cryo storage.", user, rank)
+		message = CompileText("%PERSON, %RANK был помещён в криосон.", user, rank)
 	else if(message_type == "ARRIVALS_BROKEN")
-		message = "The arrivals shuttle has been damaged. Docking for repairs..."
+		message = "Криосонные капсулы повреждены, требуется ремонт."
 
 	if(channels.len == 0)
 		radio.talk_into(src, message, null)
@@ -118,7 +118,7 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	if(!usr.canUseTopic(src, !issilicon(usr)))
 		return
 	if(machine_stat & BROKEN)
-		visible_message("<span class='warning'>[src] buzzes.</span>", "<span class='hear'>You hear a faint buzz.</span>")
+		visible_message("<span class='warning'>[src] жужжит.</span>", "<span class='hear'>Слышу жужжание.</span>")
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, TRUE)
 		return
 	switch(action)
@@ -151,7 +151,7 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	if(!user.canUseTopic(src, !issilicon(user)))
 		return
 	if(machine_stat & BROKEN)
-		to_chat(user, "<span class='warning'>[src]'s firmware appears to be malfunctioning!</span>")
+		balloon_alert(user, "Не работает!")
 		return
 	interact(user)
 
@@ -159,8 +159,8 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	if(!obj_break()) // if badmins flag this unbreakable or its already broken
 		return
 
-	arrival = pick("#!@%ERR-34%2 CANNOT LOCAT@# JO# F*LE!", "CRITICAL ERROR 99.", "ERR)#: DA#AB@#E NOT F(*ND!")
-	newhead = pick("OV#RL()D: \[UNKNOWN??\] DET*#CT)D!", "ER)#R - B*@ TEXT F*O(ND!", "AAS.exe is not responding. NanoOS is searching for a solution to the problem.")
+	arrival = pick("#!@%ОШИ-34%2 НЕВОЗМОЖНО НАЙТ@# ФАЙ# ПРОФ*ЕССИЙ!", "КРИТИЧЕСКАЯ ОШИБКА 99.", "ОШИБ)#: БАЗ#ДАН@#Х НЕ Н(*НА!")
+	newhead = pick("ПЕРЕГ#З()А: \[НЕИЗВЕСТНО??\] ОБН*#ЖЕ)Н!", "ОШ)#А - Б*@ ТЕКСТ Н*А(ЕН!", "AAS.exe не отвечает. NanoOS ищет проблему.")
 
 /obj/machinery/announcement_system/emp_act(severity)
 	. = ..()

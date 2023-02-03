@@ -1,6 +1,6 @@
 /obj/machinery/pdapainter
-	name = "\improper PDA painter"
-	desc = "A PDA painting machine. To use, simply insert your PDA and choose the desired preset paint scheme."
+	name = "окрашиватель ПДА"
+	desc = "Меняет цвет ПДА по встроенным в него цветам."
 	icon = 'icons/obj/pda.dmi'
 	icon_state = "pdapainter"
 	density = TRUE
@@ -69,13 +69,13 @@
 		if(O.tool_behaviour == TOOL_WELDER && user.a_intent != INTENT_HARM)
 			if(!O.tool_start_check(user, amount=0))
 				return
-			user.visible_message("<span class='notice'>[user] is repairing [src].</span>", \
-							"<span class='notice'>You begin repairing [src]...</span>", \
-							"<span class='hear'>You hear welding.</span>")
+			user.visible_message("<span class='notice'>[user] чинит [src].</span>", \
+							"<span class='notice'>Начинаю чинить [src]...</span>", \
+							"<span class='hear'>Слышу звук сварки.</span>")
 			if(O.use_tool(src, user, 40, volume=50))
 				if(!(machine_stat & BROKEN))
 					return
-				to_chat(user, "<span class='notice'>You repair [src].</span>")
+				balloon_alert(user, "Восстанавливаю [src].")
 				set_machine_stat(machine_stat & ~BROKEN)
 				obj_integrity = max_integrity
 				update_icon()
@@ -89,7 +89,7 @@
 
 	else if(istype(O, /obj/item/pda))
 		if(storedpda)
-			to_chat(user, "<span class='warning'>There is already a PDA inside!</span>")
+			balloon_alert(user, "Внутри уже есть ПДА!")
 			return
 		else if(!user.transferItemToLoc(O, src))
 			return
@@ -111,10 +111,10 @@
 	if(storedpda)
 		if(machine_stat & BROKEN)	//otherwise the PDA is stuck until repaired
 			ejectpda()
-			to_chat(user, "<span class='info'>You manage to eject the loaded PDA.</span>")
+			balloon_alert(user, "<span class='info'>Вытаскиваю ПДА.</span>")
 		else
 			var/obj/item/pda/P
-			P = input(user, "Select your color!", "PDA Painting") as null|anything in sortNames(colorlist)
+			P = input(user, "Выбери цвет!", "Окрашиватель ПДА") as null|anything in sortNames(colorlist)
 			if(!P)
 				return
 			if(!in_range(src, user))
@@ -126,7 +126,7 @@
 			ejectpda()
 
 	else
-		to_chat(user, "<span class='warning'>[src] is empty!</span>")
+		balloon_alert(user, "Вставьте сначала ПДА!")
 
 
 /obj/machinery/pdapainter/verb/ejectpda()
@@ -142,4 +142,4 @@
 		storedpda = null
 		update_icon()
 	else
-		to_chat(usr, "<span class='warning'>[src] is empty!</span>")
+		balloon_alert(usr, "Тут ничего нет!")

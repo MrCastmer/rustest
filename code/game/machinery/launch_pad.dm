@@ -1,6 +1,6 @@
 /obj/machinery/launchpad
-	name = "bluespace launchpad"
-	desc = "A bluespace pad able to thrust matter through bluespace, teleporting it to or from nearby locations."
+	name = "блюспейс платформа"
+	desc = "Платформа которая телепортирует существ и предметы на небольшие расстояния. Была разработана вскоре после запрета теленауки."
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "lpad-idle"
 	use_power = TRUE
@@ -49,7 +49,7 @@
 /obj/machinery/launchpad/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += "<span class='notice'>The status display reads: Maximum range: <b>[range]</b> units.</span>"
+		. += "<span class='notice'>Дисплей показывает: Максимальное расстояние - <b>[range]</b> плиток.</span>"
 
 /obj/machinery/launchpad/attackby(obj/item/I, mob/user, params)
 	if(stationary)
@@ -63,7 +63,7 @@
 					return
 				var/obj/item/multitool/M = I
 				M.buffer = src
-				to_chat(user, "<span class='notice'>You save the data in the [I.name]'s buffer.</span>")
+				balloon_alert(user, "Сохраняю данные о [I.name] в буфер.")
 				return 1
 
 		if(default_deconstruction_crowbar(I))
@@ -109,13 +109,13 @@
 
 /obj/machinery/launchpad/proc/doteleport(mob/user, sending)
 	if(teleporting)
-		to_chat(user, "<span class='warning'>ERROR: Launchpad busy.</span>")
+		to_chat(user, "<span class='warning'>ОШИБКА: Платформа занята.</span>")
 		return
 
 	var/turf/dest = get_turf(src)
 
 	if(dest && (is_centcom_level(dest) || (dest.virtual_z() != virtual_z())))
-		to_chat(user, "<span class='warning'>ERROR: Launchpad not operative. Heavy area shielding makes teleporting impossible.</span>")
+		to_chat(user, "<span class='warning'>ОШИБКА: Платформа не может работать. Возможно ты находишься в запрещённой зоне.</span>")
 		return
 
 	var/target_x = x + x_offset
@@ -210,8 +210,8 @@
 
 //Starts in the briefcase. Don't spawn this directly, or it will runtime when closing.
 /obj/machinery/launchpad/briefcase
-	name = "briefcase launchpad"
-	desc = "A portable bluespace pad able to thrust matter through bluespace, teleporting it to or from nearby locations. Controlled via remote."
+	name = "чемоданный телепорт"
+	desc = "Платформа которая телепортирует существ и предметы на небольшие расстояния. Была разработана вскоре после запрета теленауки. Управляется с помощью пульта."
 	icon_state = "blpad-idle"
 	icon_teleport = "blpad-beam"
 	anchored = FALSE
@@ -247,7 +247,7 @@
 			return
 		if(!usr.canUseTopic(src, BE_CLOSE, ismonkey(usr)))
 			return
-		usr.visible_message("<span class='notice'>[usr] starts closing [src]...</span>", "<span class='notice'>You start closing [src]...</span>")
+		usr.visible_message("<span class='notice'>[usr] начинает закрывать [src]...</span>", "<span class='notice'>Закрываю [src]...</span>")
 		if(do_after(usr, 30, target = usr))
 			usr.put_in_hands(briefcase)
 			moveToNullspace() //hides it from suitcase contents
@@ -260,7 +260,7 @@
 		if(L.pad == src) //do not attempt to link when already linked
 			return ..()
 		L.pad = src
-		to_chat(user, "<span class='notice'>You link [src] to [L].</span>")
+		balloon_alert(user, "Связываю [src] с [L].")
 	else
 		return ..()
 
@@ -299,7 +299,7 @@
 		if(L.pad == src.pad) //do not attempt to link when already linked
 			return ..()
 		L.pad = src.pad
-		to_chat(user, "<span class='notice'>You link [pad] to [L].</span>")
+		balloon_alert(user, "Подключаю [pad] к [L].")
 	else
 		return ..()
 
@@ -348,10 +348,10 @@
 
 /obj/item/launchpad_remote/proc/teleport(mob/user, obj/machinery/launchpad/pad)
 	if(QDELETED(pad))
-		to_chat(user, "<span class='warning'>ERROR: Launchpad not responding. Check launchpad integrity.</span>")
+		to_chat(user, "<span class='warning'>ОШИБКА: Платформа не отвечает.</span>")
 		return
 	if(!pad.isAvailable())
-		to_chat(user, "<span class='warning'>ERROR: Launchpad not operative. Make sure the launchpad is ready and powered.</span>")
+		to_chat(user, "<span class='warning'>ОШИБКА: Вы пытаетесь активировать телепорт в запрещённую локацию.</span>")
 		return
 	pad.doteleport(user, sending)
 
@@ -382,7 +382,7 @@
 			pad.display_name = new_name
 		if("remove")
 			. = TRUE
-			if(usr && alert(usr, "Are you sure?", "Unlink Launchpad", "I'm Sure", "Abort") != "Abort")
+			if(usr && alert(usr, "Ты уверен?", "Разовать подключение", "Да я уверен", "Отмена") != "Отмена")
 				pad = null
 		if("launch")
 			sending = TRUE
