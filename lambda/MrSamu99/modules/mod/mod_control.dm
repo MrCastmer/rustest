@@ -173,7 +173,7 @@
 	RegisterSignal(src, COMSIG_ATOM_EXITED, PROC_REF(on_exit))
 	RegisterSignal(src, COMSIG_SPEED_POTION_APPLIED, PROC_REF(on_potion))
 	movedelay = CONFIG_GET(number/movedelay/run_delay)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage/concrete)
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_combined_w_class = 0
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_items = 0
