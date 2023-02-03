@@ -12,3 +12,8 @@
 
 #define TESLA_DEFAULT_POWER 1738260
 #define TESLA_MINI_POWER 869130
+
+///conversion ratio from joules to watts
+#define WATTS / 0.002
+///conversion ratio from watts to joules
+#define JOULES * 0.002
