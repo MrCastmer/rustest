@@ -173,8 +173,6 @@
 		if(!center_vlevel.is_in_bounds(T))
 			continue // Out of bounds of our vlevel. Can happen if the precision is low that it may wanted to pick a level adjacent to this one
 		var/area/A = T.loc
-		if(!(A.area_flags & NOTELEPORT))
-			posturfs.Add(T)
 	return posturfs
 
 /proc/get_teleport_turf(turf/current, turf/destination, precision = 0, restrain_vlevel = TRUE)

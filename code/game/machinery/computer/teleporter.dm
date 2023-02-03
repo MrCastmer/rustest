@@ -176,6 +176,6 @@
 	if(is_centcom_level(T) || is_away_level(T))
 		return FALSE
 	var/area/A = get_area(T)
-	if(!A ||(A.area_flags & NOTELEPORT))
+	if(!A)
 		return FALSE
 	return TRUE
