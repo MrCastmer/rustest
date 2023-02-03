@@ -34,7 +34,7 @@
 	modstorage.max_items = max_items
 	modstorage.locked = FALSE
 	mod.locked = FALSE
-	modstorage.change_master(mod)
+	//modstorage.change_master(mod)
 	RegisterSignal(mod.chestplate, COMSIG_ITEM_PRE_UNEQUIP, PROC_REF(on_chestplate_unequip))
 
 /obj/item/mod/module/storage/on_uninstall(deleting = FALSE)
