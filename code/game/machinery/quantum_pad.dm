@@ -1,6 +1,6 @@
 /obj/machinery/quantumpad
-	name = "quantum pad"
-	desc = "A bluespace quantum-linked telepad used for teleporting objects to other quantum pads."
+	name = "квантовая площадка"
+	desc = "Телепад с квантовой связью в блюспейс пространстве, используемый для телепортации объектов на другие квантовые площадки."
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "qpad-idle"
 	use_power = IDLE_POWER_USE
@@ -31,11 +31,11 @@
 
 /obj/machinery/quantumpad/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>It is [ linked_pad ? "currently" : "not"] linked to another pad.</span>"
+	. += "<span class='notice'>Он [ linked_pad ? "" : "не"] подключён.</span>"
 	if(!panel_open)
-		. += "<span class='notice'>The panel is <i>screwed</i> in, obstructing the linking device.</span>"
+		. += "<span class='notice'>Видно <i>открученную</i> панель.</span>"
 	else
-		. += "<span class='notice'>The <i>linking</i> device is now able to be <i>scanned<i> with a multitool.</span>"
+		. += "<span class='notice'>Можно <i>подключить</i> с помощью <i>мультитула<i>.</span>"
 
 /obj/machinery/quantumpad/RefreshParts()
 	var/E = 0
@@ -60,7 +60,7 @@
 				return
 			var/obj/item/multitool/M = I
 			M.buffer = src
-			to_chat(user, "<span class='notice'>You save the data in [I]'s buffer. It can now be saved to pads with closed panels.</span>")
+			to_chat(user, "<span class='notice'>Сохраняю данные в буфер [I]. Теперь можно подключить к другим площадкам с закрытой панелью.</span>")
 			return TRUE
 	else if(I.tool_behaviour == TOOL_MULTITOOL)
 		if(!multitool_check_buffer(user, I))
@@ -68,25 +68,25 @@
 		var/obj/item/multitool/M = I
 		if(istype(M.buffer, /obj/machinery/quantumpad))
 			if(M.buffer == src)
-				to_chat(user, "<span class='warning'>You cannot link a pad to itself!</span>")
+				to_chat(user, "<span class='warning'>Нельзя подключить к одной и той же площадке!</span>")
 				return TRUE
 			else
 				linked_pad = M.buffer
-				to_chat(user, "<span class='notice'>You link [src] to the one in [I]'s buffer.</span>")
+				to_chat(user, "<span class='notice'>Связываю [src] с помощью [I].</span>")
 				return TRUE
 		else
-			to_chat(user, "<span class='warning'>There is no quantum pad data saved in [I]'s buffer!</span>")
+			to_chat(user, "<span class='warning'>В [I] нету данных о другой площадке!</span>")
 			return TRUE
 
 	else if(istype(I, /obj/item/quantum_keycard))
 		var/obj/item/quantum_keycard/K = I
 		if(K.qpad)
-			to_chat(user, "<span class='notice'>You insert [K] into [src]'s card slot, activating it.</span>")
+			to_chat(user, "<span class='notice'>Вставляю [K] в [src], активируя его.</span>")
 			interact(user, K.qpad)
 		else
-			to_chat(user, "<span class='notice'>You insert [K] into [src]'s card slot, initiating the link procedure.</span>")
+			to_chat(user, "<span class='notice'>Вставляю [K] в [src], подключая его.</span>")
 			if(do_after(user, 40, target = src))
-				to_chat(user, "<span class='notice'>You complete the link between [K] and [src].</span>")
+				to_chat(user, "<span class='notice'>Закончил подключать [K] к [src].</span>")
 				K.qpad = src
 
 	if(default_deconstruction_crowbar(I))
@@ -97,23 +97,23 @@
 /obj/machinery/quantumpad/interact(mob/user, obj/machinery/quantumpad/target_pad = linked_pad)
 	if(!target_pad || QDELETED(target_pad))
 		if(!map_pad_link_id || !initMappedLink())
-			to_chat(user, "<span class='warning'>Target pad not found!</span>")
+			to_chat(user, "<span class='warning'>Другая площадка не обнаружена!</span>")
 			return
 
 	if(world.time < last_teleport + teleport_cooldown)
-		to_chat(user, "<span class='warning'>[src] is recharging power. Please wait [DisplayTimeText(last_teleport + teleport_cooldown - world.time)].</span>")
+		to_chat(user, "<span class='warning'>[src] перезаряжается. Подождите ещё [DisplayTimeText(last_teleport + teleport_cooldown - world.time)].</span>")
 		return
 
 	if(teleporting)
-		to_chat(user, "<span class='warning'>[src] is charging up. Please wait.</span>")
+		to_chat(user, "<span class='warning'>[src] запускается, подождите.</span>")
 		return
 
 	if(target_pad.teleporting)
-		to_chat(user, "<span class='warning'>Target pad is busy. Please wait.</span>")
+		to_chat(user, "<span class='warning'>Целевая площадка занята, ждите..</span>")
 		return
 
 	if(target_pad.machine_stat & NOPOWER)
-		to_chat(user, "<span class='warning'>Target pad is not responding to ping.</span>")
+		to_chat(user, "<span class='warning'>Целевая площадка не отвечает.</span>")
 		return
 	add_fingerprint(user)
 	doteleport(user, target_pad)
@@ -142,11 +142,11 @@
 				teleporting = FALSE
 				return
 			if(machine_stat & NOPOWER)
-				to_chat(user, "<span class='warning'>[src] is unpowered!</span>")
+				to_chat(user, "<span class='warning'>[src] не может работать без энергии!</span>")
 				teleporting = FALSE
 				return
 			if(!target_pad || QDELETED(target_pad) || target_pad.machine_stat & NOPOWER)
-				to_chat(user, "<span class='warning'>Linked pad is not responding to ping. Teleport aborted.</span>")
+				to_chat(user, "<span class='warning'>Целевая площадка не отвечает. Отменяем телепорт.</span>")
 				teleporting = FALSE
 				return
 
