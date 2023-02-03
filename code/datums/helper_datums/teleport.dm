@@ -63,8 +63,6 @@
 	if(!destturf || !curturf)
 		return FALSE
 
-	var/area/A = get_area(curturf)
-	var/area/B = get_area(destturf)
 	if(!forced && (HAS_TRAIT(teleatom, TRAIT_NO_TELEPORT)))
 		return FALSE
 
@@ -160,8 +158,6 @@
 	// Trying to teleport into unallocated space
 	if(!center_vlevel)
 		return
-	if(restrain_vlevel)
-		var/datum/virtual_level/current_vlevel = current.get_virtual_level()
 	if(!precision)
 		if(center.is_transition_turf())
 			return
@@ -172,7 +168,6 @@
 			continue // Avoid picking these.
 		if(!center_vlevel.is_in_bounds(T))
 			continue // Out of bounds of our vlevel. Can happen if the precision is low that it may wanted to pick a level adjacent to this one
-		var/area/A = T.loc
 	return posturfs
 
 /proc/get_teleport_turf(turf/current, turf/destination, precision = 0, restrain_vlevel = TRUE)

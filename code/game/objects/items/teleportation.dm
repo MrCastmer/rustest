@@ -171,7 +171,6 @@
 		user.show_message("<span class='notice'>\The [src] is recharging!</span>")
 		return
 	var/atom/T = L[t1]
-	var/area/A = get_area(T)
 	current_location = get_turf(user)	//Recheck.
 	current_area = current_location.loc
 	if(!current_location || !isturf(user.loc))//If turf was not found or they're on z level 2 or >7 which does not currently exist. or if user is not located on a turf
