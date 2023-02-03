@@ -36,12 +36,12 @@ export const ShipSelect = (props, context) => {
   const [searchText, setSearchText] = useLocalState(context, 'searchText', '');
 
   return (
-    <Window title="Ship Select" width={800} height={600} resizable>
+    <Window title="Войти в игру" width={800} height={600} resizable>
       <Window.Content scrollable>
         <Tabs>
-          <Tabs.Tab selected={tab === 1}>Ship Select</Tabs.Tab>
-          <Tabs.Tab selected={tab === 2}>Job Select</Tabs.Tab>
-          <Tabs.Tab selected={tab === 3}>Ship Purchase</Tabs.Tab>
+          <Tabs.Tab selected={tab === 1}>СУДНО</Tabs.Tab>
+          <Tabs.Tab selected={tab === 2}>ПРОФЕССИЯ</Tabs.Tab>
+          <Tabs.Tab selected={tab === 3}>ПОКУПКА</Tabs.Tab>
         </Tabs>
         {tab === 1 && (
           <Section
