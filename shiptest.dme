@@ -3511,6 +3511,7 @@
 #include "lambda\sanecman\code\integrated_circuits_snitch\integrated_electronics\subtypes\text.dm"
 #include "lambda\sanecman\code\integrated_circuits_snitch\integrated_electronics\subtypes\time.dm"
 #include "lambda\sanecman\code\integrated_circuits_snitch\integrated_electronics\subtypes\trig.dm"
+#include "lambda\sanecman\code\copytech.dm"
 #include "lambda\sanecman\code\serverside\crawler.dm"
 #include "lambda\sanecman\code\serverside\padezhi.dm"
 #include "lambda\sanecman\code\serverside\pronouns_ru.dm"
