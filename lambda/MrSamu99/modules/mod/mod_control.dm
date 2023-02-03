@@ -3,12 +3,11 @@
 	name = "Базовый MOD"
 	desc = "Ты не должен видеть это, сообщи кодерам об этом!"
 	icon = 'icons/obj/clothing/modsuit/mod_clothing.dmi'
-	mob_overlay_icon = 'icons/mob/clothing/modsuit/mod_clothing.dmi'
-	var/component_type = /datum/component/storage/concrete
+	var/component_type = /datum/component/storage
 	var/max_w_class = WEIGHT_CLASS_TINY			//max size of objects that will fit.
 	var/max_combined_w_class = 0					//max combined sizes of objects that will fit.
 	var/max_items = 0	
-	var/locked = TRUE
+	var/locked = FALSE
  
 /obj/item/mod/Initialize()
 	. = ..()
@@ -59,6 +58,7 @@
 	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT
 	siemens_coefficient = 0.5
 	alternate_worn_layer = HANDS_LAYER+0.1 //we want it to go above generally everything, but not hands
+	mob_overlay_icon = 'icons/mob/clothing/modsuit/mod_clothing.dmi'
 	/// The MOD's theme, decides on some stuff like armor and statistics.
 	var/datum/mod_theme/theme = /datum/mod_theme
 	var/ru_name = "блок управления МОД-Скафа"
@@ -122,6 +122,7 @@
 	COOLDOWN_DECLARE(cooldown_mod_move)
 	/// Person wearing the MODsuit.
 	var/mob/living/carbon/human/wearer
+	locked = FALSE
 
 /obj/item/mod/control/Initialize(mapload, datum/mod_theme/new_theme, new_skin, obj/item/mod/core/new_core)
 	. = ..()
@@ -172,16 +173,16 @@
 	RegisterSignal(src, COMSIG_ATOM_EXITED, PROC_REF(on_exit))
 	RegisterSignal(src, COMSIG_SPEED_POTION_APPLIED, PROC_REF(on_potion))
 	movedelay = CONFIG_GET(number/movedelay/run_delay)
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage/concrete)
+	STR.max_combined_w_class = 0
+	STR.max_w_class = WEIGHT_CLASS_NORMAL
+	STR.max_items = 0
+	STR.locked = FALSE
+	STR.use_sound = 'sound/items/storage/briefcase.ogg'
 
 /obj/item/mod/control/ComponentInitialize()
 	. = ..()
 	AddComponent(component_type)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 0
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_items = 0
-	STR.locked = TRUE
-	STR.use_sound = 'sound/items/storage/briefcase.ogg'
 
 /obj/item/mod/control/Destroy()
 	if(active)
