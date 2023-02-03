@@ -45,10 +45,10 @@ export const ShipSelect = (props, context) => {
         </Tabs>
         {tab === 1 && (
           <Section
-            title="Active Ship Selection"
+            title="Активные суда в данном секторе"
             buttons={
               <Button
-                content="Purchase Ship"
+                content="Купить судно"
                 onClick={() => {
                   setTab(3);
                 }}
@@ -57,9 +57,9 @@ export const ShipSelect = (props, context) => {
           >
             <Table>
               <Table.Row header>
-                <Table.Cell collapsing>Join</Table.Cell>
-                <Table.Cell>Ship Name</Table.Cell>
-                <Table.Cell>Ship Class</Table.Cell>
+                <Table.Cell collapsing>Вход</Table.Cell>
+                <Table.Cell>Название</Table.Cell>
+                <Table.Cell>Класс</Table.Cell>
               </Table.Row>
               {Object.values(ships).map((ship) => (
                 <Table.Row key={ship.name}>
@@ -86,24 +86,24 @@ export const ShipSelect = (props, context) => {
         )}
         {tab === 2 && (
           <>
-            <Section title={`Ship Info - ${selectedShip.name}`}>
+            <Section title={`Информация о судне "${selectedShip.name}"`}>
               <LabeledList>
-                <LabeledList.Item label="Ship Class">
+                <LabeledList.Item label="Класс">
                   {selectedShip.class}
                 </LabeledList.Item>
-                <LabeledList.Item label="Ship Join Status">
+                <LabeledList.Item label="Статус">
                   {selectedShip.joinMode}
                 </LabeledList.Item>
-                <LabeledList.Item label="Ship Memo">
-                  {selectedShip.memo || 'No Memo'}
+                <LabeledList.Item label="От капитана">
+                  {selectedShip.memo || '-'}
                 </LabeledList.Item>
               </LabeledList>
             </Section>
             <Section
-              title="Job Selection"
+              title="Выбери профессию"
               buttons={
                 <Button
-                  content="Back"
+                  content="Назад"
                   onClick={() => {
                     setTab(1);
                   }}
@@ -112,9 +112,9 @@ export const ShipSelect = (props, context) => {
             >
               <Table>
                 <Table.Row header>
-                  <Table.Cell collapsing>Join</Table.Cell>
-                  <Table.Cell>Job Name</Table.Cell>
-                  <Table.Cell>Slots</Table.Cell>
+                  <Table.Cell collapsing>Войти</Table.Cell>
+                  <Table.Cell>Профессия</Table.Cell>
+                  <Table.Cell>Осталось мест</Table.Cell>
                 </Table.Row>
                 {selectedShip.jobs.map((job) => (
                   <Table.Row key={job.name}>
@@ -139,18 +139,18 @@ export const ShipSelect = (props, context) => {
         )}
         {tab === 3 && (
           <Section
-            title="Ship Purchase"
+            title="Купить судно"
             buttons={
               <>
                 <Input
-                  placeholder="Search..."
+                  placeholder="Поиск..."
                   autoFocus
                   value={searchText}
                   onInput={(_, value) => setSearchText(value)}
                 />
 
                 <Button
-                  content="Back"
+                  content="Назад"
                   onClick={() => {
                     setTab(1);
                   }}
@@ -164,7 +164,7 @@ export const ShipSelect = (props, context) => {
                 key={template.name}
                 buttons={
                   <Button
-                    content="Buy"
+                    content="Купить"
                     onClick={() => {
                       act('buy', {
                         name: template.name,
@@ -174,13 +174,13 @@ export const ShipSelect = (props, context) => {
                 }
               >
                 <LabeledList>
-                  <LabeledList.Item label="Description">
-                    {template.description || 'No Description'}
+                  <LabeledList.Item label="Описание">
+                    {template.description || 'Нет описания'}
                   </LabeledList.Item>
-                  <LabeledList.Item label="Crew">
+                  <LabeledList.Item label="Кол-во экипажа">
                     {template.crewCount}
                   </LabeledList.Item>
-                  <LabeledList.Item label="Wiki Link">
+                  <LabeledList.Item label="Вики (англ)">
                     <a
                       href={'https://shiptest.net/wiki/' + template.name}
                       target="_blank"

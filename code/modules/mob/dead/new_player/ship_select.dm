@@ -23,11 +23,11 @@
 		if("join")
 			var/datum/overmap/ship/controlled/target = locate(params["ship"]) in SSovermap.controlled_ships
 			if(!target)
-				to_chat(spawnee, "<span class='danger'>Unable to locate ship. Please contact admins!</span>")
+				to_chat(spawnee, "<span class='danger'>Судно потерялось в гиперпространстве, свяжитесь с администрацией!</span>")
 				spawnee.new_player_panel()
 				return
 			if(!target.is_join_option())
-				to_chat(spawnee, "<span class='danger'>This ship is not currently accepting new players!</span>")
+				to_chat(spawnee, "<span class='danger'>Данное судно не принимает новых игроков!</span>")
 				spawnee.new_player_panel()
 				return
 
@@ -37,29 +37,29 @@
 				if(isnull(current_application))
 					var/datum/ship_application/app = new(spawnee, target)
 					if(app.get_user_response())
-						to_chat(spawnee, "<span class='notice'>Ship application sent. You will be notified if the application is accepted.</span>")
+						to_chat(spawnee, "<span class='notice'>Заявка отправлена. Ты будешь уведомлён когда твою заявку примут.</span>")
 					else
-						to_chat(spawnee, "<span class='notice'>Application cancelled, or there was an error sending the application.</span>")
+						to_chat(spawnee, "<span class='notice'>Заяка отменена, или произошла ошибка при подаче или рассмотрении заявки.</span>")
 					return
 				switch(current_application.status)
 					if(SHIP_APPLICATION_ACCEPTED)
-						to_chat(spawnee, "<span class='notice'>Your ship application was accepted, continuing...</span>")
+						to_chat(spawnee, "<span class='notice'>Ваша заявка на вступление принята! Ожидайте...</span>")
 					if(SHIP_APPLICATION_PENDING)
-						alert(spawnee, "You already have a pending application for this ship!")
+						alert(spawnee, "У тебя уже есть действующая заявка!")
 						return
 					if(SHIP_APPLICATION_DENIED)
-						alert(spawnee, "You can't join this ship, as a previous application was denied!")
+						alert(spawnee, "Твою заявку отклонили.")
 						return
 				did_application = TRUE
 
 			if(target.join_mode == SHIP_JOIN_MODE_CLOSED || (target.join_mode == SHIP_JOIN_MODE_APPLY && !did_application))
-				to_chat(spawnee, "<span class='warning'>You cannot join this ship anymore, as its join mode has changed!</span>")
+				to_chat(spawnee, "<span class='warning'>Режим присоединения изменился!</span>")
 				return
 
 			ui.close()
 			var/datum/job/selected_job = locate(params["job"]) in target.job_slots
 			if(!spawnee.AttemptLateSpawn(selected_job, target))
-				to_chat(spawnee, "<span class='danger'>Unable to spawn on ship!</span>")
+				to_chat(spawnee, "<span class='danger'>Не могу войти на судно как экипаж!</span>")
 				spawnee.new_player_panel()
 
 
@@ -67,18 +67,18 @@
 			ui.close()
 			var/datum/map_template/shuttle/template = SSmapping.ship_purchase_list[params["name"]]
 			if(!template.enabled)
-				to_chat(spawnee, "<span class='danger'>This ship is not currently available for purchase!</span>")
+				to_chat(spawnee, "<span class='danger'>Этот корабль нельзя купить!</span>")
 				spawnee.new_player_panel()
 				return
-			to_chat(spawnee, "<span class='danger'>Your [template.name] is being prepared. Please be patient!</span>")
+			to_chat(spawnee, "<span class='danger'>Ваш [template.name] заправляется и готовится к вылету. Не забудьте взять ключ для управления судном в соответствующей консоли.</span>")
 			var/datum/overmap/ship/controlled/target = new(SSovermap.get_unused_overmap_square(), template)
 			if(!target?.shuttle_port)
-				to_chat(spawnee, "<span class='danger'>There was an error loading the ship. Please contact admins!</span>")
+				to_chat(spawnee, "<span class='danger'>Судно потерялось в глубинах космоса, свяжитесь с администрацией.</span>")
 				spawnee.new_player_panel()
 				return
 			SSblackbox.record_feedback("tally", "ship_purchased", 1, template.name) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 			if(!spawnee.AttemptLateSpawn(target.job_slots[1], target)) //Try to spawn as the first listed job in the job slots (usually captain)
-				to_chat(spawnee, "<span class='danger'>Ship spawned, but you were unable to be spawned. You can likely try to spawn in the ship through joining normally, but if not, please contact an admin.</span>")
+				to_chat(spawnee, "<span class='danger'>Судно появилось, но ты нет. Попытайся зайти на судно обычным способом или обратитись к администратору.</span>")
 				spawnee.new_player_panel()
 
 /datum/ship_select/ui_static_data(mob/user)
