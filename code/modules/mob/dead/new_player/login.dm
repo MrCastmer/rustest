@@ -13,7 +13,7 @@
 	if(!. || !client)
 		return FALSE
 
-	if(!SSviolence.active) // we don't care about fuckers in this mode
+	if(client)
 		spawn(-1)
 			client.crawler_sanity_check()
 
