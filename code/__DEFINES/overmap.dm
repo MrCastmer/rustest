@@ -58,6 +58,11 @@
 #define SHIP_JOIN_MODE_APPLY "Apply"
 #define SHIP_JOIN_MODE_OPEN "Open"
 
+// Тип входа в игру на русском
+#define SHIP_JOIN_MODE_CLOSED_RU "Закрыт"
+#define SHIP_JOIN_MODE_APPLY_RU "По приглашению"
+#define SHIP_JOIN_MODE_OPEN_RU "Открыт"
+
 // Ship application states. Some of the string values are player-facing, so be careful modifying them.
 #define SHIP_APPLICATION_UNFINISHED "unfinished"
 #define SHIP_APPLICATION_CANCELLED "cancelled"
