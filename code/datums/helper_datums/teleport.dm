@@ -162,9 +162,6 @@
 		return
 	if(restrain_vlevel)
 		var/datum/virtual_level/current_vlevel = current.get_virtual_level()
-		// We restrain the teleport to a single virtual level
-		if(current_vlevel != center_vlevel)
-			return
 	if(!precision)
 		if(center.is_transition_turf())
 			return
