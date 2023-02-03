@@ -12,9 +12,9 @@
  */
 
 /obj/effect/mob_spawn/drone
-	name = "drone shell"
+	name = "корпус дрона"
 	mob_name = "drone"                                                                              //WS Edit - Adding missing var
-	desc = "A shell of a maintenance drone, an expendable robot built to perform repairs to remote installations."
+	desc = "Корпус дрона для ремонта и обслуживания."
 	icon = 'icons/mob/drone.dmi'
 	icon_state = "drone_maint_hat" //yes reuse the _hat state.
 	layer = BELOW_MOB_LAYER
@@ -23,13 +23,13 @@
 	roundstart = FALSE
 	///Type of drone that will be spawned
 	mob_type = /mob/living/simple_animal/drone
-	short_desc = "You are a repair drone. Follow your laws and do not interfere with others."		//WS Edit - Adding missing var
+	short_desc = "Ты дрон. Веселись."		//WS Edit - Adding missing var
 
 /obj/effect/mob_spawn/drone/Initialize()
 	. = ..()
 	var/area/A = get_area(src)
 	if(A)
-		notify_ghosts("A drone shell has been created in \the [A.name].", source = src, action=NOTIFY_ATTACK, flashwindow = FALSE, ignore_key = POLL_IGNORE_DRONE, notify_suiciders = FALSE)
+		notify_ghosts("Корпус дрона был создан в [A.name].", source = src, action=NOTIFY_ATTACK, flashwindow = FALSE, ignore_key = POLL_IGNORE_DRONE, notify_suiciders = FALSE)
 	GLOB.poi_list |= src
 
 /obj/effect/mob_spawn/drone/Destroy()
@@ -42,6 +42,6 @@
 		if(!isnum(user.client.player_age)) //apparently what happens when there's no DB connected. just don't let anybody be a drone without admin intervention
 			return
 		if(user.client.player_age < DRONE_MINIMUM_AGE)
-			to_chat(user, "<span class='danger'>You're too new to play as a drone! Please try again in [DRONE_MINIMUM_AGE - user.client.player_age] days.</span>")
+			to_chat(user, "<span class='danger'>Бро ты слишком молод для игры на дроне, поиграй ещё [DRONE_MINIMUM_AGE - user.client.player_age] дней.</span>")
 			return
 	. = ..()

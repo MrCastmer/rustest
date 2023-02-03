@@ -4,9 +4,9 @@
 #define DRONE_TOTAL_LAYERS 2
 
 /// Message displayed when new drone spawns in drone network
-#define DRONE_NET_CONNECT "<span class='notice'>DRONE NETWORK: [name] connected.</span>"
+#define DRONE_NET_CONNECT "<span class='notice'>ДРОННЕТ: [name] подключён.</span>"
 /// Message displayed when drone in network dies
-#define DRONE_NET_DISCONNECT "<span class='danger'>DRONE NETWORK: [name] is not responding.</span>"
+#define DRONE_NET_DISCONNECT "<span class='danger'>ДРОННЕТ: [name] отключён.</span>"
 
 /// Maintenance Drone icon_state (multiple colors)
 #define MAINTDRONE "drone_maint"
@@ -39,8 +39,8 @@
  *
  */
 /mob/living/simple_animal/drone
-	name = "Drone"
-	desc = "A maintenance drone, an expendable robot built to perform structural repairs to remote frontier installations."
+	name = "Дрон"
+	desc = "Маленький дрон для ремонта и обслуживания."
 	icon = 'icons/mob/drone.dmi'
 	icon_state = "drone_maint_grey"
 	icon_living = "drone_maint_grey"
@@ -82,8 +82,8 @@
 	var/list/drone_overlays[DRONE_TOTAL_LAYERS]
 	/// Drone laws announced on spawn
 	var/laws = \
-	"1. You must serve the goals of those who inhabit the vessel you reside on.\n"+\
-	"2. You must upkeep and improve the vessel you were activated upon, and reside upon."
+	"1. Вы должны помогать тому, кому вы служите.\n"+\
+	"2. Вы должны поддерживать в рабочем состоянии место активации."
 	/// Amount of damage sustained if hit by a heavy EMP pulse
 	var/heavy_emp_damage = 25
 	/// List of active alarms. See [/mob/living/simple_animal/drone/proc/triggerAlarm] and [/mob/living/simple_animal/drone/proc/cancelAlarm]
@@ -111,8 +111,8 @@
 	var/hacked = FALSE
 	/// Flavor text announced to drones on [/mob/proc/Login]
 	var/flavortext = \
-	"\n<big><span class='warning'>Do not use your small size to grief, and follow the role your laws give you.</span></big>\n"+\
-	"<span class='warning'><u>If you do not have the regular drone laws, follow your laws to the best of your ability.</u></span>"
+	"\n<big><span class='warning'>Не используйте свой маленький размер для гриферства и следуйте той роли, которую отводят вам ваши законы.</span></big>\n"+\
+	"<span class='warning'>Ты <u>можешь</u> взаимодействовать с не-дронами.</span>"
 
 /mob/living/simple_animal/drone/Initialize()
 	. = ..()
@@ -208,25 +208,25 @@
 
 	//Braindead
 	if(!client && stat != DEAD)
-		. += "Its status LED is blinking at a steady rate."
+		. += "Его индикаторы не горят."
 
 	//Hacked
 	if(hacked)
-		. += "<span class='warning'>Its display is glowing red!</span>"
+		. += "<span class='warning'>Его индикаторы мигают красным светом!</span>"
 
 	//Damaged
 	if(health != maxHealth)
 		if(health > maxHealth * 0.33) //Between maxHealth and about a third of maxHealth, between 30 and 10 for normal drones
-			. += "<span class='warning'>Its screws are slightly loose.</span>"
+			. += "<span class='warning'>Он выглядит побитым.</span>"
 		else //otherwise, below about 33%
-			. += "<span class='boldwarning'>Its screws are very loose!</span>"
+			. += "<span class='boldwarning'>Он сейчас развалится!</span>"
 
 	//Dead
 	if(stat == DEAD)
 		if(client)
-			. += "<span class='deadsay'>A message repeatedly flashes on its display: \"REBOOT -- REQUIRED\".</span>"
+			. += "<span class='deadsay'>На его маленьком экранчике показывается сообщение: \"НЕОБХОДИМА ПЕРЕЗАГРУЗКА\".</span>"
 		else
-			. += "<span class='deadsay'>A message repeatedly flashes on its display: \"ERROR -- OFFLINE\".</span>"
+			. += "<span class='deadsay'>На его маленьком экранчике показывается сообщение: \"ОШИБКА ДИСК ОЧИЩЕН\".</span>"
 	. += "*---------*</span>"
 
 
@@ -239,10 +239,10 @@
 	if(. & EMP_PROTECT_SELF)
 		return
 	Stun(100)
-	to_chat(src, "<span class='danger'><b>ER@%R: MME^RY CO#RU9T!</b> R&$b@0tin)...</span>")
+	to_chat(src, "<span class='danger'><b>СБОЙ ПАМЯТИ!</b> АКТИВАЦИЯ ЗАЩИТНЫХ ПРОТОКОЛОВ...</span>")
 	if(severity == 1)
 		adjustBruteLoss(heavy_emp_damage)
-		to_chat(src, "<span class='userdanger'>HeAV% DA%^MMA+G TO I/O CIR!%UUT!</span>")
+		to_chat(src, "<span class='userdanger'>СБО№*ЗАЩИТ09-_СИС-С-С-С)*)(%;*()ПОВРЕЖДЕНА!</span>")
 
 
 /**

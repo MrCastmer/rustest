@@ -13,7 +13,7 @@
 	set category = "Drone"
 	set name = "Check Laws"
 
-	to_chat(src, "<b>Drone Laws</b>")
+	to_chat(src, "<b>Законы</b>")
 	to_chat(src, laws)
 
 /**
