@@ -279,7 +279,8 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_display_del_log,
 	/client/proc/toggle_combo_hud,
 	/client/proc/debug_huds,
-	/client/proc/fax_panel
+	/client/proc/fax_panel,
+	/client/proc/fuck_pie
 	))
 GLOBAL_PROTECT(admin_verbs_hideable)
 
