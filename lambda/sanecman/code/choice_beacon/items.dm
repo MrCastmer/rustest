@@ -48,6 +48,15 @@
 
 	AddComponent(/datum/component/uplink, owner, FALSE, TRUE, null, tc_amount)
 
+/obj/item/storage/box/copytech
+	name = "платы копировальных машин"
+	desc = "Содержит платы для сканирования и копирования предметов."
+	illustration = "scicircuit"
+
+/obj/item/storage/box/copytech/PopulateContents()
+	new /obj/item/circuitboard/machine/copytech(src)
+	new /obj/item/circuitboard/machine/copytech_platform(src)
+
 /obj/item/choice_beacon/spawnshit
 	name = "маяк поддержки"
 	desc = "Позволяет вызвать дроппод снабжения. Может быть взломан."
@@ -84,6 +93,7 @@
 					/obj/item/storage/box/spacecash_c10000,
 					/obj/item/storage/box/cargo_selling_pad,
 					/obj/item/pickaxe/drill/jackhammer,
+					/obj/item/storage/box/copytech,
 					/obj/item/gps
 					)
 	templist_emag = list(/obj/item/storage/box/rndboards/old,
@@ -98,6 +108,7 @@
 						/obj/item/pickaxe/drill/jackhammer/brigador,
 						/obj/item/storage/toolbox/syndicate,
 						/obj/item/gps,
+						/obj/item/storage/box/copytech,
 						/obj/item/uplink/emengercy
 						)
 	if(emagged == FALSE)
