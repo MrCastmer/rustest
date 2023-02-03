@@ -80,7 +80,7 @@
 		say("Недостаточно энергии.")
 		return
 	if(!cp)
-		say("Не обнаружена дезинтегрирующая платформа. Попытка синхронизации...")
+		say("Не обнаружена дезинтегрирующая платформа в радиусе 5 метров. Попытка синхронизации...")
 		check_platform()
 		return
 	if(!current_design)
@@ -161,7 +161,7 @@
 
 /obj/machinery/copytech/proc/check_platform()
 	if(!cp)
-		for(var/obj/machinery/copytech_platform/M in range(3, src))
+		for(var/obj/machinery/copytech_platform/M in range(5, src))
 			cp = M
 			return TRUE
 	return FALSE
@@ -270,7 +270,7 @@
 		say("Недостаточно энергии.")
 		return
 	if(!ct)
-		say("Не обнаружен копирующий станок. Попытка синхронизации...")
+		say("Не обнаружен копирующий станок в радиусе 5 метров. Попытка синхронизации...")
 		check_copytech()
 		return
 	destroy_thing(user)
@@ -278,7 +278,7 @@
 
 /obj/machinery/copytech_platform/proc/check_copytech()
 	if(!ct)
-		for(var/obj/machinery/copytech/M in range(3, src))
+		for(var/obj/machinery/copytech/M in range(5, src))
 			ct = M
 			return TRUE
 	return FALSE
