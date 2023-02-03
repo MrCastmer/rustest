@@ -140,7 +140,7 @@ SUBSYSTEM_DEF(vote)
 						GLOB.master_mode = .
 			if("transfer")
 				if(. == "Initiate Crew Transfer")
-					Sshuttle.request_jump()
+					SSshuttle.request_jump()
 
 	if(restart)
 		var/active_admins = FALSE
