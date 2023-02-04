@@ -1,7 +1,7 @@
 //Baseline portable generator. Has all the default handling. Not intended to be used on it's own (since it generates unlimited power).
 /obj/machinery/power/port_gen
-	name = "portable generator"
-	desc = "A portable generator for emergency backup power."
+	name = "портативный генератор"
+	desc = "Портативный генератор для генерации энергии."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "portgen0_0"
 	density = TRUE
@@ -84,7 +84,7 @@
 // P.A.C.M.A.N //
 /////////////////
 /obj/machinery/power/port_gen/pacman
-	name = "\improper P.A.C.M.A.N.-type portable generator"
+	name = "портативный генератор П.А.К.М.А.Н."
 	circuit = /obj/item/circuitboard/machine/pacman
 	var/sheets = 0
 	var/max_sheets = 100
@@ -124,11 +124,11 @@
 
 /obj/machinery/power/port_gen/pacman/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>The generator has [sheets] units of [sheet_name] fuel left, producing [DisplayPower(power_gen)] per cycle.</span>"
+	. += "<span class='notice'>Внутри видно [sheets] единиц [sheet_name], которые вырабатывают [DisplayPower(power_gen)] каждый цикл.</span>"
 	if(anchored)
-		. += "<span class='notice'>It is anchored to the ground.</span>"
+		. += "<span class='notice'>Прикручен к полу.</span>"
 	if(in_range(user, src) || isobserver(user))
-		. += "<span class='notice'>The status display reads: Fuel efficiency increased by <b>[(consumption*100)-100]%</b>.</span>"
+		. += "<span class='notice'>Дисплей показывает: Топливная эффективность увеличена на <b>[(consumption*100)-100]%</b>.</span>"
 
 /obj/machinery/power/port_gen/pacman/HasFuel()
 	if(sheets >= 1 / (time_per_sheet / power_output) - sheet_left)
@@ -193,9 +193,9 @@
 		var/obj/item/stack/addstack = O
 		var/amount = min((max_sheets - sheets), addstack.amount)
 		if(amount < 1)
-			to_chat(user, "<span class='notice'>The [src.name] is full!</span>")
+			balloon_alert(user, "[src.name] полон!")
 			return
-		to_chat(user, "<span class='notice'>You add [amount] sheets to the [src.name].</span>")
+		balloon_alert(user, "Вставляю [amount] единиц в [src.name].")
 		sheets += amount
 		addstack.use(amount)
 		return
@@ -203,10 +203,10 @@
 		if(O.tool_behaviour == TOOL_WRENCH)
 			if(!anchored && !isinspace())
 				set_anchored(TRUE)
-				to_chat(user, "<span class='notice'>You secure the generator to the floor.</span>")
+				balloon_alert(user, "Прикручиваю...")
 			else if(anchored)
 				set_anchored(FALSE)
-				to_chat(user, "<span class='notice'>You unsecure the generator from the floor.</span>")
+				balloon_alert(user, "Откручиваю...")
 
 			playsound(src, 'sound/items/deconstruct.ogg', 50, TRUE)
 			return
@@ -214,9 +214,9 @@
 			panel_open = !panel_open
 			O.play_tool_sound(src)
 			if(panel_open)
-				to_chat(user, "<span class='notice'>You open the access panel.</span>")
+				balloon_alert(user, "<span class='notice'>Открываю техническую панель.</span>")
 			else
-				to_chat(user, "<span class='notice'>You close the access panel.</span>")
+				balloon_alert(user, "<span class='notice'>Закрываю техническую панель.</span>")
 			return
 		else if(default_deconstruction_crowbar(O))
 			return
@@ -225,6 +225,7 @@
 /obj/machinery/power/port_gen/pacman/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
 		return
+	balloon_alert(user, "Перегружаю генератор.")
 	message_admins("[ADMIN_LOOKUPFLW(usr)] Has emagged [src] at [ADMIN_VERBOSEJMP(src)]")
 	emagger = usr.ckey
 	obj_flags |= EMAGGED
@@ -284,7 +285,7 @@
 				. = TRUE
 
 /obj/machinery/power/port_gen/pacman/super
-	name = "\improper S.U.P.E.R.P.A.C.M.A.N.-type portable generator"
+	name = "портативный генератор С.У.П.Е.Р.П.А.К.М.А.Н."
 	icon_state = "portgen1_0"
 	base_icon = "portgen1"
 	circuit = /obj/item/circuitboard/machine/pacman/super
@@ -297,7 +298,7 @@
 	explosion(src.loc, 3, 3, 3, -1)
 
 /obj/machinery/power/port_gen/pacman/mrs
-	name = "\improper M.R.S.P.A.C.M.A.N.-type portable generator"
+	name = "портативный генератор М.Р.С.П.А.К.М.А.Н."
 	base_icon = "portgen2"
 	icon_state = "portgen2_0"
 	circuit = /obj/item/circuitboard/machine/pacman/mrs
