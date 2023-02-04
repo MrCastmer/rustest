@@ -122,14 +122,14 @@
 	qdel(voucher)
 
 /obj/item/circuitboard/machine/vending/mining_equipment
-	name = "mining equipment vendor (Machine Board)"
+	name = "mining equipment vendor (Оборудование)"
 	build_path = /obj/machinery/vending/mining_equipment
 	req_components = list(
 		/obj/item/stack/sheet/rglass = 1,
 		/obj/item/vending_refill/mining_equipment = 1)
 
 /obj/item/circuitboard/machine/vending/mining_equipment/golem
-	name = "golem equipment vendor (Machine Board)"
+	name = "golem equipment vendor (Оборудование)"
 	build_path = /obj/machinery/vending/mining_equipment/golem
 
 /obj/item/vending_refill/mining_equipment

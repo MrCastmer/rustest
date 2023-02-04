@@ -1,7 +1,7 @@
 //Command
 
 /obj/item/circuitboard/machine/bsa/back
-	name = "Bluespace Artillery Generator (Machine Board)"
+	name = "Bluespace Artillery Generator (Оборудование)"
 	icon_state = "command"
 	build_path = /obj/machinery/bsa/back //No freebies!
 	req_components = list(
@@ -9,7 +9,7 @@
 		/obj/item/stack/cable_coil = 2)
 
 /obj/item/circuitboard/machine/bsa/front
-	name = "Bluespace Artillery Bore (Machine Board)"
+	name = "Bluespace Artillery Bore (Оборудование)"
 	icon_state = "command"
 	build_path = /obj/machinery/bsa/front
 	req_components = list(
@@ -17,7 +17,7 @@
 		/obj/item/stack/cable_coil = 2)
 
 /obj/item/circuitboard/machine/bsa/middle
-	name = "Bluespace Artillery Fusor (Machine Board)"
+	name = "Bluespace Artillery Fusor (Оборудование)"
 	icon_state = "command"
 	build_path = /obj/machinery/bsa/middle
 	req_components = list(
@@ -25,7 +25,7 @@
 		/obj/item/stack/cable_coil = 2)
 
 /obj/item/circuitboard/machine/dna_vault
-	name = "DNA Vault (Machine Board)"
+	name = "DNA Vault (Оборудование)"
 	icon_state = "command"
 	build_path = /obj/machinery/dna_vault //No freebies!
 	req_components = list(
@@ -36,7 +36,7 @@
 //Engineering
 
 /obj/item/circuitboard/machine/announcement_system
-	name = "Announcement System (Machine Board)"
+	name = "Announcement System (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/announcement_system
 	req_components = list(
@@ -44,7 +44,7 @@
 		/obj/item/stack/sheet/glass = 1)
 
 /obj/item/circuitboard/machine/autolathe
-	name = "Autolathe (Machine Board)"
+	name = "Autolathe (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/autolathe
 	req_components = list(
@@ -53,7 +53,7 @@
 		/obj/item/stack/sheet/glass = 1)
 
 /obj/item/circuitboard/machine/grounding_rod
-	name = "Grounding Rod (Machine Board)"
+	name = "Grounding Rod (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/power/grounding_rod
 	req_components = list(/obj/item/stock_parts/capacitor = 1)
@@ -61,7 +61,7 @@
 
 
 /obj/item/circuitboard/machine/telecomms/broadcaster
-	name = "Subspace Broadcaster (Machine Board)"
+	name = "Subspace Broadcaster (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/telecomms/broadcaster
 	req_components = list(
@@ -72,7 +72,7 @@
 		/obj/item/stock_parts/micro_laser = 2)
 
 /obj/item/circuitboard/machine/telecomms/bus
-	name = "Bus Mainframe (Machine Board)"
+	name = "Bus Mainframe (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/telecomms/bus
 	req_components = list(
@@ -81,7 +81,7 @@
 		/obj/item/stock_parts/subspace/filter = 1)
 
 /obj/item/circuitboard/machine/telecomms/hub
-	name = "Hub Mainframe (Machine Board)"
+	name = "Hub Mainframe (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/telecomms/hub
 	req_components = list(
@@ -90,7 +90,7 @@
 		/obj/item/stock_parts/subspace/filter = 2)
 
 /obj/item/circuitboard/machine/telecomms/message_server
-	name = "Messaging Server (Machine Board)"
+	name = "Messaging Server (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/telecomms/message_server
 	req_components = list(
@@ -99,7 +99,7 @@
 		/obj/item/stock_parts/subspace/filter = 3)
 
 /obj/item/circuitboard/machine/telecomms/processor
-	name = "Processor Unit (Machine Board)"
+	name = "Processor Unit (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/telecomms/processor
 	req_components = list(
@@ -111,7 +111,7 @@
 		/obj/item/stock_parts/subspace/amplifier = 1)
 
 /obj/item/circuitboard/machine/telecomms/receiver
-	name = "Subspace Receiver (Machine Board)"
+	name = "Subspace Receiver (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/telecomms/receiver
 	req_components = list(
@@ -121,7 +121,7 @@
 		/obj/item/stock_parts/micro_laser = 1)
 
 /obj/item/circuitboard/machine/telecomms/relay
-	name = "Relay Mainframe (Machine Board)"
+	name = "Relay Mainframe (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/telecomms/relay
 	req_components = list(
@@ -130,7 +130,7 @@
 		/obj/item/stock_parts/subspace/filter = 2)
 
 /obj/item/circuitboard/machine/telecomms/server
-	name = "Telecommunication Server (Machine Board)"
+	name = "Telecommunication Server (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/telecomms/server
 	req_components = list(
@@ -139,7 +139,7 @@
 		/obj/item/stock_parts/subspace/filter = 1)
 
 /obj/item/circuitboard/machine/tesla_coil
-	name = "Tesla Controller (Machine Board)"
+	name = "Tesla Controller (Оборудование)"
 	icon_state = "engineering"
 	desc = "You can use a screwdriver to switch between Research and Power Generation."
 	build_path = /obj/machinery/power/tesla_coil
@@ -173,11 +173,11 @@
 		return ..()
 
 /obj/item/circuitboard/machine/tesla_coil/power
-	name = "Tesla Coil (Machine Board)"
+	name = "Tesla Coil (Оборудование)"
 	build_path = PATH_POWERCOIL
 
 /obj/item/circuitboard/machine/tesla_coil/research
-	name = "Tesla Corona Researcher (Machine Board)"
+	name = "Tesla Corona Researcher (Оборудование)"
 	build_path = PATH_RPCOIL
 
 #undef PATH_POWERCOIL
@@ -186,20 +186,20 @@
 
 
 /obj/item/circuitboard/machine/cell_charger
-	name = "Cell Charger (Machine Board)"
+	name = "Cell Charger (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/cell_charger
 	req_components = list(/obj/item/stock_parts/capacitor = 1)
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/circulator
-	name = "Circulator/Heat Exchanger (Machine Board)"
+	name = "Circulator/Heat Exchanger (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/atmospherics/components/binary/circulator
 	req_components = list()
 
 /obj/item/circuitboard/machine/emitter
-	name = "Emitter (Machine Board)"
+	name = "Emitter (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/power/emitter
 	req_components = list(
@@ -208,13 +208,13 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/generator
-	name = "Thermo-Electric Generator (Machine Board)"
+	name = "Thermo-Electric Generator (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/power/generator
 	req_components = list()
 
 /obj/item/circuitboard/machine/ntnet_relay
-	name = "NTNet Relay (Machine Board)"
+	name = "NTNet Relay (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/ntnet_relay
 	req_components = list(
@@ -222,7 +222,7 @@
 		/obj/item/stock_parts/subspace/filter = 1)
 
 /obj/item/circuitboard/machine/pacman
-	name = "PACMAN-type Generator (Machine Board)"
+	name = "PACMAN-type Generator (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/power/port_gen/pacman
 	req_components = list(
@@ -233,16 +233,16 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/pacman/super
-	name = "SUPERPACMAN-type Generator (Machine Board)"
+	name = "SUPERPACMAN-type Generator (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/power/port_gen/pacman/super
 
 /obj/item/circuitboard/machine/pacman/mrs
-	name = "MRSPACMAN-type Generator (Machine Board)"
+	name = "MRSPACMAN-type Generator (Оборудование)"
 	build_path = /obj/machinery/power/port_gen/pacman/mrs
 
 /obj/item/circuitboard/machine/power_compressor
-	name = "Power Compressor (Machine Board)"
+	name = "Power Compressor (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/power/compressor
 	req_components = list(
@@ -250,7 +250,7 @@
 		/obj/item/stock_parts/manipulator = 6)
 
 /obj/item/circuitboard/machine/power_turbine
-	name = "Power Turbine (Machine Board)"
+	name = "Power Turbine (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/power/turbine
 	req_components = list(
@@ -263,7 +263,7 @@
 	build_path = /obj/machinery/rnd/production/protolathe/department/engineering
 
 /obj/item/circuitboard/machine/rad_collector
-	name = "Radiation Collector (Machine Board)"
+	name = "Radiation Collector (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/power/rad_collector
 	req_components = list(
@@ -275,7 +275,7 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/rtg
-	name = "RTG (Machine Board)"
+	name = "RTG (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/power/rtg
 	req_components = list(
@@ -284,7 +284,7 @@
 		/obj/item/stack/sheet/mineral/uranium = 10) // We have no Pu-238, and this is the closest thing to it.
 
 /obj/item/circuitboard/machine/rtg/advanced
-	name = "Advanced RTG (Machine Board)"
+	name = "Advanced RTG (Оборудование)"
 	build_path = /obj/machinery/power/rtg/advanced
 	req_components = list(
 		/obj/item/stack/cable_coil = 5,
@@ -304,14 +304,14 @@
 	/obj/item/stock_parts/manipulator = 4)
 
 /obj/item/circuitboard/machine/scanner_gate
-	name = "Scanner Gate (Machine Board)"
+	name = "Scanner Gate (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/scanner_gate
 	req_components = list(
 		/obj/item/stock_parts/scanning_module = 3)
 
 /obj/item/circuitboard/machine/smes
-	name = "SMES (Machine Board)"
+	name = "SMES (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/power/smes
 	req_components = list(
@@ -325,7 +325,7 @@
 	build_path = /obj/machinery/rnd/production/techfab/department/engineering
 
 /obj/item/circuitboard/machine/thermomachine
-	name = "Thermomachine (Machine Board)"
+	name = "Thermomachine (Оборудование)"
 	icon_state = "engineering"
 	desc = "You can use a screwdriver to switch between heater and freezer."
 	var/pipe_layer = PIPING_LAYER_DEFAULT
@@ -342,10 +342,10 @@
 	. = ..()
 	if(!build_path)
 		if(prob(50))
-			name = "Freezer (Machine Board)"
+			name = "Freezer (Оборудование)"
 			build_path = PATH_FREEZER
 		else
-			name = "Heater (Machine Board)"
+			name = "Heater (Оборудование)"
 			build_path = PATH_HEATER
 
 /obj/item/circuitboard/machine/thermomachine/attackby(obj/item/I, mob/user, params)
@@ -377,18 +377,18 @@
 	. += "<span class='notice'>It is set to layer [pipe_layer].</span>"
 
 /obj/item/circuitboard/machine/thermomachine/heater
-	name = "Heater (Machine Board)"
+	name = "Heater (Оборудование)"
 	build_path = PATH_HEATER
 
 /obj/item/circuitboard/machine/thermomachine/freezer
-	name = "Freezer (Machine Board)"
+	name = "Freezer (Оборудование)"
 	build_path = PATH_FREEZER
 
 #undef PATH_FREEZER
 #undef PATH_HEATER
 
 /obj/item/circuitboard/machine/shieldwallgen
-	name = "Shieldwall Generator (Machine Board)"
+	name = "Shieldwall Generator (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/power/shieldwallgen
 	req_components = list(
@@ -400,11 +400,11 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/shieldwallgen/atmos
-	name = "Atmospheric Holofield Generator (Machine Board)"
+	name = "Atmospheric Holofield Generator (Оборудование)"
 	build_path = /obj/machinery/power/shieldwallgen/atmos
 
 /obj/item/circuitboard/machine/shieldwallgen/atmos/strong
-	name = "High Power Atmospheric Holofield Generator (Machine Board)"
+	name = "High Power Atmospheric Holofield Generator (Оборудование)"
 	build_path = /obj/machinery/power/shieldwallgen/atmos/strong
 	req_components = list(
 		/obj/item/stock_parts/manipulator/nano = 2,
@@ -416,7 +416,7 @@
 
 
 /obj/item/circuitboard/machine/pipedispenser
-	name = "Pipe dispenser (Machine Board)"
+	name = "Pipe dispenser (Оборудование)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/pipedispenser
 	req_components = list(
@@ -426,7 +426,7 @@
 //Generic
 
 /obj/item/circuitboard/machine/circuit_imprinter
-	name = "Circuit Imprinter (Machine Board)"
+	name = "Circuit Imprinter (Оборудование)"
 	icon_state = "generic"
 	build_path = /obj/machinery/rnd/production/circuit_imprinter
 	req_components = list(
@@ -435,7 +435,7 @@
 		/obj/item/reagent_containers/glass/beaker = 2)
 
 /obj/item/circuitboard/machine/circuit_imprinter/department
-	name = "Departmental Circuit Imprinter (Machine Board)"
+	name = "Departmental Circuit Imprinter (Оборудование)"
 	icon_state = "generic"
 	build_path = /obj/machinery/rnd/production/circuit_imprinter/department
 
@@ -470,7 +470,7 @@
 	build_path = /obj/machinery/rnd/production/circuit_imprinter/department/basic
 
 /obj/item/circuitboard/machine/holopad
-	name = "AI Holopad (Machine Board)"
+	name = "AI Holopad (Оборудование)"
 	icon_state = "generic"
 	build_path = /obj/machinery/holopad
 	req_components = list(/obj/item/stock_parts/capacitor = 1)
@@ -495,7 +495,7 @@
 		. += "There is a red light flashing next to the word \"secure\""
 
 /obj/item/circuitboard/machine/launchpad
-	name = "Bluespace Launchpad (Machine Board)"
+	name = "Bluespace Launchpad (Оборудование)"
 	icon_state = "generic"
 	build_path = /obj/machinery/launchpad
 	req_components = list(
@@ -504,13 +504,13 @@
 	def_components = list(/obj/item/stack/ore/bluespace_crystal = /obj/item/stack/ore/bluespace_crystal/artificial)
 
 /obj/item/circuitboard/machine/paystand
-	name = "Pay Stand (Machine Board)"
+	name = "Pay Stand (Оборудование)"
 	icon_state = "generic"
 	build_path = /obj/machinery/paystand
 	req_components = list()
 
 /obj/item/circuitboard/machine/protolathe
-	name = "Protolathe (Machine Board)"
+	name = "Protolathe (Оборудование)"
 	icon_state = "generic"
 	build_path = /obj/machinery/rnd/production/protolathe
 	req_components = list(
@@ -519,7 +519,7 @@
 		/obj/item/reagent_containers/glass/beaker = 2)
 
 /obj/item/circuitboard/machine/protolathe/department
-	name = "Departmental Protolathe (Machine Board)"
+	name = "Departmental Protolathe (Оборудование)"
 	icon_state = "generic"
 	build_path = /obj/machinery/rnd/production/protolathe/department
 
@@ -537,7 +537,7 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/smartfridge
-	name = "Smartfridge (Machine Board)"
+	name = "Smartfridge (Оборудование)"
 	build_path = /obj/machinery/smartfridge
 	req_components = list(/obj/item/stock_parts/matter_bin = 1)
 	var/static/list/fridges_name_paths = list(/obj/machinery/smartfridge = "plant produce",
@@ -570,7 +570,7 @@
 
 
 /obj/item/circuitboard/machine/space_heater
-	name = "Space Heater (Machine Board)"
+	name = "Space Heater (Оборудование)"
 	icon_state = "generic"
 	build_path = /obj/machinery/space_heater
 	req_components = list(
@@ -580,7 +580,7 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/techfab
-	name = "\improper Techfab (Machine Board)"
+	name = "\improper Techfab (Оборудование)"
 	icon_state = "generic"
 	build_path = /obj/machinery/rnd/production/techfab
 	req_components = list(
@@ -589,11 +589,11 @@
 		/obj/item/reagent_containers/glass/beaker = 2)
 
 /obj/item/circuitboard/machine/techfab/department
-	name = "\improper Departmental Techfab (Machine Board)"
+	name = "\improper Departmental Techfab (Оборудование)"
 	build_path = /obj/machinery/rnd/production/techfab/department
 
 /obj/item/circuitboard/machine/vendor
-	name = "Custom Vendor (Machine Board)"
+	name = "Custom Vendor (Оборудование)"
 	desc = "You can turn the \"brand selection\" dial using a screwdriver."
 	custom_premium_price = 100
 	build_path = /obj/machinery/vending/custom
@@ -655,7 +655,7 @@
 
 /obj/item/circuitboard/machine/vendor/proc/set_type(obj/machinery/vending/typepath)
 	build_path = typepath
-	name = "[vending_names_paths[build_path]] Vendor (Machine Board)"
+	name = "[vending_names_paths[build_path]] Vendor (Оборудование)"
 	req_components = list(initial(typepath.refill_canister) = 1)
 
 /obj/item/circuitboard/machine/vendor/apply_default_parts(obj/machinery/M)
@@ -666,14 +666,14 @@
 	return ..()
 
 /obj/item/circuitboard/machine/vending/donksofttoyvendor
-	name = "Donksoft Toy Vendor (Machine Board)"
+	name = "Donksoft Toy Vendor (Оборудование)"
 	build_path = /obj/machinery/vending/donksofttoyvendor
 	req_components = list(
 		/obj/item/stack/sheet/glass = 1,
 		/obj/item/vending_refill/donksoft = 1)
 
 /obj/item/circuitboard/machine/vending/syndicatedonksofttoyvendor
-	name = "Syndicate Donksoft Toy Vendor (Machine Board)"
+	name = "Syndicate Donksoft Toy Vendor (Оборудование)"
 	build_path = /obj/machinery/vending/toyliberationstation
 	req_components = list(
 		/obj/item/stack/sheet/glass = 1,
@@ -682,7 +682,7 @@
 //Medical
 
 /obj/item/circuitboard/machine/chem_dispenser
-	name = "Chem Dispenser (Machine Board)"
+	name = "Chem Dispenser (Оборудование)"
 	icon_state = "medical"
 	build_path = /obj/machinery/chem_dispenser
 	req_components = list(
@@ -735,7 +735,7 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/chem_heater
-	name = "Chemical Heater (Machine Board)"
+	name = "Chemical Heater (Оборудование)"
 	icon_state = "medical"
 	build_path = /obj/machinery/chem_heater
 	req_components = list(
@@ -743,7 +743,7 @@
 		/obj/item/stack/sheet/glass = 1)
 
 /obj/item/circuitboard/machine/chem_master
-	name = "ChemMaster 3000 (Machine Board)"
+	name = "ChemMaster 3000 (Оборудование)"
 	icon_state = "medical"
 	build_path = /obj/machinery/chem_master
 	desc = "You can turn the \"mode selection\" dial using a screwdriver."
@@ -763,13 +763,13 @@
 			new_path = /obj/machinery/chem_master/condimaster
 
 		build_path = new_path
-		name = "[new_name] 3000 (Machine Board)"
+		name = "[new_name] 3000 (Оборудование)"
 		to_chat(user, "<span class='notice'>You change the circuit board setting to \"[new_name]\".</span>")
 	else
 		return ..()
 
 /obj/item/circuitboard/machine/dnascanner
-	name = "DNA Scanner (Machine Board)"
+	name = "DNA Scanner (Оборудование)"
 	icon_state = "medical"
 	build_path = /obj/machinery/dna_scannernew
 	req_components = list(
@@ -780,7 +780,7 @@
 		/obj/item/stack/cable_coil = 2)
 
 /obj/item/circuitboard/machine/cryo_tube
-	name = "Cryotube (Machine Board)"
+	name = "Cryotube (Оборудование)"
 	icon_state = "medical"
 	build_path = /obj/machinery/atmospherics/components/unary/cryo_cell
 	req_components = list(
@@ -789,20 +789,20 @@
 		/obj/item/stack/sheet/glass = 4)
 
 /obj/item/circuitboard/machine/fat_sucker
-	name = "Lipid Extractor (Machine Board)"
+	name = "Lipid Extractor (Оборудование)"
 	icon_state = "medical"
 	build_path = /obj/machinery/fat_sucker
 	req_components = list(/obj/item/stock_parts/micro_laser = 1,
 		/obj/item/kitchen/fork = 1)
 
 /obj/item/circuitboard/machine/harvester
-	name = "Harvester (Machine Board)"
+	name = "Harvester (Оборудование)"
 	icon_state = "medical"
 	build_path = /obj/machinery/harvester
 	req_components = list(/obj/item/stock_parts/micro_laser = 4)
 
 /obj/item/circuitboard/machine/medical_kiosk
-	name = "Medical Kiosk (Machine Board)"
+	name = "Medical Kiosk (Оборудование)"
 	icon_state = "medical"
 	build_path = /obj/machinery/medical_kiosk
 	var/custom_cost = 10
@@ -824,7 +824,7 @@
 	. += "The cost to use this kiosk is set to [custom_cost]."
 
 /obj/item/circuitboard/machine/limbgrower
-	name = "Limb Grower (Machine Board)"
+	name = "Limb Grower (Оборудование)"
 	icon_state = "medical"
 	build_path = /obj/machinery/limbgrower
 	req_components = list(
@@ -838,7 +838,7 @@
 	build_path = /obj/machinery/rnd/production/protolathe/department/medical
 
 /obj/item/circuitboard/machine/sleeper
-	name = "Sleeper (Machine Board)"
+	name = "Sleeper (Оборудование)"
 	icon_state = "medical"
 	build_path = /obj/machinery/sleeper
 	req_components = list(
@@ -848,7 +848,7 @@
 		/obj/item/stack/sheet/glass = 2)
 
 /obj/item/circuitboard/machine/smoke_machine
-	name = "Smoke Machine (Machine Board)"
+	name = "Smoke Machine (Оборудование)"
 	icon_state = "medical"
 	build_path = /obj/machinery/smoke_machine
 	req_components = list(
@@ -860,7 +860,7 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/stasis
-	name = "Lifeform Stasis Unit (Machine Board)"
+	name = "Lifeform Stasis Unit (Оборудование)"
 	icon_state = "medical"
 	build_path = /obj/machinery/stasis
 	req_components = list(
@@ -869,7 +869,7 @@
 		/obj/item/stock_parts/capacitor = 1)
 
 /obj/item/circuitboard/machine/medipen_refiller
-	name = "Medipen Refiller (Machine Board)"
+	name = "Medipen Refiller (Оборудование)"
 	icon_state = "medical"
 	build_path = /obj/machinery/medipen_refiller
 	req_components = list(
@@ -881,7 +881,7 @@
 	build_path = /obj/machinery/rnd/production/techfab/department/medical
 
 /obj/item/circuitboard/machine/clonepod
-	name = "Clone Pod (Machine Board)"
+	name = "Clone Pod (Оборудование)"
 	icon_state = "medical"
 	build_path = /obj/machinery/clonepod
 	req_components = list(
@@ -892,12 +892,12 @@
 		/obj/item/reagent_containers/glass/beaker = 2)
 
 /obj/item/circuitboard/machine/clonepod/experimental
-	name = "Experimental Clone Pod (Machine Board)"
+	name = "Experimental Clone Pod (Оборудование)"
 	icon_state = "medical"
 	build_path = /obj/machinery/clonepod/experimental
 
 /obj/item/circuitboard/machine/clonescanner
-	name = "Cloning Scanner (Machine Board)"
+	name = "Cloning Scanner (Оборудование)"
 	icon_state = "medical"
 	build_path = /obj/machinery/dna_scannernew
 	req_components = list(
@@ -910,12 +910,12 @@
 //Science
 
 /obj/item/circuitboard/machine/circuit_imprinter/department/science
-	name = "Departmental Circuit Imprinter - Science (Machine Board)"
+	name = "Departmental Circuit Imprinter - Science (Оборудование)"
 	icon_state = "science"
 	build_path = /obj/machinery/rnd/production/circuit_imprinter/department/science
 
 /obj/item/circuitboard/machine/cyborgrecharger
-	name = "Cyborg Recharger (Machine Board)"
+	name = "Cyborg Recharger (Оборудование)"
 	icon_state = "science"
 	build_path = /obj/machinery/recharge_station
 	req_components = list(
@@ -925,7 +925,7 @@
 	def_components = list(/obj/item/stock_parts/cell = /obj/item/stock_parts/cell/high)
 
 /obj/item/circuitboard/machine/destructive_analyzer
-	name = "Destructive Analyzer (Machine Board)"
+	name = "Destructive Analyzer (Оборудование)"
 	icon_state = "science"
 	build_path = /obj/machinery/rnd/destructive_analyzer
 	req_components = list(
@@ -934,7 +934,7 @@
 		/obj/item/stock_parts/micro_laser = 1)
 
 /obj/item/circuitboard/machine/experimentor
-	name = "E.X.P.E.R.I-MENTOR (Machine Board)"
+	name = "E.X.P.E.R.I-MENTOR (Оборудование)"
 	icon_state = "science"
 	build_path = /obj/machinery/rnd/experimentor
 	req_components = list(
@@ -943,7 +943,7 @@
 		/obj/item/stock_parts/micro_laser = 2)
 
 /obj/item/circuitboard/machine/mech_recharger
-	name = "Mechbay Recharger (Machine Board)"
+	name = "Mechbay Recharger (Оборудование)"
 	icon_state = "science"
 	build_path = /obj/machinery/mech_bay_recharge_port
 	req_components = list(
@@ -951,7 +951,7 @@
 		/obj/item/stock_parts/capacitor = 5)
 
 /obj/item/circuitboard/machine/mechfab
-	name = "Exosuit Fabricator (Machine Board)"
+	name = "Exosuit Fabricator (Оборудование)"
 	icon_state = "science"
 	build_path = /obj/machinery/mecha_part_fabricator
 	req_components = list(
@@ -961,7 +961,7 @@
 		/obj/item/stack/sheet/glass = 1)
 
 /obj/item/circuitboard/machine/aug_manipulator
-	name = "Augment Manipulator (Machine Board)"
+	name = "Augment Manipulator (Оборудование)"
 	icon_state = "science"
 	build_path = /obj/machinery/aug_manipulator
 	req_components = list(
@@ -969,7 +969,7 @@
 		/obj/item/stack/sheet/glass = 1)
 
 /obj/item/circuitboard/machine/monkey_recycler
-	name = "Monkey Recycler (Machine Board)"
+	name = "Monkey Recycler (Оборудование)"
 	icon_state = "science"
 	build_path = /obj/machinery/monkey_recycler
 	req_components = list(
@@ -978,7 +978,7 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/nanite_chamber
-	name = "Nanite Chamber (Machine Board)"
+	name = "Nanite Chamber (Оборудование)"
 	icon_state = "science"
 	build_path = /obj/machinery/nanite_chamber
 	req_components = list(
@@ -987,7 +987,7 @@
 		/obj/item/stock_parts/manipulator = 1)
 
 /obj/item/circuitboard/machine/nanite_program_hub
-	name = "Nanite Program Hub (Machine Board)"
+	name = "Nanite Program Hub (Оборудование)"
 	icon_state = "science"
 	build_path = /obj/machinery/nanite_program_hub
 	req_components = list(
@@ -995,7 +995,7 @@
 		/obj/item/stock_parts/manipulator = 1)
 
 /obj/item/circuitboard/machine/nanite_programmer
-	name = "Nanite Programmer (Machine Board)"
+	name = "Nanite Programmer (Оборудование)"
 	icon_state = "science"
 	build_path = /obj/machinery/nanite_programmer
 	req_components = list(
@@ -1004,7 +1004,7 @@
 		/obj/item/stock_parts/scanning_module = 1)
 
 /obj/item/circuitboard/machine/processor/slime
-	name = "Slime Processor (Machine Board)"
+	name = "Slime Processor (Оборудование)"
 	icon_state = "science"
 	build_path = /obj/machinery/processor/slime
 
@@ -1014,7 +1014,7 @@
 	build_path = /obj/machinery/rnd/production/protolathe/department/science
 
 /obj/item/circuitboard/machine/public_nanite_chamber
-	name = "Public Nanite Chamber (Machine Board)"
+	name = "Public Nanite Chamber (Оборудование)"
 	icon_state = "science"
 	build_path = /obj/machinery/public_nanite_chamber
 	var/cloud_id = 1
@@ -1035,7 +1035,7 @@
 	. += "Cloud ID is currently set to [cloud_id]."
 
 /obj/item/circuitboard/machine/quantumpad
-	name = "Quantum Pad (Machine Board)"
+	name = "Quantum Pad (Оборудование)"
 	icon_state = "science"
 	build_path = /obj/machinery/quantumpad
 	req_components = list(
@@ -1046,7 +1046,7 @@
 	def_components = list(/obj/item/stack/ore/bluespace_crystal = /obj/item/stack/ore/bluespace_crystal/artificial)
 
 /obj/item/circuitboard/machine/rdserver
-	name = "R&D Server (Machine Board)"
+	name = "R&D Server (Оборудование)"
 	var/server_id = "default-server"
 	var/static/list/all_ids = list()
 	icon_state = "science"
@@ -1079,7 +1079,7 @@
 	build_path = /obj/machinery/rnd/production/techfab/department/science
 
 /obj/item/circuitboard/machine/teleporter_hub
-	name = "Teleporter Hub (Machine Board)"
+	name = "Teleporter Hub (Оборудование)"
 	icon_state = "science"
 	build_path = /obj/machinery/teleport/hub
 	req_components = list(
@@ -1088,7 +1088,7 @@
 	def_components = list(/obj/item/stack/ore/bluespace_crystal = /obj/item/stack/ore/bluespace_crystal/artificial)
 
 /obj/item/circuitboard/machine/teleporter_station
-	name = "Teleporter Station (Machine Board)"
+	name = "Teleporter Station (Оборудование)"
 	icon_state = "science"
 	build_path = /obj/machinery/teleport/station
 	req_components = list(
@@ -1098,7 +1098,7 @@
 	def_components = list(/obj/item/stack/ore/bluespace_crystal = /obj/item/stack/ore/bluespace_crystal/artificial)
 
 /obj/item/circuitboard/machine/bepis
-	name = "BEPIS Chamber (Machine Board)"
+	name = "BEPIS Chamber (Оборудование)"
 	icon_state = "science"
 	build_path = /obj/machinery/rnd/bepis
 	req_components = list(
@@ -1109,7 +1109,7 @@
 		/obj/item/stock_parts/scanning_module = 1)
 
 /obj/item/circuitboard/machine/bluespace_miner
-	name = "Bluespace Miner (Machine Board)"
+	name = "Bluespace Miner (Оборудование)"
 	build_path = /obj/machinery/power/bluespace_miner
 	req_components = list(
 		/obj/item/stock_parts/matter_bin = 3,
@@ -1132,7 +1132,7 @@
 	build_path = /obj/machinery/rnd/production/protolathe/department/ballistics
 
 /obj/item/circuitboard/machine/recharger
-	name = "Weapon Recharger (Machine Board)"
+	name = "Weapon Recharger (Оборудование)"
 	icon_state = "security"
 	build_path = /obj/machinery/recharger
 	req_components = list(/obj/item/stock_parts/capacitor = 1)
@@ -1146,7 +1146,7 @@
 //Service
 
 /obj/item/circuitboard/machine/biogenerator
-	name = "Biogenerator (Machine Board)"
+	name = "Biogenerator (Оборудование)"
 	icon_state = "service"
 	build_path = /obj/machinery/biogenerator
 	req_components = list(
@@ -1156,7 +1156,7 @@
 		/obj/item/stack/sheet/glass = 1)
 
 /obj/item/circuitboard/machine/chem_dispenser/drinks
-	name = "Soda Dispenser (Machine Board)"
+	name = "Soda Dispenser (Оборудование)"
 	icon_state = "service"
 	build_path = /obj/machinery/chem_dispenser/drinks
 
@@ -1171,7 +1171,7 @@
 	)
 
 /obj/item/circuitboard/machine/chem_dispenser/drinks/beer
-	name = "Booze Dispenser (Machine Board)"
+	name = "Booze Dispenser (Оборудование)"
 	icon_state = "service"
 	build_path = /obj/machinery/chem_dispenser/drinks/beer
 
@@ -1186,7 +1186,7 @@
 	)
 
 /obj/item/circuitboard/machine/chem_master/condi
-	name = "CondiMaster 3000 (Machine Board)"
+	name = "CondiMaster 3000 (Оборудование)"
 	icon_state = "service"
 	build_path = /obj/machinery/chem_master/condimaster
 
@@ -1199,7 +1199,7 @@
 
 
 /obj/item/circuitboard/machine/dish_drive
-	name = "Dish Drive (Machine Board)"
+	name = "Dish Drive (Оборудование)"
 	icon_state = "service"
 	build_path = /obj/machinery/dish_drive
 	req_components = list(
@@ -1226,7 +1226,7 @@
 	to_chat(user, "<span class='notice'>You [transmit ? "enable" : "disable"] the board's automatic disposal transmission.</span>")
 
 /obj/item/circuitboard/machine/gibber
-	name = "Gibber (Machine Board)"
+	name = "Gibber (Оборудование)"
 	icon_state = "service"
 	build_path = /obj/machinery/gibber
 	req_components = list(
@@ -1235,7 +1235,7 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/hydroponics
-	name = "Hydroponics Tray (Machine Board)"
+	name = "Hydroponics Tray (Оборудование)"
 	icon_state = "service"
 	build_path = /obj/machinery/hydroponics/constructable
 	req_components = list(
@@ -1245,7 +1245,7 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/microwave
-	name = "Microwave (Machine Board)"
+	name = "Microwave (Оборудование)"
 	icon_state = "service"
 	build_path = /obj/machinery/microwave
 	req_components = list(
@@ -1256,7 +1256,7 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/plantgenes
-	name = "Plant DNA Manipulator (Machine Board)"
+	name = "Plant DNA Manipulator (Оборудование)"
 	icon_state = "service"
 	build_path = /obj/machinery/plantgenes
 	req_components = list(
@@ -1266,7 +1266,7 @@
 		/obj/item/stock_parts/scanning_module = 1)
 
 /obj/item/circuitboard/machine/processor
-	name = "Food Processor (Machine Board)"
+	name = "Food Processor (Оборудование)"
 	icon_state = "service"
 	build_path = /obj/machinery/processor
 	req_components = list(
@@ -1277,23 +1277,23 @@
 /obj/item/circuitboard/machine/processor/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		if(build_path == /obj/machinery/processor)
-			name = "Slime Processor (Machine Board)"
+			name = "Slime Processor (Оборудование)"
 			build_path = /obj/machinery/processor/slime
 			to_chat(user, "<span class='notice'>Name protocols successfully updated.</span>")
 		else
-			name = "Food Processor (Machine Board)"
+			name = "Food Processor (Оборудование)"
 			build_path = /obj/machinery/processor
 			to_chat(user, "<span class='notice'>Defaulting name protocols.</span>")
 	else
 		return ..()
 
 /obj/item/circuitboard/machine/protolathe/department/service
-	name = "Protolathe - Service (Machine Board)"
+	name = "Protolathe - Service (Оборудование)"
 	icon_state = "service"
 	build_path = /obj/machinery/rnd/production/protolathe/department/service
 
 /obj/item/circuitboard/machine/recycler
-	name = "Recycler (Machine Board)"
+	name = "Recycler (Оборудование)"
 	icon_state = "service"
 	build_path = /obj/machinery/recycler
 	req_components = list(
@@ -1302,7 +1302,7 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/seed_extractor
-	name = "Seed Extractor (Machine Board)"
+	name = "Seed Extractor (Оборудование)"
 	icon_state = "service"
 	build_path = /obj/machinery/seed_extractor
 	req_components = list(
@@ -1311,12 +1311,12 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/techfab/department/service
-	name = "\improper Departmental Techfab - Service (Machine Board)"
+	name = "\improper Departmental Techfab - Service (Оборудование)"
 	icon_state = "service"
 	build_path = /obj/machinery/rnd/production/techfab/department/service
 
 /obj/item/circuitboard/machine/vendatray
-	name = "Vend-A-Tray (Machine Board)"
+	name = "Vend-A-Tray (Оборудование)"
 	icon_state = "service"
 	build_path = /obj/structure/displaycase/forsale
 	req_components = list(
@@ -1324,7 +1324,7 @@
 
 //Supply
 /obj/item/circuitboard/machine/ore_redemption
-	name = "Ore Redemption (Machine Board)"
+	name = "Ore Redemption (Оборудование)"
 	icon_state = "supply"
 	build_path = /obj/machinery/mineral/ore_redemption
 	req_components = list(
@@ -1336,7 +1336,7 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/ore_silo
-	name = "Ore Silo (Machine Board)"
+	name = "Ore Silo (Оборудование)"
 	icon_state = "supply"
 	build_path = /obj/machinery/ore_silo
 	req_components = list()
@@ -1347,7 +1347,7 @@
 	build_path = /obj/machinery/rnd/production/protolathe/department/cargo
 
 /obj/item/circuitboard/machine/stacking_machine
-	name = "Stacking Machine (Machine Board)"
+	name = "Stacking Machine (Оборудование)"
 	icon_state = "supply"
 	build_path = /obj/machinery/mineral/stacking_machine
 	req_components = list(
@@ -1355,7 +1355,7 @@
 		/obj/item/stock_parts/matter_bin = 2)
 
 /obj/item/circuitboard/machine/stacking_unit_console
-	name = "Stacking Machine Console (Machine Board)"
+	name = "Stacking Machine Console (Оборудование)"
 	icon_state = "supply"
 	build_path = /obj/machinery/mineral/stacking_unit_console
 	req_components = list(
@@ -1368,7 +1368,7 @@
 	build_path = /obj/machinery/rnd/production/techfab/department/cargo
 
 /obj/item/circuitboard/machine/selling_pad
-	name = "Cargo hold pad (Machine Board)"
+	name = "Cargo hold pad (Оборудование)"
 	icon_state = "supply"
 	build_path = /obj/machinery/selling_pad
 	req_components = list(
@@ -1379,7 +1379,7 @@
 		/obj/item/stock_parts/micro_laser = 2)
 
 /obj/item/circuitboard/machine/deepcore/drill
-	name = "Deep Core Bluespace Drill (Machine Board)"
+	name = "Deep Core Bluespace Drill (Оборудование)"
 	icon_state = "supply"
 	build_path = /obj/machinery/deepcore/drill
 	req_components = list(
@@ -1388,7 +1388,7 @@
 		/obj/item/stock_parts/matter_bin = 1)
 
 /obj/item/circuitboard/machine/deepcore/hopper
-	name = "Bluespace Material Hopper (Machine Board)"
+	name = "Bluespace Material Hopper (Оборудование)"
 	icon_state = "supply"
 	build_path = /obj/machinery/deepcore/hopper
 	req_components = list(
@@ -1399,7 +1399,7 @@
 	def_components = list(/obj/item/stack/ore/bluespace_crystal = /obj/item/stack/ore/bluespace_crystal/artificial)
 
 /obj/item/circuitboard/machine/deepcore/hub
-	name = "Deepcore Mining Control Hub (Machine Board)"
+	name = "Deepcore Mining Control Hub (Оборудование)"
 	icon_state = "supply"
 	build_path = /obj/machinery/deepcore/hub
 	req_components = list(
@@ -1410,7 +1410,7 @@
 
 //Misc
 /obj/item/circuitboard/machine/sheetifier
-	name = "Sheet-meister 2000 (Machine Board)"
+	name = "Sheet-meister 2000 (Оборудование)"
 	icon_state = "supply"
 	build_path = /obj/machinery/sheetifier
 	req_components = list(
@@ -1443,7 +1443,7 @@
 		/obj/item/stock_parts/scanning_module = /obj/item/stock_parts/scanning_module/triphasic)
 
 /obj/item/circuitboard/machine/hypnochair
-	name = "Enhanced Interrogation Chamber (Machine Board)"
+	name = "Enhanced Interrogation Chamber (Оборудование)"
 	icon_state = "security"
 	build_path = /obj/machinery/hypnochair
 	req_components = list(
@@ -1452,51 +1452,51 @@
 	)
 
 /obj/item/circuitboard/machine/shuttle/engine/plasma
-	name = "Plasma Thruster (Machine Board)"
+	name = "Plasma Thruster (Оборудование)"
 	build_path = /obj/machinery/power/shuttle/engine/fueled/plasma
 	req_components = list(/obj/item/stock_parts/capacitor = 2,
 		/obj/item/stack/cable_coil = 5,
 		/obj/item/stock_parts/micro_laser = 1)
 
 /obj/item/circuitboard/machine/shuttle/engine/electric
-	name = "Ion Thruster (Machine Board)"
+	name = "Ion Thruster (Оборудование)"
 	build_path = /obj/machinery/power/shuttle/engine/electric
 	req_components = list(/obj/item/stock_parts/capacitor = 3,
 		/obj/item/stock_parts/micro_laser = 3)
 
 /obj/item/circuitboard/machine/shuttle/engine/expulsion
-	name = "Expulsion Thruster (Machine Board)"
+	name = "Expulsion Thruster (Оборудование)"
 	build_path = /obj/machinery/power/shuttle/engine/fueled/expulsion
 	req_components = list(/obj/item/stock_parts/manipulator = 2,
 		/obj/item/stock_parts/matter_bin = 2)
 
 /obj/item/circuitboard/machine/shuttle/engine/oil
-	name = "Oil Thruster (Machine Board)"
+	name = "Oil Thruster (Оборудование)"
 	build_path = /obj/machinery/power/shuttle/engine/liquid/oil
 	req_components = list(/obj/item/reagent_containers/glass/beaker = 4,
 		/obj/item/stock_parts/micro_laser = 2)
 
 /obj/item/circuitboard/machine/shuttle/engine/beer
-	name = "Beer Thruster (Machine Board)"
+	name = "Beer Thruster (Оборудование)"
 	build_path = /obj/machinery/power/shuttle/engine/liquid/beer
 	req_components = list(/obj/item/reagent_containers/food/drinks/beer = 4,
 		/obj/item/stock_parts/micro_laser =  2)
 
 /obj/item/circuitboard/machine/shuttle/engine/void
-	name = "Void Thruster (Machine Board)"
+	name = "Void Thruster (Оборудование)"
 	build_path = /obj/machinery/power/shuttle/engine/void
 	req_components = list(/obj/item/stock_parts/capacitor/quadratic = 2,
 		/obj/item/stack/cable_coil = 5,
 		/obj/item/stock_parts/micro_laser/quadultra = 1)
 
 /obj/item/circuitboard/machine/shuttle/heater
-	name = "Fueled Engine Heater (Machine Board)"
+	name = "Fueled Engine Heater (Оборудование)"
 	build_path = /obj/machinery/atmospherics/components/unary/shuttle/heater
 	req_components = list(/obj/item/stock_parts/micro_laser = 2,
 		/obj/item/stock_parts/matter_bin = 1)
 
 /obj/item/circuitboard/machine/shuttle/smes
-	name = "Electric Engine Precharger (Machine Board)"
+	name = "Electric Engine Precharger (Оборудование)"
 	build_path = /obj/machinery/power/smes/shuttle
 	req_components = list(
 		/obj/item/stack/cable_coil = 5,

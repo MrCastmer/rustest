@@ -1238,7 +1238,7 @@ Nothing else in the console has ID requirements.
 /obj/machinery/computer/rdconsole/robotics/Initialize()
 	. = ..()
 	if(circuit)
-		circuit.name = "R&D Console - Robotics (Computer Board)"
+		circuit.name = "R&D Console - Robotics (Компьютеры)"
 		circuit.build_path = /obj/machinery/computer/rdconsole/robotics
 
 /obj/machinery/computer/rdconsole/core

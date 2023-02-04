@@ -1144,7 +1144,7 @@
 	category = list("hacked", "Security")
 
 /datum/design/pipedispenser
-	name = "Pipe Dispenser (Machine Board)"
+	name = "Pipe Dispenser (Оборудование)"
 	id = "pipedispenser"
 	build_type = AUTOLATHE
 	materials = list(/datum/material/glass = 500)
