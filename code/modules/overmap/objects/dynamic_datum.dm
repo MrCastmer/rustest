@@ -50,8 +50,11 @@
 	vlevel_width = CONFIG_GET(number/overmap_encounter_size)
 	if(load_now)
 		choose_level_type(load_now)
-	if (prob(30) & !preserve_level) // Делаем рандомные планеты неудаляемыми
-		preserve_level = TRUE
+
+	if (!preserve_level) // Делаем рандомные планеты неудаляемыми
+		if (prob(80))
+			preserve_level = TRUE
+			name += " (постоянное)"
 
 /datum/overmap/dynamic/Destroy()
 	for(var/obj/docking_port/stationary/dock as anything in reserve_docks)
