@@ -37,6 +37,5 @@
 			"outfit": "/datum/outfit/job/head_of_personnel/syndicate",
 			"slots": 1
 		}
-	},
-	"enabled": true
+	}
 }
