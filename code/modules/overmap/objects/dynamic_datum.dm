@@ -272,8 +272,11 @@
 // 		load_level() //Load the level whenever it's randomised
 // #endif
 
+	if (prob(30) & !preserve_level) // Делаем рандомные планеты неудаляемыми
+		token.preserve_level = TRUE
+
 	if(!preserve_level)
-		token.desc += "Если вы улетите отсюда - он исчезнет."
+		token.desc += " Если вы улетите отсюда - он исчезнет."
 
 /datum/overmap/dynamic/proc/gen_planet_name()
 	. = ""
