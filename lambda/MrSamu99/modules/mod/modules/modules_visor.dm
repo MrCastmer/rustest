@@ -20,7 +20,7 @@
 		return
 	if(hud_type)
 		var/datum/atom_hud/hud = GLOB.huds[hud_type]
-		hud.show_to(mod.wearer)
+		hud.add_hud_to(mod.wearer)
 	for(var/trait in visor_traits)
 		ADD_TRAIT(mod.wearer, trait, MOD_TRAIT)
 	mod.wearer.update_sight()
@@ -31,7 +31,7 @@
 		return
 	if(hud_type)
 		var/datum/atom_hud/hud = GLOB.huds[hud_type]
-		hud.hide_from(mod.wearer)
+		hud.remove_hud_from(mod.wearer)
 	for(var/trait in visor_traits)
 		REMOVE_TRAIT(mod.wearer, trait, MOD_TRAIT)
 	mod.wearer.update_sight()
@@ -71,7 +71,7 @@
 		используемые строительными рабочими и шахтерами по всей галактике, чтобы увидеть основные структурные и ландшафтные виды \
 		через стены, независимо от условий освещения."
 	icon_state = "meson_visor"
-	visor_traits = list(TRAIT_MESON_VISION)
+	visor_traits = list(SEE_TURFS)
 
 //Thermal Visor - Gives you thermal vision.
 /obj/item/mod/module/visor/thermal
@@ -80,13 +80,15 @@
 		вывода теплового излучения объектов вблизи пользователя. Хотя он может обнаружить тепловую отдачу даже чего-то \
 		небольшого, такого как крыса, он все еще создаёт раздражающее красное наложение. Говорят, он также позволяет видеть сзади."
 	icon_state = "thermal_visor"
-	visor_traits = list(TRAIT_THERMAL_VISION)
+	visor_traits = list(SEE_MOBS)
 
 //Night Visor - Gives you night vision.
 /obj/item/mod/module/visor/night
 	name = "MOD модуль ночного зрения"
 	desc = "В шлем скафандра встраивается дисплей. Типичный для гражданского и военного применения, \
 		он позволяет пользователю видеть окружение в полной тьме, увеличивая освещение в десять раз. \
-		И всё это превращается в жуткое зелёное свечение. Говорят, он также позволяет видеть сзади."
+		И всё это превращается в жуткое зелёное свечение. Говорят, он также позволяет видеть сзади. \
+		Помехи странного характера в данном секторе вызвали критический сбой во всех модулях ПНВ, \
+		в следствие чего, модули не имеют никакого эффекта на восприятие."
 	icon_state = "night_visor"
-	visor_traits = list(TRAIT_TRUE_NIGHT_VISION)
+	//visor_traits = list(TRAIT_TRUE_NIGHT_VISION)
