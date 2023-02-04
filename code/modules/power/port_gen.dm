@@ -1,7 +1,7 @@
 //Baseline portable generator. Has all the default handling. Not intended to be used on it's own (since it generates unlimited power).
 /obj/machinery/power/port_gen
 	name = "портативный генератор"
-	desc = "Портативный генератор для генерации энергии."
+	desc = "Портативный генератор для аварийного резервного питания."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "portgen0_0"
 	density = TRUE
