@@ -68,7 +68,7 @@
 	return copytext((html_encode(strip_html_simple(t))),1,limit)
 
 //Returns null if there is any bad text in the string
-/proc/reject_bad_text(text, max_length = 512, ascii_only = TRUE)
+/proc/reject_bad_text(text, max_length = 1024, ascii_only = FALSE)
 	var/char_count = 0
 	var/non_whitespace = FALSE
 	var/lenbytes = length(text)
