@@ -1,14 +1,15 @@
 	////////////
 	//SECURITY//
 	////////////
-#define UPLOAD_LIMIT 104857600	//Restricts client uploads to the server to 1MB //Could probably do with being lower.
+#define UPLOAD_LIMIT 104857600	//Restricts client uploads to the server to 10MB //Could probably do with being lower.
 
 GLOBAL_LIST_INIT(blacklisted_builds, list(
-	"1407" = "bug preventing client display overrides from working leads to clients being able to see things/mobs they shouldn't be able to see",
-	"1408" = "bug preventing client display overrides from working leads to clients being able to see things/mobs they shouldn't be able to see",
-	"1428" = "bug causing right-click menus to show too many verbs that's been fixed in version 1429",
-	"1483" = "Баг с отвалом жопы",
-
+	"1407" = "ошибка, препятствующая работе переопределения отображения клиента, приводит к тому, что клиенты могут видеть вещи/мобов, которые они не должны видеть",
+	"1408" = "ошибка, препятствующая работе переопределения отображения клиента, приводит к тому, что клиенты могут видеть вещи/мобов, которые они не должны видеть",
+	"1428" = "ошибка, из-за которой меню правой кнопки мыши отображало слишком много вербов, исправленных в версии 1429",
+	"1548" = "ошибка, нарушающая \"альфа\" функциональность в игре, позволяющая клиентам видеть вещи/мобов, которых они не должны видеть",
+	"1583" = "ошибка, связаная с возможностью использовать на этой версии запрещённые программные обеспечения и эксплойты",
+	"1585" = "ошибка, связаная с возможностью использовать на этой версии запрещённые программные обеспечения и эксплойты",
 	))
 
 #define LIMITER_SIZE 5
@@ -55,10 +56,10 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			topiclimiter[MINUTE_COUNT] = 0
 		topiclimiter[MINUTE_COUNT] += 1
 		if (topiclimiter[MINUTE_COUNT] > mtl)
-			var/msg = "Your previous action was ignored because you've done too many in a minute."
+			var/msg = "Идёт проверка на использование аимбота, подождите..."
 			if (minute != topiclimiter[ADMINSWARNED_AT]) //only one admin message per-minute. (if they spam the admins can just boot/ban them)
 				topiclimiter[ADMINSWARNED_AT] = minute
-				msg += " Administrators have been informed."
+				msg += " О̸͇͉̦̓̈́͝н̸̝̪̺̓͊͊и̴̪̺͇͌͆̿ и̵̠̻̓̾̓д̵̡͓̪͋͛͘ӱ̵̡̘͓́̈́́т̴̺̪̽͛͘͜ з̸̻̻͙̽͋̕а̸͕̻͍͋̐͝ т̴̝̪͖͆̾̀о̵͇̝̠̐͊̓б̸̻̦̫̈́̕͝о̸͇͖̾͋͝й̴̻͚͋̒͒.̴̪͇̀̽͜"
 				log_game("[key_name(src)] Has hit the per-minute topic limit of [mtl] topic calls in a given game minute")
 				message_admins("[ADMIN_LOOKUPFLW(usr)] [ADMIN_KICK(usr)] Has hit the per-minute topic limit of [mtl] topic calls in a given game minute")
 			to_chat(src, "<span class='danger'>[msg]</span>")
@@ -74,7 +75,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			topiclimiter[SECOND_COUNT] = 0
 		topiclimiter[SECOND_COUNT] += 1
 		if (topiclimiter[SECOND_COUNT] > stl)
-			to_chat(src, "<span class='danger'>Your previous action was ignored because you've done too many in a second</span>")
+			to_chat(src, "<span class='danger'>Слишком много нажатий в минуту, идёт проверка на использование аимбота, подождите...</span>")
 			return
 
 	// Tgui Topic middleware
@@ -103,7 +104,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 	//byond bug ID:2256651
 	if (asset_cache_job && (asset_cache_job in completed_asset_jobs))
-		to_chat(src, "<span class='danger'>An error has been detected in how your client is receiving resources. Attempting to correct.... (If you keep seeing these messages you might want to close byond and reconnect)</span>")
+		to_chat(src, "<span class='danger'>Обнаружена ошибка в том, как твой клиент получает ресурсы. Пытаюсь исправить.... (Если ты продолжаешь видеть эти сообщения, закрой и открой заного игру)</span>")
 		src << browse("...", "window=asset_cache_browser")
 		return
 	if (href_list["asset_cache_preload_data"])
@@ -318,18 +319,18 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 	if (byond_version >= 512)
 		if (!byond_build || byond_build < 1386)
-			message_admins("<span class='adminnotice'>[key_name(src)] has been detected as spoofing their byond version. Connection rejected.</span>")
-			add_system_note("Spoofed-Byond-Version", "Detected as using a spoofed byond version.")
-			log_access("Failed Login: [key] - Spoofed byond version")
+			message_admins("<span class='adminnotice'>[key_name(src)] попытался спуффать к старой версии. Соединение разорвано.</span>")
+			add_system_note("Spoofed-Byond-Version", "АВТО: Использует спуфер для отката к старым версиям.")
+			log_access("Ошибка подключения: [key] - Спуфинг старых версий")
 			qdel(src)
 
 		if (num2text(byond_build) in GLOB.blacklisted_builds)
-			log_access("Failed login: [key] - blacklisted byond version")
-			to_chat(src, "<span class='userdanger'>Your version of byond is blacklisted.</span>")
-			to_chat(src, "<span class='danger'>Byond build [byond_build] ([byond_version].[byond_build]) has been blacklisted for the following reason: [GLOB.blacklisted_builds[num2text(byond_build)]].</span>")
-			to_chat(src, "<span class='danger'>Please download a new version of byond. If [byond_build] is the latest, you can go to <a href=\"https://secure.byond.com/download/build\">BYOND's website</a> to download other versions.</span>")
+			log_access("Ошибка подключения: [key] - Запрещённая к подключению версия")
+			to_chat(src, "<span class='userdanger'>Твоя версия BYOND запрещена.</span>")
+			to_chat(src, "<span class='danger'>Версия [byond_build] ([byond_version].[byond_build]) запрещена для игры по причине: [GLOB.blacklisted_builds[num2text(byond_build)]].</span>")
+			to_chat(src, "<span class='danger'>Установите последнюю версию. Если [byond_build] является последней версией, то перейдите <a href=\"https://secure.byond.com/download/build\">сюда</a> для установки другой версии.</span>")
 			if(connecting_admin)
-				to_chat(src, "As an admin, you are being allowed to continue using this version, but please consider changing byond versions")
+				to_chat(src, "Как администратору, тебе разрешено пользоваться запрещённой версией, но будь готов к ошибкам.")
 			else
 				qdel(src)
 				return
@@ -354,38 +355,38 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	var/ceb = CONFIG_GET(number/client_error_build)
 	var/cwv = CONFIG_GET(number/client_warn_version)
 	if (byond_version < cev || (byond_version == cev && byond_build < ceb))		//Out of date client.
-		to_chat(src, "<span class='danger'><b>Your version of BYOND is too old:</b></span>")
+		to_chat(src, "<span class='danger'><b>Твоя версия устарела:</b></span>")
 		to_chat(src, CONFIG_GET(string/client_error_message))
-		to_chat(src, "Your version: [byond_version].[byond_build]")
-		to_chat(src, "Required version: [cev].[ceb] or later")
-		to_chat(src, "Visit <a href=\"https://secure.byond.com/download\">BYOND's website</a> to get the latest version of BYOND.")
+		to_chat(src, "Твоя версия: [byond_version].[byond_build]")
+		to_chat(src, "Рекомендуемая версия: [cev].[ceb] или позже")
+		to_chat(src, "<a href=\"https://secure.byond.com/download\">Вот тут можно скачать новую версию</a>.")
 		if (connecting_admin)
-			to_chat(src, "Because you are an admin, you are being allowed to walk past this limitation, But it is still STRONGLY suggested you upgrade")
+			to_chat(src, "Как админ тебе можно использовать старые версии но будь готов к проблемам с графикой")
 		else
 			qdel(src)
 			return 0
 	else if (byond_version < cwv)	//We have words for this client.
 		if(CONFIG_GET(flag/client_warn_popup))
-			var/msg = "<b>Your version of byond may be getting out of date:</b><br>"
+			var/msg = "<b>Твоя версия устаревает:</b><br>"
 			msg += CONFIG_GET(string/client_warn_message) + "<br><br>"
-			msg += "Your version: [byond_version]<br>"
-			msg += "Required version to remove this message: [cwv] or later<br>"
-			msg += "Visit <a href=\"https://secure.byond.com/download\">BYOND's website</a> to get the latest version of BYOND.<br>"
+			msg += "Твоя версия: [byond_version]<br>"
+			msg += "Необходимая версия что-бы убрать сообщение: [cwv] или позже<br>"
+			msg += "<a href=\"https://secure.byond.com/download\">Вот тут можно скачать новую версию</a>."
 			src << browse(msg, "window=warning_popup")
 		else
-			to_chat(src, "<span class='danger'><b>Your version of byond may be getting out of date:</b></span>")
+			to_chat(src, "<span class='danger'><b>Твоя версия устаревает:</b></span>")
 			to_chat(src, CONFIG_GET(string/client_warn_message))
-			to_chat(src, "Your version: [byond_version]")
-			to_chat(src, "Required version to remove this message: [cwv] or later")
-			to_chat(src, "Visit <a href=\"https://secure.byond.com/download\">BYOND's website</a> to get the latest version of BYOND.")
+			to_chat(src, "Твоя версия: [byond_version]")
+			to_chat(src, "Required version to remove this message: [cwv] или позже")
+			to_chat(src, "<a href=\"https://secure.byond.com/download\">Вот тут можно скачать новую версию</a>.")
 
 	if (connection == "web" && !connecting_admin)
 		if (!CONFIG_GET(flag/allow_webclient))
-			to_chat(src, "Web client is disabled")
+			to_chat(src, "Вебклиенты не разрешены.")
 			qdel(src)
 			return 0
 		if (CONFIG_GET(flag/webclient_only_byond_members) && !IsByondMember())
-			to_chat(src, "Sorry, but the web client is restricted to byond members only.")
+			to_chat(src, "Вебклиент для поддержавших BYOND.")
 			qdel(src)
 			return 0
 
@@ -415,11 +416,11 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	var/nnpa = CONFIG_GET(number/notify_new_player_age)
 	if (isnum(cached_player_age) && cached_player_age == -1) //first connection
 		if (nnpa >= 0)
-			message_admins("New user: [key_name_admin(src)] is connecting here for the first time.")
+			message_admins("АХТУНГ: [key_name_admin(src)] впервые на сервере.")
 			if (CONFIG_GET(flag/irc_first_connection_alert))
-				send2tgs_adminless_only("New-user", "[key_name(src)] is connecting for the first time!")
+				send2tgs_adminless_only("New-user", "[key_name(src)] впервые на сервере.")
 	else if (isnum(cached_player_age) && cached_player_age < nnpa)
-		message_admins("New user: [key_name_admin(src)] just connected with an age of [cached_player_age] day[(player_age==1?"":"s")]")
+		message_admins("АХТУНГ: [key_name_admin(src)] just connected with an age of [cached_player_age] day[(player_age==1?"":"s")]")
 	if(CONFIG_GET(flag/use_account_age_for_jobs) && account_age >= 0)
 		player_age = account_age
 	if(account_age >= 0 && account_age < nnpa)
@@ -453,7 +454,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(user_messages)
 		to_chat(src, user_messages)
 	if(!winexists(src, "asset_cache_browser")) // The client is using a custom skin, tell them.
-		to_chat(src, "<span class='warning'>Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you.</span>")
+		to_chat(src, "<span class='warning'>Не удается получить доступ к браузеру кеша активов. Если вы используете пользовательский файл skin, разрешите дримсикеру загрузить обновленную версию, если нет, то сделайте отчет об ошибке. Это не критическая проблема, но может вызвать проблемы со скачиванием ресурсов, так как невозможно узнать, когда к вам поступили дополнительные ресурсы.</span>")
 
 	update_ambience_pref()
 
@@ -575,7 +576,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		//Relies on pref existing, but this proc is only called after that occurs, so we're fine.
 		var/minutes = get_exp_living(pure_numeric = TRUE)
 		if(minutes <= living_recs && !CONFIG_GET(flag/panic_bunker_interview))
-			var/reject_message = "Failed Login: [key] - Account attempting to connect during panic bunker, but they do not have the required living time [minutes]/[living_recs]"
+			var/reject_message = "Ошибка подключения: [key] - Учетная запись пытается подключиться во время панического бункера, но у них нет необходимого времени [minutes]/[living_recs]"
 			log_access(reject_message)
 			message_admins("<span class='adminnotice'>[reject_message]</span>")
 			var/message = CONFIG_GET(string/panic_bunker_message)
@@ -585,7 +586,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			var/list/panic_addr = CONFIG_GET(string/panic_server_address)
 			if(panic_addr && !connectiontopic_a["redirect"])
 				var/panic_name = CONFIG_GET(string/panic_server_name)
-				to_chat(src, "<span class='notice'>Sending you to [panic_name ? panic_name : panic_addr].</span>")
+				to_chat(src, "<span class='notice'>Отправляем тебя на [panic_name ? panic_name : panic_addr].</span>")
 				winset(src, null, "command=.options")
 				src << link("[panic_addr]?redirect=1")
 			qdel(query_client_in_db)
@@ -733,15 +734,18 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if (oldcid)
 		if (!topic || !topic["token"] || !tokens[ckey] || topic["token"] != tokens[ckey])
 			if (!cidcheck_spoofckeys[ckey])
-				message_admins("<span class='adminnotice'>[key_name(src)] appears to have attempted to spoof a cid randomizer check.</span>")
+				message_admins("<span class='adminnotice'>[key_name(src)] использует спуфер для смены cid, возможно использует читы.</span>")
 				cidcheck_spoofckeys[ckey] = TRUE
+				for(var/client/X in GLOB.admins)
+					if(X.prefs.toggles & SOUND_ADMINVPNPROXYPING)
+						SEND_SOUND(X, sound('lambda/sanecman/sound/detect.ogg'))
 			cidcheck[ckey] = computer_id
 			tokens[ckey] = cid_check_reconnect()
 
 			sleep(15 SECONDS) //Longer sleep here since this would trigger if a client tries to reconnect manually because the inital reconnect failed
 
 			//we sleep after telling the client to reconnect, so if we still exist something is up
-			log_access("Forced disconnect: [key] [computer_id] [address] - CID randomizer check")
+			log_access("Автодисконект: [key] [computer_id] [address] - спуфер CID")
 
 			qdel(src)
 			return TRUE
@@ -749,26 +753,29 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		if (oldcid != computer_id && computer_id != lastcid) //IT CHANGED!!!
 			cidcheck -= ckey //so they can try again after removing the cid randomizer.
 
-			to_chat(src, "<span class='userdanger'>Connection Error:</span>")
-			to_chat(src, "<span class='danger'>Invalid ComputerID(spoofed). Please remove the ComputerID spoofer from your byond installation and try again.</span>")
+			to_chat(src, "<span class='userdanger'>СЛУШАЙ УЁБИЩЕ</span>")
+			to_chat(src, "<span class='danger'>Я думаю что ты, наглая рожа, юзаешь ебучий спуфер. Ставь всё обратно на место и заходи снова если играть хочешь, читер ёбаный.</span>")
 
 			if (!cidcheck_failedckeys[ckey])
-				message_admins("<span class='adminnotice'>[key_name(src)] has been detected as using a cid randomizer. Connection rejected.</span>")
-				send2tgs_adminless_only("CidRandomizer", "[key_name(src)] has been detected as using a cid randomizer. Connection rejected.")
+				message_admins("<span class='adminnotice'>[key_name(src)] использует рандомизатор (спуфер) cid (компьютер айди). Соединение прервано.</span>")
+			for(var/client/X in GLOB.admins)
+				if(X.prefs.toggles & SOUND_ADMINVPNPROXYPING)
+					SEND_SOUND(X, sound('lambda/sanecman/sound/detect.ogg'))
+				send2tgs_adminless_only("CidRandomizer", "[key_name(src)] использует рандомизатор (спуфер) cid (компьютер айди). Соединение прервано.")
 				cidcheck_failedckeys[ckey] = TRUE
 				note_randomizer_user()
 
-			log_access("Failed Login: [key] [computer_id] [address] - CID randomizer confirmed (oldcid: [oldcid])")
+			log_access("Ошибка подключения: [key] [computer_id] [address] - CID randomizer confirmed (oldcid: [oldcid])")
 
 			qdel(src)
 			return TRUE
 		else
 			if (cidcheck_failedckeys[ckey])
-				message_admins("<span class='adminnotice'>[key_name_admin(src)] has been allowed to connect after showing they removed their cid randomizer</span>")
-				send2tgs_adminless_only("CidRandomizer", "[key_name(src)] has been allowed to connect after showing they removed their cid randomizer.")
+				message_admins("<span class='adminnotice'>[key_name_admin(src)] удалил спуфер cid и смог подключиться на сервер. Соединение установлено.</span>")
+				send2tgs_adminless_only("CidRandomizer", "[key_name(src)] удалил спуфер cid и смог подключиться на сервер. Соединение установлено.")
 				cidcheck_failedckeys -= ckey
 			if (cidcheck_spoofckeys[ckey])
-				message_admins("<span class='adminnotice'>[key_name_admin(src)] has been allowed to connect after appearing to have attempted to spoof a cid randomizer check because it <i>appears</i> they aren't spoofing one this time</span>")
+				message_admins("<span class='adminnotice'>[key_name_admin(src)] было разрешено подключиться после того, как он попытался наебать проверку рандомизатора cid, потому что <i>похоже</i>, на этот раз он не подделывает проверку. Соединение установлено.</span>")
 				cidcheck_spoofckeys -= ckey
 			cidcheck -= ckey
 	else if (computer_id != lastcid)
@@ -778,7 +785,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		sleep(5 SECONDS) //browse is queued, we don't want them to disconnect before getting the browse() command.
 
 		//we sleep after telling the client to reconnect, so if we still exist something is up
-		log_access("Forced disconnect: [key] [computer_id] [address] - CID randomizer check")
+		log_access("Автодисконект: [key] [computer_id] [address] - спуфер CID")
 
 		qdel(src)
 		return TRUE
@@ -786,14 +793,14 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 /client/proc/cid_check_reconnect()
 	var/token = md5("[rand(0,9999)][world.time][rand(0,9999)][ckey][rand(0,9999)][address][rand(0,9999)][computer_id][rand(0,9999)]")
 	. = token
-	log_access("Failed Login: [key] [computer_id] [address] - CID randomizer check")
+	log_access("Ошибка подключения: [key] [computer_id] [address] - спуфер CID")
 	var/url = winget(src, null, "url")
 	//special javascript to make them reconnect under a new window.
 	src << browse({"<a id='link' href="byond://[url]?token=[token]">byond://[url]?token=[token]</a><script type="text/javascript">document.getElementById("link").click();window.location="byond://winset?command=.quit"</script>"}, "border=0;titlebar=0;size=1x1;window=redirect")
-	to_chat(src, {"<a href="byond://[url]?token=[token]">You will be automatically taken to the game, if not, click here to be taken manually</a>"})
+	to_chat(src, {"<a href="byond://[url]?token=[token]">Вы будете автоматически перенаправлены в игру, если нет, нажмите здесь, чтобы перейти вручную.</a>"})
 
 /client/proc/note_randomizer_user()
-	add_system_note("CID-Error", "Detected as using a cid randomizer.")
+	add_system_note("CID-Error", "АВТО: Использует спуфер cid.")
 
 /client/proc/add_system_note(system_ckey, message)
 	//check to see if we noted them in the last day.
@@ -829,7 +836,10 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if (CONFIG_GET(string/ipintel_email))
 		var/datum/ipintel/res = get_ip_intel(address)
 		if (res.intel >= CONFIG_GET(number/ipintel_rating_bad))
-			message_admins("<span class='adminnotice'>Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a Proxy/VPN.</span>")
+			message_admins("<span class='adminnotice'>ОБНАРУЖЕН ПРОКСИ: [key_name_admin(src)] возможно на [res.intel*100]% использует прокси или впн.</span>")
+		for(var/client/X in GLOB.admins)
+			if(X.prefs.toggles & SOUND_ADMINVPNPROXYPING)
+				SEND_SOUND(X, sound('lambda/sanecman/sound/detect.ogg'))
 		ip_intel = res.intel
 
 /client/Click(atom/object, atom/location, control, params)
@@ -858,17 +868,17 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			clicklimiter[MINUTE_COUNT] = 0
 		clicklimiter[MINUTE_COUNT] += 1+(ab)
 		if (clicklimiter[MINUTE_COUNT] > mcl)
-			var/msg = "Your previous click was ignored because you've done too many in a minute."
+			var/msg = "Ты сделал очень много кликов в минуту."
 			if (minute != clicklimiter[ADMINSWARNED_AT]) //only one admin message per-minute. (if they spam the admins can just boot/ban them)
 				clicklimiter[ADMINSWARNED_AT] = minute
 
-				msg += " Administrators have been informed."
+				msg += " О̸͇͉̦̓̈́͝н̸̝̪̺̓͊͊и̴̪̺͇͌͆̿ и̵̠̻̓̾̓д̵̡͓̪͋͛͘ӱ̵̡̘͓́̈́́т̴̺̪̽͛͘͜ з̸̻̻͙̽͋̕а̸͕̻͍͋̐͝ т̴̝̪͖͆̾̀о̵͇̝̠̐͊̓б̸̻̦̫̈́̕͝о̸͇͖̾͋͝й̴̻͚͋̒͒.̴̪͇̀̽͜"
 				if (ab)
-					log_game("[key_name(src)] is using the middle click aimbot exploit")
-					message_admins("[ADMIN_LOOKUPFLW(usr)] [ADMIN_KICK(usr)] is using the middle click aimbot exploit</span>")
-					add_system_note("aimbot", "Is using the middle click aimbot exploit")
-				log_game("[key_name(src)] Has hit the per-minute click limit of [mcl] clicks in a given game minute")
-				message_admins("[ADMIN_LOOKUPFLW(usr)] [ADMIN_KICK(usr)] Has hit the per-minute click limit of [mcl] clicks in a given game minute")
+					log_game("[key_name(src)] испоьзует эксплойт накликивая средней кнопкой мыши аимботом")
+					message_admins("[ADMIN_LOOKUPFLW(usr)] [ADMIN_KICK(usr)] испоьзует эксплойт накликивая средней кнопкой мыши аимботом.</span>")
+					add_system_note("aimbot", "АВТО: Испоьзует эксплойт накликивая средней кнопкой мыши аимботом.")
+				log_game("[key_name(src)] достиг лимита накликивания мышкой которое равно [mcl] кликов/минута")
+				message_admins("[ADMIN_LOOKUPFLW(usr)] [ADMIN_KICK(usr)] достиг лимита накликивания мышкой которое равно [mcl] кликов/минута.")
 			to_chat(src, "<span class='danger'>[msg]</span>")
 			return
 
@@ -882,7 +892,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			clicklimiter[SECOND_COUNT] = 0
 		clicklimiter[SECOND_COUNT] += 1+(!!ab)
 		if (clicklimiter[SECOND_COUNT] > scl)
-			to_chat(src, "<span class='danger'>Your previous click was ignored because you've done too many in a second</span>")
+			to_chat(src, "<span class='danger'>Происходит проверка на использование аимбота, подождите...</span>")
 			return
 
 	if (prefs.hotkeys)
@@ -1074,7 +1084,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 /client/proc/check_panel_loaded()
 	if(statbrowser_ready)
 		return
-	to_chat(src, "<span class='userdanger'>Statpanel failed to load, click <a href='?src=[REF(src)];reload_statbrowser=1'>here</a> to reload the panel </span>")
+	to_chat(src, "<span class='userdanger'>Панелька не прогрузилась? Ну и ну, жми <a href='?src=[REF(src)];reload_statbrowser=1'>сюда</a> дабы я перезагрузил тебе её </span>")
 
 /**
  * Initializes dropdown menus on client

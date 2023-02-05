@@ -443,6 +443,17 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	to_chat(usr, "You will [(prefs.toggles & SOUND_ADMINHELP) ? "now" : "no longer"] hear a sound when adminhelps arrive.")
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Adminhelp Sound", "[prefs.toggles & SOUND_ADMINHELP ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+/client/proc/toggleadminproxyandvpnsound()
+	set name = "Hear/Silence Proxy&VPN Detect"
+	set category = "Prefs - Admin"
+	set desc = "Переключить оповещения о игроках которые используют прокси или впн"
+	if(!holder)
+		return
+	prefs.toggles ^= SOUND_ADMINVPNPROXYPING
+	prefs.save_preferences()
+	to_chat(usr, "Теперь [(prefs.toggles & SOUND_ADMINVPNPROXYPING) ? "СЛЫШУ" : "НЕ СЛЫШУ"] оповещения о игроках с прокси или впн.")
+	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Proxy And VPN Sound", "[prefs.toggles & SOUND_ADMINVPNPROXYPING ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
 /client/proc/toggleannouncelogin()
 	set name = "Do/Don't Announce Login"
 	set category = "Prefs - Admin"
