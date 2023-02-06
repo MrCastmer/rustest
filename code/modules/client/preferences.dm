@@ -1077,7 +1077,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				dat += "<h2>Администраторские настройки</h2>"
 				dat += "<b>Оповещать при ахелпе:</b> <a href='?_src_=prefs;preference=hear_adminhelps'>[(toggles & SOUND_ADMINHELP)?"Enabled":"Disabled"]</a><br>"
-				dat += "<b>Оповещать при игроках с впн или прокси:</b> <a href='?_src_=prefs;preference=adminproxyandvpnsound'>[(toggles & SOUND_ADMINVPNPROXYPING)?"Enabled":"Disabled"]</a><br>"
+				dat += "<b>Оповещать при игроках с впн или прокси:</b> <a href='?_src_=prefs;preference=hear_adminproxyandvpnsound'>[(toggles & SOUND_ADMINVPNPROXYPING)?"Enabled":"Disabled"]</a><br>"
 				dat += "<b>Оповещать при молитвах (Pray):</b> <a href = '?_src_=prefs;preference=hear_prayers'>[(toggles & SOUND_PRAYERS)?"Enabled":"Disabled"]</a><br>"
 				dat += "<b>Оповещать о входе на сервер:</b> <a href='?_src_=prefs;preference=announce_login'>[(toggles & ANNOUNCE_LOGIN)?"Enabled":"Disabled"]</a><br>"
 				dat += "<br>"
