@@ -174,13 +174,3 @@
 	if(!getorganslot(ORGAN_SLOT_LUNGS))
 		return 0
 	return 1
-
-/mob/living/carbon/monkey/angry
-	aggressive = TRUE
-
-/mob/living/carbon/monkey/angry/Initialize()
-	. = ..()
-	if(prob(10))
-		var/obj/item/clothing/head/helmet/justice/escape/helmet = new(src)
-		equip_to_slot_or_del(helmet,ITEM_SLOT_HEAD)
-		helmet.attack_self(src) // todo encapsulate toggle
