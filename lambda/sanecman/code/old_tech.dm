@@ -1,5 +1,20 @@
 // Машины 20-21 века
 // Сначала идёт отображение веток в рнд
+// КАРТА ВЕТКИ СТАРЫХ ТЕХНОЛОГИЙ
+//
+//
+//
+//
+//
+//       /datum/techweb_node/old_tech      ->        /datum/techweb_node/adv_old_tech
+//
+//
+//
+//
+//
+//
+//
+//
 /datum/techweb_node/old_tech
 	id = "old_tech"
 	display_name = "Восстановление затерянных технологий"
