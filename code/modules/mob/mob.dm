@@ -707,7 +707,7 @@
 
 	var/admin_bypass = FALSE
 	if(client?.holder)
-		var/poll_client = tgui_alert(usr, "Would you like to use your rank to bypass a potential respawn timer?", "Admin Alert", list("Yes", "No"))
+		var/poll_client = tgui_alert(usr, "Обойти время на респавн?", "Педальные приколдесы", list("Yes", "No"))
 		if(poll_client == "Yes")
 			admin_bypass = TRUE
 			message_admins("[key_name_admin(usr)] has used admin permissions to bypass respawn restrictions.")
@@ -723,7 +723,7 @@
 	if(GLOB.respawn_timers[usrkey] && !admin_bypass)
 		var/time_left = GLOB.respawn_timers[usrkey] + respawn_timer - world.timeofday
 		if(time_left > 0)
-			to_chat(usr, "<span class='boldnotice'>You still have [DisplayTimeText(time_left)] left before you can respawn.</span>")
+			to_chat(usr, "<span class='boldnotice'>Подожди ещё [DisplayTimeText(time_left)] для респавна.</span>")
 			return
 
 	GLOB.respawn_timers -= usrkey
