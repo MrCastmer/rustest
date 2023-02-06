@@ -59,7 +59,7 @@
 
 
 /datum/game_mode/proc/announce() //Shows the gamemode's name and a fast description.
-	to_chat(world, "<b>The gamemode is: <span class='[announce_span]'>[name]</span>!</b>")
+	to_chat(world, "<b>Режим игры: <span class='[announce_span]'>[name]</span>!</b>")
 	to_chat(world, "<b>[announce_text]</b>")
 
 
