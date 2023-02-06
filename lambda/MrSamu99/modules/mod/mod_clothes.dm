@@ -9,6 +9,7 @@
 	heat_protection = HEAD
 	cold_protection = HEAD
 	obj_flags = IMMUTABLE_SLOW
+	visor_flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 
 /obj/item/clothing/suit/mod
 	name = "MOD нагрудник"
@@ -48,3 +49,4 @@
 	obj_flags = IMMUTABLE_SLOW
 	supports_variations = DIGITIGRADE_VARIATION
 	can_be_tied = FALSE
+	visor_flags_inv = HIDESHOES
