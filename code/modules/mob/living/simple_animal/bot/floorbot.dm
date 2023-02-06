@@ -1,7 +1,7 @@
 //Floorbot
 /mob/living/simple_animal/bot/floorbot
-	name = "\improper Floorbot"
-	desc = "A little floor repairing robot, he looks so excited!"
+	name = "Полобот"
+	desc = "Маленький ремонтный бот."
 	icon = 'icons/mob/aibots.dmi'
 	icon_state = "floorbot0"
 	density = FALSE
@@ -41,8 +41,8 @@
 	#define TILE_EMAG 7
 
 /mob/living/simple_animal/bot/floorbot/rockplanet
-	name = "\improper Abandoned Floorbot"
-	desc = "Many years of abandonment has made this bot into a floor destroying robot! They look so excited!"
+	name = "сломаный полобот"
+	desc = "Маленький ремонтный бот. Он выглядит повреждённым!"
 	toolbox = /obj/item/storage/toolbox/syndicate/empty
 	toolbox_color = "s"
 	emagged = 2
@@ -80,48 +80,49 @@
 	update_icon()
 
 /mob/living/simple_animal/bot/floorbot/set_custom_texts()
-	text_hack = "You corrupt [name]'s construction protocols."
-	text_dehack = "You detect errors in [name] and reset his programming."
-	text_dehack_fail = "[name] is not responding to reset commands!"
+	text_hack = "Повреждаю протоколы строительства [name]."
+	text_dehack = "Восстанавливаю протоколы строительства [name]."
+	text_dehack_fail = "[name] не отвечает на запрос.!"
 
 /mob/living/simple_animal/bot/floorbot/get_controls(mob/user)
 	var/dat
+	dat += "<meta charset='utf-8'>"
 	dat += hack(user)
 	dat += showpai(user)
-	dat += "<TT><B>Floor Repairer Controls v1.1</B></TT><BR><BR>"
-	dat += "Status: <A href='?src=[REF(src)];power=1'>[on ? "On" : "Off"]</A><BR>"
-	dat += "Maintenance panel panel is [open ? "opened" : "closed"]<BR>"
-	dat += "Special tiles: "
+	dat += "<TT><B>Бот восстановки напольного покрытия v1.1 RUS</B></TT><BR><BR>"
+	dat += "Статус: <A href='?src=[REF(src)];power=1'>[on ? "Включён" : "Отключён"]</A><BR>"
+	dat += "Панель обслуживания [open ? "открыта" : "закрыта"]<BR>"
+	dat += "Пользовательские плитки: "
 	if(specialtiles)
-		dat += "<A href='?src=[REF(src)];operation=eject'>Loaded \[[specialtiles]/[maxtiles]\]</a><BR>"
+		dat += "<A href='?src=[REF(src)];operation=eject'>Загружено \[[specialtiles]/[maxtiles]\]</a><BR>"
 	else
-		dat += "None Loaded<BR>"
+		dat += "Нету<BR>"
 
-	dat += "Behaviour controls are [locked ? "locked" : "unlocked"]<BR>"
+	dat += "Управление вблизи [locked ? "заблокировано" : "разблокировано"]<BR>"
 	if(!locked || issilicon(user) || isAdminGhostAI(user))
-		dat += "Add tiles to new hull plating: <A href='?src=[REF(src)];operation=autotile'>[autotile ? "Yes" : "No"]</A><BR>"
-		dat += "Place floor tiles: <A href='?src=[REF(src)];operation=place'>[placetiles ? "Yes" : "No"]</A><BR>"
-		dat += "Replace existing floor tiles with custom tiles: <A href='?src=[REF(src)];operation=replace'>[replacetiles ? "Yes" : "No"]</A><BR>"
-		dat += "Repair damaged tiles and platings: <A href='?src=[REF(src)];operation=fix'>[fixfloors ? "Yes" : "No"]</A><BR>"
-		dat += "Traction Magnets: <A href='?src=[REF(src)];operation=anchor'>[anchored ? "Engaged" : "Disengaged"]</A><BR>"
-		dat += "Patrol Station: <A href='?src=[REF(src)];operation=patrol'>[auto_patrol ? "Yes" : "No"]</A><BR>"
+		dat += "> Ложить плитки на \"голое\" покрытие: <A href='?src=[REF(src)];operation=autotile'>[autotile ? "Yes" : "No"]</A><BR>"
+		dat += "> Укладывать плитку: <A href='?src=[REF(src)];operation=place'>[placetiles ? "Yes" : "No"]</A><BR>"
+		dat += "> Заменять напольные плитки встроенными в бота: <A href='?src=[REF(src)];operation=replace'>[replacetiles ? "Yes" : "No"]</A><BR>"
+		dat += "> Восстанавливать повреждённые плитки и покрытия: <A href='?src=[REF(src)];operation=fix'>[fixfloors ? "Yes" : "No"]</A><BR>"
+		dat += "> Примагничивание к поверхности: <A href='?src=[REF(src)];operation=anchor'>[anchored ? "Engaged" : "Disengaged"]</A><BR>"
+		dat += "> Патрулирование: <A href='?src=[REF(src)];operation=patrol'>[auto_patrol ? "Yes" : "No"]</A><BR>"
 		var/bmode
 		if(targetdirection)
 			bmode = dir2text(targetdirection)
 		else
 			bmode = "disabled"
-		dat += "Line Mode : <A href='?src=[REF(src)];operation=linemode'>[bmode]</A><BR>"
+		dat += "Двигаться в одном направлении : <A href='?src=[REF(src)];operation=linemode'>[bmode]</A><BR>"
 
 	return dat
 
 /mob/living/simple_animal/bot/floorbot/attackby(obj/item/W , mob/user, params)
 	if(istype(W, /obj/item/stack/tile/plasteel))
-		to_chat(user, "<span class='notice'>The floorbot can produce normal tiles itself.</span>")
+		to_chat(user, "<span class='notice'>Бот может сам производить обычные плитки.</span>")
 		return
 	if(specialtiles && istype(W, /obj/item/stack/tile))
 		var/obj/item/stack/tile/usedtile = W
 		if(usedtile.type != tiletype)
-			to_chat(user, "<span class='warning'>Different custom tiles are already inside the floorbot.</span>")
+			to_chat(user, "<span class='warning'>Различные пользовательские плитки уже находятся внутри бота.</span>")
 			return
 	if(istype(W, /obj/item/stack/tile))
 		if(specialtiles >= maxtiles)
@@ -132,9 +133,9 @@
 		tiles.use(loaded)
 		specialtiles += loaded
 		if(loaded > 0)
-			to_chat(user, "<span class='notice'>You load [loaded] tiles into the floorbot. It now contains [specialtiles] tiles.</span>")
+			balloon_alert(user, "Вставляю [loaded] плиток в бота. Сейчас в нём [specialtiles] плиток.")
 		else
-			to_chat(user, "<span class='warning'>You need at least one floor tile to put into [src]!</span>")
+			balloon_alert(user, "Тебе нужна плитка что-бы вставить в [src]!")
 	else
 		..()
 
@@ -142,7 +143,7 @@
 	..()
 	if(emagged == 2)
 		if(user)
-			to_chat(user, "<span class='danger'>[src] buzzes and beeps.</span>")
+			balloon_alert(user, "Повреждаю протоколы строительства [src].")
 
 /mob/living/simple_animal/bot/floorbot/Topic(href, href_list)
 	if(..())
@@ -191,7 +192,7 @@
 		return
 
 	if(prob(5))
-		audible_message("[src] makes an excited booping beeping sound!")
+		audible_message("[src] букает и бикает!")
 
 	//Normal scanning procedure. We have tiles loaded, are not emagged.
 	if(!target && emagged < 2)
@@ -248,7 +249,7 @@
 				set_anchored(TRUE)
 				mode = BOT_REPAIRING
 				F.ReplaceWithLattice()
-				audible_message("<span class='danger'>[src] makes an excited booping sound.</span>")
+				audible_message("<span class='danger'>[src] издаёт протяжный бип.</span>")
 				addtimer(CALLBACK(src, .proc/go_idle), 0.5 SECONDS)
 			path = list()
 			return
@@ -330,7 +331,7 @@
 	if(isspaceturf(target_turf)) //If we are fixing an area not part of pure space, it is
 		set_anchored(TRUE)
 		icon_state = "[toolbox_color]floorbot-c"
-		visible_message("<span class='notice'>[targetdirection ? "[src] begins installing a bridge plating." : "[src] begins to repair the hole."] </span>")
+		visible_message("<span class='notice'>[targetdirection ? "[src] начинает заделывать дыру." : "[src] заделывает дыру."] </span>")
 		mode = BOT_REPAIRING
 		sleep(50)
 		if(mode == BOT_REPAIRING && src.loc == target_turf)
@@ -346,7 +347,7 @@
 			set_anchored(TRUE)
 			icon_state = "[toolbox_color]floorbot-c"
 			mode = BOT_REPAIRING
-			visible_message("<span class='notice'>[src] begins repairing the floor.</span>")
+			visible_message("<span class='notice'>[src] чинит пол.</span>")
 			sleep(50)
 			if(mode == BOT_REPAIRING && F && src.loc == F)
 				F.broken = FALSE
@@ -357,7 +358,7 @@
 			set_anchored(TRUE)
 			icon_state = "[toolbox_color]floorbot-c"
 			mode = BOT_REPAIRING
-			visible_message("<span class='notice'>[src] begins replacing the floor tiles.</span>")
+			visible_message("<span class='notice'>[src] прокладывает плитку.</span>")
 			sleep(50)
 			if(mode == BOT_REPAIRING && F && src.loc == F)
 				F.broken = FALSE
@@ -365,7 +366,7 @@
 				F.PlaceOnTop(initial(tiletype.turf_type), flags = CHANGETURF_INHERIT_AIR)
 				specialtiles -= 1
 				if(specialtiles == 0)
-					speak("Requesting refill of custom floortiles to continue replacing.")
+					speak("Запрос на пополнение нестандартной напольной плитки для продолжения замены.")
 	mode = BOT_IDLE
 	update_icon()
 	anchored = FALSE
@@ -377,7 +378,7 @@
 
 /mob/living/simple_animal/bot/floorbot/explode()
 	on = FALSE
-	visible_message("<span class='boldannounce'>[src] blows apart!</span>")
+	visible_message("<span class='boldannounce'>[src] взрывается!</span>")
 	var/atom/Tsec = drop_location()
 
 	drop_part(toolbox, Tsec)
