@@ -110,7 +110,7 @@
 	switch(type_to_use)
 		if("string")
 			accepting_refs = FALSE
-			new_data = tgui_input_text(usr, "Now type in a string.","[src] string writing")
+			new_data = input(usr, "Now type in a string.","[src] string writing")
 			if(istext(new_data) && ISADVANCEDTOOLUSER(user))
 				O.data = new_data
 				to_chat(user, span_notice("You set <b>[src.name]</b>'s memory to [O.display_data(O.data)]."))
