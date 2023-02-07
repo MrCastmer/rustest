@@ -1,0 +1,62 @@
+########################################################################################################
+##                                                                                                    ##
+##                                                                                                    ##
+##                                                                                                    ##
+##         MWXXNW                                                                                     ##
+##      MMNK0kkKNW                                                                                    ##
+##   MWNK0o;:lc:cdxkOXW                                                                  WW           ##
+##   W0l,'...........;d0XNWW                                                      MWWMWNOookXNKXW     ##
+##   Wx,...............',:coxXW                                                MN0xodddl,..'cl:oX     ##
+##   MO;.....................:kXNW                                          WNXOl'.............:0W    ##
+##   WXo.......................,:d0N                                    WNKko:,'..............,dX     ##
+##   N0l..........................,ldxxOKNW   WNW            MMWWMWWX0Odl;'...................lK      ##
+##   MNx;...............................'cOXOdc:kW         WKkoclol:,'........:ol;...........,dX      ##
+##   MMWOc............,:;..''...';,.......','...lX      WXXOc.......,ldc;,',ckNN0c..........:kN       ##
+##      WKl...........cO0xc::,;o0NXd.............cOXNWW0l;,'........,d0K0kkO0Odc'.........;xXW        ##
+##      MMKc...........':looodk0Oko;...............;:cl;..............',;;;,'.............,xN         ##
+##      MMW0o;...............'''..........................................................;xN         ##
+##         MWXd,................................'lxkkOkko;...........................'cdkkKN          ##
+##         MMXx,...............................,xN      WKxc'.......................:kN         MWW   ##
+##         MMN0d;............................,cxN         MXd,;c;..................;kN         MNKXW  ##
+##            MWXOo,....................'coxk0XNW         MNOxKKl'',,'............'cxKW      MMWKOX   ##
+##               MWKxc'............,col::kN               MWNNW0lo0XK0Okdoc,,cxxxkkkOKN      MWKxkN   ##
+##   MWWW            Kl.........;oOXWMWXxxX                  MMNXN      MMN0xK               WXkxKW   ##
+##   W0xxOKNW      MMWKkxddoddxOXW      WNN                              MMWNW               NOd0W    ##
+##   W0l::cd0XW                                                                           MMWXxdK     ##
+##   MNkc;;;:d0W                                                                           MW0xkN     ##
+##   MWKo:;;;:o0W                                                                        WX0OxkXW     ##
+##   MMN0o:;;;cON                                                                     MMWKoclxXW      ##
+##      WKd:;cd0N                                                                     WWKdclkNW       ##
+##      MWXxc:loxKW                                                                  WKxlco0N         ##
+##      MMWKd:;;cON                                                               MNKkl:cdKW          ##
+##         Nkc;:oKW                  WX0KN                                       MMXd::lOXW           ##
+##         WXxc:ckXW                  N0kxkKN               MWNNW               MMWXxcdKW             ##
+##         MMN0o:cxXWWNXXN            MMWKkddkKWW         MWN0k0N            WWNXKOxco0W              ##
+##            WKxclkK0dokX               MWN0xoox0KXNNNNX0OkxOXW         MWNKOxocc::oON               ##
+##            MWN0dllc:cxXWWWWW            MMWX0xdooooooodk0NW         WNXOoc:;;;;cxKW                ##
+##               WNOo:;ckKKkddk0XW               WNXXKKXNW         MWX0xoc:;;;;;;:dKW                 ##
+##               MMWKxc:cloc;;;:oONWW                           WNX0xl:;;;;;;;:coOXW                  ##
+##                  WNOl:;;;;;;;;codkkOOkkkkkOOO0KXNWWWNX0O00OOkdoc:;;;;;:;:cdOKNW                    ##
+##                  MMWKdc;;;;;;;;;;;;;;;;;;;;;;::loddooc:;;;;;;;;;;;;;cdkxkKW                        ##
+##                     WN0xdoc;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;ckNWWW                          ##
+##                        WNXOdlcc:;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:cox0N                              ##
+##                           WNXXKko:;;;;;;;;;;;;;;;;;;;;;;;;;;;:lx0NW                                ##
+##                              MMWXOxdxolllcc:;;;;;;;;;;;::;;cokKNW                                  ##
+##                                 MWWWWNXXXXKOxxxxxxxxxxxkkxk0XW                                     ##
+##                                          MMWWWWWWWWWWWWWWWW                                        ##
+##                                                                                                    ##
+##                                                                                                    ##
+##                                                                                                    ##
+########################################################################################################
+## IPINTEL:
+## This allows you to detect likely proxies by checking ips against getipintel.net
+## Rating to warn at: (0.9 is good, 1 is 100% likely to be a spammer/proxy, 0.8 is 80%, etc) anything equal to or higher then this number triggers an admin warning
+#IPINTEL_RATING_BAD 0.9
+## Contact email, (required to use the service, leaving blank or default disables IPINTEL)
+#IPINTEL_EMAIL ch@nge.me
+## How long to save good matches (ipintel rate limits to 15 per minute and 500 per day. so this shouldn't be too low, getipintel.net suggests 6 hours, time is in hours) (Your ip will get banned if you go over 500 a day too many times)
+#IPINTEL_SAVE_GOOD 12
+## How long to save bad matches (these numbers can change as ips change hands, best not to save these for too long in case somebody gets a new ip used by a spammer/proxy before.)
+#IPINTEL_SAVE_BAD 3
+## Domain name to query (leave commented out for the default, only needed if you pay getipintel.net for more querys)
+#IPINTEL_DOMAIN check.getipintel.net
