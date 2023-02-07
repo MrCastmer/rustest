@@ -1,5 +1,5 @@
 /datum/supply_pack/spacesuit_armor
-	group = "Spacesuits & Armor"
+	group = "Скафандры"
 	crate_type = /obj/structure/closet/crate/secure
 
 /*

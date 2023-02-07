@@ -1,5 +1,5 @@
 /datum/supply_pack/animal
-	group = "Animals"
+	group = "Животные"
 	crate_type = /obj/structure/closet/crate/critter
 
 /*
@@ -7,46 +7,46 @@
 */
 
 /datum/supply_pack/animal/monkey
-	name = "Monkey Cube Crate"
-	desc = "Stop monkeying around! Contains seven monkey cubes. Just add water!"
+	name = "Ящик с кубиками макак"
+	desc = "Одна капля воды и хлобысь - целая макака!"
 	cost = 2000
 	contains = list (/obj/item/storage/box/monkeycubes)
-	crate_name = "monkey cube crate"
+	crate_name = "ящик с кубиками макак"
 	crate_type = /obj/structure/closet/crate
 
 /datum/supply_pack/animal/chick
-	name = "Chicken Crate"
-	desc = "The chicken goes bwaak!"
+	name = "Ящик с курицей"
+	desc = "В нём содеБВАКБВАКБВАК!"
 	cost = 2000
 	contains = list(/mob/living/simple_animal/chick)
-	crate_name = "chicken crate"
+	crate_name = "ящик с курицей"
 
 /datum/supply_pack/animal/goat
-	name = "Goat Crate"
-	desc = "The goat goes baa! Warranty void if used as a replacement for Pete."
+	name = "Ящик с козой"
+	desc = "Ящик со злой козой. Лучше её не бить."
 	cost = 2500
 	contains = list(/mob/living/simple_animal/hostile/retaliate/goat)
-	crate_name = "goat crate"
+	crate_name = "ящик с козой"
 
 /datum/supply_pack/animal/cow
-	name = "Cow Crate"
-	desc = "The cow goes moo!"
+	name = "Ящик с коровой"
+	desc = "Корова говорит муу!"
 	cost = 3000
 	contains = list(/mob/living/simple_animal/cow)
-	crate_name = "cow crate"
+	crate_name = "ящик с коровой"
 
 /*
 		Normal pets
 */
 
 /datum/supply_pack/animal/cat
-	name = "Cat Crate"
-	desc = "The cat goes meow! Comes with a collar and a nice cat toy! Cheeseburger not included."//i can't believe im making this reference
+	name = "Ящик с котом"
+	desc = "Кот! Вместе с ошейником и игрушкой!"//i can't believe im making this reference
 	cost = 5000 //Cats are worth as much as corgis.
 	contains = list(/mob/living/simple_animal/pet/cat,
 					/obj/item/clothing/neck/petcollar,
 					/obj/item/toy/cattoy)
-	crate_name = "cat crate"
+	crate_name = "ящик с котом"
 
 /datum/supply_pack/animal/cat/generate()
 	. = ..()
@@ -56,20 +56,20 @@
 		new /mob/living/simple_animal/pet/cat/Proc(.)
 
 /datum/supply_pack/animal/pug
-	name = "Pug Crate"
-	desc = "Like a normal dog, but... squished. Comes with a nice collar!"
+	name = "Ящик с пуделем"
+	desc = "Собака! Правда она выглядит... ужасно. Но зато поставляется с ошейником!"
 	cost = 5000
 	contains = list(/mob/living/simple_animal/pet/dog/pug,
 					/obj/item/clothing/neck/petcollar)
-	crate_name = "pug crate"
+	crate_name = "Ящик с пуделем"
 
 /datum/supply_pack/animal/corgi
-	name = "Corgi Crate"
-	desc = "Considered the optimal dog breed by thousands of research scientists, this Corgi is but one dog from the millions of Ian's noble bloodline. Comes with a cute collar!"
+	name = "Ящик с корги"
+	desc = "Один из тысячи потомков Яна. Поставляется с ошейником!"
 	cost = 5000
 	contains = list(/mob/living/simple_animal/pet/dog/corgi,
 					/obj/item/clothing/neck/petcollar)
-	crate_name = "corgi crate"
+	crate_name = "ящик с корги"
 
 /datum/supply_pack/animal/corgi/generate()
 	. = ..()
@@ -80,8 +80,8 @@
 			new /mob/living/simple_animal/pet/dog/corgi/Lisa(.)
 
 /datum/supply_pack/animal/corgis/exotic
-	name = "Exotic Corgi Crate"
-	desc = "Corgis fit for a king, these corgis come in a unique color to signify their superiority. Comes with a cute collar!"
+	name = "Ящик с экзотическим корги"
+	desc = "Один из тысячи потомков Яна. Данный корги из королевских семей. Поставляется с ошейником!"
 	cost = 5500
 	contains = list(/mob/living/simple_animal/pet/dog/corgi/exoticcorgi,
 					/obj/item/clothing/neck/petcollar)
@@ -92,11 +92,11 @@
 */
 
 /datum/supply_pack/animal/parrot
-	name = "Bird Crate"
-	desc = "Contains five expert telecommunication birds."
+	name = "Ящик с птицей"
+	desc = "Содержит эксперта в телекоммуникациях."
 	cost = 4000
 	contains = list(/mob/living/simple_animal/parrot)
-	crate_name = "parrot crate"
+	crate_name = "ящик с птицей"
 
 /datum/supply_pack/animal/parrot/generate()
 	. = ..()
@@ -104,19 +104,19 @@
 		new /mob/living/simple_animal/parrot(.)
 
 /datum/supply_pack/animal/fox
-	name = "Fox Crate"
-	desc = "The fox goes...? Comes with a collar!"//what does the fox say // awful
+	name = "Ящик с лисой"
+	desc = "Ящик с фоксхау... лисой. Поставляется с ошейником!"//what does the fox say // awful
 	cost = 5000
 	contains = list(/mob/living/simple_animal/pet/fox,
 					/obj/item/clothing/neck/petcollar)
-	crate_name = "fox crate"
+	crate_name = "ящик с лисой"
 
 /datum/supply_pack/animal/butterfly
-	name = "Butterflies Crate"
-	desc = "Not a very dangerous insect, but they do give off a better image than, say, flies or cockroaches."//is that a motherfucking worm reference
+	name = "Ящик с бабочками"
+	desc = "В животе порхают бабочки, и в ящике порхают бабочки."//is that a motherfucking worm reference
 	cost = 5000
 	contains = list(/mob/living/simple_animal/butterfly)
-	crate_name = "entomology samples crate"
+	crate_name = "ящик с энтомологическими образцами"
 
 /datum/supply_pack/animal/butterfly/generate()
 	. = ..()
@@ -124,24 +124,24 @@
 		new /mob/living/simple_animal/butterfly(.)
 
 /datum/supply_pack/animal/snake
-	name = "Snake Crate"
-	desc = "Tired of these MOTHER FUCKING snakes on this MOTHER FUCKING spaceplane? Then this isn't the crate for you. Contains three poisonous snakes."
+	name = "Ящик со змеями"
+	desc = "Устали от этих змей на планете? Тогда это ящик не для вас. Содержит трех ядовитых змей."
 	cost = 5000
 	contains = list(/mob/living/simple_animal/hostile/retaliate/poison/snake,
 					/mob/living/simple_animal/hostile/retaliate/poison/snake,
 					/mob/living/simple_animal/hostile/retaliate/poison/snake)
-	crate_name = "snake crate"
+	crate_name = "ящик со змеями"
 
 /*
 		Insane
 */
 
 /datum/supply_pack/animal/crab
-	name = "Crab Rocket"
-	desc = "CRAAAAAAB ROCKET. CRAB ROCKET. CRAB ROCKET. CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB ROCKET. CRAFT. ROCKET. BUY. CRAFT ROCKET. CRAB ROOOCKET. CRAB ROOOOCKET. CRAB CRAB CRAB CRAB CRAB CRAB CRAB CRAB ROOOOOOOOOOOOOOOOOOOOOOCK EEEEEEEEEEEEEEEEEEEEEEEEE EEEETTTTTTTTTTTTAAAAAAAAA AAAHHHHHHHHHHHHH. CRAB ROCKET. CRAAAB ROCKEEEEEEEEEGGGGHHHHTT CRAB CRAB CRAABROCKET CRAB ROCKEEEET."//fun fact: i actually spent like 10 minutes and transcribed the entire video.
+	name = "Ящик с крабом"
+	desc = "Краб."//fun fact: i actually spent like 10 minutes and transcribed the entire video.
 	cost = 10000
 	contains = list(/mob/living/simple_animal/crab)
-	crate_name = "look sir free crabs"
+	crate_name = "ящик с крабом"
 	// DropPodOnly = TRUE
 
 /datum/supply_pack/animal/crab/generate()

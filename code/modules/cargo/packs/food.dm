@@ -1,5 +1,5 @@
 /datum/supply_pack/food
-	group = "Food & Agricultural"
+	group = "Еда"
 
 /*
 		Ready-to-eat

@@ -1,27 +1,27 @@
 /datum/supply_pack/material
-	group = "Materials & Sheets"
+	group = "Материалы"
 
 /*
 		Basic construction materials
 */
 
 /datum/supply_pack/material/glass50
-	name = "50 Glass Sheets"
-	desc = "Let some nice light in with fifty glass sheets!"
+	name = "50 листов стекла"
+	desc = "50 целых листов стекла для остекления тёмных помещений!"
 	cost = 500
 	contains = list(/obj/item/stack/sheet/glass/fifty)
 	crate_name = "glass sheets crate"
 
 /datum/supply_pack/material/metal50
-	name = "50 Metal Sheets"
-	desc = "Any construction project begins with a good stack of fifty metal sheets!"
+	name = "50 листов металла"
+	desc = "Для решения почти любой задачи инженера!"
 	cost = 500
 	contains = list(/obj/item/stack/sheet/metal/fifty)
 	crate_name = "metal sheets crate"
 
 /datum/supply_pack/material/plasteel20
-	name = "20 Plasteel Sheets"
-	desc = "Reinforce and repair structural integrity with twenty plasteel sheets!"
+	name = "20 листов пластали"
+	desc = "Для укрепления шлюзов, стен и всего остального!"
 	cost = 2500
 	contains = list(/obj/item/stack/sheet/plasteel/twenty)
 	crate_name = "plasteel sheets crate"
@@ -31,16 +31,16 @@
 */
 
 /datum/supply_pack/material/plasma20
-	name = "20 Plasma Sheets"
-	desc = "Twenty sheets of solidifed plasma. Keep away from open flame."
+	name = "20 листов плазмы"
+	desc = "Плазма в твёрдом состоянии. Всё ещё горит."
 	cost = 2000
 	contains = list(/obj/item/stack/sheet/mineral/plasma/twenty)
 	crate_name = "plasma sheets crate"
 	crate_type = /obj/structure/closet/crate/secure/plasma
 
 /datum/supply_pack/material/uranium20
-	name = "20 Uranium Sheets"
-	desc = "Green rock make thog puke red."
+	name = "20 урановых листов"
+	desc = "Радиоактивно."
 	cost = 2000
 	contains = list(/obj/item/stack/sheet/mineral/uranium/twenty)
 	crate_name = "uranium sheets crate"
@@ -51,29 +51,29 @@
 */
 
 /datum/supply_pack/material/titanium20
-	name = "20 Titanium Sheets"
-	desc = "Used for making big boy tanks and tools."
+	name = "20 титановых листов"
+	desc = "Обычно титан использует НаноТрайзен. Может отражать лазеры."
 	cost = 3000
 	contains = list(/obj/item/stack/sheet/mineral/titanium/twenty)
 	crate_name = "titanium sheets crate"
 
 /datum/supply_pack/material/gold20
-	name = "20 Gold Sheets"
-	desc = "Shiny."
+	name = "20 золотых слитков"
+	desc = "Если в 21 веке золото было очень дорогим, то сейчас вы можете купить золото дешевле чем двигатель."
 	cost = 4000
 	contains = list(/obj/item/stack/sheet/mineral/gold/twenty)
 	crate_name = "gold sheets crate"
 
 /datum/supply_pack/material/silver20
-	name = "20 Silver Sheets"
-	desc = "Somewhat less shiny."
+	name = "20 серебрянных слитков"
+	desc = "Монеты делать не получится."
 	cost = 3000
 	contains = list(/obj/item/stack/sheet/mineral/silver/twenty)
 	crate_name = "silver sheets crate"
 
 /datum/supply_pack/material/diamond
-	name = "1 Diamond"
-	desc = "Impress your girl with this one!"
+	name = "1 алмаз"
+	desc = "Блестит."
 	cost = 3500
 	contains = list(/obj/item/stack/sheet/mineral/diamond)
 	crate_name = "diamond sheet crate"
@@ -83,29 +83,29 @@
 */
 
 /datum/supply_pack/material/sandstone30
-	name = "30 Sandstone Blocks"
-	desc = "Neither sandy nor stoney, these thirty blocks will still get the job done."
+	name = "30 блоков песчаника"
+	desc = "Если необходимо построить песчаный домик. Или корабль."
 	cost = 1000
 	contains = list(/obj/item/stack/sheet/mineral/sandstone/thirty)
 	crate_name = "sandstone blocks crate"
 
 /datum/supply_pack/material/plastic50
-	name = "50 Plastic Sheets"
-	desc = "Build a limitless amount of toys with fifty plastic sheets!"
+	name = "50 пластиковых листов"
+	desc = "Переработанная нефть и уничтожанная атмосфера планеты в одном ящике по цене 100 листов металла!"
 	cost = 1000
 	contains = list(/obj/item/stack/sheet/plastic/fifty)
 	crate_name = "plastic sheets crate"
 
 /datum/supply_pack/material/cardboard50
-	name = "50 Cardboard Sheets"
-	desc = "Arm and armor a cardborg army."
+	name = "50 картонок"
+	desc = "Для сбора своей картонной армии."
 	cost = 1000
 	contains = list(/obj/item/stack/sheet/cardboard/fifty)
 	crate_name = "cardboard sheets crate"
 
 /datum/supply_pack/material/wood50
-	name = "50 Wood Planks"
-	desc = "Turn cargo's boring metal groundwork into beautiful panelled flooring and much more with fifty wooden planks!"
+	name = "50 деревянных досок"
+	desc = "Верните ретро-футуризм - положите в своей каюте пол из дерева!"
 	cost = 1500
 	contains = list(/obj/item/stack/sheet/mineral/wood/fifty)
 	crate_name = "wood planks crate"

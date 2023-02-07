@@ -1,5 +1,5 @@
 /datum/supply_pack/exploration
-	group = "Exploration"
+	group = "Наборы"
 	crate_type = /obj/structure/closet/crate/wooden
 
 /*
@@ -7,8 +7,8 @@
 */
 
 /datum/supply_pack/exploration/lava
-	name = "Lava Exploration Kit"
-	desc = "Contains two pickaxes, 60 lavaproof rods, and goggles to protect eyes from the heat"
+	name = "Набор исследователя лаваленда"
+	desc = "Содержит две кирки 60 стержней с антилавовым покрытием, и очки для защиты от жары."
 	cost = 1500
 	contains = list(
 		/obj/item/pickaxe/mini,
@@ -20,11 +20,11 @@
 		/obj/item/stack/rods/lava/thirty,
 		/obj/item/stack/rods/lava/thirty,
 	)
-	crate_name = "Lava Exploration Kit"
+	crate_name = "набор исследователя лаваленда"
 
 /datum/supply_pack/exploration/ice
-	name = "Ice Exploration Kit"
-	desc = "Contains two pickaxes, winter clothes, and goggles to protect eyes from the cold"
+	name = "Набор исследователя айсленда"
+	desc = "Содержит две кирки, два набора одежды, и очки защищающие от холода."
 	cost = 1500
 	contains = list(
 		/obj/item/pickaxe/mini,
@@ -38,11 +38,11 @@
 		/obj/item/clothing/shoes/winterboots,
 		/obj/item/clothing/shoes/winterboots,
 	)
-	crate_name = "Ice Exploration Kit"
+	crate_name = "набор исследователя айсленда"
 
 /datum/supply_pack/exploration/jungle
-	name = "Jungle Exploration Kit"
-	desc = "Contains hatchets, picks, and antivenom, great for dense jungles!"
+	name = "Набор исследователя джунглей"
+	desc = "Содержит топорик, две банки с активированым углём, и две кирки."
 	cost = 750
 	contains = list(
 		/obj/item/pickaxe/mini,
@@ -51,11 +51,11 @@
 		/obj/item/storage/pill_bottle/charcoal,
 		/obj/item/hatchet,
 	)
-	crate_name = "Jungle Exploration Kit"
+	crate_name = "набор исследователя джунглей"
 
 /datum/supply_pack/exploration/beach
-	name = "Beach Kit"
-	desc = "Shorts, picks, and (low quality) sunglasses, perfect for the beach!"
+	name = "Набор исследователя пляжа"
+	desc = "Две кирки а остальное для купания."
 	cost = 500
 	contains = list(
 		/obj/item/pickaxe/mini,
@@ -73,15 +73,15 @@
 		/obj/item/clothing/glasses/cheapsuns,
 		/obj/item/clothing/glasses/cheapsuns,
 	)
-	crate_name = "Beach Kit"
+	crate_name = "набор исследователя пляжа"
 
 /*
 		Heavy Duty Exploration Gear
 */
 
 /datum/supply_pack/exploration/capsules
-	name = "Bluespace Shelter Capsules"
-	desc = "A trio of Bluespace Shelter Capsules, for instant shelter in rough situations."
+	name = "Набор капсул быстрой развёртки"
+	desc = "Содержит три капсулы для быстрой развёртки убежища три на три."
 	cost = 3000
 	contains = list(
 		/obj/item/survivalcapsule,

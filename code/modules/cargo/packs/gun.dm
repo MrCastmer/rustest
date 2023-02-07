@@ -1,5 +1,5 @@
 /datum/supply_pack/gun
-	group = "Guns"
+	group = "Оружие"
 	crate_type = /obj/structure/closet/crate/secure/weapon
 
 /*

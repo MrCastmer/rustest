@@ -1,5 +1,5 @@
 /datum/supply_pack/machinery
-	group = "Machines & Parts"
+	group = "Машинерия"
 	crate_type = /obj/structure/closet/crate/engineering
 
 /*
@@ -352,5 +352,13 @@
 	desc = "The stabilized heart of a tesla engine. Particle accelerator not included."
 	cost = 6000
 	contains = list(/obj/machinery/the_singularitygen/tesla)
+	crate_name = "tesla generator crate"
+	crate_type = /obj/structure/closet/crate/secure/engineering
+
+/datum/supply_pack/machinery/mechcomp
+	name = "Ящик вендомата MechComp"
+	desc = "Содержит внутри вендомат для создания своих ~~тестовых камер~~ быстрых способов перемещения."
+	cost = 5000
+	contains = list(/obj/machinery/vending/mechcomp)
 	crate_name = "tesla generator crate"
 	crate_type = /obj/structure/closet/crate/secure/engineering
