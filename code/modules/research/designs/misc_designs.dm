@@ -502,7 +502,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 2500)
 	build_path = /obj/item/flashlight/seclite
-	category = list("Equipment")
+	category = list("Equipment","Tool Designs")
 
 /datum/design/detective_scanner
 	name = "Forensic Scanner"
@@ -531,7 +531,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/silver = 500, /datum/material/plasma = 500, /datum/material/titanium = 500)
 	build_path = /obj/item/restraints/legcuffs/bola/energy
-	category = list("Equipment")
+	category = list("Equipment","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/zipties
@@ -575,7 +575,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/plastic = 3000)
 	build_path = /obj/item/stack/tape/industrial/electrical
-	category = list("Equipment")
+	category = list("Equipment","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/super_tape
@@ -584,7 +584,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 1500, /datum/material/plastic = 1000)
 	build_path = /obj/item/stack/tape/industrial/pro
-	category = list("Equipment")
+	category = list("Equipment","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
 
@@ -599,7 +599,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/plastic = 2500)
 	build_path = /obj/item/clothing/gloves/tackler/dolphin
-	category = list("Equipment")
+	category = list("Equipment","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/tackle_rocket
@@ -608,5 +608,5 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/plasma = 1000, /datum/material/plastic = 2000)
 	build_path = /obj/item/clothing/gloves/tackler/rocket
-	category = list("Equipment")
+	category = list("Equipment","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY

@@ -104,7 +104,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 10000, /datum/material/silver = 10000)
 	build_path = /obj/item/gun/energy/tesla_cannon
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_SCIENCE//this weapon is an active threat to the user, I think we can safely refile it under "experimental"
 
 /datum/design/nuclear_gun
@@ -114,7 +114,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 2000, /datum/material/uranium = 3000, /datum/material/titanium = 1000)
 	build_path = /obj/item/gun/energy/e_gun/nuclear
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/tele_shield
@@ -124,7 +124,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 4000, /datum/material/glass = 4000, /datum/material/silver = 300, /datum/material/titanium = 200)
 	build_path = /obj/item/shield/riot/tele
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 
 /datum/design/beamrifle
 	name = "Beam Marksman Rifle"
@@ -133,7 +133,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 5000, /datum/material/diamond = 5000, /datum/material/uranium = 8000, /datum/material/silver = 4500, /datum/material/gold = 5000)
 	build_path = /obj/item/gun/energy/beam_rifle
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/decloner
@@ -144,7 +144,7 @@
 	materials = list(/datum/material/gold = 5000,/datum/material/uranium = 10000)
 	reagents_list = list(/datum/reagent/toxin/mutagen = 40)
 	build_path = /obj/item/gun/energy/decloner
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/rapidsyringe
@@ -154,7 +154,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 1000)
 	build_path = /obj/item/gun/syringe/rapidsyringe
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL		//uwu
 
 /datum/design/temp_gun
@@ -164,7 +164,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 500, /datum/material/silver = 3000)
 	build_path = /obj/item/gun/energy/temperature
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/flora_gun
@@ -175,7 +175,7 @@
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 500)
 	reagents_list = list(/datum/reagent/uranium/radium = 20)
 	build_path = /obj/item/gun/energy/floragun
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/large_grenade
@@ -185,7 +185,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 3000)
 	build_path = /obj/item/grenade/chem_grenade/large
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_BALLISTICS
 
 /datum/design/pyro_grenade
@@ -195,7 +195,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 2000, /datum/material/plasma = 500)
 	build_path = /obj/item/grenade/chem_grenade/pyro
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_BALLISTICS
 
 /datum/design/cryo_grenade
@@ -205,7 +205,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 2000, /datum/material/silver = 500)
 	build_path = /obj/item/grenade/chem_grenade/cryo
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_BALLISTICS
 
 /datum/design/adv_grenade
@@ -215,7 +215,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 3000, /datum/material/glass = 500)
 	build_path = /obj/item/grenade/chem_grenade/adv_release
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_BALLISTICS
 
 /datum/design/xray
@@ -225,7 +225,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/gold = 5000, /datum/material/uranium = 4000, /datum/material/iron = 5000, /datum/material/titanium = 2000, /datum/material/bluespace = 2000)
 	build_path = /obj/item/gun/energy/xray
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/ioncarbine
@@ -235,7 +235,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/silver = 6000, /datum/material/iron = 8000, /datum/material/uranium = 2000)
 	build_path = /obj/item/gun/energy/ionrifle/carbine
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/wormhole_projector
@@ -245,7 +245,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/silver = 2000, /datum/material/iron = 5000, /datum/material/diamond = 2000, /datum/material/bluespace = 3000, /datum/material/uranium = 1000)
 	build_path = /obj/item/gun/energy/wormhole_projector
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 //WT550 Mags
@@ -580,7 +580,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 2000, /datum/material/silver = 500)
 	build_path = /obj/item/suppressor
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/gravitygun
@@ -590,7 +590,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/silver = 8000, /datum/material/uranium = 8000, /datum/material/glass = 12000, /datum/material/iron = 12000, /datum/material/diamond = 3000, /datum/material/bluespace = 3000)
 	build_path = /obj/item/gun/energy/gravity_gun
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/largecrossbow
@@ -600,7 +600,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 1500, /datum/material/uranium = 1500, /datum/material/silver = 1500)
 	build_path = /obj/item/gun/energy/kinetic_accelerator/crossbow/large
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/cleric_mace
@@ -619,7 +619,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 4000, /datum/material/silver = 10000, /datum/material/gold = 2000)
 	build_path = /obj/item/melee/baton/boomerang
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/gun_cell
@@ -630,7 +630,7 @@
 	materials = list(/datum/material/iron = 700, /datum/material/glass = 70)
 	construction_time=100
 	build_path = /obj/item/stock_parts/cell/gun/empty
-	category = list("Misc","Weapons")
+	category = list("Misc","Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/gun_cell_upgraded
@@ -641,7 +641,7 @@
 	materials = list(/datum/material/iron = 700, /datum/material/gold = 150, /datum/material/silver = 150, /datum/material/glass = 80)
 	construction_time=100
 	build_path = /obj/item/stock_parts/cell/gun/upgraded/empty
-	category = list("Misc","Weapons")
+	category = list("Misc","Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/gun_cell_large
@@ -652,7 +652,7 @@
 	materials = list(/datum/material/iron = 2000, /datum/material/gold = 200, /datum/material/glass = 400, /datum/material/diamond = 160, /datum/material/titanium = 300, /datum/material/bluespace = 100)
 	construction_time=100
 	build_path = /obj/item/stock_parts/cell/gun/large/empty
-	category = list("Misc","Weapons")
+	category = list("Misc","Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/colt_1911_magazine
@@ -703,7 +703,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 1000, /datum/material/silver = 4000)
 	build_path = /obj/item/gun/ballistic/shotgun/doublebarrel
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_BALLISTICS
 
 /datum/design/m1911
@@ -713,7 +713,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 8000, /datum/material/silver = 3000, /datum/material/titanium = 2000)
 	build_path = /obj/item/gun/ballistic/automatic/pistol/m1911/no_mag
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_BALLISTICS
 
 /datum/design/derringer
@@ -723,7 +723,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 8500, /datum/material/glass = 1500, /datum/material/titanium = 2000)
 	build_path = /obj/item/gun/ballistic/derringer
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_BALLISTICS
 
 /datum/design/winchestermk2
@@ -733,7 +733,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 3000, /datum/material/silver = 4000, /datum/material/gold = 500)
 	build_path = /obj/item/gun/ballistic/shotgun/winchester
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_BALLISTICS
 
 /datum/design/srmrevolver
@@ -743,7 +743,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 9000, /datum/material/glass = 1000, /datum/material/silver = 1000, /datum/material/uranium = 1000)
 	build_path = /obj/item/gun/ballistic/revolver/srm
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_BALLISTICS
 
 /datum/design/pepperbox
@@ -753,7 +753,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 7000, /datum/material/glass = 1000)
 	build_path = /obj/item/gun/ballistic/revolver/pepperbox
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_BALLISTICS
 
 /datum/design/nagantrevolver
@@ -763,7 +763,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 90000, /datum/material/glass = 1500, /datum/material/silver = 1500)
 	build_path = /obj/item/gun/ballistic/revolver/nagant
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_BALLISTICS
 
 /datum/design/stripper762
@@ -793,5 +793,5 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 85000, /datum/material/glass = 1500, /datum/material/silver = 1500)
 	build_path = /obj/item/gun/ballistic/rifle/boltaction
-	category = list("Weapons")
+	category = list("Weapons","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_BALLISTICS

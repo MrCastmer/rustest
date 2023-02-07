@@ -10,7 +10,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 150, /datum/material/glass = 100)
 	build_path = /obj/item/beacon
-	category = list("Bluespace Designs")
+	category = list("Bluespace Designs","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/bag_holding
@@ -20,7 +20,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/gold = 3000, /datum/material/diamond = 1500, /datum/material/uranium = 250, /datum/material/bluespace = 2000)
 	build_path = /obj/item/storage/backpack/holding
-	category = list("Bluespace Designs")
+	category = list("Bluespace Designs","Imported")
 	dangerous_construction = TRUE
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
@@ -31,7 +31,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/diamond = 1500, /datum/material/plasma = 1500)
 	build_path = /obj/item/stack/ore/bluespace_crystal/artificial
-	category = list("Bluespace Designs")
+	category = list("Bluespace Designs","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/telesci_gps
@@ -41,7 +41,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 1000)
 	build_path = /obj/item/gps
-	category = list("Bluespace Designs")
+	category = list("Bluespace Designs","Imported")
 
 /datum/design/desynchronizer
 	name = "Desynchronizer"
@@ -60,7 +60,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/gold = 250, /datum/material/uranium = 500) //quite cheap, for more convenience
 	build_path = /obj/item/storage/bag/ore/holding
-	category = list("Bluespace Designs")
+	category = list("Bluespace Designs","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/swapper
@@ -80,7 +80,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/gold = 1500, /datum/material/diamond = 750, /datum/material/uranium = 250, /datum/material/bluespace = 1000)
 	build_path = /obj/item/storage/bag/bio/holding
-	category = list("Bluespace Designs")
+	category = list("Bluespace Designs","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/engibag_holding
@@ -90,7 +90,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/gold = 1500, /datum/material/diamond = 750, /datum/material/uranium = 250, /datum/material/bluespace = 1000)
 	build_path = /obj/item/storage/bag/construction/holding
-	category = list("Bluespace Designs")
+	category = list("Bluespace Designs","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/plantbag_holding
@@ -100,7 +100,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/gold = 1500, /datum/material/diamond = 750, /datum/material/uranium = 250, /datum/material/bluespace = 1000)
 	build_path = /obj/item/storage/bag/plants/holding
-	category = list("Bluespace Designs")
+	category = list("Bluespace Designs","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/chembag_holding
@@ -110,6 +110,6 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/gold = 1500, /datum/material/diamond = 750, /datum/material/uranium = 250, /datum/material/bluespace = 1000)
 	build_path = /obj/item/storage/bag/chemistry/holding
-	category = list("Bluespace Designs")
+	category = list("Bluespace Designs","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 

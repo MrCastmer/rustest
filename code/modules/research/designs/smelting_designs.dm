@@ -62,4 +62,4 @@
 	build_type = PROTOLATHE | SMELTER
 	materials = list(/datum/material/iron = 4000, /datum/material/plasma = 4000)
 	build_path = /obj/item/stack/sheet/mineral/abductor
-	category = list("Stock Parts")
+	category = list("Stock Parts","Imported")

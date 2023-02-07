@@ -11,7 +11,7 @@
 	desc = "Allows for the construction of circuit boards used to build a new arcade machine."
 	id = "arcade_battle"
 	build_path = /obj/item/circuitboard/computer/arcade/battle
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 
 
 /datum/design/board/orion_trail
@@ -19,7 +19,7 @@
 	desc = "Allows for the construction of circuit boards used to build a new Orion Trail machine."
 	id = "arcade_orion"
 	build_path = /obj/item/circuitboard/computer/arcade/orion_trail
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 
 
 /datum/design/board/seccamera
@@ -27,7 +27,7 @@
 	desc = "Allows for the construction of circuit boards used to build security camera computers."
 	id = "seccamera"
 	build_path = /obj/item/circuitboard/computer/security
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/board/rdcamera
@@ -35,7 +35,7 @@
 	desc = "Allows for the construction of circuit boards used to build research camera computers."
 	id = "rdcamera"
 	build_path = /obj/item/circuitboard/computer/research
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/xenobiocamera
@@ -43,7 +43,7 @@
 	desc = "Allows for the construction of circuit boards used to build xenobiology camera computers."
 	id = "xenobioconsole"
 	build_path = /obj/item/circuitboard/computer/xenobiology
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/aiupload
@@ -52,7 +52,7 @@
 	id = "aiupload"
 	materials = list(/datum/material/glass = 1000, /datum/material/gold = 2000, /datum/material/diamond = 2000, /datum/material/bluespace = 2000)
 	build_path = /obj/item/circuitboard/computer/aiupload
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/borgupload
@@ -61,7 +61,7 @@
 	id = "borgupload"
 	materials = list(/datum/material/glass = 1000, /datum/material/gold = 2000, /datum/material/diamond = 2000, /datum/material/bluespace = 2000)
 	build_path = /obj/item/circuitboard/computer/borgupload
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/med_data
@@ -69,7 +69,7 @@
 	desc = "Allows for the construction of circuit boards used to build a medical records console."
 	id = "med_data"
 	build_path = /obj/item/circuitboard/computer/med_data
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/board/operating
@@ -77,7 +77,7 @@
 	desc = "Allows for the construction of circuit boards used to build an operating computer console."
 	id = "operating"
 	build_path = /obj/item/circuitboard/computer/operating
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/pandemic
@@ -85,7 +85,7 @@
 	desc = "Allows for the construction of circuit boards used to build a PanD.E.M.I.C. 2200 console."
 	id = "pandemic"
 	build_path = /obj/item/circuitboard/computer/pandemic
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/board/scan_console
@@ -93,7 +93,7 @@
 	desc = "Allows for the construction of circuit boards used to build a new DNA scanning console."
 	id = "scan_console"
 	build_path = /obj/item/circuitboard/computer/scan_consolenew
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/cloning
@@ -101,7 +101,7 @@
 	desc = "Used to clone people and manage DNA."
 	id = "cloning"
 	build_path = /obj/item/circuitboard/computer/cloning
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/comconsole
@@ -109,21 +109,21 @@
 	desc = "Allows for the construction of circuit boards used to build a communications console."
 	id = "comconsole"
 	build_path = /obj/item/circuitboard/computer/communications
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 
 /datum/design/board/idcardconsole
 	name = "Computer Design (ID Console)"
 	desc = "Allows for the construction of circuit boards used to build an ID computer."
 	id = "idcardconsole"
 	build_path = /obj/item/circuitboard/computer/card
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 
 /datum/design/board/crewconsole
 	name = "Computer Design (Crew monitoring computer)"
 	desc = "Allows for the construction of circuit boards used to build a Crew monitoring computer."
 	id = "crewconsole"
 	build_path = /obj/item/circuitboard/computer/crew
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/board/secdata
@@ -131,7 +131,7 @@
 	desc = "Allows for the construction of circuit boards used to build a security records console."
 	id = "secdata"
 	build_path = /obj/item/circuitboard/computer/secure_data
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/board/atmosalerts
@@ -139,7 +139,7 @@
 	desc = "Allows for the construction of circuit boards used to build an atmosphere alert console."
 	id = "atmosalerts"
 	build_path = /obj/item/circuitboard/computer/atmos_alert
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/board/atmos_control
@@ -147,7 +147,7 @@
 	desc = "Allows for the construction of circuit boards used to build an Atmospheric Monitor."
 	id = "atmos_control"
 	build_path = /obj/item/circuitboard/computer/atmos_control
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/board/robocontrol
@@ -155,7 +155,7 @@
 	desc = "Allows for the construction of circuit boards used to build a Robotics Control console."
 	id = "robocontrol"
 	build_path = /obj/item/circuitboard/computer/robotics
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/slot_machine
@@ -163,7 +163,7 @@
 	desc = "Allows for the construction of circuit boards used to build a new slot machine."
 	id = "slotmachine"
 	build_path = /obj/item/circuitboard/computer/slot_machine
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 
 
 /datum/design/board/powermonitor
@@ -171,7 +171,7 @@
 	desc = "Allows for the construction of circuit boards used to build a new power monitor."
 	id = "powermonitor"
 	build_path = /obj/item/circuitboard/computer/powermonitor
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/board/solarcontrol
@@ -179,7 +179,7 @@
 	desc = "Allows for the construction of circuit boards used to build a solar control console."
 	id = "solarcontrol"
 	build_path = /obj/item/circuitboard/computer/solar_control
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/board/prisonmanage
@@ -187,7 +187,7 @@
 	desc = "Allows for the construction of circuit boards used to build a prisoner management console."
 	id = "prisonmanage"
 	build_path = /obj/item/circuitboard/computer/prisoner
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/board/mechacontrol
@@ -195,7 +195,7 @@
 	desc = "Allows for the construction of circuit boards used to build an exosuit control console."
 	id = "mechacontrol"
 	build_path = /obj/item/circuitboard/computer/mecha_control
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/board/mechapower
@@ -203,7 +203,7 @@
 	desc = "Allows for the construction of circuit boards used to build a mech bay power control console."
 	id = "mechapower"
 	build_path = /obj/item/circuitboard/computer/mech_bay_power_console
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/board/rdconsole
@@ -211,7 +211,7 @@
 	desc = "Allows for the construction of circuit boards used to build a new R&D console."
 	id = "rdconsole"
 	build_path = /obj/item/circuitboard/computer/rdconsole
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/bounty
@@ -219,7 +219,7 @@
 	desc = "Allows for the construction of circuit boards used to build a Bounty Console."
 	id = "bounty"
 	build_path = /obj/item/circuitboard/computer/bounty
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/board/mining
@@ -227,7 +227,7 @@
 	desc = "Allows for the construction of circuit boards used to build an outpost status display console."
 	id = "mining"
 	build_path = /obj/item/circuitboard/computer/mining
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/board/selling
@@ -235,7 +235,7 @@
 	desc = "Allows for the construction of circuit boards used to build a Cargo Hold Control Terminal."
 	id = "selling_console"
 	build_path = /obj/item/circuitboard/computer/selling_pad_control
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/board/comm_monitor
@@ -243,7 +243,7 @@
 	desc = "Allows for the construction of circuit boards used to build a telecommunications monitor."
 	id = "comm_monitor"
 	build_path = /obj/item/circuitboard/computer/comm_monitor
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/board/comm_server
@@ -251,7 +251,7 @@
 	desc = "Allows for the construction of circuit boards used to build a telecommunication server browser and monitor."
 	id = "comm_server"
 	build_path = /obj/item/circuitboard/computer/comm_server
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/board/message_monitor
@@ -259,7 +259,7 @@
 	desc = "Allows for the construction of circuit boards used to build a messaging monitor console."
 	id = "message_monitor"
 	build_path = /obj/item/circuitboard/computer/message_monitor
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/board/aifixer
@@ -267,7 +267,7 @@
 	desc = "Allows for the construction of circuit boards used to build an AI Integrity Restorer."
 	id = "aifixer"
 	build_path = /obj/item/circuitboard/computer/aifixer
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/libraryconsole
@@ -275,7 +275,7 @@
 	desc = "Allows for the construction of circuit boards used to build a new library console."
 	id = "libraryconsole"
 	build_path = /obj/item/circuitboard/computer/libraryconsole
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 
 
 /datum/design/board/apc_control
@@ -283,7 +283,7 @@
 	desc = "Allows for the construction of circuit boards used to build a new APC control console."
 	id = "apc_control"
 	build_path = /obj/item/circuitboard/computer/apc_control
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/board/nanite_chamber_control
@@ -291,7 +291,7 @@
 	desc = "Allows for the construction of circuit boards used to build a new nanite chamber control console."
 	id = "nanite_chamber_control"
 	build_path = /obj/item/circuitboard/computer/nanite_chamber_control
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/nanite_cloud_control
@@ -299,7 +299,7 @@
 	desc = "Allows for the construction of circuit boards used to build a new nanite cloud control console."
 	id = "nanite_cloud_control"
 	build_path = /obj/item/circuitboard/computer/nanite_cloud_controller
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/advanced_camera
@@ -307,7 +307,7 @@
 	desc = "Allows for the construction of circuit boards used to build advanced camera consoles."
 	id = "advanced_camera"
 	build_path = /obj/item/circuitboard/computer/advanced_camera
-	category = list("Computer Boards")
+	category = list("Computer Boards","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 //////////////Shuttle Computers///////////////
@@ -316,5 +316,5 @@
 	desc = "Allows for the construction of circuit boards used to pilot a spacecraft."
 	id = "shuttle_helm"
 	build_path = /obj/item/circuitboard/computer/shuttle/helm
-	category = list("Computer Boards", "Shuttle Machinery")
+	category = list("Computer Boards","Imported", "Shuttle Machinery")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING

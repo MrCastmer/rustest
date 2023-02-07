@@ -916,7 +916,7 @@
 	build_path = /obj/item/organ/liver/cybernetic/upgraded/ipc
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
 	construction_time = 100
-	category = list("IPC Components")
+	category = list("IPC Components","Imported")
 
 /datum/design/robotic_eyes
 	name = "Basic Robotic Eyes"
@@ -925,7 +925,7 @@
 	build_path = /obj/item/organ/eyes/robotic
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 2000)
 	construction_time = 100
-	category = list("IPC Components")
+	category = list("IPC Components","Imported")
 
 /datum/design/robotic_tongue
 	name = "Robotic Voicebox"
@@ -934,7 +934,7 @@
 	build_path = /obj/item/organ/tongue/robot
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
 	construction_time = 100
-	category = list("IPC Components")
+	category = list("IPC Components","Imported")
 
 /datum/design/robotic_stomach
 	name = "Micro-cell"
@@ -943,7 +943,7 @@
 	build_path = /obj/item/organ/stomach/cell
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 2000, /datum/material/plasma = 200)
 	construction_time = 100
-	category = list("IPC Components")
+	category = list("IPC Components","Imported")
 
 /datum/design/robotic_ears
 	name = "Auditory Sensors"
@@ -952,7 +952,7 @@
 	build_path = /obj/item/organ/ears/robot
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
 	construction_time = 100
-	category = list("IPC Components")
+	category = list("IPC Components","Imported")
 
 /datum/design/power_cord
 	name = "Recharging Electronics"
@@ -961,7 +961,7 @@
 	build_path = /obj/item/organ/cyberimp/arm/power_cord
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
 	construction_time = 100
-	category = list("IPC Components")
+	category = list("IPC Components","Imported")
 
 /datum/design/maint_drone
 	name = "Maintenance Drone"

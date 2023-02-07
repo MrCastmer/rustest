@@ -9,7 +9,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 5000) //hardcore
 	build_path = /obj/item/storage/part_replacer
-	category = list("Stock Parts")
+	category = list("Stock Parts","Imported")
 	departmental_flags = ALL
 
 /datum/design/BS_RPED
@@ -19,7 +19,7 @@
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 15000, /datum/material/glass = 5000, /datum/material/silver = 2500) //hardcore
 	build_path = /obj/item/storage/part_replacer/bluespace
-	category = list("Stock Parts")
+	category = list("Stock Parts","Imported")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 //Capacitors
