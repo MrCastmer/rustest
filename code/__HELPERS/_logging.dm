@@ -220,6 +220,9 @@
 	. = "[perf_info.Join(",")]\n"
 	WRITE_LOG_NO_FORMAT(GLOB.perf_log, .)
 
+/proc/log_mechcomp(text)
+	if (CONFIG_GET(flag/log_mechcomp))
+		WRITE_LOG(GLOB.world_mechcomp_log, "MECHCOMP: [text]")
 /**
  * Appends a tgui-related log entry. All arguments are optional.
  */

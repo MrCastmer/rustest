@@ -500,3 +500,127 @@
 
 /obj/machinery/disposal/deliveryChute/newHolderDestination(obj/structure/disposalholder/H)
 	H.destinationTag = 1
+
+/obj/machinery/disposal/mechcomp
+	name = "mechcomp Disposals trapdoor"
+	desc = "You have a bad feeling about this."
+	icon = 'lambda/sanecman/icons/obj/mechcomp.dmi'
+	icon_state = "comp_disp"
+	density = FALSE
+	var/cooldown = FALSE
+	var/datum/component/mechanics_holder/compdatum
+
+/obj/machinery/disposal/mechcomp/Initialize(mapload, obj/structure/disposalconstruct/make_from)
+	. = ..()
+	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Flush!", "activateproc")
+
+/obj/machinery/disposal/mechcomp/ComponentInitialize()
+	. = ..()
+	compdatum = AddComponent(/datum/component/mechanics_holder)
+
+/obj/machinery/disposal/mechcomp/proc/activateproc(datum/mechcompMessage/msg)
+	if(cooldown || !anchored || !trunk)
+		return
+	var/list/flushed_mobs = list()
+	var/flushed_AM = 0
+	var/mob/living/L
+	for(var/obj/AM in get_turf(src))
+		if(AM.anchored || AM == src)
+			continue
+		AM.forceMove(src)
+		flushed_AM++
+		if(isliving(AM))
+			L = AM
+			flushed_mobs.Add("[L.ckey ? "[L.ckey] as " : ""][L.name]")
+	log_mechcomp("[src.name] at x=[src.x], y=[src.y], z=[src.z]: flushed [flushed_AM] objects[flushed_mobs.len ? ", including following mobs: [jointext(flushed_mobs, ", ")]." : ""] Last IO edit [last_io_edit()], last config edit: [last_config_edit()]")
+	activate_for(7 SECONDS)
+	flush()
+
+//copypaste of attackby proc from /obj/machinery/disposal because i need to move temporarilyRemoveItemFromInventory() proc call because it's fucking me over.
+/obj/machinery/disposal/mechcomp/attackby(obj/item/I, mob/user, params)
+	add_fingerprint(user)
+	if(!pressure_charging && !full_pressure && !flush)
+		if(I.tool_behaviour == TOOL_SCREWDRIVER)
+			panel_open = !panel_open
+			I.play_tool_sound(src)
+			to_chat(user, span_notice("[panel_open ? "Откручиваю":"Закручиваю"] винтики питания."))
+			return
+		else if(I.tool_behaviour == TOOL_WELDER && panel_open)
+			if(!I.tool_start_check(user, amount=0))
+				return
+
+			to_chat(user, span_notice("Начинаю разваривать [src]..."))
+			if(I.use_tool(src, user, 20, volume=100) && panel_open)
+				to_chat(user, span_notice("Развариваю [src]."))
+				deconstruct()
+			return
+
+	if(user.a_intent != INTENT_HARM)
+		if((I.item_flags & ABSTRACT) || !flushing)
+			to_chat(user, span_notice("You don't see any opening to drop [I.name] into!"))
+			return
+		if(!user.temporarilyRemoveItemFromInventory(I))
+			return
+		place_item_in_disposal(I, user)
+		update_icon()
+		return 1 //no afterattack
+	else
+		return ..()
+
+/obj/machinery/disposal/mechcomp/proc/activate_for(time)
+	cooldown = TRUE
+	update_icon()
+	addtimer(CALLBACK(src, PROC_REF(_deactivate)), time)
+
+/obj/machinery/disposal/mechcomp/proc/_deactivate()
+	cooldown = FALSE
+	update_icon()
+
+/obj/machinery/disposal/mechcomp/flushAnimation()
+	update_icon()
+	. = ..()
+
+/obj/machinery/disposal/mechcomp/flush()
+	. = ..()
+	update_icon()
+
+/obj/machinery/disposal/mechcomp/trunk_check()
+	. = ..()
+	if(!trunk)
+		return
+	switch(trunk.dir)
+		if(1)
+			pixel_y = -2
+		if(2)
+			pixel_y = 2
+		if(4)
+			pixel_x = -2
+		if(8)
+			pixel_x = 2
+
+/obj/machinery/disposal/mechcomp/place_item_in_disposal(obj/item/I, mob/user)
+	to_chat(user, span_notice("You [prob(50)?"manage to":"quickly"] [prob(50)?"slip":"drop"] [I.name] inside while [src.name] is open."))
+	. = ..()
+
+/obj/machinery/disposal/mechcomp/update_overlays()
+	. = ..()
+	if(!anchored)
+		return
+	if(flushing)
+		. += "disp_overlay_working"
+		return
+	if(cooldown)
+		. += "disp_overlay_cooldown"
+	if(!flushing && !cooldown)
+		. += "disp_overlay_standby"
+
+
+/obj/machinery/disposal/mechcomp/proc/last_config_edit()
+	//return list("user" = compdatum.last_edited_configs_by["user"], "action" = compdatum.last_edited_configs_by["action"])
+	var/mob/user = compdatum.last_edited_configs_by["user"]
+	return  "by [user?.ckey], [compdatum.last_edited_configs_by["action"]]"
+
+/obj/machinery/disposal/mechcomp/proc/last_io_edit()
+	//return list("user" = compdatum.last_edited_inputs_by["user"], "action" = compdatum.last_edited_inputs_by["action"])
+	var/mob/user = compdatum.last_edited_configs_by["user"]
+	return  "by [user?.ckey], [compdatum.last_edited_inputs_by["action"]]"
