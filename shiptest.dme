@@ -3464,7 +3464,7 @@
 #include "lambda\MrSamu99\modules\mod\modules\modules_storage.dm"
 #include "lambda\MrSamu99\modules\mod\modules\modules_visor.dm"
 #include "lambda\sanecman\code\autolathe_designs.dm"
-#include "lambda\sanecman\code\mineral_walls.dm"
+#include "lambda\sanecman\code\triglavian.dm"
 #include "lambda\sanecman\code\_DEFINE\shitcode\integrated_electronics.dm"
 #include "lambda\sanecman\code\choice_beacon\items.dm"
 #include "lambda\sanecman\code\gamemodes\war.dm"
