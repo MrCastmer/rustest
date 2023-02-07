@@ -3,8 +3,8 @@
 #define AUTOLATHE_SEARCH_MENU 3
 
 /obj/machinery/autolathe
-	name = "autolathe"
-	desc = "It produces items using metal and glass and maybe other materials, can take design disks."
+	name = "автолат"
+	desc = "Позволяет по заранее заданным схемам печатать вещи. Можно вставить диск со схемой. Можно перезагрузить мультитулом если завис."
 	icon_state = "autolathe"
 	density = TRUE
 	use_power = IDLE_POWER_USE
@@ -63,6 +63,14 @@
 		d_disk = null
 	QDEL_NULL(wires)
 	return ..()
+
+/obj/machinery/autolathe/multitool_act(mob/living/user, obj/item/I)
+	. = ..()
+	balloon_alert("Тыкаю мультитулом в автолат.")
+	if(busy && do_after(user, 30 SECONDS, src))
+		busy = FALSE
+		say("Система перезагружена.")
+		icon_state = "autolathe"
 
 /obj/machinery/autolathe/ui_interact(mob/user, datum/tgui/ui)
 	if(!is_operational)
@@ -212,7 +220,7 @@
 
 			var/multiplier = text2num(params["multiplier"])
 			if(!multiplier)
-				to_chat(usr, "<span class=\"alert\">[src] only accepts a numerical multiplier!</span>")
+				to_chat(usr, "<span class=\"alert\">[src] принимает только числовое значение!</span>")
 				return
 			var/is_stack = ispath(being_built.build_path, /obj/item/stack)
 			multiplier = clamp(round(multiplier),1,50)
@@ -250,16 +258,16 @@
 
 			if(materials.has_materials(materials_used))
 				busy = TRUE
-				to_chat(usr, "<span class=\"notice\">You print [multiplier] item(s) from the [src]</span>")
+				to_chat(usr, "<span class=\"notice\">Печатаю [multiplier] предметов на [src]</span>")
 				use_power(power)
 				icon_state = "autolathe_n"
 				var/time = is_stack ? 32 : (32 * coeff * multiplier) ** 0.8
 				addtimer(CALLBACK(src, .proc/make_item, power, materials_used, custom_materials, multiplier, coeff, is_stack, usr), time)
 				. = TRUE
 			else
-				to_chat(usr, "<span class=\"alert\">Not enough materials for this operation.</span>")
+				to_chat(usr, "<span class=\"alert\">Нет материалов.</span>")
 		else
-			to_chat(usr, "<span class=\"alert\">The autolathe is busy. Please wait for completion of previous operation.</span>")
+			to_chat(usr, "<span class=\"alert\">Автолат занят. Подождите пока он не закончит работу. Если он завис - попробуйте перезагрузить мультитулом.</span>")
 
 /obj/machinery/autolathe/on_deconstruction()
 	if(d_disk) // Drops the design disk on the floor when destroyed
@@ -270,7 +278,7 @@
 
 /obj/machinery/autolathe/attackby(obj/item/O, mob/living/user, params)
 	if (busy)
-		to_chat(user, "<span class=\"alert\">The autolathe is busy. Please wait for completion of previous operation.</span>")
+		to_chat(user, "<span class=\"alert\">Автолат занят. Подождите пока он не закончит работу. Если он завис - попробуйте перезагрузить мультитулом.</span>")
 		return TRUE
 
 	if(default_deconstruction_screwdriver(user, "autolathe_t", "autolathe", O))
@@ -291,12 +299,12 @@
 
 	if(istype(O, /obj/item/disk/design_disk))
 		if(d_disk)
-			to_chat(user, "<span class='warning'>A design disk is already loaded!</span>")
+			balloon_alert(user, "Диск со схемами уже вставлен!")
 			return TRUE
 		if(!user.transferItemToLoc(O, src))
-			to_chat(user, "<span class='warning'>[O] is stuck to your hand!</span>")
+			balloon_alert(user, "[O] не отлепить от моей руки!")
 			return TRUE
-		to_chat(user, "<span class='notice'>You insert [O] into \the [src]!</span>")
+		balloon_alert(user, "Вставляю [O] в [src].")
 		playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 		d_disk = O
 		categories += d_disk.name
@@ -314,7 +322,7 @@
 
 /obj/machinery/autolathe/AltClick(mob/user)
 	if(d_disk && user.canUseTopic(src, !issilicon(user)))
-		to_chat(user, "<span class='notice'>You take out [d_disk] from [src].</span>")
+		balloon_alert(user, "<span class='notice'>Вытаскиваю [d_disk] из [src].</span>")
 		playsound(src, 'sound/machines/click.ogg', 50, FALSE)
 		eject(user)
 	return
@@ -373,9 +381,9 @@
 	. += ..()
 	var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 	if(in_range(user, src) || isobserver(user))
-		. += "<span class='notice'>The status display reads: Storing up to <b>[materials.max_amount]</b> material units.<br>Material consumption at <b>[creation_efficiency*100]%</b>.</span>"
+		. += "<span class='notice'>Дисплей показывает: Максимум вмещается <b>[materials.max_amount]</b> материалов.<br>Расход материала <b>[creation_efficiency*100]%</b>.</span>"
 		if (d_disk)
-			. += "<span class='notice'>[d_disk.name] is loaded, Alt-Click to remove.</span>"
+			. += "<span class='notice'>[d_disk.name] вставлен, Alt-Click для вытаскивания.</span>"
 
 /obj/machinery/autolathe/proc/can_build(datum/design/D, amount = 1)
 	if(D.make_reagents.len)
