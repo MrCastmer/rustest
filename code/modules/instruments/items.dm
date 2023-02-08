@@ -303,8 +303,8 @@
 	return instruments
 
 /obj/item/choice_beacon/rnd
-	name = "C.R.E.W.M.A.T.E type R&D Choice Beacon"
-	desc = "This aging launch beacon summons a limited production RND package from a nearby orbital satellite, delivered via impact pod."
+	name = "маяк заказа РнД сборок"
+	desc = "Маяк для заказа одной из сборок РнД."
 	icon_state = "gangtool-sus"
 
 /obj/item/choice_beacon/rnd/generate_display_names()
