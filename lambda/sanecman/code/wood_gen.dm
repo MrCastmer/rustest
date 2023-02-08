@@ -12,8 +12,8 @@
 	base_icon = "icg"
 	circuit = /obj/item/circuitboard/machine/pacman/wood
 	sheet_path = /obj/item/stack/sheet/mineral/wood
-	power_gen = 2000
-	max_sheets = 1000
+	power_gen = 10000
+	max_sheets = 100
 	time_per_sheet = 300
 
 /obj/machinery/power/port_gen/pacman/wood/overheat()
