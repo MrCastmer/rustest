@@ -87,19 +87,22 @@
 	var/static/list/spawnshit_emag
 	if(!spawnshit)
 		spawnshit = list()
+	if(!spawnshit_emag)
 		spawnshit_emag = list()
-	templist = list(/obj/item/choice_beacon/rnd,
-					/obj/item/storage/box/oreredemtionandsilo,
-					/obj/item/choice_beacon/augments,
-					/obj/item/storage/belt/utility/chief/full,
-					/obj/item/storage/firstaid/advanced,
-					/obj/structure/reagent_dispensers/beerkeg,
-					/obj/item/storage/part_replacer/bluespace/tier2,
-					/obj/structure/punching_bag/trade,
-					/obj/item/pickaxe/drill/jackhammer,
-					/obj/item/storage/box/copytech,
-					/obj/item/gps
-					)
+
+	templist = list(
+				/obj/item/choice_beacon/rnd,
+				/obj/item/storage/box/oreredemtionandsilo,
+				/obj/item/choice_beacon/augments,
+				/obj/item/storage/belt/utility/chief/full,
+				/obj/item/storage/firstaid/advanced,
+				/obj/structure/reagent_dispensers/beerkeg,
+				/obj/item/storage/part_replacer/bluespace/tier2,
+				/obj/structure/punching_bag/trade,
+				/obj/item/pickaxe/drill/jackhammer,
+				/obj/item/storage/box/copytech,
+				/obj/item/gps
+				)
 	templist_emag = list(
 					/obj/item/storage/box/rndboards/old,
 					/obj/item/storage/box/oreredemtionandsilo,
@@ -115,7 +118,7 @@
 					/obj/item/gps,
 					/obj/item/storage/box/copytech,
 					/obj/item/uplink/emengercy
-						)
+					)
 	if(emagged == FALSE)
 		for(var/V in templist)
 			var/atom/A = V
