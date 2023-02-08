@@ -38,6 +38,7 @@
 		return
 	if(!linked_account)
 		to_chat(user, span_warning("Надо бы для начала привязать свою карточку!"))
+		return
 	linked_account?.adjust_money(tier)
 	exp++
 	maptext = MAPTEXT("[exp]")
