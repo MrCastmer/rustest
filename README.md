@@ -1,61 +1,49 @@
-# Shiptest Codebase
+# RUStest Codebase
+[![Checks](https://github.com/Lambda-13/rustest/workflows/Checks/badge.svg)](https://github.com/Lambda-13/rustest/actions/workflows/ci_suite.yml) [![GitHub issues](https://img.shields.io/github/issues/shiptest-ss13/Shiptest)](https://github.com/shiptest-ss13/Shiptest/issues) ![Discord](https://img.shields.io/discord/1068259051529572392) ![GitHub top language](https://img.shields.io/github/languages/top/Lambda-13/rustest)
 
-[![Checks](https://github.com/shiptest-ss13/Shiptest/workflows/Checks/badge.svg)](https://github.com/shiptest-ss13/Shiptest/actions/workflows/ci_suite.yml) [![Percentage of issues still open](http://isitmaintained.com/badge/open/shiptest-ss13/Shiptest.svg)](https://isitmaintained.com/project/shiptest-ss13/Shiptest "Percentage of issues still open") [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/shiptest-ss13/Shiptest.svg)](https://isitmaintained.com/project/shiptest-ss13/Shiptest "Average time to resolve an issue") [![GitHub issues](https://img.shields.io/github/issues/shiptest-ss13/Shiptest)](https://github.com/shiptest-ss13/Shiptest/issues) ![GitHub top language](https://img.shields.io/github/languages/top/shiptest-ss13/Shiptest)
+![GitHub repo size](https://img.shields.io/github/repo-size/Lambda-13/rustest?label=%D0%A0%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%20%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D1%8F&style=for-the-badge) [![forinfinityandbyond](https://user-images.githubusercontent.com/5211576/29499758-4efff304-85e6-11e7-8267-62919c3688a9.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
 
-[![forthebadge](https://forthebadge.com/images/badges/built-with-resentment.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/contains-technical-debt.svg)](https://user-images.githubusercontent.com/8171642/50290880-ffef5500-043a-11e9-8270-a2e5b697c86c.png) [![forinfinityandbyond](https://user-images.githubusercontent.com/5211576/29499758-4efff304-85e6-11e7-8267-62919c3688a9.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
+-   **Сайт оригинального шиптеста:** <https://shiptest.net>
+-   **Бусти:** <https://boosty.to/lambda13>
+-   **Вики (англ.):** <https://shiptest.net/wiki>
+-   **Мануал по игре:** <https://hackmd.io/@lambda13/shiptest>
+-   **Документация:** <https://codedocs.shiptest.net>
+-   **Дискорд:** <https://discord.gg/kghbBm4z6X>
+-   **Русский кодербус:** <https://discord.gg/fRsn7RxdQp>
 
--   **Website:** <https://shiptest.net>
--   **Patreon:** <https://www.patreon.com/shiptest_ss13>
--   **Wiki:** <https://shiptest.net/wiki>
--   **Code Docs:** <https://codedocs.shiptest.net>
--   **Discord:** <https://shiptest.net/discord>
--   **Coderbus Discord:** <https://discord.gg/Vh8TJp9>
+Эта кодовая база является форком [оригинального шиптеста](https://github.com/shiptest-ss13/Shiptest "оригинального шиптеста") которая является форком [белых песков](https://github.com/Whitesands13/Whitesands "белых песков") которая является форком [/ТГ/ Станции](https://github.com/tgstation/tgstation "/ТГ/ Станции").
+Шиптест - это билд про исследование космоса на своих личных кораблях. Будете ли вы строить колонию или завоёвывать новые земли - решать вам.
 
-This is the codebase for the Ship-based Shiptest flavoured fork of SpaceStation 13.
+## УСТАНОВКА
 
-Shiptest is a thrill-packed round-based exploration and roleplaying game set against the backdrop of a whimsical metal spacefaring machine masquerading as a spaceship, with charming spritework designed to represent the sci-fi setting and it's dangerous undertones. Have fun, and survive with your crew!
+[1. Скачать билд](.github/DOWNLOADING.md)
 
-## DOWNLOADING
+[2. Запустить сервер](.github/RUNNING_A_SERVER.md)
 
-[Downloading](.github/DOWNLOADING.md)
+## Для тех кто хочет помочь нам в кодинге
 
-[Running on the server](.github/RUNNING_A_SERVER.md)
+Гайд как переводить <https://hackmd.io/@fdev/rkxakXaRU>
 
-[Maps and Away Missions](.github/MAPS_AND_AWAY_MISSIONS.md)
+Остальное вы узнаете на нашем Дискорд сервере.
 
-## Requirements for contributors
+## Лицензия
 
-[Guidelines for Contributors](.github/CONTRIBUTING.md)
+Весь код после [коммита 333c566b88108de218d882840e61928a9b759d8f on 2014/31/12 at 4:38 PM PST](https://github.com/tgstation/tgstation/commit/333c566b88108de218d882840e61928a9b759d8f) лицензирован под [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.html).
 
-[Documenting your code](.github/AUTODOC_GUIDE.md)
+Весь код до [коммита 333c566b88108de218d882840e61928a9b759d8f on 2014/31/12 at 4:38 PM PST](https://github.com/tgstation/tgstation/commit/333c566b88108de218d882840e61928a9b759d8f) лицензирован под [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html).
+(Включая папку tools, но только если их readme не сообщает обратное)
 
-[Policy configuration system](.github/POLICYCONFIG.md)
+Смотрите LICENSE и GPLv3.txt за подробностями.
 
-## CODEBASE CREDITS
+TGS DMAPI API лицензирован как подпроект под MIT лицензией.
 
--   Whitesands, for the original codebase
--   /tg/, for the original codebase of the original codebase
--   BeeStation, for the many QoL changes
--   Oracle, for the inspiration and wonderful features and sprites
--   Interstation, for bridging the gap between Oracle and Modern /tg/
--   YogStation, for multiple different features
--   Baystation, for the initial overmap concept and sprites
+Посмотрите в самый низ [code/__DEFINES/tgs.dm](./code/__DEFINES/tgs.dm) и [code/modules/tgs/LICENSE](./code/modules/tgs/LICENSE) для MIT лицензии.
 
-And thank you to any other codebase not mentioned here that has been used in the code. Your wonderful contributions are known.
+Все ассеты включая иконки и звуки лицензированы под [Creative Commons 3.0 BY-SA license](https://creativecommons.org/licenses/by-sa/3.0/), если это не обозначено где-то ещё.
 
-## LICENSE
+Опубликованный русскоязычный текст в коде находится под лицензией [Creative Commons 4.0 BY-NC-SA license](https://creativecommons.org/licenses/by-nc-sa/4.0/), если это не обозначено где-то ещё. Это подразумевает под собой то, что использование нашего перевода где-либо ещё требует наличие данной авторской лицензии (включая всех авторов, которые когда-либо вносили правки) и отметки о том, что было изменено.
 
-All code after [commit 333c566b88108de218d882840e61928a9b759d8f on 2014/31/12 at 4:38 PM PST](https://github.com/tgstation/tgstation/commit/333c566b88108de218d882840e61928a9b759d8f) is licensed under [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.html).
+Весь код, расположенный в каталогах `goon` и `whitesands/goon`, находится под лицензией [Creative Commons 3.0 BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/3.0/). Ассеты созданны Goonstation.
 
-All code before [commit 333c566b88108de218d882840e61928a9b759d8f on 2014/31/12 at 4:38 PM PST](https://github.com/tgstation/tgstation/commit/333c566b88108de218d882840e61928a9b759d8f) is licensed under [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html).
-(Including tools unless their readme specifies otherwise.)
 
-See LICENSE and GPLv3.txt for more details.
-
-The TGS DMAPI API is licensed as a subproject under the MIT license.
-
-See the footer of [code/\_\_DEFINES/tgs.dm](./code/__DEFINES/tgs.dm) and [code/modules/tgs/LICENSE](./code/modules/tgs/LICENSE) for the MIT license.
-
-All assets including icons and sound are under a [Creative Commons 3.0 BY-SA license](https://creativecommons.org/licenses/by-sa/3.0/) unless otherwise indicated.
-
-All assets located in the `goon` and `whitesands/goon` directory are under a [Creative Commons 3.0 BY-NC-SA license](https://creativecommons.org/licenses/by-nc-sa/3.0/). Assets created by Goonstation.
+Весь код, расположенный в каталоге `lambda`, находится под лицензией [Creative Commons 4.0 BY-NC-SA license](https://creativecommons.org/licenses/by-nc-sa/4.0/), если не указано иное.
