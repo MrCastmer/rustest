@@ -94,28 +94,29 @@
 					/obj/item/storage/belt/utility/chief/full,
 					/obj/item/storage/firstaid/advanced,
 					/obj/structure/reagent_dispensers/beerkeg,
-					/obj/item/storage/part_replacer/bluespace/tier4,
-					/obj/item/storage/box/spacecash_c10000,
+					/obj/item/storage/part_replacer/bluespace/tier2,
+					/obj/structure/punching_bag/trade,
 					/obj/item/storage/box/cargo_selling_pad,
 					/obj/item/pickaxe/drill/jackhammer,
 					/obj/item/storage/box/copytech,
 					/obj/item/gps
 					)
-	templist_emag = list(/obj/item/storage/box/rndboards/old,
-						/obj/item/storage/box/oreredemtionandsilo,
-						/obj/item/choice_beacon/augments,
-						/obj/effect/mob_spawn/drone/syndrone,
-						/obj/item/storage/belt/utility/chief/full,
-						/obj/item/storage/firstaid/tactical,
-						/obj/structure/reagent_dispensers/beerkeg,
-						/obj/item/storage/part_replacer/bluespace/tier4,
-						/obj/item/storage/box/spacecash_c10000,
-						/obj/item/storage/box/cargo_selling_pad,
-						/obj/item/pickaxe/drill/jackhammer/brigador,
-						/obj/item/storage/toolbox/syndicate,
-						/obj/item/gps,
-						/obj/item/storage/box/copytech,
-						/obj/item/uplink/emengercy
+	templist_emag = list(
+					/obj/item/storage/box/rndboards/old,
+					/obj/item/storage/box/oreredemtionandsilo,
+					/obj/item/choice_beacon/augments,
+					/obj/effect/mob_spawn/drone/syndrone,
+					/obj/item/storage/belt/utility/chief/full,
+					/obj/item/storage/firstaid/tactical,
+					/obj/structure/reagent_dispensers/beerkeg,
+					/obj/item/storage/part_replacer/bluespace/tier4,
+					/obj/structure/punching_bag/trade,
+					/obj/item/storage/box/cargo_selling_pad,
+					/obj/item/pickaxe/drill/jackhammer/brigador,
+					/obj/item/storage/toolbox/syndicate,
+					/obj/item/gps,
+					/obj/item/storage/box/copytech,
+					/obj/item/uplink/emengercy
 						)
 	if(emagged == FALSE)
 		for(var/V in templist)
