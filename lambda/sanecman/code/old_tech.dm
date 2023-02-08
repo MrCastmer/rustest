@@ -40,4 +40,3 @@
 	id = "pacman_wood"
 	build_path = /obj/item/circuitboard/machine/pacman/wood
 	category = list ("Engineering Machinery")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
