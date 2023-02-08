@@ -18,7 +18,8 @@
 								"Computer Parts",
 								"Spacepod Designs", //WS
 								"Integrated Electronics",
-								"MODsuit Designs"
+								"MODsuit Designs",
+								"MechComp"
 								)
 	production_animation = "protolathe_n"
 	allowed_buildtypes = PROTOLATHE
