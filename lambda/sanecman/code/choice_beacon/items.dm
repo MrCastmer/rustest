@@ -96,7 +96,6 @@
 					/obj/structure/reagent_dispensers/beerkeg,
 					/obj/item/storage/part_replacer/bluespace/tier2,
 					/obj/structure/punching_bag/trade,
-					/obj/item/storage/box/cargo_selling_pad,
 					/obj/item/pickaxe/drill/jackhammer,
 					/obj/item/storage/box/copytech,
 					/obj/item/gps
@@ -111,7 +110,6 @@
 					/obj/structure/reagent_dispensers/beerkeg,
 					/obj/item/storage/part_replacer/bluespace/tier4,
 					/obj/structure/punching_bag/trade,
-					/obj/item/storage/box/cargo_selling_pad,
 					/obj/item/pickaxe/drill/jackhammer/brigador,
 					/obj/item/storage/toolbox/syndicate,
 					/obj/item/gps,

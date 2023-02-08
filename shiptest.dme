@@ -3514,6 +3514,7 @@
 #include "lambda\sanecman\code\integrated_circuits_snitch\integrated_electronics\subtypes\text.dm"
 #include "lambda\sanecman\code\integrated_circuits_snitch\integrated_electronics\subtypes\time.dm"
 #include "lambda\sanecman\code\integrated_circuits_snitch\integrated_electronics\subtypes\trig.dm"
+#include "lambda\sanecman\code\serverside\varies.dm"
 #include "lambda\sanecman\code\tgmechcomp\basecomponent.dm"
 #include "lambda\sanecman\code\tgmechcomp\components.dm"
 #include "lambda\sanecman\code\tgmechcomp\mechcomp_component.dm"
