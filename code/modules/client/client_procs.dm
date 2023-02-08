@@ -427,6 +427,12 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		message_admins("[key_name_admin(src)] (IP: [address], ID: [computer_id]) is a new BYOND account [account_age] day[(account_age==1?"":"s")] old, created on [account_join_date].")
 		if (CONFIG_GET(flag/irc_first_connection_alert))
 			send2tgs_adminless_only("new_byond_user", "[key_name(src)] (IP: [address], ID: [computer_id]) is a new BYOND account [account_age] day[(account_age==1?"":"s")] old, created on [account_join_date].")
+
+	if(account_age >= 0)
+		for(var/client/X in GLOB.admins)
+			if(X.prefs.toggles & SOUND_ADMINVPNPROXYPING)
+				SEND_SOUND(X, sound('lambda/sanecman/sound/detect.ogg'))
+
 	get_message_output("watchlist entry", ckey)
 	check_ip_intel()
 	validate_key_in_db()
@@ -758,9 +764,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 			if (!cidcheck_failedckeys[ckey])
 				message_admins("<span class='adminnotice'>[key_name(src)] использует рандомизатор (спуфер) cid (компьютер айди). Соединение прервано.</span>")
-			for(var/client/X in GLOB.admins)
-				if(X.prefs.toggles & SOUND_ADMINVPNPROXYPING)
-					SEND_SOUND(X, sound('lambda/sanecman/sound/detect.ogg'))
 				send2tgs_adminless_only("CidRandomizer", "[key_name(src)] использует рандомизатор (спуфер) cid (компьютер айди). Соединение прервано.")
 				cidcheck_failedckeys[ckey] = TRUE
 				note_randomizer_user()
