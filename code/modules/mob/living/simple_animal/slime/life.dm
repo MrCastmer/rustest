@@ -114,6 +114,9 @@
 	var/loc_temp = get_temperature(environment)
 	var/divisor = 10 /// The divisor controls how fast body temperature changes, lower causes faster changes
 
+	if(client)
+		handle_temp_color(loc_temp)
+
 	if(abs(loc_temp - bodytemperature) > 50) // If the difference is great, reduce the divisor for faster stabilization
 		divisor = 5
 

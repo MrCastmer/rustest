@@ -77,6 +77,8 @@
 
 	var/pb_knockback = 0
 
+	var/legacy_icon_handler = FALSE
+
 /obj/item/gun/Initialize()
 	. = ..()
 	if(pin)
@@ -190,6 +192,8 @@
 	if(!target)
 		return
 	if(firing_burst)
+		return
+	if(SEND_SIGNAL(src, COMSIG_GUN_TRY_FIRE, user, target, flag, params) & COMPONENT_CANCEL_GUN_FIRE)
 		return
 	if(flag) //It's adjacent, is the user, or is on the user's person
 		if(target in user.contents) //can't shoot stuff inside us.

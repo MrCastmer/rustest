@@ -55,7 +55,7 @@
 /*
 	if(accept_mobs != tele.accept_mobs)
 		say("Target and source modes differ - reconfigure teleporters!")
-		playsound(src, 'lambda/sanecman/sounds/mechcomp/generic_energy_dryfire.ogg', 75, FALSE)
+		playsound(src, 'lambda/sanecman/sound/mechcomp/generic_energy_dryfire.ogg', 75, FALSE)
 		activate_for(1 SECONDS, FALSE)
 		return
 */

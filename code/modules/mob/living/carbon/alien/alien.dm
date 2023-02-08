@@ -64,6 +64,10 @@
 	// this balances body temp to the enviroment and natural stabilization
 	. = ..()
 
+	if(client)
+		var/areatemp = get_temperature(environment)
+		handle_temp_color(areatemp)
+
 	if(bodytemperature > HUMAN_BODYTEMP_COLD_DAMAGE_LIMIT)
 		//Body temperature is too hot.
 		throw_alert("alien_fire", /atom/movable/screen/alert/alien_fire)

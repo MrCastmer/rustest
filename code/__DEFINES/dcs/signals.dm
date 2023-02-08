@@ -842,3 +842,11 @@
 #define COMSIG_PORT_SET_INPUT "port_set_input"
 /// Sent on the output port when an input port registers on it: (datum/port/input/registered_port)
 #define COMSIG_PORT_OUTPUT_CONNECT "port_output_connect"
+
+//Портируем с вайта пытаетмся не сломать игру
+///called in /obj/item/gun/fire_gun (user, target, flag, params)
+#define COMSIG_GUN_TRY_FIRE "gun_try_fire"
+	#define COMPONENT_CANCEL_GUN_FIRE (1<<0)
+///called in /obj/item/gun/fire_gun (user, target, flag, params)
+#define COMSIG_GUN_TRY_FIRE "gun_try_fire"
+	#define COMPONENT_CANCEL_GUN_FIRE (1<<0)

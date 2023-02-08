@@ -207,7 +207,10 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/datum/admins/proc/overmap_view, /* Opens HTML overmap viewer UI */
 	/client/proc/toggle_AI_interact, /*toggle admin ability to interact with machines as an AI*/
 	/client/proc/toggle_cdn,
-	/client/proc/check_timer_sources
+	/client/proc/check_timer_sources,
+	/client/proc/commit_warcrime,
+	/client/proc/uncommit_warcrime,
+	/client/proc/raspidoars
 	)
 GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, /proc/release))
 GLOBAL_PROTECT(admin_verbs_possess)
@@ -281,7 +284,10 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/toggle_combo_hud,
 	/client/proc/debug_huds,
 	/client/proc/fax_panel,
-	/client/proc/fuck_pie
+	/client/proc/fuck_pie,
+	/client/proc/commit_warcrime,
+	/client/proc/uncommit_warcrime,
+	/client/proc/raspidoars
 	))
 GLOBAL_PROTECT(admin_verbs_hideable)
 

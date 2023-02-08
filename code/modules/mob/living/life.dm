@@ -88,6 +88,9 @@
 /mob/living/proc/handle_environment(datum/gas_mixture/environment)
 	var/loc_temp = get_temperature(environment)
 
+	if(client)
+		handle_temp_color(loc_temp)
+
 	if(loc_temp < bodytemperature) // it is cold here
 		if(!on_fire) // do not reduce body temp when on fire
 			adjust_bodytemperature(max((loc_temp - bodytemperature) / BODYTEMP_DIVISOR, HUMAN_BODYTEMP_COOLING_MAX))
@@ -152,4 +155,19 @@
 		var/grav_stregth = gravity - GRAVITY_DAMAGE_TRESHOLD
 		adjustBruteLoss(min(grav_stregth,3))
 
+/mob/living/proc/handle_temp_color(cur_temp)
+	if(last_temp_status != "normal" && cur_temp > BODYTEMP_COLD_DAMAGE_LIMIT && cur_temp < BODYTEMP_HEAT_DAMAGE_LIMIT)
+		last_temp_status = "normal"
+		remove_client_colour(/datum/client_colour/hot)
+		remove_client_colour(/datum/client_colour/cold)
+
+	if(last_temp_status != "cold" && cur_temp <= BODYTEMP_COLD_DAMAGE_LIMIT)
+		last_temp_status = "cold"
+		remove_client_colour(/datum/client_colour/hot)
+		add_client_colour(/datum/client_colour/cold)
+
+	if(last_temp_status != "hot" && cur_temp >= BODYTEMP_HEAT_DAMAGE_LIMIT)
+		last_temp_status = "hot"
+		remove_client_colour(/datum/client_colour/cold)
+		add_client_colour(/datum/client_colour/hot)
 #undef BODYTEMP_DIVISOR

@@ -522,6 +522,9 @@ All effects don't start immediately, but rather get worse over time; the rate is
 /mob/living/carbon/handle_environment(datum/gas_mixture/environment)
 	var/areatemp = get_temperature(environment)
 
+	if(client)
+		handle_temp_color(areatemp)
+
 	if(stat != DEAD) // If you are dead your body does not stabilize naturally
 		natural_bodytemperature_stabilization(environment)
 

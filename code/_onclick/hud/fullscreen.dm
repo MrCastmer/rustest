@@ -179,3 +179,17 @@
 	layer = LIGHTING_LAYER
 	blend_mode = BLEND_ADD
 	show_when_dead = TRUE
+
+/atom/movable/screen/fullscreen/noisescreen
+	icon = 'lambda/sanecman/icons/fullscreen.dmi'
+	screen_loc = "WEST,SOUTH to EAST,NORTH"
+	icon_state = "noise"
+	show_when_dead = TRUE
+	layer = SPLASHSCREEN_LAYER
+	plane = SPLASHSCREEN_PLANE
+	blend_mode = 4
+	alpha = 255
+
+/mob/dead/new_player/Initialize(mapload)
+	. = ..()
+	overlay_fullscreen("noise", /atom/movable/screen/fullscreen/noisescreen)

@@ -864,7 +864,7 @@
 	if(!check_rights(R_ADMIN) || !check_rights(R_FUN))
 		return
 
-	var/list/punishment_list = list(ADMIN_PUNISHMENT_BREAK_BONES, ADMIN_PUNISHMENT_LIGHTNING, ADMIN_PUNISHMENT_BRAINDAMAGE, ADMIN_PUNISHMENT_GIB, ADMIN_PUNISHMENT_BSA, ADMIN_PUNISHMENT_FIREBALL, ADMIN_PUNISHMENT_ROD, ADMIN_PUNISHMENT_SUPPLYPOD_QUICK, ADMIN_PUNISHMENT_SUPPLYPOD, ADMIN_PUNISHMENT_MAZING, ADMIN_PUNISHMENT_IMMERSE, ADMIN_PUNISHMENT_NYA, ADMIN_PUNISHMENT_PIE)
+	var/list/punishment_list = list(ADMIN_PUNISHMENT_BREAK_BONES, ADMIN_PUNISHMENT_LIGHTNING, ADMIN_PUNISHMENT_BRAINDAMAGE, ADMIN_PUNISHMENT_GIB, ADMIN_PUNISHMENT_BSA, ADMIN_PUNISHMENT_FIREBALL, ADMIN_PUNISHMENT_ROD, ADMIN_PUNISHMENT_SUPPLYPOD_QUICK, ADMIN_PUNISHMENT_SUPPLYPOD, ADMIN_PUNISHMENT_MAZING, ADMIN_PUNISHMENT_IMMERSE, ADMIN_PUNISHMENT_NYA, ADMIN_PUNISHMENT_FURRYFICATION)
 
 	var/punishment = input("Choose a punishment", "DIVINE SMITING") as null|anything in sortList(punishment_list)
 
@@ -943,6 +943,10 @@
 			var/mob/living/carbon/dude = target
 			var/obj/item/organ/tongue/uwuspeak/tonje = new
 			tonje.Insert(dude, TRUE, FALSE)
+		if(ADMIN_PUNISHMENT_FURRYFICATION)
+			var/mob/living/simple_animal/xaxi/new_xaxi = new /mob/living/simple_animal/xaxi(target.loc)
+			new_xaxi.key = target.key
+			qdel(target)
 
 	punish_log(target, punishment)
 
@@ -1080,3 +1084,64 @@
 	else
 		qdel(I)
 		return FALSE
+
+/client/proc/commit_warcrime()
+	set name = "Commit Warcrime"
+	set category = "Debug"
+
+	if(!check_rights(R_ADMIN) || !check_rights(R_FUN))
+		return
+
+	message_admins("[ADMIN_LOOKUPFLW(usr)] совершает военное преступление!")
+	log_admin("[key_name(usr)] makes warcrime.")
+
+	for(var/client/C in GLOB.clients)
+		C.dir = pick(GLOB.cardinals)
+		C.change_view("15x15", TRUE)
+		C.mob.add_client_colour(/datum/client_colour/ohfuckrection)
+		C.mob.overlay_fullscreen("fuckoise", /atom/movable/screen/fullscreen/noisescreen)
+		to_chat(C, span_revenbignotice("Было совершено военное преступление."))
+
+/client/proc/uncommit_warcrime()
+	set name = "UnCommit Warcrime"
+	set category = "Debug"
+
+	if(!check_rights(R_ADMIN) || !check_rights(R_FUN))
+		return
+
+	message_admins("[ADMIN_LOOKUPFLW(usr)] не совершает военное преступление!")
+	log_admin("[key_name(usr)] unmakes warcrime.")
+
+	for(var/client/C in GLOB.clients)
+		C.dir = NORTH
+		C.change_view("19x15", TRUE)
+		C.mob.remove_client_colour(/datum/client_colour/ohfuckrection)
+		C.mob.clear_fullscreen("fuckoise")
+		to_chat(C, span_revenbignotice("Военных преступлений не было."))
+
+/client/proc/raspidoars()
+	set name = "Raspidoars"
+	set category = "Debug"
+
+	if(!check_rights(R_ADMIN) || !check_rights(R_FUN))
+		return
+
+	var/rss = input("Raspidoars range (Tiles):") as num
+	var/turf/where = get_turf(mob)
+	if(!where)
+		to_chat(usr, span_userwarning("Null loc, what the fuck?"))
+		return
+	message_admins("[ADMIN_LOOKUPFLW(usr)] распидорасил плитки!")
+	log_admin("[key_name(usr)] uses raspidoars.")
+
+	for(var/atom/A in spiral_range(rss, where))
+		if(isturf(A) || isobj(A) || ismob(A))
+			playsound(where, 'lambda/sanecman/sound/bluntcreep.ogg', 100, TRUE, rss)
+			var/matrix/M = A.transform
+			M.Scale(rand(1, 2), rand(1, 2))
+			M.Translate(rand(-2, 2), rand(-2, 2))
+			M.Turn(rand(-90, 90))
+			A.color = "#[random_short_color()]"
+			animate(A, color = color_matrix_rotate_hue(rand(0, 360)), time = rand(200, 500), easing = CIRCULAR_EASING, flags = ANIMATION_PARALLEL)
+			animate(A, transform = M, time = rand(200, 1000), flags = ANIMATION_PARALLEL)
+			sleep(pick(0.3, 0.5, 0.7))

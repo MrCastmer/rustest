@@ -71,7 +71,9 @@
 	// Run base mob body temperature proc before taking damage
 	// this balances body temp to the enviroment and natural stabilization
 	. = ..()
-
+	if(client)
+		var/areatemp = get_temperature(environment)
+		handle_temp_color(areatemp)
 	if(bodytemperature > dna.species.bodytemp_heat_damage_limit && !HAS_TRAIT(src, TRAIT_RESISTHEAT))
 		switch(bodytemperature)
 			if(360 to 400)

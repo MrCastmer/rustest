@@ -312,6 +312,8 @@
 			var/diff = areatemp - bodytemperature
 			diff = diff / 5
 			adjust_bodytemperature(diff)
+		if(client)
+			handle_temp_color(areatemp)
 
 	if(!environment_air_is_safe())
 		adjustHealth(unsuitable_atmos_damage)

@@ -335,6 +335,15 @@
 #define GAS_FLAG_DANGEROUS (1<<0)
 #define GAS_FLAG_BREATH_PROC (1<<1)
 
+/// The body temperature limit the human body can take before it starts taking damage from heat.
+/// This also affects how fast the body normalises it's temperature when hot.
+/// 340k is about 66c, and rather high for a human.
+#define BODYTEMP_HEAT_DAMAGE_LIMIT (BODYTEMP_NORMAL + 30)
+/// The body temperature limit the human body can take before it starts taking damage from cold.
+/// This also affects how fast the body normalises it's temperature when cold.
+/// 270k is about -3c, that is below freezing and would hurt over time.
+#define BODYTEMP_COLD_DAMAGE_LIMIT (BODYTEMP_NORMAL - 40)
+
 //HELPERS
 #define PIPING_LAYER_SHIFT(T, PipingLayer) \
 	if(T.dir & (NORTH|SOUTH)) {									 \

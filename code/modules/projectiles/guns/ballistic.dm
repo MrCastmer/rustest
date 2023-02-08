@@ -104,8 +104,14 @@
 	else
 		icon_state = "[initial(icon_state)][sawn_off ? "_sawn" : ""]"
 
+/obj/item/gun/ballistic/proc/update_legacy_icon()
+	icon_state = "[initial(icon_state)][magazine ? "" : "_e"]"
+
 /obj/item/gun/ballistic/update_overlays()
 	. = ..()
+	if(legacy_icon_handler)
+		update_legacy_icon()
+		return
 	if (bolt_type == BOLT_TYPE_LOCKING)
 		. += "[icon_state]_bolt[bolt_locked ? "_locked" : ""]"
 	if (bolt_type == BOLT_TYPE_OPEN && bolt_locked)
