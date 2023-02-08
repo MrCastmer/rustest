@@ -20,7 +20,7 @@
 	display_name = "Восстановление затерянных технологий"
 	description = "Начало восстановления технологий 20-21 века."
 	prereq_ids = list("engineering")
-	design_ids = list()
+	design_ids = list("pacman_wood")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 	export_price = 5000
 
@@ -29,7 +29,7 @@
 	display_name = "Полное восстановление затерянных технологий"
 	description = "Технологии 20-21 века были восстановлены и улучшены при помощи технологий будущего."
 	prereq_ids = list("old_tech")
-	design_ids = list("pacman_wood")
+	design_ids = list()
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 25000)
 	export_price = 50000
 
