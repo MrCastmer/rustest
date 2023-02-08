@@ -47,7 +47,7 @@
 		activate_for(1 SECONDS, FALSE)
 		return
 
-	if((!isnull(max_tele_range) && get_dist(src,tele) > max_tele_range) || src.z != tele.z)
+	if((!isnull(max_tele_range) && get_dist(src,tele) > max_tele_range))
 		say("Target out of range!")
 		playsound(src, 'lambda/sanecman/sound/mechcomp/generic_energy_dryfire.ogg', 75, FALSE)
 		activate_for(1 SECONDS, FALSE)
