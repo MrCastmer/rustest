@@ -152,7 +152,7 @@
 	///Default Y pixel offset
 	var/base_pixel_y
 	/// the datum handler for our contents - see create_storage() for creation method
-	var/datum/component/storage/atom_storage
+	var/datum/storage/atom_storage
 
 /**
  * Called when an atom is created in byond (built in engine proc)
@@ -323,7 +323,7 @@ atom/proc/create_storage(
 	attack_hand_interact = TRUE,
 	list/canhold,
 	list/canthold,
-	type = /datum/component/storage,
+	type = /datum/storage,
 )
 
 	if(atom_storage)
