@@ -360,6 +360,8 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		to_chat(src, "Твоя версия: [byond_version].[byond_build]")
 		to_chat(src, "Рекомендуемая версия: [cev].[ceb] или позже")
 		to_chat(src, "<a href=\"https://secure.byond.com/download\">Вот тут можно скачать новую версию</a>.")
+		alert(src, "Обновись до BYOND [cev].[ceb] или позже.")
+		sleep (3)
 		if (connecting_admin)
 			to_chat(src, "Как админ тебе можно использовать старые версии но будь готов к проблемам с графикой")
 		else
