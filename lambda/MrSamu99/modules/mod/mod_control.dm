@@ -104,7 +104,6 @@
 	COOLDOWN_DECLARE(cooldown_mod_move)
 	/// Person wearing the MODsuit.
 	var/mob/living/carbon/human/wearer
-	//locked = FALSE
 
 /obj/item/mod/control/Initialize(mapload, datum/mod_theme/new_theme, new_skin, obj/item/mod/core/new_core)
 	. = ..()
@@ -155,16 +154,6 @@
 	RegisterSignal(src, COMSIG_ATOM_EXITED, PROC_REF(on_exit))
 	RegisterSignal(src, COMSIG_SPEED_POTION_APPLIED, PROC_REF(on_potion))
 	movedelay = CONFIG_GET(number/movedelay/run_delay)
-	//var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	//STR.max_combined_w_class = 0
-	//STR.max_w_class = WEIGHT_CLASS_NORMAL
-	//STR.max_items = 0
-	//STR.locked = FALSE
-	//STR.use_sound = 'sound/items/storage/briefcase.ogg'
-
-/*obj/item/mod/control/ComponentInitialize()
-	. = ..()
-	AddComponent(component_type)*/
 
 /obj/item/mod/control/Destroy()
 	if(active)
