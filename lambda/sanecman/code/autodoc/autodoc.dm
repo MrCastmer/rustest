@@ -358,9 +358,9 @@
 /datum/techweb_node/autodoc
 	id = "autodoc"
 	display_name = "Автоматические медицинские комплексы"
-	description = "\"Авто-Док МК IX\" - автоматический хирургически комплекс специализированный на восстановительных и модернизирующих операциях. Многофункциональный медицинский комплекс \"Солнце\" - передовая военная разработка в области экстренной полевой медицины."
-	prereq_ids = list("exp_surgery", "bio_process", "adv_datatheory", "adv_engi", "high_efficiency")
-	design_ids = list("autodoc", "solnce")
+	description = "\"Авто-Док МК IX\" - автоматический хирургически комплекс специализированный на восстановительных и модернизирующих операциях. \"Орган-Док МК IIX\" - Многофункциональный медицинский комплекс Автоматический хирургически комплекс специализированный на имплантационных и трансплантационных операциях."
+	prereq_ids = list("exp_surgery", "high_efficiency")
+	design_ids = list("autodoc", "organdoc")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 15000)
 
 /datum/surgery_step/incise/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
