@@ -65,6 +65,9 @@
 	desc = "Позволяет вызвать дроппод снабжения. Может быть взломан."
 	icon = 'lambda/sanecman/icons/items/emergency_signaler.dmi'
 	icon_state = "em_signal"
+	var/list/templist
+	var/list/templist_emag
+	var/static/list/spawnshit
 	var/emagged = FALSE
 
 /obj/item/circuitboard/computer/cargo/express/multitool_act(mob/user)
@@ -81,14 +84,7 @@
 
 
 /obj/item/choice_beacon/support_beacon/generate_display_names()
-	var/list/templist
-	var/list/templist_emag
-	var/static/list/spawnshit
-	var/static/list/spawnshit_emag
-	if(!spawnshit)
-		spawnshit = list()
-	if(!spawnshit_emag)
-		spawnshit_emag = list()
+	spawnshit = list()
 
 	templist = list(
 				/obj/item/choice_beacon/rnd,
@@ -119,14 +115,14 @@
 					/obj/item/storage/box/copytech,
 					/obj/item/uplink/emengercy
 					)
-	if(emagged == FALSE)
+	if(src.emagged == FALSE)
 		for(var/V in templist)
 			var/atom/A = V
 			spawnshit[initial(A.name)] = A
 			return spawnshit
 	else
-		for(var/V in templist_emag)
+		for(var/V in src.templist_emag)
 			var/atom/A = V
-			spawnshit_emag[initial(A.name)] = A
-			return spawnshit_emag
+			spawnshit[initial(A.name)] = A
+			return spawnshit
 
