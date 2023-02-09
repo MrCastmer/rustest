@@ -46,6 +46,7 @@
 		/obj/item/tank/jetpack/suit = 3,
 		/obj/item/stack/spacecash/c1000 = 5,
 		/obj/item/clothing/suit/space/hardsuit/mining/independent = 3,
+		/obj/item/mod/control/pre_equipped/mining = 3,
 		/obj/item/resonator/upgraded = 1,
 		/obj/item/clothing/shoes/bhop = 3,
 		/obj/item/survivalcapsule/luxury = 3,
