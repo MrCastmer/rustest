@@ -287,7 +287,6 @@
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 5, "energy" = 5, "bomb" = 30, "bio" = 100, "fire" = 100, "acid" = 75)
 	resistance_flags = FIRE_PROOF|LAVA_PROOF
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
-	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	complexity_max = DEFAULT_MAX_COMPLEXITY - 5
 	charge_drain = DEFAULT_CHARGE_DRAIN * 2
 	allowed_suit_storage = list(
@@ -1041,7 +1040,7 @@
 	slowdown_inactive = 0.5
 	slowdown_active = 0
 	ui_theme = "hackerman"
-	//inbuilt_modules = list(obj/item/mod/module/welding/camera_vision, /obj/item/mod/module/hacker, /obj/item/mod/module/weapon_recall, /obj/item/mod/module/adrenaline_boost, /obj/item/mod/module/energy_net)
+	inbuilt_modules = list(obj/item/mod/module/welding/camera_vision, /obj/item/mod/module/hacker, /obj/item/mod/module/weapon_recall, /obj/item/mod/module/adrenaline_boost, /obj/item/mod/module/energy_net)
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,

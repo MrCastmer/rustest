@@ -110,12 +110,14 @@
 	mask_type = /obj/item/clothing/mask/breath
 
 /obj/machinery/suit_storage_unit/cmo
-	suit_type = /obj/item/clothing/suit/space/hardsuit/medical/cmo
+	//suit_type = /obj/item/clothing/suit/space/hardsuit/medical/cmo
+	mod_type = /obj/item/mod/control/pre_equipped/rescue
 	mask_type = /obj/item/clothing/mask/breath/medical
 	storage_type = /obj/item/tank/internals/oxygen
 
 /obj/machinery/suit_storage_unit/rd
-	suit_type = /obj/item/clothing/suit/space/hardsuit/rd
+	//suit_type = /obj/item/clothing/suit/space/hardsuit/rd
+	mod_type = /obj/item/mod/control/pre_equipped/research
 	mask_type = /obj/item/clothing/mask/breath
 
 /obj/machinery/suit_storage_unit/syndicate
@@ -192,6 +194,8 @@
 		helmet = new helmet_type(src)
 	if(mask_type)
 		mask = new mask_type(src)
+	if(mod_type)
+		mod = new mod_type(src)
 	if(storage_type)
 		storage = new storage_type(src)
 	update_icon()
@@ -268,6 +272,7 @@
 			"suit" = create_silhouette_of(/obj/item/clothing/suit/space/eva),
 			"helmet" = create_silhouette_of(/obj/item/clothing/head/helmet/space/eva),
 			"mask" = create_silhouette_of(/obj/item/clothing/mask/breath),
+			"mod" = create_silhouette_of(/obj/item/mod/control),
 			"storage" = create_silhouette_of(/obj/item/tank/internals/oxygen),
 		)
 
@@ -376,7 +381,7 @@
 	if(!is_operational)
 		to_chat(user, "<span class='warning'>The unit is not operational!</span>")
 		return
-	if(occupant || helmet || suit || storage)
+	if(occupant || helmet || suit || storage || mod)
 		to_chat(user, "<span class='warning'>It's too cluttered inside to fit in!</span>")
 		return
 
@@ -386,7 +391,7 @@
 		target.visible_message("<span class='warning'>[user] starts shoving [target] into [src]!</span>", "<span class='userdanger'>[user] starts shoving you into [src]!</span>")
 
 	if(do_mob(user, target, 30))
-		if(occupant || helmet || suit || storage)
+		if(occupant || helmet || suit || storage || mod)
 			return
 		if(target == user)
 			user.visible_message("<span class='warning'>[user] slips into [src] and closes the door behind [user.p_them()]!</span>", "<span class=notice'>You slip into [src]'s cramped space and shut its door.</span>")
@@ -625,6 +630,9 @@
 		else if(istype(AM, /obj/item/clothing/mask) && !mask)
 			AM.forceMove(src)
 			mask = AM
+		else if(istype(AM, /obj/item/mod/control) && !storage)
+			AM.forceMove(src)
+			mod = AM
 		else if(istype(AM, /obj/item) && !storage)
 			AM.forceMove(src)
 			storage = AM

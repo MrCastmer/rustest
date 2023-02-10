@@ -3,25 +3,7 @@
 	name = "Базовый MOD"
 	desc = "Ты не должен видеть это, сообщи кодерам об этом!"
 	icon = 'icons/obj/clothing/modsuit/mod_clothing.dmi'
-	var/component_type = /datum/component/storage
-	var/max_w_class = WEIGHT_CLASS_TINY			//max size of objects that will fit.
-	var/max_combined_w_class = 0					//max combined sizes of objects that will fit.
-	var/max_items = 0	
-	var/locked = FALSE
- 
-/obj/item/mod/Initialize()
-	. = ..()
-	PopulateContents()
 	
-/obj/item/mod/ComponentInitialize()
-	AddComponent(component_type)
-
-/obj/item/mod/proc/emptyStorage()
-	var/datum/component/storage/ST = GetComponent(/datum/component/storage)
-	ST.do_quick_empty()
-
-/obj/item/mod/proc/PopulateContents()
-
 /obj/item/mod/on_object_saved(depth = 0)
 	if(depth >= 10)
 		return ""
@@ -38,7 +20,7 @@
 	name = "управляющий модуль"
 	desc = "Блок управления Модульного Устройства Внешней защиты, скафандр с питанием способный защитить от разных сред."
 	icon_state = "control"
-	inhand_icon_state = "mod_control"
+	inhand_icon_state = "control"
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
 	strip_delay = 10 SECONDS
@@ -122,7 +104,6 @@
 	COOLDOWN_DECLARE(cooldown_mod_move)
 	/// Person wearing the MODsuit.
 	var/mob/living/carbon/human/wearer
-	locked = FALSE
 
 /obj/item/mod/control/Initialize(mapload, datum/mod_theme/new_theme, new_skin, obj/item/mod/core/new_core)
 	. = ..()
@@ -173,16 +154,6 @@
 	RegisterSignal(src, COMSIG_ATOM_EXITED, PROC_REF(on_exit))
 	RegisterSignal(src, COMSIG_SPEED_POTION_APPLIED, PROC_REF(on_potion))
 	movedelay = CONFIG_GET(number/movedelay/run_delay)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 0
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_items = 0
-	STR.locked = FALSE
-	STR.use_sound = 'sound/items/storage/briefcase.ogg'
-
-/obj/item/mod/control/ComponentInitialize()
-	. = ..()
-	AddComponent(component_type)
 
 /obj/item/mod/control/Destroy()
 	if(active)
