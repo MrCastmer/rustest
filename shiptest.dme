@@ -3459,6 +3459,7 @@
 #include "lambda\MrSamu99\modules\mod\modules\modules_general.dm"
 #include "lambda\MrSamu99\modules\mod\modules\modules_maint.dm"
 #include "lambda\MrSamu99\modules\mod\modules\modules_medical.dm"
+#include "lambda\MrSamu99\modules\mod\modules\modules_ninja.dm"
 #include "lambda\MrSamu99\modules\mod\modules\modules_science.dm"
 #include "lambda\MrSamu99\modules\mod\modules\modules_security.dm"
 #include "lambda\MrSamu99\modules\mod\modules\modules_service.dm"
