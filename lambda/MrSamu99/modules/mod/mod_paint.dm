@@ -14,7 +14,7 @@
 	var/atom/movable/screen/map_view/proxy_view
 	var/list/current_color
 
-/*obj/item/mod/paint/Initialize(mapload)
+/obj/item/mod/paint/Initialize(mapload)
 	. = ..()
 	current_color = color_matrix_identity()
 
@@ -32,7 +32,7 @@
 		return TRUE
 	paint_skin(mod, user)
 
-/obj/item/mod/paint/pre_attack_secondary(atom/attacked_atom, mob/living/user, params)
+/*obj/item/mod/paint/pre_attack_secondary(atom/attacked_atom, mob/living/user, params)
 	if(!istype(attacked_atom, /obj/item/mod/control))
 		return .()
 	var/obj/item/mod/control/mod = attacked_atom
@@ -49,7 +49,7 @@
 	proxy_view.color = null
 	proxy_view.display_to(user)
 	ui_interact(user)
-	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN*/
 
 /obj/item/mod/paint/ui_interact(mob/user, datum/tgui/ui)
 	if(!editing_mod)
@@ -194,4 +194,3 @@
 /obj/item/mod/skin_applier/honkerative
 	skin = "honkerative"
 	compatible_theme = /datum/mod_theme/syndicate
-*/
