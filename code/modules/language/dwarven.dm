@@ -1,11 +1,11 @@
 // The language of the Dwarves, based on Dwarf Fortress
 
 /datum/language/dwarf
-	name = "Dwenmar"
-	desc = "A conlang forged by dwarves for internal communication. Slowly transforming into a dead language. "
-	speech_verb = "bellows"
-	whisper_verb = "mutters"
-	sing_verb = "sings"
+	name = "Дворфский"
+	desc = "Конланг, созданный дварфами для внутреннего общения. Медленно превращаясь в мертвый язык."
+	speech_verb = "бурчит"
+	whisper_verb = "пробуркивает"
+	sing_verb = "набуркивает"
 	space_chance = 100 // Each 'syllable' is its own word
 	key = "D"
 	flags = TONGUELESS_SPEECH | LANGUAGE_HIDE_ICON_IF_NOT_UNDERSTOOD

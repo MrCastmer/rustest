@@ -13,7 +13,7 @@
 	desc = "Он наблюдает за тобой."
 
 /obj/structure/closet/crate/necropolis/tendril/PopulateContents()
-	var/loot = rand(1,29)
+	var/loot = rand(1,30)
 	switch(loot)
 		if(1)
 			new /obj/item/shared_storage/red(src)
@@ -85,13 +85,20 @@
 			new /obj/item/clothing/suit/armor/ascetic(src)
 		if(29)
 			new /obj/item/kitchen/knife/envy(src)
+		if(30)
+			if(prob(50))
+				new /obj/item/language_manual/roundstart_species(src)
+			else if(prob(25))
+				new /obj/item/language_manual/roundstart_species/five(src)
+			else
+				new /obj/item/language_manual/roundstart_species/unlimited(src)
 
 /obj/structure/closet/crate/necropolis/tendril/greater
 	desc = "Он смотрит уставшим глазом на тебя."
 
 /obj/structure/closet/crate/necropolis/tendril/greater/PopulateContents()
 	for(var/i in 1 to 3)
-		var/loot = rand(1,29)
+		var/loot = rand(1,30)
 		switch(loot)
 			if(1)
 				new /obj/item/shared_storage/red(src)
@@ -163,6 +170,13 @@
 				new /obj/item/clothing/suit/armor/ascetic(src)
 			if(29)
 				new /obj/item/kitchen/knife/envy(src)
+			if(30)
+				if(prob(50))
+					new /obj/item/language_manual/roundstart_species(src)
+				else if(prob(25))
+					new /obj/item/language_manual/roundstart_species/five(src)
+				else
+					new /obj/item/language_manual/roundstart_species/unlimited(src)
 
 //KA modkit design discs
 /obj/item/disk/design_disk/modkit_disc

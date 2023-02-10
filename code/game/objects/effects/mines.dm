@@ -215,3 +215,33 @@
 /obj/effect/mine/pickup/speed/proc/finish_effect(mob/living/carbon/victim)
 	victim.remove_movespeed_modifier(/datum/movespeed_modifier/yellow_orb)
 	to_chat(victim, "<span class='notice'>You slow down.</span>")
+
+/obj/item/minespawner
+	name = "landmine deployment device"
+	desc = "When activated, will deploy an Asset Protection landmine after 3 seconds passes, perfect for high ranking NT officers looking to cover their assets from afar."
+	icon = 'icons/obj/device.dmi'
+	icon_state = "beacon"
+
+	var/mine_type
+	var/active = FALSE
+
+/obj/item/minespawner/attack_self(mob/user)
+	. = ..()
+	if(active)
+		return
+
+
+	playsound(src, 'sound/weapons/armbomb.ogg', 70, TRUE)
+	to_chat(user, span_warning("You arm <b>[src]</b>, causing it to shake! It will deploy in 3 seconds."))
+	active = TRUE
+	addtimer(CALLBACK(src, PROC_REF(deploy_mine)), 3 SECONDS)
+
+/// Deploys the mine and deletes itself
+/obj/item/minespawner/proc/deploy_mine()
+	do_alert_animation()
+	playsound(loc, 'sound/machines/chime.ogg', 30, FALSE, -3)
+	var/obj/effect/mine/new_mine = new mine_type(get_turf(src))
+	visible_message(span_danger("<b>[capitalize(src)]</b> releases a puff of smoke, revealing \a [new_mine]!"))
+//	var/obj/effect/particle_effect/fluid/smoke/poof = new (get_turf(src)) // Он должен пердеть дымом но мне до пизды прописывать для хуйни что не будет использоваться никогда проки и обьекты
+//	poof.lifetime = 3
+	qdel(src)

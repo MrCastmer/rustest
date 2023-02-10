@@ -1,32 +1,32 @@
 
-/mob/living/proc/run_armor_check(
-		def_zone = null, attack_flag = "melee", armour_penetration = 0,
-		silent = FALSE, absorb_text = null, soften_text = null, penetrated_text = null
-	)
-	var/base_armor = getarmor(def_zone, attack_flag)
-	// if negative or 0 armor, no modifications are necessary
-	if(base_armor <= 0)
-		return base_armor
+/mob/living/proc/run_armor_check(def_zone = null, attack_flag = "melee", absorb_text = null, soften_text = null, armour_penetration, penetrated_text, silent=FALSE)
+	SEND_SIGNAL(src, COMSIG_MOB_RUN_ARMOR)
 
-	var/armor
-	if(armour_penetration >= 0)
-		armor = max(0, base_armor - armour_penetration)
-	else
-		// negative armor penetration increases the effect of armor
-		// armour penetration of -100 or lower would either divide by zero or give neg. armor (bad)
-		armor = armour_penetration > -100 ? base_armor * (100 / (100 + armour_penetration)) : 100
+	var/armor = getarmor(def_zone, attack_flag)
 
-	if(silent)
+	if(armor <= 0)
 		return armor
+	if(silent)
+		return max(0, armor - armour_penetration)
 
-	if(armor >= 100)
-		to_chat(src, "<span class='notice'>[absorb_text || "Your armor absorbs the blow!"]</span>")
-	else if(armour_penetration <= 0)
-		// armor has to be > 0 due to early return, and no armor pen, so blow was softened
-		to_chat(src, "<span class='warning'>[soften_text || "Your armor softens the blow!"]</span>")
+	//the if "armor" check is because this is used for everything on /living, including humans
+	if(armour_penetration)
+		armor = max(0, armor - armour_penetration)
+		if(penetrated_text)
+			to_chat(src, span_userdanger("[penetrated_text]"))
+		else
+			to_chat(src, span_userdanger("Броня пробита!"))
+	else if(armor >= 100)
+		if(absorb_text)
+			to_chat(src, span_notice("[absorb_text]"))
+		else
+			to_chat(src, span_notice("Броня поглотила удар!"))
+		playsound(src, "ricochet_armor", 60)
 	else
-		// historic present
-		to_chat(src, "<span class='userdanger'>[penetrated_text || "Your armor is penetrated!"]</span>")
+		if(soften_text)
+			to_chat(src, span_warning("[soften_text]"))
+		else
+			to_chat(src, span_warning("Броня смягчает удар!"))
 	return armor
 
 /mob/living/proc/getarmor(def_zone, type)

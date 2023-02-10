@@ -850,3 +850,20 @@
 ///called in /obj/item/gun/fire_gun (user, target, flag, params)
 #define COMSIG_GUN_TRY_FIRE "gun_try_fire"
 	#define COMPONENT_CANCEL_GUN_FIRE (1<<0)
+/// When a hostile simple mob loses it's target.
+#define COMSIG_HOSTILE_MOB_LOST_TARGET "hostile_mob_lost_target"
+// Power signals
+/// Sent when an obj/item calls item_use_power: (use_amount, user, check_only)
+#define COMSIG_ITEM_POWER_USE "item_use_power"
+	#define NO_COMPONENT NONE
+	#define COMPONENT_POWER_SUCCESS (1<<0)
+	#define COMPONENT_NO_CELL  (1<<1)
+	#define COMPONENT_NO_CHARGE (1<<2)
+/// Makes it so the mob can use guns regardless of tool user status
+#define TRAIT_GUN_NATURAL "gunnatural"
+///The gun needs to update the gun hud!
+#define COMSIG_UPDATE_AMMO_HUD "update_ammo_hud"
+/// /mob/living/proc/updatehealth()
+#define COMSIG_MOB_RUN_ARMOR "mob_run_armor"
+///called in /obj/item/gun/ballistic/process_chamber (casing)
+#define COMSIG_CASING_EJECTED "casing_ejected"

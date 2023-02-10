@@ -351,6 +351,11 @@
 	combo_display = new /atom/movable/screen/combo()
 	infodisplay += combo_display
 
+	ammo_counter = new /atom/movable/screen/ammo_counter()
+	ammo_counter.screen_loc = UI_AMMOCOUNTER
+	ammo_counter.hud = src
+	infodisplay += ammo_counter
+
 	for(var/atom/movable/screen/inventory/inv in (static_inventory + toggleable_inventory))
 		if(inv.slot_id)
 			inv.hud = src

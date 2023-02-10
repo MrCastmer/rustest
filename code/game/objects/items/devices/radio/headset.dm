@@ -10,12 +10,13 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	RADIO_CHANNEL_INTEQ = RADIO_TOKEN_INTEQ,
 	RADIO_CHANNEL_PIRATE = RADIO_TOKEN_PIRATE,
 	MODE_BINARY = MODE_TOKEN_BINARY,
-	RADIO_CHANNEL_AI_PRIVATE = RADIO_TOKEN_AI_PRIVATE
+	RADIO_CHANNEL_AI_PRIVATE = RADIO_TOKEN_AI_PRIVATE,
+	RADIO_CHANNEL_FACTION = RADIO_TOKEN_FACTION,
 ))
 
 /obj/item/radio/headset
-	name = "radio headset"
-	desc = "An updated, modular intercom that fits over the head. Takes encryption keys."
+	name = "гарнитура"
+	desc = "Обновленный, модульный интерком, который располагается над головой. Принимает ключи шифрования."
 	icon_state = "headset"
 	item_state = "headset"
 	custom_materials = list(/datum/material/iron=75)
@@ -37,21 +38,21 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 	if(item_flags & IN_INVENTORY && loc == user)
 		// construction of frequency description
-		var/list/avail_chans = list("Use [RADIO_KEY_COMMON] for the currently tuned frequency")
+		var/list/avail_chans = list("[RADIO_KEY_COMMON] для текущей частоты.")
 		if(translate_binary)
-			avail_chans += "use [MODE_TOKEN_BINARY] for [MODE_BINARY]"
+			avail_chans += "[MODE_TOKEN_BINARY] для [MODE_BINARY]"
 		if(length(channels))
 			for(var/i in 1 to length(channels))
 				if(i == 1)
-					avail_chans += "use [MODE_TOKEN_DEPARTMENT] or [GLOB.channel_tokens[channels[i]]] for [lowertext(channels[i])]"
+					avail_chans += "[MODE_TOKEN_DEPARTMENT] или [GLOB.channel_tokens[channels[i]]] для [lowertext(ru_comms(channels[i]))]"
 				else
-					avail_chans += "use [GLOB.channel_tokens[channels[i]]] for [lowertext(channels[i])]"
-		. += "<span class='notice'>A small screen on the headset displays the following available frequencies:\n[english_list(avail_chans)].</span>"
+					avail_chans += "[GLOB.channel_tokens[channels[i]]] для [lowertext(channels[i])]"
+		. += "<span class='notice'>Дисплей показывает следующие частоты:\n[english_list(avail_chans)].</span>"
 
 		if(command)
-			. += "<span class='info'>Alt-click to toggle the high-volume mode.</span>"
+			. += "<span class='info'>Alt-клик для включения усилителя голоса.</span>"
 	else
-		. += "<span class='notice'>A small screen on the headset flashes, it's too small to read without holding or wearing the headset.</span>"
+		. += "<span class='notice'>Дисплей настолько маленький что отсюда я ничего не вижу.</span>"
 
 /obj/item/radio/headset/Initialize()
 	. = ..()
@@ -80,8 +81,8 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	.["headset"] = TRUE
 
 /obj/item/radio/headset/alt
-	name = "bowman headset"
-	desc = "An updated, modular intercom that fits over the head. Protects ears from flashbangs."
+	name = "гарнитура-бабочка"
+	desc = "Обновленный, модульный интерком, который располагается над головой. Защищает уши от светошумовых гранат."
 	icon_state = "headset_alt"
 	item_state = "headset_alt"
 
@@ -91,27 +92,27 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 //syndicate
 /obj/item/radio/headset/syndicate
-	name = "syndicate headset"
-	desc = "A headset worn by members of the various Syndicate splinters on the frontier."
+	name = "гарнитура синдиката"
+	desc = "Гарнитура, которую носят члены различных пограничных Синдикатов."
 	icon_state = "syndie_headset"
 	item_state = "syndie_headset"
 	keyslot = new /obj/item/encryptionkey/syndicate
 
 /obj/item/radio/headset/syndicate/captain
-	name = "syndicate leader headset"
-	desc = "A headset worn by officers of the various Syndicate splinters on the frontier."
+	name = "гарнитура лидера синдиката"
+	desc = "Гарнитура, которую носят члены различных пограничных Синдикатов."
 	command = TRUE
 	keyslot2 = new /obj/item/encryptionkey/heads/captain
 
 /obj/item/radio/headset/syndicate/alt
-	name = "syndicate bowman headset"
-	desc = "A headset worn by members of the various Syndicate splinters on the frontier. Protects ears from flashbangs."
+	name = "гарнитура-бабочка синдиката"
+	desc = "Гарнитура, которую носят члены различных пограничных Синдикатов. Защищает уши от светошумовых гранат."
 	icon_state = "syndie_headset_alt"
 	item_state = "syndie_headset_alt"
 
 /obj/item/radio/headset/syndicate/alt/captain
-	name = "syndicate leader bowman headset"
-	desc = "A headset worn by officers of the various Syndicate splinters on the frontier. Protects ears from flashbangs."
+	name = "sгарнитура-бабочка лидера синдиката"
+	desc = "Гарнитура, которую носят члены различных пограничных Синдикатов. Защищает уши от светошумовых гранат."
 	command = TRUE
 	keyslot2 = new /obj/item/encryptionkey/heads/captain
 
@@ -120,31 +121,31 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
 
 /obj/item/radio/headset/syndicate/alt/leader
-	name = "team leader headset"
+	name = "гарнитура лидера команды"
 	command = TRUE
 
 //nanotrasen
 /obj/item/radio/headset/nanotrasen
-	name = "nanotrasen radio headset"
-	desc = "Worn proudly by the battered remnants of Nanotrasen's frontier holdings."
+	name = "гарнитура нанотрайзен"
+	desc = "С гордостью носят потрепанные остатки пограничных владений Нанотрайзена."
 	icon_state = "nanotrasen_headset"
 	keyslot = new /obj/item/encryptionkey/nanotrasen
 
 /obj/item/radio/headset/nanotrasen/captain
-	name = "nanotrasen captain's radio headset"
-	desc = "Worn proudly by Nanotrasen's remaining captains on the frontier."
+	name = "nгарнитура капитана нанотрайзен"
+	desc = "С гордостью носят оставшиеся капитаны Нанотрайзена на границе."
 	keyslot2 = new /obj/item/encryptionkey/heads/captain
 	command = TRUE
 
 /obj/item/radio/headset/nanotrasen/alt
-	name = "nanotrasen bowman headset"
-	desc = "Worn proudly by the battered remnants of Nanotrasen's frontier holdings. Protects ears from flashbangs."
+	name = "гарнитура-бабочка нанотрайзен"
+	desc = "С гордостью носят потрепанные остатки пограничных владений Нанотрайзена. Защищает уши от светошумовых гранат."
 	icon_state = "nanotrasen_headset_alt"
 	item_state = "nanotrasen_headset_alt"
 
 /obj/item/radio/headset/nanotrasen/alt/captain
-	name = "nanotrasen captain's bowman headset"
-	desc = "Worn proudly by Nanotrasen's remaining captains on the frontier. Protects ears from flashbangs."
+	name = "гарнитура-бабочка капитана нанотрайзен"
+	desc = "С гордостью носят оставшиеся капитаны Нанотрайзена на границе. Защищает уши от светошумовых гранат."
 	keyslot2 = new /obj/item/encryptionkey/heads/captain
 	command = TRUE
 
@@ -154,26 +155,26 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 //minutemen
 /obj/item/radio/headset/minutemen
-	name = "minutemen radio headset"
-	desc = "Used by militias flying the five stars of the Colonial Minutemen."
+	name = "гарнитура морпеха"
+	desc = "Используется пятизвёздочными Колониальными Минитимами."
 	icon_state = "cmm_headset"
 	keyslot = new /obj/item/encryptionkey/minutemen
 
 /obj/item/radio/headset/minutemen/captain
-	name = "minuteman officer radio headset"
-	desc = "Used by the Colonial Minutemen's enlisted officers."
+	name = "гарнитура офицера морпехов"
+	desc = "Используется пятизвёздочными Колониальными Минитимами. Этот офицерский."
 	keyslot2 = new /obj/item/encryptionkey/heads/captain
 	command = TRUE
 
 /obj/item/radio/headset/minutemen/alt
-	name = "minutemen bowman headset"
-	desc = "Used by militias flying the five stars of the Colonial Minutemen. Protects ears from flashbangs."
+	name = "гарнитура-бабочка морпеха"
+	desc = "Используется пятизвёздочными Колониальными Минитимами. Защищает уши от светошумовых гранат."
 	icon_state = "cmm_headset_alt"
 	item_state = "cmm_headset_alt"
 
 /obj/item/radio/headset/minutemen/alt/captain
-	name = "minuteman officer bowman headset"
-	desc = "Used by the Colonial Minutemen's enlisted officers. Protects ears from flashbangs."
+	name = "гарнитура-бабочка офицера морпехов"
+	desc = "Используется пятизвёздочными Колониальными Минитимами. Этот офицерский. Защищает уши от светошумовых гранат."
 	keyslot2 = new /obj/item/encryptionkey/heads/captain
 	command = TRUE
 
@@ -183,26 +184,26 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 //inteq
 /obj/item/radio/headset/inteq
-	name = "inteq radio headset"
-	desc = "This is used by Inteq Risk Management Group's mercenaries."
+	name = "гарнитура наёмника"
+	desc = "Им пользуются наемники Inteq Risk Management Group."
 	icon_state = "inteq_headset"
 	keyslot = new /obj/item/encryptionkey/inteq
 
 /obj/item/radio/headset/inteq/captain
-	name = "vanguard radio headset"
-	desc = "Used by Inteq Risk Management Group's elite vanguards."
+	name = "гарнитура элитного наёмника"
+	desc = "Используется элитным авангардом Inteq Risk Management Group."
 	keyslot2 = new /obj/item/encryptionkey/heads/captain
 	command = TRUE
 
 /obj/item/radio/headset/inteq/alt
-	name = "inteq bowman headset"
-	desc = "This is used by Inteq Risk Management Group's mercenaries. Protects ears from flashbangs."
+	name = "гарнитура-бабочка наёмника"
+	desc = "Им пользуются наемники Inteq Risk Management Group. Защищает уши от светошумовых гранат."
 	icon_state = "inteq_headset_alt"
 	item_state = "inteq_headset_alt"
 
 /obj/item/radio/headset/inteq/alt/captain
-	name = "vanguard bowman headset"
-	desc = "Used by Inteq Risk Management Group's elite vanguards. Protects ears from flashbangs."
+	name = "гарнитура-бабочка элитного наёмника"
+	desc = "Используется элитным авангардом Inteq Risk Management Group. Защищает уши от светошумовых гранат."
 	keyslot2 = new /obj/item/encryptionkey/heads/captain
 	command = TRUE
 
@@ -212,26 +213,26 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 //pirate
 /obj/item/radio/headset/pirate
-	name = "pirate radio headset"
-	desc = "Used to sing shanties across the vast emptiness of space, and complain about Minuteman patrols."
+	name = "гарнитура пиратов"
+	desc = "Раньше через них пели лачуги в безбрежной космической пустоте и жаловались на патрули Минитменов."
 	icon_state = "pirate_headset"
 	keyslot = new /obj/item/encryptionkey/pirate
 
 /obj/item/radio/headset/pirate/captain
-	name = "pirate captain radio headset"
-	desc = "The headset of a bloodthirsty pirate captain."
+	name = "гарнитура капитана пиратов"
+	desc = "Гарнитура кровожадного пиратского капитана."
 	keyslot2 = new /obj/item/encryptionkey/heads/captain
 	command = TRUE
 
 /obj/item/radio/headset/pirate/alt
-	name = "pirate bowman headset"
-	desc = "Used to sing shanties across the vast emptiness of space, and complain about Minuteman patrols. Protects ears from flashbangs."
+	name = "гарнитура-бабочка пиратов"
+	desc = "Раньше через них пели лачуги в безбрежной космической пустоте и жаловались на патрули Минитменов. Защищает уши от светошумовых гранат."
 	icon_state = "pirate_headset_alt"
 	item_state = "pirate_headset_alt"
 
 /obj/item/radio/headset/pirate/alt/captain
-	name = "pirate captain bowman headset"
-	desc = "The headset of a bloodthirsty pirate captain. Protects ears from flashbangs."
+	name = "гарнитура-бабочка капитана пиратов"
+	desc = "Гарнитура кровожадного пиратского капитана. Защищает уши от светошумовых гранат."
 	keyslot2 = new /obj/item/encryptionkey/heads/captain
 	command = TRUE
 
@@ -241,25 +242,25 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 //solgov
 /obj/item/radio/headset/solgov
-	name = "\improper SolGov headset"
-	desc = "Worn by bureaucrats and, occasionally, Sonnensoldneren."
+	name = "гарнитура SolGov"
+	desc = "Носят бюрократы, а иногда и Sonnensoldneren." // Чё за хуйня Sonnensoldneren
 	icon_state = "solgov_headset"
 	keyslot = new /obj/item/encryptionkey/solgov
 
 /obj/item/radio/headset/solgov/captain
-	name = "\improper SolGov official radio headset"
-	desc = "Worn by various officials and leaders from SolGov. Fancy hat not included."
+	name = "гарнитура офицера SolGov"
+	desc = "Носят различные чиновники и лидеры SolGov. Необычный головной убор в комплект не входит."
 	keyslot2 = new /obj/item/encryptionkey/heads/captain
 	command = TRUE
 
 /obj/item/radio/headset/solgov/alt
-	name = "\improper SolGov bowman headset"
-	desc = "Worn by bureaucrats and, occasionally, Sonnensoldneren. Protects ears from flashbangs."
+	name = "гарнитура-бабочка SolGov"
+	desc = "Носят бюрократы, а иногда и Sonnensoldneren. Защищает уши от светошумовых гранат."
 	icon_state = "solgov_headset_alt"
 
 /obj/item/radio/headset/solgov/alt/captain
-	name = "\improper SolGov official bowman headset"
-	desc = "Worn by various officials and leaders from SolGov. Fancy hat not included. Protects ears from flashbangs."
+	name = "гарнитура-бабочка офицера SolGov"
+	desc = "Носят различные чиновники и лидеры SolGov. Необычный головной убор в комплект не входит. Защищает уши от светошумовых гранат."
 	keyslot2 = new /obj/item/encryptionkey/heads/captain
 	command = TRUE
 
@@ -269,14 +270,14 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 //independent
 /obj/item/radio/headset/headset_com
-	name = "command radio headset"
-	desc = "An officer's headset."
+	name = "гарнитура коммандования"
+	desc = "Гарнитура с доступом к каналу командования."
 	icon_state = "com_headset"
 	keyslot = new /obj/item/encryptionkey/headset_com
 
 /obj/item/radio/headset/headset_com/alt
-	name = "command bowman headset"
-	desc = "An officer's headset. Protects ears from flashbangs."
+	name = "гарнитура-бабочка коммандования"
+	desc = "Гарнитура с доступом к каналу командования. Защищает уши от светошумовых гранат."
 	icon_state = "com_headset_alt"
 	item_state = "com_headset_alt"
 
@@ -289,14 +290,14 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	keyslot = new /obj/item/encryptionkey/headset_com
 
 /obj/item/radio/headset/heads/captain
-	name = "captain's headset"
-	desc = "Dresses the ears of independent ship captains across the frontier."
+	name = "капитанская гарнитура"
+	desc = "Гарнитура короля или королевы этих окраиных земель."
 	icon_state = "com_headset"
 	keyslot = new /obj/item/encryptionkey/heads/captain
 
 /obj/item/radio/headset/heads/captain/alt
-	name = "captain's bowman headset"
-	desc = "Dresses the ears of independent ship captains across the frontier. Protects ears from flashbangs."
+	name = "капитанская гарнитура-бабочка"
+	desc = "Гарнитура короля или королевы этих окраиных земель. Защищает уши от светошумовых гранат."
 	icon_state = "com_headset_alt"
 	item_state = "com_headset_alt"
 
@@ -313,8 +314,8 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	recalculateChannels()
 
 /obj/item/radio/headset/headset_cent
-	name = "\improper CentCom headset"
-	desc = "A headset used by representatives and agents of Central Command."
+	name = "гарнитура ЦентКома"
+	desc = "Гарнитура, используемая в высших эшелонах NanoTrasen."
 	icon_state = "cent_headset"
 	keyslot = new /obj/item/encryptionkey/headset_com
 	keyslot2 = new /obj/item/encryptionkey/headset_cent
@@ -327,8 +328,8 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	keyslot = new /obj/item/encryptionkey/heads/captain
 
 /obj/item/radio/headset/headset_cent/alt
-	name = "\improper CentCom bowman headset"
-	desc = "A headset especially for emergency response personnel. Protects ears from flashbangs."
+	name = "гарнитура-бабочка ЦентКома"
+	desc = "Гарнитура, специально предназначенная для персонала аварийно-спасательных служб. Защищает уши от светошумовых гранат."
 	icon_state = "cent_headset_alt"
 	item_state = "cent_headset_alt"
 	keyslot = null
@@ -352,13 +353,13 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 //normal headsets below. encryption keys removed, so these are obsolete.
 /obj/item/radio/headset/headset_sec
-	name = "security radio headset"
-	desc = "This is used by your elite security force."
+	name = "гарнитура охраны"
+	desc = "Используется локальными охранными подразделениями."
 	icon_state = "sec_headset"
 
 /obj/item/radio/headset/headset_sec/alt
-	name = "security bowman headset"
-	desc = "This is used by your elite security force. Protects ears from flashbangs."
+	name = "гарнитура-бабочка охраны"
+	desc = "Используется локальными охранными подразделениями. Защищает уши от светошумовых гранат."
 	icon_state = "sec_headset_alt"
 	item_state = "sec_headset_alt"
 
@@ -367,13 +368,13 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
 
 /obj/item/radio/headset/headset_medsec
-	name = "medical-security radio headset"
-	desc = "Used to hear how many security officers need to be stitched back together."
+	name = "гарнитура полевого медика"
+	desc = "Гарнитура для обученного персонала медотсека. С доступом к каналу охраны."
 	icon_state = "medsec_headset"
 
 /obj/item/radio/headset/headset_medsec/alt
-	name = "medical-security bowman headset"
-	desc = "Used to hear how many security officers need to be stiched back together. Protects ears from flashbangs."
+	name = "гарнитура-бабочка полевого медика"
+	desc = "Гарнитура для обученного персонала медотсека. С доступом к каналу охраны. Защищает уши от светошумовых гранат."
 	icon_state = "medsec_headset_alt"
 
 /obj/item/radio/headset/headset_medsec/alt/ComponentInitialize()
@@ -381,48 +382,48 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
 
 /obj/item/radio/headset/headset_eng
-	name = "engineering radio headset"
-	desc = "When the engineers wish to chat like girls."
+	name = "инженерная гарнитура"
+	desc = "Когда инженеры хотят поболтать, как девочки."
 	icon_state = "eng_headset"
 
 /obj/item/radio/headset/headset_rob
-	name = "robotics radio headset"
-	desc = "Made specifically for the roboticists, who cannot decide between departments."
+	name = "гарнитура роботехника"
+	desc = "Сделано специально для робототехников, которые не могут выбирать между отделами."
 	icon_state = "rob_headset"
 
 /obj/item/radio/headset/headset_med
-	name = "medical radio headset"
-	desc = "A headset for the trained staff of the medbay."
+	name = "гарнитура медотсека"
+	desc = "Гарнитура для обученного персонала медотсека."
 	icon_state = "med_headset"
 
 /obj/item/radio/headset/headset_sci
-	name = "science radio headset"
-	desc = "A sciency headset. Like usual."
+	name = "научная гарнитура"
+	desc = "Научная гарнитура. Как обычно."
 	icon_state = "sci_headset"
 
 /obj/item/radio/headset/headset_medsci
-	name = "medical research radio headset"
-	desc = "A headset that is a result of the mating between medical and science."
+	name = "гарнитура мед-исследователя"
+	desc = "Гарнитура, которая является результатом спаривания медицины и науки."
 	icon_state = "medsci_headset"
 
 /obj/item/radio/headset/headset_srvsec
-	name = "law and order headset"
-	desc = "In the criminal justice headset, the encryption key represents two separate but equally important groups. Sec, who investigate crime, and Service, who provide services. These are their comms."
+	name = "гарнитура закона и порядка"
+	desc = "В гарнитуре системы уголовного правосудия ключ шифрования представляет собой две отдельные, но не менее важные группы. Служба безопасности, которая расследует преступления, и секьюрити, которые предоставляют услуги. Это их связь."
 	icon_state = "srvsec_headset"
 
 /obj/item/radio/headset/headset_srvmed
-	name = "psychology headset"
-	desc = "A headset allowing the wearer to communicate with medbay and service."
+	name = "гарнитура психолога"
+	desc = "Гарнитура, позволяющая владельцу общаться с медотсеком и сервисным отделом."
 	icon_state = "med_headset"
 
 /obj/item/radio/headset/heads/lieutenant
-	name = "lieutenant's headset"
-	desc = "A lieutenant's headset."
+	name = "гарнитура лейтенанта"
+	desc = "Через это общаются лейтенанты."
 	icon_state = "com_headset"
 
 /obj/item/radio/headset/heads/lieutenant/alt
-	name = "lieutenant's bowman headset"
-	desc = "A lieutenant's headset. Protects ears from flashbangs."
+	name = "lieutenant's гарнитура-бабочка"
+	desc = "Через это общаются лейтенанты. Защищает уши от светошумовых гранат."
 	icon_state = "com_headset_alt"
 
 /obj/item/radio/headset/heads/lieutenant/alt/ComponentInitialize()
@@ -430,18 +431,18 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
 
 /obj/item/radio/headset/heads/rd
-	name = "\proper the research director's headset"
-	desc = "Headset of the fellow who keeps society marching towards technological singularity."
+	name = "гарнитура научного руководителя"
+	desc = "Гарнитура того, кто держит общество в движении к технологической сингулярности."
 	icon_state = "com_headset"
 
 /obj/item/radio/headset/heads/hos
-	name = "\proper the head of security's headset"
-	desc = "The headset of the man in charge of keeping order and protecting the innocent."
+	name = "гарнитура главы безопасности"
+	desc = "Гарнитура человека, отвечающего за поддержание порядка и охрану станции."
 	icon_state = "com_headset"
 
 /obj/item/radio/headset/heads/hos/alt
-	name = "\proper the head of security's bowman headset"
-	desc = "The headset of the man in charge of keeping order and protecting the innocent. Protects ears from flashbangs."
+	name = "гарнитура-бабочка главы безопасности"
+	desc = "Гарнитура человека, отвечающего за поддержание порядка и охрану станции. Защищает уши от светошумовых гранат."
 	icon_state = "com_headset_alt"
 	item_state = "com_headset_alt"
 
@@ -450,33 +451,33 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
 
 /obj/item/radio/headset/heads/ce
-	name = "\proper the chief engineer's headset"
-	desc = "The headset of the guy in charge of keeping essential systems powered and undamaged."
+	name = "гарнитура старшего инженера"
+	desc = "Гарнитура парня, отвечающего за поддержание станции в рабочем состоянии и неповрежденной."
 	icon_state = "com_headset"
 
 /obj/item/radio/headset/heads/cmo
-	name = "\proper the chief medical officer's headset"
-	desc = "The headset of a highly trained medical chief."
+	name = "гарнитура главврача"
+	desc = "Гарнитура высококвалифицированного медицинского руководителя."
 	icon_state = "com_headset"
 
 /obj/item/radio/headset/heads/head_of_personnel
-	name = "\proper the head of personnel's headset"
-	desc = "The headset of the guy who will one day be captain."
+	name = "гарнитура главы персонала"
+	desc = "Гарнитура парня, который однажды станет капитаном."
 	icon_state = "com_headset"
 
 /obj/item/radio/headset/headset_cargo
-	name = "supply radio headset"
-	desc = "A headset used by the QM and his slaves."
+	name = "гарнитура снабжения"
+	desc = "Гарнитура, используемая завхозом и его подчиненными."
 	icon_state = "cargo_headset"
 
 /obj/item/radio/headset/headset_cargo/mining
-	name = "mining radio headset"
-	desc = "Headset used by shaft miners."
+	name = "шахтёрская гарнитура"
+	desc = "Гарнитура, используемая шахтерами."
 	icon_state = "mine_headset"
 
 /obj/item/radio/headset/headset_srv
-	name = "service radio headset"
-	desc = "Headset used by the service staff, tasked with keeping the endless workforces of the galaxy full, happy and clean."
+	name = "гарнитура обслуги"
+	desc = "Гарнитура, используемая обслуживающим персоналом, призванная поддерживать станцию полной, счастливой и чистой."
 	icon_state = "srv_headset"
 
 //interactions
@@ -498,14 +499,14 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 				keyslot2 = null
 
 			recalculateChannels()
-			to_chat(user, "<span class='notice'>You pop out the encryption keys in the headset.</span>")
+			to_chat(user, "<span class='notice'>Вытаскиваю ключ шифрования из гарнитуры.</span>")
 
 		else
-			to_chat(user, "<span class='warning'>This headset doesn't have any unique encryption keys! How useless...</span>")
+			to_chat(user, "<span class='warning'>У этой гарнитуры нет уникальных ключей шифрования! Как бесполезно...</span>")
 
 	else if(istype(W, /obj/item/encryptionkey))
 		if(keyslot && keyslot2)
-			to_chat(user, "<span class='warning'>The headset can't hold another key!</span>")
+			to_chat(user, "<span class='warning'>Все слоты в этой гарнитуре заняты!</span>")
 			return
 
 		if(!keyslot)
@@ -544,4 +545,4 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 		return
 	if (command)
 		use_command = !use_command
-		to_chat(user, "<span class='notice'>You toggle high-volume mode [use_command ? "on" : "off"].</span>")
+		to_chat(user, "<span class='notice'>[use_command ? "Включаю" : "Выключаю"] усилитель голоса.</span>")

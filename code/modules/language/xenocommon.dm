@@ -1,13 +1,13 @@
 /datum/language/xenocommon
-	name = "Xenomorph"
-	desc = "The common tongue of the xenomorphs."
-	speech_verb = "hisses"
-	ask_verb = "hisses"
-	exclaim_verb = "hisses"
-	sing_verb = "hisses musically"
+	name = "Ксеноморфский"
+	desc = "Общий язык ксеноморфов."
+	speech_verb = "шипит"
+	ask_verb = "шипит"
+	exclaim_verb = "шипит"
+	sing_verb = "нашипивает"
 	flags = LANGUAGE_HIDE_ICON_IF_NOT_UNDERSTOOD //WS Edit- Language icon hiding
 	key = "4"
-	syllables = list("sss","sSs","SSS")
+	syllables = list("ссс","сСс","ССС")
 	default_priority = 50
 
 	icon_state = "xeno"

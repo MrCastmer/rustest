@@ -115,6 +115,7 @@
 #define VEHICLE_LAYER 3.9
 #define SPACEPOD_LAYER 3.9 //WS - Spess pods
 //#define MOB_LAYER 4 //For easy recordkeeping; this is a byond define
+#define MOB_SHIELD_LAYER 4.01
 #define ABOVE_MOB_LAYER 4.1
 #define WALL_OBJ_LAYER 4.25
 #define EDGED_TURF_LAYER 4.3

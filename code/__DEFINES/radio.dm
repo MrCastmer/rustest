@@ -46,6 +46,10 @@
 #define RADIO_CHANNEL_WIDEBAND "Wideband"
 //WS End
 
+#define RADIO_CHANNEL_FACTION "Faction"
+#define RADIO_KEY_FACTION "f"
+#define RADIO_TOKEN_FACTION ":f"
+
 #define RADIO_CHANNEL_CTF_RED "Red Team"
 #define RADIO_CHANNEL_CTF_BLUE "Blue Team"
 
@@ -56,6 +60,7 @@
 #define FREQ_SYNDICATE 1213 // Nuke op comms frequency, dark brown
 #define FREQ_CTF_RED 1215 // CTF red team comms frequency, red
 #define FREQ_CTF_BLUE 1217 // CTF blue team comms frequency, blue
+#define FREQ_FACTION 1335 // Half Life HECU frequency, gray
 #define FREQ_CENTCOM 1337 // CentCom comms frequency, gray
 #define FREQ_SOLGOV 1345 // SolGov comms frequency, dark blue WS ADDITION
 #define FREQ_INTEQ 1347 // Inteq comms frequency, light brown

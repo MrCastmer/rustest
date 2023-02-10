@@ -1,15 +1,15 @@
 /datum/language/buzzwords
-	name = "Buzzwords"
-	desc = "A common language innate to all bugs, made by the rhythmic beating of wings."
-	speech_verb = "buzzes"
-	ask_verb = "buzzes"
-	exclaim_verb = "loudly buzzes"
-	sing_verb = "hums"
+	name = "Бззззлова"
+	desc = "Общий язык для всех насекомых, созданный ритмичным взмахом крыльев."
+	speech_verb = "жужжит"
+	ask_verb = "жужжукает"
+	exclaim_verb = "громко жужжит"
+	sing_verb = "нажжуживает"
 	flags = LANGUAGE_HIDE_ICON_IF_NOT_UNDERSTOOD //WS Edit- Language icon hiding
 	key = "z"
 	space_chance = 0
 	syllables = list(
-		"bzz","zzz","z","bz","bzzz","zzzz", "bzzzz", "b", "zz", "zzzzz"
+		"бзз","ззз","з","бз","бззз","зззз", "бзззз", "б", "зз", "ззззз"
 	)
 	icon_state = "buzz"
 	default_priority = 90

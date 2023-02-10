@@ -1,16 +1,16 @@
 /datum/language/vox_pidgin
-	name = "Vox-Pidgin"
+	name = "Пиджин Воксов"
 	//Copy-paste of bay stuff basically
-	desc = "The common tongue of the various Vox ships making up the Shoal. It sounds like chaotic shrieking to everyone else."
-	speech_verb = "shrieks"
-	ask_verb = "creels"
+	desc = "Общий язык различных кораблей воксов, составляющих Мелководье. Для всех остальных это звучит как хаотичный визг."
+	speech_verb = "каркает"
+	ask_verb = "прокаркивает"
 	key = "v"
 	flags = LANGUAGE_HIDE_ICON_IF_NOT_UNDERSTOOD
 	space_chance = 20
 
 	syllables = list(
-		"ti", "ti", "ti", "hi", "hi", "ki", "ki", "ki", "ki", "ya", "ta", "ha", "ka", "ya", "chi", "cha", "kah",
-		"SKRE", "AHK", "EHK", "RAWK", "KRA", "AAA", "EEE", "KI", "II", "KRI", "KA"
+		"ти", "ти", "ти", "хи", "хи", "ки", "ки", "ки", "ки", "я", "та", "ха", "ка", "я", "чи", "ча", "ках",
+		"СКРЕ", "АХК", "ЭХК", "РАВК", "КРА", "ААА", "ЕЕЕ", "КИ", "ИИ", "КРИ", "КА"
 	)
 
 	icon_state = "bird"

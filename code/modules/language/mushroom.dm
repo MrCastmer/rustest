@@ -1,12 +1,12 @@
 /datum/language/mushroom
-	name = "Mushroom"
-	desc = "A language that consists of the sound of periodic gusts of spore-filled air being released."
-	speech_verb = "puffs"
-	ask_verb = "puffs inquisitively"
-	exclaim_verb = "poofs loudly"
-	whisper_verb = "puffs quietly"
-	sing_verb = "puffs musically"
+	name = "Грибной"
+	desc = "Язык, состоящий из звуков периодических порывов воздуха, наполненного спорами."
+	speech_verb = "пуффает"
+	ask_verb = "интенсивно пуффает"
+	exclaim_verb = "громко пуффает"
+	whisper_verb = "тихо пуффает"
+	sing_verb = "напуффает"
 	key = "y"
 	sentence_chance = 0
 	default_priority = 80
-	syllables = list("poof", "pff", "pFfF", "piff", "puff", "pooof", "pfffff", "piffpiff", "puffpuff", "poofpoof", "pifpafpofpuf")
+	syllables = list("пуф", "пфф", "пФфФ", "пифф", "пуфф", "пуууф", "пфффф", "пиффпифф", "пуффпуфф", "пуффпуфф", "пифпафпуф")

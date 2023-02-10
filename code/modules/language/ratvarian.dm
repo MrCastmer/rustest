@@ -1,10 +1,10 @@
 /datum/language/ratvar
-	name = "Ratvarian"
-	desc = "A timeless language full of power and incomprehensible to the unenlightened."
-	var/static/random_speech_verbs = list("clanks", "clinks", "clunks", "clangs")
-	ask_verb = "requests"
-	exclaim_verb = "proclaims"
-	whisper_verb = "imparts"
+	name = "Ратварский"
+	desc = "Вечный язык, полный силы и непостижимый для непросвещенных."
+	var/static/random_speech_verbs = list("кланкает", "клинкает", "клянкает", "клацает")
+	ask_verb = "запрашивает"
+	exclaim_verb = "возникает"
+	whisper_verb = "мелодично кланкает"
 	key = "R"
 	flags = LANGUAGE_HIDE_ICON_IF_NOT_UNDERSTOOD
 	default_priority = 10

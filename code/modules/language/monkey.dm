@@ -1,13 +1,13 @@
 /datum/language/monkey
-	name = "Chimpanzee"
-	desc = "Ook ook ook."
-	speech_verb = "chimpers"
-	ask_verb = "chimpers"
-	exclaim_verb = "screeches"
-	sing_verb = "chimpers tunefully"
+	name = "Обезьяний"
+	desc = "Уук уук уук."
+	speech_verb = "уукает"
+	ask_verb = "аакает"
+	exclaim_verb = "чиикает"
+	sing_verb = "иикает"
 	key = "1"
 	space_chance = 100
-	syllables = list("oop", "aak", "chee", "eek")
+	syllables = list("ууп", "аак", "чии", "иик")
 	default_priority = 80
 
 	icon_state = "animal"

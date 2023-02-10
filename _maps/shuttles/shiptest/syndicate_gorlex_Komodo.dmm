@@ -1889,7 +1889,7 @@
 /obj/machinery/firealarm{
 	pixel_y = 26
 	},
-/obj/item/codespeak_manual/unlimited{
+/obj/item/language_manual/codespeak_manual/unlimited{
 	pixel_x = 6;
 	pixel_y = 5
 	},

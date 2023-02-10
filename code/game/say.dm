@@ -15,7 +15,8 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	"[FREQ_SOLGOV]" = "solgovradio",		//WS Edit - SolGov Rep
 	"[FREQ_WIDEBAND]" = "widebandradio",	//WS Edit - Overmaps
 	"[FREQ_CTF_RED]" = "redteamradio",
-	"[FREQ_CTF_BLUE]" = "blueteamradio"
+	"[FREQ_CTF_BLUE]" = "blueteamradio",
+	"[FREQ_FACTION]" = "centcomradio",
 	))
 
 /atom/movable/proc/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
@@ -140,7 +141,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	return "radio"
 
 /proc/get_radio_name(freq)
-	var/returntext = GLOB.reverseradiochannels["[freq]"]
+	var/returntext = ru_comms(GLOB.reverseradiochannels["[freq]"])
 	if(returntext)
 		return returntext
 	return "[copytext_char("[freq]", 1, 4)].[copytext_char("[freq]", 4, 5)]"

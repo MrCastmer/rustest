@@ -1,6 +1,6 @@
 /datum/language/moffic
-	name = "Proto-Moth Pidgin"
-	desc = "A babbling-like language, composed from the proto-languages developed by the isolated origin groups of mothpeople prior to their discovery, and slowly developed into something more formal."
+	name = "Моффик"
+	desc = "Язык людей-молей, который граничит с полной непонятностью."
 	speech_verb = "flutters"
 	ask_verb = "fluffs"
 	exclaim_verb = "floofs"
@@ -8,11 +8,11 @@
 	key = "m"
 	space_chance = 55
 	syllables = list( //hollow knight
-		"to", "pe", "chu", "mar", "mark", "marg", "chur", "ro", "no", "pa", "du", "bli", "bop", "nad", "lah", "vehy", "nu", "do", "vey", "shaa",
-			"rey", "rehy", "ba", "bah", "bap", "sha", "shaw", "ha", "ad", "i", "a", "o", "do", "hun", "da", "dah", "ge", "dro", "dros",
-			"cal", "cah", "li", "mo", "gar", "ga", "ma", "mah", "ra", "he", "le", "gek", "gekh", "tu", "too", "hak", "am", "as", "sag", "an",
-			"ne", "ned", "ros", "me", "men", "nob", "bis", "co", "bas", "su", "pap", "de", "ti", "bo", "len", "lin", "mas", "nas",
-			"zu", "za", "kun", "kan", "oh", "ko", "nah", "nya", "pu", "po", "mun", "ta", "fu", "waa"
+		"åр", "и", "гåр", "сек", "мо", "фф", "ок", "гй", "ø", "гå", "ла", "ле",
+		"лит", "ыгг", "ван", "дåр", "нæ", "мøт", "идд", "хво", "я", "пå", "хан",
+		"сå", "åн", "дет", "атт", "нå", "гö", "бра", "инт", "тыц", "ом", "нäр",
+		"твå", "мå", "даг", "сйä", "вии", "вуо", "еил", "тун", "кäыт", "тэ", "вä",
+		"хеи", "хуо", "суо", "ää", "тен", "я", "хеу", "сту", "ухр", "кöн", "ве", "хöн"
 	)
 	icon_state = "moth"
 	default_priority = 90

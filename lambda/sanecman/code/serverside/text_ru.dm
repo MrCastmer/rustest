@@ -59,8 +59,8 @@
 		return "Снабжение"
 	else if (freq == "Service")
 		return "Обслуживание"
-	else if (freq == "Exploration")
-		return "Рейнджеры"
+	else if (freq == "SolGov")
+		return "СолГов"
 	else if (freq == "AI Private")
 		return "Приватный ИИ"
 	else if (freq == "Syndicate")
@@ -68,15 +68,25 @@
 	else if (freq == "CentCom")
 		return "ЦентКом"
 	else if (freq == "Red Team")
-		return "Советы"
+		return "Красные"
 	else if (freq == "Blue Team")
-		return "Нацисты"
+		return "Синие"
 	else if (freq == "Green Team")
-		return "Чечня"
+		return "Зелёные"
 	else if (freq == "Yellow Team")
-		return "Хохлы"
-	else if (freq == "Yohei")
-		return "Криптосвязь"
+		return "Жёлтые"
+	else if (freq == "Nanotrasen")
+		return "Нанотрайзен"
+	else if (freq == "Minutemen")
+		return "Минитмен"
+	else if (freq == "Inteq")
+		return "Наёмники"
+	else if (freq == "Pirate")
+		return "Пираты"
+	else if (freq == "Wideband")
+		return "Широкополосный"
+	else if (freq == "Faction")
+		return "Военные"
 	else
 		return freq
 

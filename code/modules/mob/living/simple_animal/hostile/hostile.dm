@@ -368,6 +368,7 @@
 	in_melee = FALSE
 	walk(src, 0)
 	LoseAggro()
+	SEND_SIGNAL(src, COMSIG_HOSTILE_MOB_LOST_TARGET)
 
 //////////////END HOSTILE MOB TARGETTING AND AGGRESSION////////////
 

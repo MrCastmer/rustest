@@ -1,15 +1,14 @@
 /datum/language/teceti_unified
-	name = "Teceti Unified Standard"
-	desc = "The constructed common of the Kepori, assembled from languages of both North and South Teceti and put into official use somewhat begrudgingly."
-	speech_verb = "chirps"
-	ask_verb = "chirps"
+	name = "Единый стандарт Течети"
+	desc = "Сконструированный общий язык кепори, составленный из языков Северного и Южного Течети и несколько неохотно введенный в официальное употребление."
+	speech_verb = "чирикает"
 	key = "f"
 	flags = LANGUAGE_HIDE_ICON_IF_NOT_UNDERSTOOD
 	space_chance = 40
 	syllables = list(
-		"fa", "fe", "fi", "ma", "me", "mi", "na", "ne", "ni", "sa", "se", "si", "ta", "te", "ti",
-		"fa", "fe", "fi", "la", "le", "li", "ma", "me", "mi", "na", "ne", "ni", "ra", "re", "ri", "sa", "se", "si", "sha", "she", "shi", "ta", "te", "ti",
-		"ca", "ce", "ci", "fa", "fe", "fi", "la", "le", "li", "ma", "me", "mi", "na", "ne", "ni", "ra", "re", "ri", "sa", "se", "si", "sha", "she", "shi", "ta", "te", "ti",
+		"фа", "фе", "фи", "ма", "ме", "ми", "на", "не", "ни", "са", "се", "си", "та", "те", "ти",
+		"фа", "фе", "фи", "ла", "ле", "ли", "ма", "ме", "ми", "на", "не", "ни", "ра", "ре", "ри", "са", "се", "си", "ша", "ше", "ши", "та", "тэ", "ти",
+		"ца", "це", "ци", "фа", "фе", "фи", "ла", "ле", "ли", "ма", "ме", "ми", "на", "нэ", "ни", "ра", "ре", "ри", "са", "се", "си", "ша", "ше", "ши", "та", "те", "ти",
 	)
 	icon_state = "bird"
 	default_priority = 90

@@ -1,24 +1,24 @@
 /datum/language/rylethian
-	name = "Rylethian"
-	desc = "A strange language spoken by squidpeople."
-	speech_verb = "gurgles"
-	ask_verb = "bubbles"
-	whisper_verb = "squelches"
+	name = "Рулетианский"
+	desc = "Странный язык кальмаролюдей."
+	speech_verb = "булькает"
+	ask_verb = "булькает"
+	whisper_verb = "тихо булькает"
 	flags = LANGUAGE_HIDE_ICON_IF_NOT_UNDERSTOOD //WS Edit- Language icon hiding
 	scramble_spans = list(SPAN_SGA)
 	key = "e"
 	sentence_chance = 8
 	space_chance = 10
 	syllables = list( //It's narsian, but the squids say it instead.
-		"sha", "mir", "sas", "mah", "hra", "zar", "tok", "lyr", "nqa", "nap", "olt", "val",
-		"yam", "qha", "fel", "det", "fwe", "mah", "erl", "ath", "yro", "eth", "gal", "mud",
-		"gib", "bar", "tea", "fuu", "jin", "kla", "atu", "kal", "lig", "h", "v", "c", "e", "g", "d", "r", "n", "h", "o", "p",
-		"ra", "so", "at", "il", "ta", "gh", "sh", "ya", "te", "sh", "ol", "ma", "om", "ig", "ni", "in",
-		"sha", "mir", "sas", "mah", "zar", "tok", "lyr", "nqa", "nap", "olt", "val", "qha",
-		"fwe", "yoka", "drak", "loso", "arta", "weyh", "ines", "toth", "fara", "amar", "nyag", "eske", "reth", "dedo", "btoh", "nikt", "neth", "abis",
-		"kanas", "garis", "uloft", "tarat", "khari", "thnor", "rekka", "ragga", "rfikk", "harfr", "andid", "ethra", "dedol", "totum",
-		"verbot", "pleggh", "ntrath", "barhah", "pasnar", "keriam", "usinar", "savrae", "amutan", "tannin", "remium", "barada",
-		"forbici"
+		"ша", "мир", "сас", "мах", "хра", "зар", "ток", "лыр", "нка", "нап", "олт", "вал",
+		"ям", "ка", "фел", "дет", "фве", "мах", "эрл", "ат", "йро", "эт", "гал", "грязь",
+		"гиб", "бар", "чай", "фуу", "джин", "кла", "ату", "кал", "лиг", "ч", "в", "ц", "э", "г", "д", "р", "н", "ч", "о", "р",
+		"ра", "со", "ат", "ил", "та", "гх", "ш", "я", "тэ", "ш", "ол", "ма", "ом", "иг", "ни", "ин",
+		"ша", "мир", "сас", "мах", "зар", "ток", "лыр", "нка", "нап", "олт", "вал", "кха",
+		"фве", "йока", "драк", "лосо", "арта", "вейх", "инес", "тот", "фара", "амар", "няг", "эске", "рет ", "дедо", "бтох", "никт", "нет", "абис",
+		"канас", "гарис", "улофт", "тарат", "хари", "тнор", "рекка", "рагга", "рфикк", "харфр", "андид", "этра", "дедол", "тотум",
+		"вербот", "плегх", "нтрат", "бархах", "паснар", "кериам", "усинар", "савраэ", "амутан", "таннин", "ремиум", "барада",
+		"форбици"
 	)
 	default_priority = 80
 

@@ -8,6 +8,7 @@
 #define CHANNEL_AMBIENCE 1014
 #define CHANNEL_BUZZ 1013
 #define CHANNEL_BICYCLE 1012
+#define CHANNEL_HEV 1011
 
 ///Default range of a sound.
 #define SOUND_RANGE 17

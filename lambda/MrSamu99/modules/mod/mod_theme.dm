@@ -852,7 +852,7 @@
 		/obj/item/restraints/handcuffs,
 		/obj/item/assembly/flash,
 		/obj/item/melee/baton,
-		//obj/item/melee/energy/sword, //Энергомечи тоже найти надо
+		/obj/item/melee/transforming/energy/sword, //Энергомечи тоже найти надо
 		/obj/item/shield/energy,
 	)
 	skins = list(
@@ -936,7 +936,7 @@
 		/obj/item/restraints/handcuffs,
 		/obj/item/assembly/flash,
 		/obj/item/melee/baton,
-		//obj/item/melee/energy/sword,
+		/obj/item/melee/transforming/energy/sword,
 		/obj/item/shield/energy,
 	)
 	skins = list(
@@ -1237,7 +1237,7 @@
 		/obj/item/restraints/handcuffs,
 		/obj/item/assembly/flash,
 		/obj/item/melee/baton,
-		//obj/item/melee/energy/sword,
+		/obj/item/melee/transforming/energy/sword,
 		/obj/item/shield/energy,
 	)
 	skins = list(

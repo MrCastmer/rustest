@@ -174,3 +174,10 @@
 		var/client/C = M.client
 		C?.tgui_panel?.stop_music()
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Stop All Playing Sounds") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/proc/play_sound_to_everyone(snd, volume = 100, channel = null)
+	for(var/mob/M in GLOB.player_list)
+		var/sound/S = sound(snd, volume = volume)
+		if(channel)
+			S.channel = channel
+		SEND_SOUND(M, S)
