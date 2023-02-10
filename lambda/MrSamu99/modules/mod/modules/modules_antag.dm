@@ -435,7 +435,7 @@
 	/// The suit's size before the module is installed.
 	var/old_size
 
-/*obj/item/mod/module/plate_compression/on_install()
+/obj/item/mod/module/plate_compression/on_install()
 	old_size = mod.w_class
 	mod.w_class = new_size
 
@@ -444,7 +444,7 @@
 	old_size = null
 	if(!mod.loc)
 		return
-	var/datum/component/storage/holding_storage = mod.loc.atom_storage
+	var/datum/storage/holding_storage = mod.loc.atom_storage
 	if(!holding_storage || holding_storage.max_specific_storage >= mod.w_class)
 		return
-	mod.forceMove(drop_location())*/
+	mod.forceMove(drop_location())
