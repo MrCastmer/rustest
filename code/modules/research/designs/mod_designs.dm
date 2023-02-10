@@ -198,12 +198,12 @@
 	build_path = /obj/item/mod/module/armor_booster
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
-/*datum/design/module/mod_stealth
+/datum/design/module/mod_stealth
 	name = "МОД-Скаф модуль: Маскировка"
 	id = "mod_stealth"
 	materials = list(/datum/material/iron = 1000, /datum/material/bluespace = 500)
 	build_path = /obj/item/mod/module/stealth
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY*/
+	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/module/mod_jetpack
 	name = "МОД-Скаф модуль: Ионные двигатели"

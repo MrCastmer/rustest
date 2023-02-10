@@ -110,12 +110,14 @@
 	mask_type = /obj/item/clothing/mask/breath
 
 /obj/machinery/suit_storage_unit/cmo
-	suit_type = /obj/item/clothing/suit/space/hardsuit/medical/cmo
+	//suit_type = /obj/item/clothing/suit/space/hardsuit/medical/cmo
+	mod_type = /obj/item/mod/control/pre_equipped/rescue
 	mask_type = /obj/item/clothing/mask/breath/medical
 	storage_type = /obj/item/tank/internals/oxygen
 
 /obj/machinery/suit_storage_unit/rd
-	suit_type = /obj/item/clothing/suit/space/hardsuit/rd
+	//suit_type = /obj/item/clothing/suit/space/hardsuit/rd
+	mod_type = /obj/item/mod/control/pre_equipped/research
 	mask_type = /obj/item/clothing/mask/breath
 
 /obj/machinery/suit_storage_unit/syndicate
