@@ -1,5 +1,5 @@
 //Ninja modules for MODsuits
-/*
+
 ///Cloaking - Lowers the user's visibility, can be interrupted by being touched or attacked.
 /obj/item/mod/module/stealth
 	name = "прототип маскировочного модуля"
@@ -25,7 +25,7 @@
 		RegisterSignal(mod.wearer, COMSIG_LIVING_MOB_BUMP, PROC_REF(unstealth))
 	RegisterSignal(mod.wearer, COMSIG_HUMAN_MELEE_UNARMED_ATTACK, PROC_REF(on_unarmed_attack))
 	RegisterSignal(mod.wearer, COMSIG_ATOM_BULLET_ACT, PROC_REF(on_bullet_act))
-	RegisterSignal(mod.wearer, list(COMSIG_MOB_ITEM_ATTACK, COMSIG_PARENT_ATTACKBY, COMSIG_ATOM_ATTACK_HAND, COMSIG_ATOM_HITBY, COMSIG_ATOM_HULK_ATTACK, COMSIG_ATOM_ATTACK_PAW, COMSIG_CARBON_CUFF_ATTEMPTED), PROC_REF(unstealth))
+	RegisterSignal(mod.wearer, list(COMSIG_MOB_ITEM_ATTACK, COMSIG_PARENT_ATTACKBY, COMSIG_ATOM_ATTACK_HAND/*, COMSIG_ATOM_HITBY*/, COMSIG_ATOM_HULK_ATTACK, COMSIG_ATOM_ATTACK_PAW, COMSIG_CARBON_CUFF_ATTEMPTED), PROC_REF(unstealth))
 	animate(mod.wearer, alpha = stealth_alpha, time = 1.5 SECONDS)
 	drain_power(use_power_cost)
 
@@ -35,7 +35,7 @@
 		return
 	if(bumpoff)
 		UnregisterSignal(mod.wearer, COMSIG_LIVING_MOB_BUMP)
-	UnregisterSignal(mod.wearer, list(COMSIG_HUMAN_MELEE_UNARMED_ATTACK, COMSIG_MOB_ITEM_ATTACK, COMSIG_PARENT_ATTACKBY, COMSIG_ATOM_ATTACK_HAND, COMSIG_ATOM_BULLET_ACT, COMSIG_ATOM_HITBY, COMSIG_ATOM_HULK_ATTACK, COMSIG_ATOM_ATTACK_PAW, COMSIG_CARBON_CUFF_ATTEMPTED))
+	UnregisterSignal(mod.wearer, list(COMSIG_HUMAN_MELEE_UNARMED_ATTACK, COMSIG_MOB_ITEM_ATTACK, COMSIG_PARENT_ATTACKBY, COMSIG_ATOM_ATTACK_HAND, COMSIG_ATOM_BULLET_ACT/*, COMSIG_ATOM_HITBY*/, COMSIG_ATOM_HULK_ATTACK, COMSIG_ATOM_ATTACK_PAW, COMSIG_CARBON_CUFF_ATTEMPTED))
 	animate(mod.wearer, alpha = 255, time = 1.5 SECONDS)
 
 /obj/item/mod/module/stealth/proc/unstealth(datum/source)
@@ -106,7 +106,7 @@
 		Наниты, расположенные в перчатках скафандра, при подаче энергии начинают собиратся в мономолекулярные звёзды, \
 		однако, сюрикены собранные таким образом не имеют таких же острых краёв как классические звезды, \
 		взамен, однако, неплохо изматывают свою цель."
-	dispense_type = /obj/item/throwing_star/stamina/ninja
+	dispense_type = /obj/item/throwing_star/stamina
 	cooldown_time = 0.5 SECONDS
 
 ///Hacker - This module hooks onto your right-clicks with empty hands and causes ninja actions.
@@ -306,7 +306,7 @@
 	.["statusoxy"] = mod.wearer?.getOxyLoss() || 0
 	.["statustemp"] = mod.wearer?.bodytemperature || 0
 	.["statusnutrition"] = mod.wearer?.nutrition || 0
-	.["statusfingerprints"] = mod.wearer ? md5(mod.wearer.dna.unique_identity) : null
+	//.["statusfingerprints"] = mod.wearer ? md5(mod.wearer.dna.unique_identity) : null
 	.["statusdna"] = mod.wearer?.dna.unique_enzymes
 	.["statusviruses"] = null
 	if(!length(mod.wearer?.diseases))
@@ -348,8 +348,8 @@
 		if(between_turf.density)
 			balloon_alert(mod.wearer, "За препятствием!")
 			return
-	if(IS_SPACE_NINJA(mod.wearer))
-		mod.wearer.say("А ну иди сюда!", forced = type)
+	//if(IS_SPACE_NINJA(mod.wearer))
+	//	mod.wearer.say("А ну иди сюда!", forced = type)
 	mod.wearer.Beam(living_target, "n_beam", time = 1.5 SECONDS)
 	var/obj/structure/energy_net/net = new /obj/structure/energy_net(living_target.drop_location())
 	net.affecting = living_target
@@ -388,8 +388,8 @@
 	. = ..()
 	if(!.)
 		return
-	if(IS_SPACE_NINJA(mod.wearer))
-		mod.wearer.say(pick_list_replacements(NINJA_FILE, "lines"), forced = type)
+	//if(IS_SPACE_NINJA(mod.wearer))
+	//	mod.wearer.say(pick_list_replacements(NINJA_FILE, "lines"), forced = type)
 	to_chat(mod.wearer, span_notice("Использовал адреналиновое усиление."))
 	mod.wearer.SetUnconscious(0)
 	mod.wearer.SetStun(0)
