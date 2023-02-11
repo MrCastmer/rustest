@@ -191,7 +191,7 @@
 	build_path = /obj/item/mod/module/health_analyzer
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
-/datum/design/module/mod_stealth
+/datum/design/module/mod_armor
 	name = "МОД-Скаф модуль: Усиление защиты"
 	id = "mod_armor"
 	materials = list(/datum/material/iron = 2000, /datum/material/titanium = 1000)
