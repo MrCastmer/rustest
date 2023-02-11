@@ -56,6 +56,7 @@ GLOBAL_LIST_INIT(dwarf_last, world.file2list("strings/names/dwarf_last.txt")) //
 	initial_language_holder = /datum/language_holder/dwarf
 	var/static/list/languages_possible_dwarf = typecacheof(list(
 		/datum/language/common,
+		/datum/language/uncommon,
 		/datum/language/draconic,
 		/datum/language/codespeak,
 		/datum/language/monkey,

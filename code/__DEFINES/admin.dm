@@ -76,7 +76,7 @@
 #define ADMIN_PUNISHMENT_BSA "Выстрелить из БСА"
 #define ADMIN_PUNISHMENT_FIREBALL "Поймать фаербол"
 #define ADMIN_PUNISHMENT_ROD "Запустить палку (ГРИФОНИСТО)"
-#define ADMIN_PUNISHMENT_SUPPLYPOD_QUICK "Запустить быструю палку (МЕНЕЕ ГРИФОНИСТО)"
+#define ADMIN_PUNISHMENT_SUPPLYPOD_QUICK "Запустить под снабжения"
 #define ADMIN_PUNISHMENT_SUPPLYPOD "Сбросить капсулу снабжения"
 #define ADMIN_PUNISHMENT_MAZING "Ебучие пятнашки"
 #define ADMIN_PUNISHMENT_IMMERSE "Полное погружение"
