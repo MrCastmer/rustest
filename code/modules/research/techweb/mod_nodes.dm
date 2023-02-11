@@ -29,6 +29,7 @@
 		"mod_clamp",
 		"mod_drill",
 		"mod_orebag",
+		"mod_storage_expanded",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
@@ -85,7 +86,7 @@
 		"mod_surgicalprocessor",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 3500)*/
-	
+
 /datum/techweb_node/mod_security
 	id = "mod_security"
 	display_name = "Security Modular Suits"
