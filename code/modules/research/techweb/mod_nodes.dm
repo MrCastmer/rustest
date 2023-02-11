@@ -75,7 +75,7 @@
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
-/datum/techweb_node/mod_advanced_medical
+/*datum/techweb_node/mod_advanced_medical
 	id = "mod_advanced_medical"
 	display_name = "Advanced Medical Modular Suits"
 	description = "Advanced medical suits for quicker rescue purposes."
@@ -84,8 +84,8 @@
 		"mod_defib",
 		"mod_surgicalprocessor",
 	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 3500)
-
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 3500)*/
+	
 /datum/techweb_node/mod_security
 	id = "mod_security"
 	display_name = "Security Modular Suits"
