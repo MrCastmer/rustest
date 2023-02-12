@@ -65,12 +65,14 @@
 	desc = "Позволяет вызвать дроппод снабжения. Может быть взломан."
 	icon = 'lambda/sanecman/icons/items/emergency_signaler.dmi'
 	icon_state = "em_signal"
+	var/emagged = FALSE
 	var/list/templist
 	var/list/templist_emag
 	var/static/list/spawnshit
-	var/emagged = FALSE
+	var/static/list/spawnshit_emag
 
-/obj/item/circuitboard/computer/cargo/express/multitool_act(mob/user)
+
+/obj/item/choice_beacon/support_beacon/multitool_act(mob/user)
 	to_chat(user, "<span class='danger'>Не могу взломать маяк с помощью такого инструмента, может стоит попытаться взломать чем-то нелегальным?</span>")
 	return
 
@@ -81,13 +83,16 @@
 	playsound(src, "sparks", 100, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	say("Подключение к другой платформе снабжения.")
 	obj_flags |= EMAGGED
-
+	spawnshit = list()
+	spawnshit_emag = list()
 
 /obj/item/choice_beacon/support_beacon/generate_display_names()
-	spawnshit = list()
+	if(!spawnshit)
+		spawnshit = list()
+	if(!spawnshit_emag)
+		spawnshit_emag = list()
 
-	templist = list(
-				/obj/item/choice_beacon/rnd,
+	templist = list(/obj/item/choice_beacon/rnd,
 				/obj/item/storage/box/oreredemtionandsilo,
 				/obj/item/choice_beacon/augments,
 				/obj/item/storage/belt/utility/chief/full,
@@ -98,9 +103,8 @@
 				/obj/item/pickaxe/drill/jackhammer,
 				/obj/item/storage/box/copytech,
 				/obj/item/gps
-				)
-	templist_emag = list(
-					/obj/item/storage/box/rndboards/old,
+					)
+	templist_emag = list(/obj/item/storage/box/rndboards/old,
 					/obj/item/storage/box/oreredemtionandsilo,
 					/obj/item/choice_beacon/augments,
 					/obj/effect/mob_spawn/drone/syndrone,
@@ -114,15 +118,14 @@
 					/obj/item/gps,
 					/obj/item/storage/box/copytech,
 					/obj/item/uplink/emengercy
-					)
+						)
 	if(src.emagged == FALSE)
 		for(var/V in templist)
 			var/atom/A = V
 			spawnshit[initial(A.name)] = A
-			return spawnshit
+		return spawnshit
 	else
-		for(var/V in src.templist_emag)
-			var/atom/A = V
-			spawnshit[initial(A.name)] = A
-			return spawnshit
-
+		for(var/Z in templist_emag)
+			var/atom/B = Z
+			spawnshit_emag[initial(B.name)] = B
+		return spawnshit_emag
