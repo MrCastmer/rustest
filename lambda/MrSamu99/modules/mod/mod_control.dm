@@ -325,7 +325,7 @@
 		balloon_alert(user, "Сначала деактивируйте скафандр!")
 		playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return FALSE
-	balloon_alert(user, "[open ? "открываю" : "закрываю"] техническую панель...")
+	balloon_alert(user, "[open ? "закрываю" : "открываю"] техническую панель...")
 	screwdriver.play_tool_sound(src, 100)
 	if(screwdriver.use_tool(src, user, 1 SECONDS))
 		if(active || activating)
