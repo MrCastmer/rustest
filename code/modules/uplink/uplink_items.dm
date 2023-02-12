@@ -1372,6 +1372,16 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	include_modes = list(/datum/game_mode/nuclear, /datum/game_mode/nuclear/clown_ops)
 	exclude_modes = list()
 
+/datum/uplink_item/suits/modsuit
+	name = "Syndicate Modsuit"
+	desc = "The feared suit of a Syndicate nuclear agent. Features slightly better armoring and a built in jetpack \
+			that runs off standard atmospheric tanks. Toggling the suit's built-in armor booster module on \
+			will allow you all the mobility of a loose fitting uniform with the increased armoring. The downside \
+			is the fact that suit becomes incapable of EVA. Nanotrasen crew who spot these suits are known to panic."
+	item = /obj/item/mod/control/pre_equipped/traitor
+	cost = 7
+	exclude_modes = list(/datum/game_mode/nuclear, /datum/game_mode/nuclear/clown_ops) //you can't buy it in nuke, because the elite hardsuit costs the same while being better
+
 // Devices and Tools
 /datum/uplink_item/device_tools
 	category = "Misc. Gadgets"
