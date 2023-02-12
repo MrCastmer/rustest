@@ -54,7 +54,7 @@
 	name = "МОД Внешняя обшивка"
 	desc = "Внешняя обшивка для МОД-Скафандров."
 	id = "mod_plating_standard"
-	build_type = MECHFAB|PROTOLATHE
+	build_type = MECHFAB
 	materials = list(/datum/material/iron = 6000, /datum/material/glass = 3000, /datum/material/plasma = 1000)
 	construction_time = 15 SECONDS
 	build_path = /obj/item/mod/construction/plating
@@ -62,15 +62,19 @@
 	research_icon = 'icons/obj/clothing/modsuit/mod_construction.dmi'
 	research_icon_state = "standard-plating"
 
-/datum/design/mod_plating/New()
+/*datum/design/mod_plating/New()
 	. = ..()
 	var/obj/item/mod/construction/plating/armor_type = build_path
 	var/datum/mod_theme/theme = GLOB.mod_themes[initial(armor_type.theme)]
 	name = "МОД [theme.ru_name] обшивка"
-	desc = "Внешняя обшивка для МОД-Скафандра. [theme.desc]"
+	desc = "Внешняя обшивка для МОД-Скафандра. [theme.desc]"*/
 
 /datum/design/mod_plating/engineering
 	id = "mod_plating_engineering"
+	name = "МОД Инженерная обшивка"
+	build_type = MECHFAB
+	category = list("MODsuit Chassis")
+	construction_time = 15 SECONDS
 	build_path = /obj/item/mod/construction/plating/engineering
 	materials = list(/datum/material/iron = 6000, /datum/material/gold = 2000, /datum/material/glass = 1000, /datum/material/plasma = 1000)
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
@@ -78,6 +82,10 @@
 
 /datum/design/mod_plating/atmospheric
 	id = "mod_plating_atmospheric"
+	name = "МОД Атмосферная обшивка"
+	build_type = MECHFAB
+	category = list("MODsuit Chassis")
+	construction_time = 15 SECONDS
 	build_path = /obj/item/mod/construction/plating/atmospheric
 	materials = list(/datum/material/iron = 6000, /datum/material/titanium = 2000, /datum/material/glass = 1000, /datum/material/plasma = 1000)
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
@@ -85,6 +93,10 @@
 
 /datum/design/mod_plating/medical
 	id = "mod_plating_medical"
+	name = "МОД Медицинская обшивка"
+	build_type = MECHFAB
+	category = list("MODsuit Chassis")
+	construction_time = 15 SECONDS
 	build_path = /obj/item/mod/construction/plating/medical
 	materials = list(/datum/material/iron = 6000, /datum/material/silver = 2000, /datum/material/glass = 1000, /datum/material/plasma = 1000)
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
@@ -92,14 +104,21 @@
 
 /datum/design/mod_plating/security
 	id = "mod_plating_security"
+	name = "МОД Охранная обшивка"
+	build_type = MECHFAB
+	category = list("MODsuit Chassis")
+	construction_time = 15 SECONDS
 	build_path = /obj/item/mod/construction/plating/security
 	materials = list(/datum/material/iron = 6000, /datum/material/uranium = 2000, /datum/material/glass = 1000, /datum/material/plasma = 1000)
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 	research_icon_state = "security-plating"
-	build_type = PROTOLATHE
 
 /datum/design/mod_plating/cosmohonk
 	id = "mod_plating_cosmohonk"
+	name = "МОД Клоунская обшивка"
+	build_type = MECHFAB
+	category = list("MODsuit Chassis")
+	construction_time = 15 SECONDS
 	build_path = /obj/item/mod/construction/plating/cosmohonk
 	materials = list(/datum/material/iron = 6000, /datum/material/bananium = 2000, /datum/material/glass = 1000, /datum/material/plasma = 1000)
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
