@@ -58,3 +58,9 @@
 
 /// Create an typed null global
 #define GLOBAL_DATUM(X, Typepath) GLOBAL_RAW(Typepath/##X); GLOBAL_UNMANAGED(X)
+
+#define RODITELNI  1
+#define DATELNI    2
+#define VINITELNI  3
+#define TVORITELNI 4
+#define PREDLOZHNI 5

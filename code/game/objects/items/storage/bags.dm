@@ -307,7 +307,7 @@
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_combined_w_class = 200
 	STR.max_items = 15
-	STR.insert_preposition = "in"
+	STR.insert_preposition = "в"
 	STR.set_holdable(list(
 		/obj/item/reagent_containers/pill,
 		/obj/item/reagent_containers/medigel,
@@ -334,7 +334,7 @@
 /obj/item/storage/bag/tray/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.insert_preposition = "on"
+	STR.insert_preposition = "на"
 
 /obj/item/storage/bag/tray/attack(mob/living/M, mob/living/user)
 	. = ..()
@@ -401,7 +401,7 @@
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_combined_w_class = 200
 	STR.max_items = 30
-	STR.insert_preposition = "in"
+	STR.insert_preposition = "в"
 	STR.set_holdable(list(
 		/obj/item/reagent_containers/pill,
 		/obj/item/reagent_containers/glass/beaker,
@@ -431,7 +431,7 @@
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_combined_w_class = 200
 	STR.max_items = 20
-	STR.insert_preposition = "in"
+	STR.insert_preposition = "в"
 	STR.set_holdable(list(
 		/obj/item/slime_extract,
 		/obj/item/reagent_containers/syringe,
@@ -465,7 +465,7 @@
 	STR.max_combined_w_class = 100
 	STR.max_items = 50
 	STR.max_w_class = WEIGHT_CLASS_SMALL
-	STR.insert_preposition = "in"
+	STR.insert_preposition = "в"
 	STR.set_holdable(list(
 		/obj/item/stack/ore/bluespace_crystal,
 		/obj/item/assembly,

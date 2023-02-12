@@ -19,7 +19,7 @@
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_combined_w_class = 200
 	STR.max_items = 10
-	STR.insert_preposition = "in"
+	STR.insert_preposition = "в"
 	STR.set_holdable(list(
 		/obj/item/reagent_containers/glass/beaker,
 	))
