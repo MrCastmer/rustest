@@ -1169,9 +1169,8 @@
 	custom_price = 2000
 
 /obj/item/storage/box/rndboards/PopulateContents()
-	new /obj/item/circuitboard/machine/protolathe(src)
+	new /obj/item/circuitboard/machine/techfab(src)
 	new /obj/item/circuitboard/machine/destructive_analyzer(src)
-	new /obj/item/circuitboard/machine/circuit_imprinter(src)
 	new /obj/item/circuitboard/computer/rdconsole(src)
 	new /obj/item/circuitboard/machine/rdserver(src)
 
@@ -1186,9 +1185,8 @@
 	illustration = "scicircuit"
 
 /obj/item/storage/box/rndmining/PopulateContents()
-	new /obj/item/circuitboard/machine/protolathe/department/cargo(src)
+	new /obj/item/circuitboard/machine/techfab/department/cargo(src)
 	new /obj/item/circuitboard/machine/destructive_analyzer(src)
-	new /obj/item/circuitboard/machine/circuit_imprinter/department/cargo(src)
 	new /obj/item/circuitboard/computer/rdconsole(src)
 	new /obj/item/circuitboard/machine/rdserver(src)
 
@@ -1198,9 +1196,8 @@
 	illustration = "scicircuit"
 
 /obj/item/storage/box/rndengi/PopulateContents()
-	new /obj/item/circuitboard/machine/protolathe/department/engineering(src)
+	new /obj/item/circuitboard/machine/techfab/department/engineering(src)
 	new /obj/item/circuitboard/machine/destructive_analyzer(src)
-	new /obj/item/circuitboard/machine/circuit_imprinter/department/engi(src)
 	new /obj/item/circuitboard/computer/rdconsole(src)
 	new /obj/item/circuitboard/machine/rdserver(src)
 
@@ -1210,9 +1207,8 @@
 	illustration = "scicircuit"
 
 /obj/item/storage/box/rndmed/PopulateContents()
-	new /obj/item/circuitboard/machine/protolathe/department/medical(src)
+	new /obj/item/circuitboard/machine/techfab/department/medical(src)
 	new /obj/item/circuitboard/machine/destructive_analyzer(src)
-	new /obj/item/circuitboard/machine/circuit_imprinter/department/med(src)
 	new /obj/item/circuitboard/computer/rdconsole(src)
 	new /obj/item/circuitboard/machine/rdserver(src)
 
@@ -1222,9 +1218,8 @@
 	illustration = "scicircuit"
 
 /obj/item/storage/box/rndsec/PopulateContents()
-	new /obj/item/circuitboard/machine/protolathe/department/security(src)
+	new /obj/item/circuitboard/machine/techfab/department/security(src)
 	new /obj/item/circuitboard/machine/destructive_analyzer(src)
-	new /obj/item/circuitboard/machine/circuit_imprinter/department/sec(src)
 	new /obj/item/circuitboard/computer/rdconsole(src)
 	new /obj/item/circuitboard/machine/rdserver(src)
 
@@ -1234,9 +1229,8 @@
 	illustration = "scicircuit"
 
 /obj/item/storage/box/rndciv/PopulateContents()
-	new /obj/item/circuitboard/machine/protolathe/department/service(src)
+	new /obj/item/circuitboard/machine/techfab/department/service(src)
 	new /obj/item/circuitboard/machine/destructive_analyzer(src)
-	new /obj/item/circuitboard/machine/circuit_imprinter/department/civ(src)
 	new /obj/item/circuitboard/computer/rdconsole(src)
 	new /obj/item/circuitboard/machine/rdserver(src)
 
@@ -1246,9 +1240,8 @@
 	illustration = "scicircuit"
 
 /obj/item/storage/box/rndbasic/PopulateContents()
-	new /obj/item/circuitboard/machine/protolathe/department/basic(src)
+	new /obj/item/circuitboard/machine/techfab/department/basic(src)
 	new /obj/item/circuitboard/machine/destructive_analyzer(src)
-	new /obj/item/circuitboard/machine/circuit_imprinter/department/basic(src)
 	new /obj/item/circuitboard/computer/rdconsole(src)
 	new /obj/item/circuitboard/machine/rdserver(src)
 
@@ -1258,9 +1251,8 @@
 	illustration = "scicircuit"
 
 /obj/item/storage/box/rndsci/PopulateContents()
-	new /obj/item/circuitboard/machine/protolathe/department/science(src)
+	new /obj/item/circuitboard/machine/techfab/department/science(src)
 	new /obj/item/circuitboard/machine/destructive_analyzer(src)
-	new /obj/item/circuitboard/machine/circuit_imprinter/department/science(src)
 	new /obj/item/circuitboard/computer/rdconsole(src)
 	new /obj/item/circuitboard/machine/rdserver(src)
 
