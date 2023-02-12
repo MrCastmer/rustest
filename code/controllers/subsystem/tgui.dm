@@ -40,12 +40,6 @@ SUBSYSTEM_DEF(tgui)
 	msg = "P:[length(open_uis)]"
 	return ..()
 
-/datum/controller/subsystem/tgui/get_metrics()
-	. = ..()
-	var/list/cust = list()
-	cust["processing"] = length(open_uis)
-	.["custom"] = cust
-
 /datum/controller/subsystem/tgui/fire(resumed = FALSE)
 	if(!resumed)
 		src.current_run = open_uis.Copy()
@@ -186,6 +180,18 @@ SUBSYSTEM_DEF(tgui)
 		if(ui.user == user)
 			return ui
 	return null
+
+/**
+ * public
+ *
+ * Gets all open UIs on a src object
+ */
+/datum/controller/subsystem/tgui/proc/get_all_open_uis(datum/src_object)
+	var/key = "[REF(src_object)]"
+	// No UIs opened for this src_object
+	if(isnull(open_uis_by_src[key]) || !istype(open_uis_by_src[key], /list))
+		return list()
+	return open_uis_by_src[key]
 
 /**
  * public
@@ -364,3 +370,25 @@ SUBSYSTEM_DEF(tgui)
 	// Clear the old list.
 	source.tgui_open_uis.Cut()
 	return TRUE
+
+/**
+ * public
+ *
+ * Update all static data for UIs attached to src_object.
+ *
+ * required src_object datum The object/datum which owns the UIs.
+ *
+ * return int The number of UIs updated.
+ */
+/datum/controller/subsystem/tgui/proc/update_uis_static_data(datum/src_object)
+	var/count = 0
+	var/key = "[REF(src_object)]"
+	// No UIs opened for this src_object
+	if(isnull(open_uis_by_src[key]) || !istype(open_uis_by_src[key], /list))
+		return count
+	for(var/datum/tgui/ui in open_uis_by_src[key])
+		// Check if UI is valid.
+		if(ui?.src_object && ui.user && ui.src_object.ui_host(ui.user))
+			ui.send_full_update()
+			count++
+	return count
