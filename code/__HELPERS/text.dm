@@ -100,7 +100,7 @@
 /proc/stripped_input(mob/user, message = "", title = "", default = "", max_length=MAX_MESSAGE_LEN, no_trim=FALSE)
 	var/name = input(user, message, title, default) as text|null
 	if(no_trim)
-		return copytext(html_encode(name), 1, max_length)
+		return copytext_char(html_encode(name), 1, max_length)
 	else
 		return trim(html_encode(name), max_length) //trim is "outside" because html_encode can expand single symbols into multiple symbols (such as turning < into &lt;)
 
@@ -244,15 +244,15 @@
 /proc/text_in_list(haystack, list/needle_list, start=1, end=0)
 	for(var/needle in needle_list)
 		if(findtext(haystack, needle, start, end))
-			return 1
-	return 0
+			return TRUE
+	return FALSE
 
 //Like above, but case sensitive
 /proc/text_in_list_case(haystack, list/needle_list, start=1, end=0)
 	for(var/needle in needle_list)
 		if(findtextEx(haystack, needle, start, end))
-			return 1
-	return 0
+			return TRUE
+	return FALSE
 
 //Adds 'char' ahead of 'text' until there are 'count' characters total
 /proc/add_leading(text, count, char = " ")
@@ -303,12 +303,21 @@
 		text = copytext_char(text, 1, max_length)
 	return trim_left(trim_right(text))
 
-//Returns a string with the first element of the string capitalized.
 /proc/capitalize(t)
 	. = t
-	if(t)
-		. = t[1]
-		return uppertext(.) + copytext(t, 1 + length(.))
+	if(isatom(t))
+		var/atom/A = t
+		t = A.name
+	. = copytext_char(t, 1, 2)
+	return uppertext(.) + copytext_char(t, 2)
+
+//Returns a string with the first element of the every word of the string capitalized.
+/proc/capitalize_words(text)
+	var/list/S = splittext(text, " ")
+	var/list/M = list()
+	for (var/w in S)
+		M += capitalize(w)
+	return jointext(M, " ")
 
 /proc/stringmerge(text,compare,replace = "*")
 //This proc fills in all spaces with the "replace" var (* by default) with whatever
@@ -619,6 +628,10 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 				ascii += 13
 			if(78 to 90, 110 to 122) //N to Z, n to z
 				ascii -= 13
+			if(1040 to 1058, 1072 to 1092)
+				ascii += 13
+			if(1059 to 1071, 1093 to 1105)
+				ascii -= 13
 		. += ascii2text(ascii)
 
 //Takes a list of values, sanitizes it down for readability and character count,
@@ -701,7 +714,7 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 	var/list/oldjson = list()
 	var/list/oldentries = list()
 	if(fexists(log))
-		oldjson = json_decode(file2text(log))
+		oldjson = r_json_decode(file2text(log))
 		oldentries = oldjson["data"]
 	if(length(oldentries))
 		for(var/string in accepted)
@@ -712,7 +725,7 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 
 	var/list/finalized = list()
 	finalized = accepted.Copy() + oldentries.Copy() //we keep old and unreferenced phrases near the bottom for culling
-	listclearnulls(finalized)
+	list_clear_nulls(finalized)
 	if(length(finalized) > storemax)
 		finalized.Cut(storemax + 1)
 	fdel(log)
@@ -817,17 +830,17 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 	var/regex/word_boundaries = regex(@"\b[\S]+\b", "g")
 	var/prefix = message[1]
 	if(prefix == ";")
-		message = copytext(message, 1 + length(prefix))
+		message = copytext_char(message, 1 + length_char(prefix))
 	else if(prefix in list(":", "#"))
-		prefix += message[1 + length(prefix)]
-		message = copytext(message, length(prefix))
+		prefix += message[1 + length_char(prefix)]
+		message = copytext_char(message, length_char(prefix))
 	else
 		prefix = ""
 
 	var/list/rearranged = list()
 	while(word_boundaries.Find(message))
 		var/cword = word_boundaries.match
-		if(length(cword))
+		if(length_char(cword))
 			rearranged += cword
 	shuffle_inplace(rearranged)
 	return "[prefix][jointext(rearranged, " ")]"
@@ -863,9 +876,9 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 //json decode that will return null on parse error instead of runtiming.
 /proc/safe_json_decode(data)
 	try
-		return json_decode(data)
+		return r_json_decode(data)
 	catch
-		return
+		return null
 
 /proc/num2loadingbar(percent as num, numSquares = 20, reverse = FALSE)
 	var/loadstring = ""
@@ -873,6 +886,55 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 		var/limit = reverse ? numSquares - percent*numSquares : percent*numSquares
 		loadstring += i <= limit ? "█" : "░"
 	return "\[[loadstring]\]"
+
+/**
+ * Formats a number to human readable form with the appropriate SI unit.
+ *
+ * Supports SI exponents between 1e-15 to 1e15, but properly handles numbers outside that range as well.
+ * Examples:
+ * * `siunit(1234, "Pa", 1)` -> `"1.2 kPa"`
+ * * `siunit(0.5345, "A", 0)` -> `"535 mA"`
+ * * `siunit(1000, "Pa", 4)` -> `"1 kPa"`
+ * Arguments:
+ * * value - The number to convert to text. Can be positive or negative.
+ * * unit - The base unit of the number, such as "Pa" or "W".
+ * * maxdecimals - Maximum amount of decimals to display for the final number. Defaults to 1.
+ * *
+ * * For pressure conversion, use proc/siunit_pressure() below
+ */
+/proc/siunit(value, unit, maxdecimals=1)
+	var/static/list/prefixes = list("f","p","n","μ","m","","k","M","G","T","P")
+
+	// We don't have prefixes beyond this point
+	// and this also captures value = 0 which you can't compute the logarithm for
+	// and also byond numbers are floats and doesn't have much precision beyond this point anyway
+	if(abs(value) <= 1e-18)
+		return "0 [unit]"
+
+	var/exponent = clamp(log(10, abs(value)), -15, 15) // Calculate the exponent and clamp it so we don't go outside the prefix list bounds
+	var/divider = 10 ** (round(exponent / 3) * 3) // Rounds the exponent to nearest SI unit and power it back to the full form
+	var/coefficient = round(value / divider, 10 ** -maxdecimals) // Calculate the coefficient and round it to desired decimals
+	var/prefix_index = round(exponent / 3) + 6 // Calculate the index in the prefixes list for this exponent
+
+	// An edge case which happens if we round 999.9 to 0 decimals for example, which gets rounded to 1000
+	// In that case, we manually swap up to the next prefix if there is one available
+	if(coefficient >= 1000 && prefix_index < 11)
+		coefficient /= 1e3
+		prefix_index++
+
+	var/prefix = prefixes[prefix_index]
+	return "[coefficient] [prefix][unit]"
+
+
+/** The game code never uses Pa, but kPa, since 1 Pa is too small to reasonably handle
+ * Thus, to ensure correct conversion from any kPa in game code, this value needs to be multiplied by 10e3 to get Pa, which the siunit() proc expects
+ * Args:
+ * * value_in_kpa - Value that should be converted to readable text in kPa
+ * * maxdecimals - maximum number of decimals that are displayed, defaults to 1 in proc/siunit()
+ */
+/proc/siunit_pressure(value_in_kpa, maxdecimals)
+	var/pressure_adj = value_in_kpa * 1000 //to adjust for using kPa instead of Pa
+	return siunit(pressure_adj, "Pa", maxdecimals)
 
 /// Slightly expensive proc to scramble a message using equal probabilities of character replacement from a list. DOES NOT SUPPORT HTML!
 /proc/scramble_message_replace_chars(original, replaceprob = 25, list/replacementchars = list("$", "@", "!", "#", "%", "^", "&", "*"), replace_letters_only = FALSE, replace_whitespace = FALSE)
@@ -894,6 +956,38 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 	var/start = findtext(text, ">")
 	var/end = findtext(text, "<", 2)
 	return strip_html(copytext_char(text, start, min(start + limit, end)))
+/proc/add_zero(t, u)
+	while(length(t) < u)
+		t = "0[t]"
+	return t
+
+/**
+ * The procedure to check the text of the entered text on ntnrc_client.dm
+ *
+ * This procedure is designed to check the text you type into the chat client.
+ * It checks for invalid characters and the size of the entered text.
+ */
+/proc/reject_bad_chattext(text, max_length = 256)
+	var/non_whitespace = FALSE
+	var/char = ""
+	if (length(text) > max_length)
+		return
+	else
+		for(var/i = 1, i <= length(text), i += length(char))
+			char = text[i]
+			switch(text2ascii(char))
+				if(0 to 31)
+					return
+				if(32)
+					continue
+				else
+					non_whitespace = TRUE
+		if (non_whitespace)
+			return text
+
+///Properly format a string of text by using replacetext()
+/proc/format_text(text)
+	return replacetext(replacetext(text,"\proper ",""),"\improper ","")
 
 ///Returns a string based on the weight class define used as argument
 /proc/weight_class_to_text(w_class)
