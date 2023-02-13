@@ -68,7 +68,9 @@
 	return copytext((html_encode(strip_html_simple(t))),1,limit)
 
 //Returns null if there is any bad text in the string
-/proc/reject_bad_text(text, max_length = 1024, ascii_only = FALSE)
+/proc/reject_bad_text(text, max_length = 512, ascii_only = FALSE)
+	return text
+	/*
 	var/char_count = 0
 	var/non_whitespace = FALSE
 	var/lenbytes = length(text)
@@ -86,12 +88,12 @@
 			if(32)
 				continue
 			if(127 to INFINITY)
-				if(ascii_only)
-					return
+				continue
 			else
 				non_whitespace = TRUE
 	if(non_whitespace)
 		return text		//only accepts the text if it has some non-spaces
+	*/
 
 // Used to get a properly sanitized input, of max_length
 // no_trim is self explanatory but it prevents the input from being trimed if you intend to parse newlines or whitespace.
