@@ -141,3 +141,13 @@ GLOBAL_LIST_INIT(WALLITEMS_EXTERIOR, typecacheof(list(
 	/obj/structure/light_construct,
 	/obj/machinery/light
 	)))
+
+/**
+ * Removes any null entries from the list
+ * Returns TRUE if the list had nulls, FALSE otherwise
+**/
+/proc/list_clear_nulls(list/L)
+	var/start_len = L.len
+	var/list/N = new(start_len)
+	L -= N
+	return L.len < start_len
