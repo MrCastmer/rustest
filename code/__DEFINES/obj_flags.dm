@@ -14,6 +14,7 @@
 #define BLOCK_Z_OUT_UP (1<<10) // Should this object block z uprise from loc?
 #define BLOCK_Z_IN_DOWN (1<<11) // Should this object block z falling from above?
 #define BLOCK_Z_IN_UP (1<<12) // Should this object block z uprise from below?
+#define EXAMINE_SKIP (1<<13) // Makes the Examine proc not read out this item.
 
 // If you add new ones, be sure to add them to /obj/Initialize as well for complete mapping support
 
