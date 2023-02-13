@@ -892,3 +892,453 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 	var/start = findtext(text, ">")
 	var/end = findtext(text, "<", 2)
 	return strip_html(copytext_char(text, start, min(start + limit, end)))
+
+///Returns a string based on the weight class define used as argument
+/proc/weight_class_to_text(w_class)
+	switch(w_class)
+		if(WEIGHT_CLASS_TINY)
+			. = "маленького"
+		if(WEIGHT_CLASS_SMALL)
+			. = "небольшого"
+		if(WEIGHT_CLASS_NORMAL)
+			. = "среднего"
+		if(WEIGHT_CLASS_BULKY)
+			. = "большого"
+		if(WEIGHT_CLASS_HUGE)
+			. = "огромного"
+		if(WEIGHT_CLASS_GIGANTIC)
+			. = "гигантского"
+		else
+			. = ""
+
+/// Removes all non-alphanumerics from the text, keep in mind this can lead to id conflicts
+/proc/sanitize_css_class_name(name)
+	var/static/regex/regex = new(@"[^a-zA-Z0-9]","g")
+	return replacetext(name, regex, "")
+
+/proc/parse_zone(zone)	// Именительный
+	if(zone == BODY_ZONE_PRECISE_R_HAND)
+		return "правая кисть"
+	else if (zone == BODY_ZONE_PRECISE_L_HAND)
+		return "левая кисть"
+	else if (zone == BODY_ZONE_L_ARM)
+		return "левая рука"
+	else if (zone == BODY_ZONE_R_ARM)
+		return "правая рука"
+	else if (zone == BODY_ZONE_L_LEG)
+		return "левая нога"
+	else if (zone == BODY_ZONE_R_LEG)
+		return "правая нога"
+	else if (zone == BODY_ZONE_PRECISE_L_FOOT)
+		return "левая ступня"
+	else if (zone == BODY_ZONE_PRECISE_R_FOOT)
+		return "правая ступня"
+	else if (zone == "chest")
+		return "грудь"
+	else if (zone == "mouth")
+		return "рот"
+	else if (zone == "groin")
+		return "пах"
+	else if (zone == "head")
+		return "голова"
+	else if (zone == "eyes")
+		return "глаза"
+	else
+		return zone
+
+/proc/ru_parse_zone(zone)	// Винительный
+	if(zone == "правая кисть")
+		return "правую кисть"
+	else if (zone == "левая кисть")
+		return "левую кисть"
+	else if (zone == "левая рука")
+		return "левую руку"
+	else if (zone == "правая рука")
+		return "правую руку"
+	else if (zone == "левая нога")
+		return "левую ногу"
+	else if (zone == "правая нога")
+		return "правую ногу"
+	else if (zone == "левая ступня")
+		return "левую ступню"
+	else if (zone == "правая ступня")
+		return "правую ступню"
+	else if (zone == "грудь")
+		return "грудь"
+	else if (zone == "рот")
+		return "рот"
+	else if (zone == "пах")
+		return "пах"
+	else if (zone == "голова")
+		return "голову"
+	else
+		return zone
+
+/proc/ru_gde_zone(zone)	// Дательный
+	if(zone == "правая кисть")
+		return "правой кисти"
+	else if (zone == "левая кисть")
+		return "левой кисти"
+	else if (zone == "левая рука")
+		return "левой руке"
+	else if (zone == "правая рука")
+		return "правой руке"
+	else if (zone == "левая нога")
+		return "левой ноге"
+	else if (zone == "правая нога")
+		return "правой ноге"
+	else if (zone == "левая ступня")
+		return "левой ступне"
+	else if (zone == "правая ступня")
+		return "правой ступне"
+	else if (zone == "грудь")
+		return "груди"
+	else if (zone == "рот")
+		return "ротовой полости"
+	else if (zone == "пах")
+		return "паховой области"
+	else if (zone == "голова")
+		return "голове"
+	else
+		return zone
+
+/proc/ru_otkuda_zone(zone)	// Родительный
+	if(zone == "правая кисть")
+		return "правой кисти"
+	else if (zone == "левая кисть")
+		return "левой кисти"
+	else if (zone == "левая рука")
+		return "левой руки"
+	else if (zone == "правая рука")
+		return "правой руки"
+	else if (zone == "левая нога")
+		return "левой ноги"
+	else if (zone == "правая нога")
+		return "правой ноги"
+	else if (zone == "левая ступня")
+		return "левой ступни"
+	else if (zone == "правая ступня")
+		return "правой ступни"
+	else if (zone == "грудь")
+		return "груди"
+	else if (zone == "рот")
+		return "ротовой полости"
+	else if (zone == "пах")
+		return "паховой области"
+	else if (zone == "голова")
+		return "головы"
+	else
+		return zone
+
+/proc/ru_chem_zone(zone)	// Творительный
+	if(zone == "правая кисть")
+		return "правой кистью"
+	else if (zone == "левая кисть")
+		return "левой кистью"
+	else if (zone == "левая рука")
+		return "левой рукой"
+	else if (zone == "правая рука")
+		return "правой рукой"
+	else if (zone == "левая нога")
+		return "левой ногой"
+	else if (zone == "правая нога")
+		return "правой ногой"
+	else if (zone == "левая ступня")
+		return "левой ступней"
+	else if (zone == "правая ступня")
+		return "правой ступней"
+	else if (zone == "грудь")
+		return "грудью"
+	else if (zone == "рот")
+		return "ртом"
+	else if (zone == "пах")
+		return "пахом"
+	else if (zone == "голова")
+		return "головой"
+	else
+		return zone
+
+/proc/ru_exam_parse_zone(zone)
+	if (zone == "chest")
+		return "грудь"
+	else if (zone == "mouth")
+		return "рот"
+	else if (zone == "groin")
+		return "пах"
+	else if (zone == "head")
+		return "голова"
+	else
+		return zone
+
+/proc/ru_intent(intent)
+	switch(intent)
+		if (INTENT_HELP)
+			return "помогать"
+		if (INTENT_GRAB)
+			return "хватать"
+		if (INTENT_DISARM)
+			return "толкать"
+		if (INTENT_HARM)
+			return "вредить"
+		else
+			return intent
+
+// FUCK?
+/proc/ru_job_parse(job)
+	if(GLOB.is_theme_applied == "lfwb")
+		return ru_lfwb_job_parse(job)
+	if (job == JOB_ASSISTANT)
+		return "Ассистент"
+	else if (job == JOB_CAPTAIN)
+		return "Капитан"
+	else if (job == JOB_CHIEF_ENGINEER)
+		return "Старший Инженер"
+	else if (job == JOB_STATION_ENGINEER)
+		return "Инженер"
+	else if (job == JOB_MECHANIC)
+		return "Механик"
+	else if (job == JOB_ATMOSPHERIC_TECHNICIAN)
+		return "Атмосферный Техник"
+	else if (job == JOB_CHIEF_MEDICAL_OFFICER)
+		return "Главный Врач"
+	else if (job == JOB_MEDICAL_DOCTOR)
+		return "Врач"
+	else if (job == JOB_PARAMEDIC)
+		return "Парамедик"
+	else if (job == JOB_VIROLOGIST)
+		return "Вирусолог"
+	else if (job == JOB_CHEMIST)
+		return "Химик"
+	else if (job == JOB_FIELD_MEDIC)
+		return "Полевой Медик"
+	else if (job == JOB_RESEARCH_DIRECTOR)
+		return "Научный Руководитель"
+	else if (job == JOB_SCIENTIST)
+		return "Учёный"
+	else if (job == JOB_GENETICIST)
+		return "Генетик"
+	else if (job == JOB_ROBOTICIST)
+		return "Робототехник"
+	else if (job == JOB_HACKER)
+		return "Анальный хакир"
+	else if (job == JOB_HEAD_OF_SECURITY)
+		return "Начальник Охраны"
+	else if (job == JOB_WARDEN)
+		return "Надзиратель"
+	else if (job == JOB_DETECTIVE)
+		return "Детектив"
+	else if (job == JOB_SECURITY_OFFICER)
+		return "Офицер"
+	else if (job == JOB_SPECIALIST)
+		return "Специалист"
+	else if (job == JOB_SECURITY_OFFICER_SUPPLY)
+		return "Офицер (Снабжение)"
+	else if (job == JOB_SECURITY_OFFICER_ENGINEERING)
+		return "Офицер (Инженерный)"
+	else if (job == JOB_SECURITY_OFFICER_MEDICAL)
+		return "Офицер (Медбей)"
+	else if (job == JOB_SECURITY_OFFICER_SCIENCE)
+		return "Офицер (Научный)"
+	else if (job == JOB_RUSSIAN_OFFICER)
+		return "Русский Офицер"
+	else if (job == JOB_VETERAN)
+		return "Ветеран"
+	else if (job == JOB_QUARTERMASTER)
+		return "Квартирмейстер"
+	else if (job == JOB_CARGO_TECHNICIAN)
+		return "Грузчик"
+	else if (job == JOB_SHAFT_MINER)
+		return "Шахтёр"
+	else if (job == JOB_HUNTER)
+		return "Охотник"
+	else if (job == JOB_FREELANCER)
+		return "Путешественник"
+	else if (job == JOB_RANGER)
+		return "Рейнджер"
+	else if (job == JOB_TRADER)
+		return "Торговец"
+	else if (job == JOB_HEAD_OF_PERSONNEL)
+		return "Глава Персонала"
+	else if (job == JOB_BARTENDER)
+		return "Бармен"
+	else if (job == JOB_BOTANIST)
+		return "Ботаник"
+	else if (job == JOB_COOK)
+		return "Повар"
+	else if (job == JOB_JANITOR)
+		return "Уборщик"
+	else if (job == JOB_CURATOR)
+		return "Куратор"
+	else if (job == JOB_PSYCHOLOGIST)
+		return "Психолог"
+	else if (job == JOB_LAWYER)
+		return "Адвокат"
+	else if (job == JOB_CHAPLAIN)
+		return "Капеллан"
+	else if (job == JOB_CLOWN)
+		return "Клоун"
+	else if (job == JOB_MIME)
+		return "Мим"
+	else if (job == JOB_PRISONER)
+		return "Заключённый"
+	else if (job == JOB_BOMJ)
+		return "Бомж"
+	else if (job == JOB_COMBATANT_RED)
+		return "комбатанта красных"
+	else if (job == JOB_COMBATANT_BLUE)
+		return "комбатанта синих"
+	else if (job == "red")
+		return "Красный"
+	else if (job == "blue")
+		return "Синий"
+	else
+		return job
+
+/proc/ru_lfwb_job_parse(job)
+	if (job == JOB_ASSISTANT)
+		return "Служанка"
+	else if (job == JOB_CAPTAIN)
+		return "Барон"
+	else if (job == JOB_CHIEF_ENGINEER)
+		return "Старший Мортус"
+	else if (job == JOB_STATION_ENGINEER)
+		return "Мортус"
+	else if (job == JOB_MECHANIC)
+		return "Горбач"
+	else if (job == JOB_ATMOSPHERIC_TECHNICIAN)
+		return "Атмосферный Горбач"
+	else if (job == JOB_CHIEF_MEDICAL_OFFICER)
+		return "Эскулап"
+	else if (job == JOB_MEDICAL_DOCTOR)
+		return "Серпент"
+	else if (job == JOB_PARAMEDIC)
+		return "Консайт"
+	else if (job == JOB_VIROLOGIST)
+		return "Знахарь"
+	else if (job == JOB_CHEMIST)
+		return "Химсестра"
+	else if (job == JOB_FIELD_MEDIC)
+		return "Полевой Серпент"
+	else if (job == JOB_SPECIALIST)
+		return "Боевой Мортус"
+	else if (job == JOB_RESEARCH_DIRECTOR)
+		return "Инквизитор"
+	else if (job == JOB_SCIENTIST)
+		return "Практик"
+	else if (job == JOB_GENETICIST)
+		return "Монахиня"
+	else if (job == JOB_ROBOTICIST)
+		return "Монах"
+	else if (job == JOB_HACKER)
+		return "Дример"
+	else if (job == JOB_HEAD_OF_SECURITY)
+		return "Цензор"
+	else if (job == JOB_WARDEN)
+		return "Инкарн"
+	else if (job == JOB_DETECTIVE)
+		return "Нюхач"
+	else if (job == JOB_SECURITY_OFFICER)
+		return "Цербер"
+	else if (job == JOB_SECURITY_OFFICER_SUPPLY)
+		return "Цербер (Торговец)"
+	else if (job == JOB_SECURITY_OFFICER_ENGINEERING)
+		return "Цербер (Мортуарий)"
+	else if (job == JOB_SECURITY_OFFICER_MEDICAL)
+		return "Цербер (Санктуарий)"
+	else if (job == JOB_SECURITY_OFFICER_SCIENCE)
+		return "Цербер (Инквизиция)"
+	else if (job == JOB_RUSSIAN_OFFICER)
+		return "Русский Цербер"
+	else if (job == JOB_VETERAN)
+		return "Ветеран"
+	else if (job == JOB_QUARTERMASTER)
+		return "Торговец"
+	else if (job == JOB_CARGO_TECHNICIAN)
+		return "Грузчик"
+	else if (job == JOB_SHAFT_MINER)
+		return "Шахтёр"
+	else if (job == JOB_HUNTER)
+		return "Охотник"
+	else if (job == JOB_FREELANCER)
+		return "Приключенец"
+	else if (job == JOB_RANGER)
+		return "Ушер"
+	else if (job == JOB_TRADER)
+		return "Купец"
+	else if (job == JOB_HEAD_OF_PERSONNEL)
+		return "Десница"
+	else if (job == JOB_BARTENDER)
+		return "Трактирщик"
+	else if (job == JOB_BOTANIST)
+		return "Земляр"
+	else if (job == JOB_COOK)
+		return "Жена Трактирщика"
+	else if (job == JOB_JANITOR)
+		return "Мизеро"
+	else if (job == JOB_CURATOR)
+		return "Гадалка"
+	else if (job == JOB_PSYCHOLOGIST)
+		return "Барыга"
+	else if (job == JOB_LAWYER)
+		return "Крестоносец"
+	else if (job == JOB_CHAPLAIN)
+		return "Епископ"
+	else if (job == JOB_CLOWN)
+		return "Шут"
+	else if (job == JOB_MIME)
+		return "Забавница"
+	else if (job == JOB_PRISONER)
+		return "Узник"
+	else if (job == JOB_BOMJ)
+		return "Бомж"
+	else if (job == JOB_COMBATANT_RED)
+		return "комбатанта красных"
+	else if (job == JOB_COMBATANT_BLUE)
+		return "комбатанта синих"
+	else if (job == "red")
+		return "Красный"
+	else if (job == "blue")
+		return "Синий"
+	else
+		return job
+
+/proc/jumpsuit_to_ru_conversion(jumpsuit)
+	switch(jumpsuit)
+		if("Jumpsuit")
+			return "Комбез"
+		if("Jumpskirt")
+			return "Юбкомбез"
+		else
+			return jumpsuit
+
+/proc/backpack_to_ru_conversion(backpack)
+	switch(backpack)
+		if("Grey Backpack")
+			return "Серый рюкзак"
+		if("Grey Satchel")
+			return "Серая сумка"
+		if("Grey Duffel Bag")
+			return "Серый вещмешок"
+		if("Leather Satchel")
+			return "Кожаная сумка"
+		if("Department Backpack")
+			return "Рюкзак отдела"
+		if("Department Satchel")
+			return "Сумка отдела"
+		if("Department Duffel Bag")
+			return "Вещмешок отдела"
+		else
+			return backpack
+
+/proc/uplink_to_ru_conversion(uplink)
+	switch(uplink)
+		if("PDA")
+			return "ПДА"
+		if("Radio")
+			return "Наушник"
+		if("Pen")
+			return "Ручка"
+		if("Implant")
+			return "Имплант"
+		else
+			return uplink
