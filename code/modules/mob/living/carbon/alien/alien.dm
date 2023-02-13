@@ -188,3 +188,13 @@
 /mob/living/carbon/alien/on_standing_up()
 	. = ..()
 	update_icons()
+
+///Returns death message for mob examine text
+/mob/living/carbon/human/proc/generate_death_examine_text()
+	var/t_on = ru_who(TRUE)
+	var/mob/dead/observer/ghost = get_ghost(TRUE, TRUE)
+	//This checks to see if the body is revivable
+	if(key || !getorgan(/obj/item/organ/brain) || ghost?.can_reenter_corpse)
+		return "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни...</span>\n"
+	else
+		return "<span class='deadsay'>[t_on] не реагирует на происходящее вокруг; нет признаков жизни и души...</span>\n"
