@@ -94,8 +94,8 @@
 GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 
 /obj/machinery/power/supermatter_crystal
-	name = "supermatter crystal"
-	desc = "A strangely translucent and iridescent crystal."
+	name = "кристал суперматерии"
+	desc = "Странный энергетический кристал."
 	icon = 'icons/obj/supermatter.dmi'
 	icon_state = "darkmatter"
 	density = TRUE
@@ -124,15 +124,15 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	///The damage we had before this cycle. Used to limit the damage we can take each cycle, and for safe_alert
 	var/damage_archived = 0
 	///Our "Shit is no longer fucked" message. We send it when damage is less then damage_archived
-	var/safe_alert = "Crystalline hyperstructure returning to safe operating parameters."
+	var/safe_alert = "Кристалиновая гиперструктура возращается в нормальное состояние.."
 	///The point at which we should start sending messeges about the damage to the engi channels.
 	var/warning_point = 50
 	///The alert we send when we've reached warning_point
-	var/warning_alert = "Danger! Crystal hyperstructure integrity faltering!"
+	var/warning_alert = "Внимание! Кристалиновая гиперструктура нарушена!"
 	///The point at which we start sending messages to the common channel
 	var/emergency_point = 700
 	///The alert we send when we've reached emergency_point
-	var/emergency_alert = "CRYSTAL DELAMINATION IMMINENT."
+	var/emergency_alert = "КРИСТАЛИЧЕСКОЕ РАЗЛОЖЕНИЕ НЕИЗБЕЖНО."
 	///The point at which we delam
 	var/explosion_point = 900
 	///When we pass this amount of damage we start shooting bolts
@@ -305,7 +305,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	if (istype(user, /mob/living/carbon))
 		var/mob/living/carbon/C = user
 		if (!istype(C.glasses, /obj/item/clothing/glasses/meson) && (get_dist(user, src) < HALLUCINATION_RANGE(power)))
-			. += "<span class='danger'>You get headaches just from looking at it.</span>"
+			. += "<span class='danger'>Моя голова начинает раскалываться только от одного взгляда на это.</span>"
 
 /obj/machinery/power/supermatter_crystal/proc/get_status()
 	var/turf/T = get_turf(src)
@@ -365,7 +365,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	final_countdown = TRUE
 	update_icon()
 
-	var/speaking = "[emergency_alert] The supermatter has reached critical integrity failure. Emergency causality destabilization field has been activated."
+	var/speaking = "[emergency_alert] Сверхматерия достигла критического нарушения целостности. Аварийное поле предотвращения дестабилизации активировано."
 	radio.talk_into(src, speaking, common_channel, language = get_selected_language())
 	for(var/i in SUPERMATTER_COUNTDOWN_TIME to 0 step -10)
 		if(damage < explosion_point) // Cutting it a bit close there engineers
@@ -377,7 +377,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 			sleep(10)
 			continue
 		else if(i > 50)
-			speaking = "[DisplayTimeText(i, TRUE)] remain before causality stabilization."
+			speaking = "[DisplayTimeText(i, TRUE)] осталось до уничтожения кристала."
 		else
 			speaking = "[i*0.1]..."
 		radio.talk_into(src, speaking, common_channel)
@@ -400,7 +400,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	for(var/mob/M in GLOB.player_list)
 		if(M.virtual_z() == virtual_z())
 			SEND_SOUND(M, 'sound/magic/charge.ogg')
-			to_chat(M, "<span class='boldannounce'>You feel reality distort for a moment...</span>")
+			to_chat(M, "<span class='boldannounce'>Всё вокруг плывёт...</span>")
 			SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "delam", /datum/mood_event/delam)
 	if(combined_gas > MOLE_PENALTY_THRESHOLD)
 		investigate_log("has collapsed into a singularity.", INVESTIGATE_SUPERMATTER)
@@ -437,7 +437,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	if(isclosedturf(T))
 		var/turf/did_it_melt = T.Melt()
 		if(!isclosedturf(did_it_melt)) //In case some joker finds way to place these on indestructible walls
-			visible_message("<span class='warning'>[src] melts through [T]!</span>")
+			visible_message("<span class='warning'>[src] растворяется об [T]!</span>")
 		return
 
 	//We vary volume by power, and handle OH FUCK FUSION IN COOLING LOOP noises.
@@ -691,7 +691,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 
 			//Oh shit it's bad, time to freak out
 			if(damage > emergency_point)
-				radio.talk_into(src, "[emergency_alert] Integrity: [get_integrity()]%", common_channel)
+				radio.talk_into(src, "[emergency_alert] Целостность: [get_integrity()]%", common_channel)
 				SEND_SIGNAL(src, COMSIG_SUPERMATTER_DELAM_ALARM)
 				lastwarning = REALTIMEOFDAY
 				if(!has_reached_emergency)
@@ -699,21 +699,21 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 					message_admins("[src] has reached the emergency point [ADMIN_JMP(src)].")
 					has_reached_emergency = TRUE
 			else if(damage >= damage_archived) // The damage is still going up
-				radio.talk_into(src, "[warning_alert] Integrity: [get_integrity()]%", engineering_channel)
+				radio.talk_into(src, "[warning_alert] Целостность: [get_integrity()]%", engineering_channel)
 				SEND_SIGNAL(src, COMSIG_SUPERMATTER_DELAM_ALARM)
 				lastwarning = REALTIMEOFDAY - (WARNING_DELAY * 5)
 
 			else                                                 // Phew, we're safe
-				radio.talk_into(src, "[safe_alert] Integrity: [get_integrity()]%", engineering_channel)
+				radio.talk_into(src, "[safe_alert] Целостность: [get_integrity()]%", engineering_channel)
 				lastwarning = REALTIMEOFDAY
 
 			if(power > POWER_PENALTY_THRESHOLD)
-				radio.talk_into(src, "Warning: Hyperstructure has reached dangerous power level.", engineering_channel)
+				radio.talk_into(src, "Предупреждение: Гиперструктура достигла опасного уровня мощности.", engineering_channel)
 				if(powerloss_inhibitor < 0.5)
-					radio.talk_into(src, "DANGER: CHARGE INERTIA CHAIN REACTION IN PROGRESS.", engineering_channel)
+					radio.talk_into(src, "ВНИМАНИЕ: ПРОИСХОДИТ ЦЕПНАЯ РЕАКЦИЯ ЗАРЯДНОЙ ИНЕРЦИИ.", engineering_channel)
 
 			if(combined_gas > MOLE_PENALTY_THRESHOLD)
-				radio.talk_into(src, "Warning: Critical coolant mass reached.", engineering_channel)
+				radio.talk_into(src, "Предупреждение: Достигнута критическая масса охлаждающего газа.", engineering_channel)
 		//Boom (Mind blown)
 		if(damage > explosion_point)
 			countdown()
@@ -744,7 +744,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	for(var/mob/M in GLOB.player_list)
 		if(M.virtual_z() == virtual_z())
 			SEND_SOUND(M, 'sound/effects/supermatter.ogg') //everyone goan know bout this
-			to_chat(M, "<span class='boldannounce'>A horrible screeching fills your ears, and a wave of dread washes over you...</span>")
+			to_chat(M, "<span class='boldannounce'>Ужасный шум накрывает меня с головы до ног а затем...</span>")
 	qdel(src)
 	return gain
 
@@ -753,18 +753,18 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		playsound(get_turf(src), 'sound/effects/supermatter.ogg', 50, TRUE)
 		damage += B.obj_integrity * 0.5 //take damage equal to 50% of remaining blob health before it tried to eat us
 		if(B.obj_integrity > 100)
-			B.visible_message("<span class='danger'>\The [B] strikes at \the [src] and flinches away!</span>",\
-			"<span class='hear'>You hear a loud crack as you are washed with a wave of heat.</span>")
+			B.visible_message("<span class='danger'>[B] бьёт по [src] и сразу отшатывается в сторону!</span>",\
+			"<span class='hear'>Слышу звон в ушах.</span>")
 			B.take_damage(100, BURN)
 		else
-			B.visible_message("<span class='danger'>\The [B] strikes at \the [src] and rapidly flashes to ash.</span>",\
-			"<span class='hear'>You hear a loud crack as you are washed with a wave of heat.</span>")
+			B.visible_message("<span class='danger'>[B] бьёт [src] и превращается в пыль.</span>",\
+			"<span class='hear'>Слышу звон в ушаш.</span>")
 			Consume(B)
 
 /obj/machinery/power/supermatter_crystal/attack_tk(mob/user)
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
-		to_chat(C, "<span class='userdanger'>That was a really dense idea.</span>")
+		to_chat(C, "<span class='userdanger'>Это было глупо.</span>")
 		C.ghostize()
 		var/obj/item/organ/brain/rip_u = locate(/obj/item/organ/brain) in C.internal_organs
 		rip_u.Remove(C)
@@ -784,7 +784,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		murder = S.attack_verb_continuous
 	dust_mob(S, \
 	"<span class='danger'>[S] unwisely [murder] [src], and [S.p_their()] body burns brilliantly before flashing into ash!</span>", \
-	"<span class='userdanger'>You unwisely touch [src], and your vision glows brightly as your body crumbles to dust. Oops.</span>", \
+	"<span class='userdanger'>Трогаю [src] и в следующий миг превращаюсь в пепел. Кажется это было глупой идеей.</span>",
 	"simple animal attack")
 
 /obj/machinery/power/supermatter_crystal/attack_robot(mob/user)
@@ -927,10 +927,10 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	for(var/mob/living/L in range(10))
 		investigate_log("has irradiated [key_name(L)] after consuming [AM].", INVESTIGATE_SUPERMATTER)
 		if(L in view())
-			L.show_message("<span class='danger'>As \the [src] slowly stops resonating, you find your skin covered in new radiation burns.</span>", MSG_VISUAL,\
-				"<span class='danger'>The unearthly ringing subsides and you notice you have new radiation burns.</span>", MSG_AUDIBLE)
+			L.show_message("<span class='danger'>[src] перестаёт резонировать покрывая меня радиоционным ожогом.</span>", MSG_VISUAL,\
+				"<span class='danger'>Звон стихает но моё тело странно чувствует себя.</span>", MSG_AUDIBLE)
 		else
-			L.show_message("<span class='hear'>You hear an unearthly ringing and notice your skin is covered in fresh radiation burns.</span>", MSG_AUDIBLE)
+			L.show_message("<span class='hear'>Слышу звон и моё тело странно чувствует себя.</span>", MSG_AUDIBLE)
 //Do not blow up our internal radio
 /obj/machinery/power/supermatter_crystal/contents_explosion(severity, target)
 	return
@@ -939,8 +939,8 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	is_main_engine = TRUE
 
 /obj/machinery/power/supermatter_crystal/shard
-	name = "supermatter shard"
-	desc = "A strangely translucent and iridescent crystal that looks like it used to be part of a larger structure."
+	name = "осколок суперматерии"
+	desc = "Странно полупрозрачный и переливающийся кристалл, который выглядит так, будто когда-то был частью более крупной структуры."
 	base_icon_state = "darkmatter_shard"
 	icon_state = "darkmatter_shard"
 	anchored = FALSE
@@ -950,7 +950,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	moveable = TRUE
 
 /obj/machinery/power/supermatter_crystal/shard/engine
-	name = "anchored supermatter shard"
+	name = "кристал суперматерии"
 	is_main_engine = TRUE
 	anchored = TRUE
 	moveable = FALSE
@@ -958,14 +958,14 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 // When you wanna make a supermatter shard for the dramatic effect, but
 // don't want it exploding suddenly
 /obj/machinery/power/supermatter_crystal/shard/hugbox
-	name = "anchored supermatter shard"
+	name = "осколок суперматерии"
 	takes_damage = FALSE
 	produces_gas = FALSE
 	moveable = FALSE
 	anchored = TRUE
 
 /obj/machinery/power/supermatter_crystal/shard/hugbox/fakecrystal //Hugbox shard with crystal visuals, used in the Supermatter/Hyperfractal shuttle
-	name = "supermatter crystal"
+	name = "кристал суперматерии"
 	base_icon_state = "darkmatter"
 	icon_state = "darkmatter"
 
