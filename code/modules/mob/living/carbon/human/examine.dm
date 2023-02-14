@@ -1,12 +1,9 @@
 /mob/living/carbon/human/examine(mob/user)
 //this is very slightly better than it was because you can use it more places. still can't do \his[src] though.
-	var/t_He = p_they(TRUE)
-	var/t_His = p_their(TRUE)
-	var/t_his = p_their()
-	var/t_him = p_them()
-	var/t_has = p_have()
-	var/t_is = p_are()
-	var/obscure_name
+	var/t_on 	= ru_who(TRUE)
+	var/t_ego 	= ru_ego()
+	var/t_na 	= ru_na()
+	var/t_a 	= ru_a()
 
 	var/list/obscured = check_obscured_slots()
 	var/skipface = ((wear_mask?.flags_inv & HIDEFACE) || (head?.flags_inv & HIDEFACE))
