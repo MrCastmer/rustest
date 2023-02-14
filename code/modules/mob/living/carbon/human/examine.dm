@@ -100,11 +100,11 @@
 	//Jitters
 	switch(jitteriness)
 		if(300 to INFINITY)
-			. += "<span class='warning'><B>[t_He] [t_is] convulsing violently!</B></span>"
+			. += "<span class='warning'><B>[t_on] бьётся в судорогах!</B></span>\n"
 		if(200 to 300)
-			. += "<span class='warning'>[t_He] [t_is] extremely jittery.</span>"
+			. += "<span class='warning'>[t_on] нервно дёргается.</span>\n"
 		if(100 to 200)
-			. += "<span class='warning'>[t_He] [t_is] twitching ever so slightly.</span>"
+			. += "<span class='warning'>[t_on] дрожит.</span>\n"
 
 	var/appears_dead = FALSE
 	var/just_sleeping = FALSE
