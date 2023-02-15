@@ -45,3 +45,7 @@
 			to_chat(user, "<span class='danger'>Бро ты слишком молод для игры на дроне, поиграй ещё [DRONE_MINIMUM_AGE - user.client.player_age] дней.</span>")
 			return
 	. = ..()
+
+/obj/effect/mob_spawn/drone/unchored
+	anchored = FALSE
+		desc = "Корпус дрона для ремонта и обслуживания. Можно передвинуть."
