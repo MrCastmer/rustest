@@ -544,7 +544,7 @@ There are several things that need to be remembered:
 			icon_file = VOX_BACK_PATH
 
 		if(!icon_exists(icon_file, RESOLVE_ICON_STATE(I)))
-			icon_file = DEFAULT_BACK_PATH
+			icon_file = I.mob_overlay_icon ? I.mob_overlay_icon : DEFAULT_BACK_PATH
 			handled_by_bodytype = FALSE
 
 		back_overlay = I.build_worn_icon(default_layer = BACK_LAYER, default_icon_file = icon_file, isinhands = FALSE, override_file = icon_file, mob_species = CHECK_USE_AUTOGEN)
@@ -722,7 +722,7 @@ generate/load female uniform sprites matching all previously decided variables
 	// WS Edit End - Worn Icon State
 	//Get the overlays for this item when it's being worn
 	//eg: ammo counters, primed grenade flashes, etc.
-	var/list/worn_overlays = worn_overlays(isinhands, file2use)
+	var/list/worn_overlays = worn_overlays(standing, isinhands, file2use)
 	if(length(worn_overlays))
 		if(mob_species && ("[layer2use]" in mob_species.offset_clothing))
 			var/list/new_overlays = list()
