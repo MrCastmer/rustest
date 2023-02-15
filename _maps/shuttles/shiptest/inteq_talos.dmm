@@ -5174,7 +5174,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
-/turf/open/floor/engine,
+/turf/open/floor/engine/vacuum,
 /area/ship/engineering/engine)
 "Gs" = (
 /obj/item/storage/backpack/industrial,
@@ -6047,7 +6047,7 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/trunk,
-/turf/open/floor/engine,
+/turf/open/floor/engine/vacuum,
 /area/ship/engineering/engine)
 "Mf" = (
 /obj/structure/chair{
@@ -6706,7 +6706,7 @@
 /obj/item/paper{
 	info = "The igniter in the chamber does not work very well. I suggest throwing lit welders down the disposal chute over there to ignite the chamber."
 	},
-/turf/open/floor/engine,
+/turf/open/floor/engine/vacuum,
 /area/ship/engineering/engine)
 "Rb" = (
 /obj/machinery/door/airlock/maintenance_hatch,
