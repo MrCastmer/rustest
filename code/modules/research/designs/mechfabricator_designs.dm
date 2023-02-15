@@ -967,8 +967,8 @@
 	name = "Maintenance Drone"
 	desc = "\"Repairs the ship without bothering you!\" is what the marketing says."
 	id = "maint_drone"
-	build_type = MECHFAB
+	build_type = MECHFAB | AUTOLATHE
 	materials = list(/datum/material/iron = 800, /datum/material/glass = 350)
 	construction_time = 150
 	build_path = /obj/effect/mob_spawn/drone
-	category = list("Misc")
+	category = list("initial", "Misc")
