@@ -1240,7 +1240,7 @@
 	illustration = "scicircuit"
 
 /obj/item/storage/box/rndbasic/PopulateContents()
-	new /obj/item/circuitboard/machine/techfab/department/basic(src)
+	//new /obj/item/circuitboard/machine/techfab/department/basic(src)
 	new /obj/item/circuitboard/machine/destructive_analyzer(src)
 	new /obj/item/circuitboard/computer/rdconsole(src)
 	new /obj/item/circuitboard/machine/rdserver(src)
