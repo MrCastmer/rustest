@@ -362,7 +362,7 @@
 	/// The path of the item we're disguised as.
 	var/obj/item/current_disguise
 
-/*obj/item/mod/module/chameleon/on_install()
+/obj/item/mod/module/chameleon/on_install()
 	var/list/all_disguises = sortList(subtypesof(get_path_by_slot(mod.slot_flags)), GLOBAL_PROC_REF(cmp_typepaths_asc))
 	for(var/clothing_path in all_disguises)
 		var/obj/item/clothing = clothing_path
@@ -397,11 +397,11 @@
 	mod.desc = initial(current_disguise.desc)
 	mod.icon_state = initial(current_disguise.icon_state)
 	mod.icon = initial(current_disguise.icon)
-	mod.worn_icon = initial(current_disguise.worn_icon)
+	mod.mob_overlay_icon = initial(current_disguise.mob_overlay_icon)
 	mod.alternate_worn_layer = initial(current_disguise.alternate_worn_layer)
 	mod.lefthand_file = initial(current_disguise.lefthand_file)
 	mod.righthand_file = initial(current_disguise.righthand_file)
-	mod.worn_icon_state = initial(current_disguise.worn_icon_state)
+	//mod.mob_overlay_state = initial(current_disguise.mob_overlay_state)
 	mod.inhand_icon_state = initial(current_disguise.inhand_icon_state)
 	mod.wearer.update_clothing(mod.slot_flags)
 	RegisterSignal(mod, COMSIG_MOD_ACTIVATE, PROC_REF(return_look))
@@ -412,15 +412,15 @@
 	mod.icon_state = "[mod.skin]-[initial(mod.icon_state)]"
 	var/list/mod_skin = mod.theme.skins[mod.skin]
 	mod.icon = mod_skin[MOD_ICON_OVERRIDE] || 'icons/obj/clothing/modsuit/mod_clothing.dmi'
-	mod.worn_icon = mod_skin[MOD_WORN_ICON_OVERRIDE] || 'icons/mob/clothing/modsuit/mod_clothing.dmi'
+	mod.mob_overlay_icon = mod_skin[MOD_WORN_ICON_OVERRIDE] || 'icons/mob/clothing/modsuit/mod_clothing.dmi'
 	mod.alternate_worn_layer = mod_skin[CONTROL_LAYER]
 	mod.lefthand_file = initial(mod.lefthand_file)
 	mod.righthand_file = initial(mod.righthand_file)
-	mod.worn_icon_state = null
+	//___callbacknewmod.worn_icon_state = null
 	mod.inhand_icon_state = null
 	mod.wearer.update_clothing(mod.slot_flags)
 	current_disguise = null
-	UnregisterSignal(mod, COMSIG_MOD_ACTIVATE)*/
+	UnregisterSignal(mod, COMSIG_MOD_ACTIVATE)
 
 ///Plate Compression - Compresses the suit to normal size
 /obj/item/mod/module/plate_compression
