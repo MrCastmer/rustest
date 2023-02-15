@@ -274,7 +274,7 @@
 
 
 	if(!preserve_level)
-		token.desc += " Если вы улетите отсюда - он исчезнет."
+		token.desc += " Если тут не будет удерживающих маяков или людей - он исчезнет."
 
 /datum/overmap/dynamic/proc/gen_planet_name()
 	. = ""
