@@ -44,51 +44,51 @@
 		RegisterSignal(parent, COMSIG_ADD_MOOD_EVENT_RND, .proc/add_event) //Mood events that are only for RnD members
 
 /datum/component/mood/proc/print_mood(mob/user)
-	var/msg = "<span class='info'>*---------*\n<EM>My current mental status:</EM></span>\n"
-	msg += "<span class='notice'>My current sanity: </span>" //Long term
+	var/msg = "<span class='info'>Меня зовут <EM>[user.name]</EM>.</span>\n"
+	msg += "<hr><span class='notice'>Психика:</span>\n" //Long term
 	switch(sanity)
 		if(SANITY_GREAT to INFINITY)
-			msg += "<span class='nicegreen'>My mind feels like a temple!</span>\n"
+			msg += "<span class='nicegreen'>Мой разум словно храм!</span>\n"
 		if(SANITY_NEUTRAL to SANITY_GREAT)
-			msg += "<span class='nicegreen'>I have been feeling great lately!</span>\n"
+			msg += "<span class='nicegreen'>Чувствую себя прекрасно в последнее время!</span>\n"
 		if(SANITY_DISTURBED to SANITY_NEUTRAL)
-			msg += "<span class='nicegreen'>I have felt quite decent lately.</span>\n"
+			msg += "<span class='nicegreen'>Чувствую себя вполне нормально в последнее время..</span>\n"
 		if(SANITY_UNSTABLE to SANITY_DISTURBED)
-			msg += "<span class='warning'>I'm feeling a little bit unhinged...</span>\n"
+			msg += "<span class='warning'>Немного не в себе....</span>\n"
 		if(SANITY_CRAZY to SANITY_UNSTABLE)
-			msg += "<span class='boldwarning'>I'm freaking out!!</span>\n"
+			msg += "<span class='boldwarning'>В бешенстве!!</span>\n"
 		if(SANITY_INSANE to SANITY_CRAZY)
-			msg += "<span class='boldwarning'>AHAHAHAHAHAHAHAHAHAH!!</span>\n"
+			msg += "<span class='boldwarning'>АХАХАХАХАХАХАХАХАХ!!</span>\n"
 
-	msg += "<span class='notice'>My current mood: </span>" //Short term
+	msg += "<hr><span class='notice'>Настроение:</span>\n" //Short term
 	switch(mood_level)
 		if(1)
-			msg += "<span class='boldwarning'>I wish I was dead!</span>\n"
+			msg += "<span class='boldwarning'>Хотелось бы мне умереть!</span>\n"
 		if(2)
-			msg += "<span class='boldwarning'>I feel terrible...</span>\n"
+			msg += "<span class='boldwarning'>Чувствую себя ужасно...</span>\n"
 		if(3)
-			msg += "<span class='boldwarning'>I feel very upset.</span>\n"
+			msg += "<span class='boldwarning'>Мне очень грустно.</span>\n"
 		if(4)
-			msg += "<span class='boldwarning'>I'm a bit sad.</span>\n"
+			msg += "<span class='boldwarning'>Мне грустно.</span>\n"
 		if(5)
-			msg += "<span class='nicegreen'>I'm alright.</span>\n"
+			msg += "<span class='nicegreen'>В порядке.</span>\n"
 		if(6)
-			msg += "<span class='nicegreen'>I feel pretty okay.</span>\n"
+			msg += "<span class='nicegreen'>Чувствую себя хорошо.</span>\n"
 		if(7)
-			msg += "<span class='nicegreen'>I feel pretty good.</span>\n"
+			msg += "<span class='nicegreen'>Чувствую себя довольно хорошо.</span>\n"
 		if(8)
-			msg += "<span class='nicegreen'>I feel amazing!</span>\n"
+			msg += "<span class='nicegreen'>Чувствую себя потрясающе!</span>\n"
 		if(9)
-			msg += "<span class='nicegreen'>I love life!</span>\n"
+			msg += "<span class='nicegreen'>Люблю жизнь!</span>\n"
 
-	msg += "<span class='notice'>Moodlets:\n</span>"//All moodlets
+	msg += "<hr><span class='notice'>Факторы:</span>\n"//All moodlets
 	if(mood_events.len)
 		for(var/i in mood_events)
 			var/datum/mood_event/event = mood_events[i]
 			msg += event.description
 	else
-		msg += "<span class='nicegreen'>I don't have much of a reaction to anything right now.</span>\n"
-	to_chat(user, msg)
+		msg += "<span class='nicegreen'>Да как-то всё равно на всё в данный момент.</span>\n"
+	to_chat(user, "<div class='examine_block'>[msg]</div>")
 
 ///Called after moodevent/s have been added/removed.
 /datum/component/mood/proc/update_mood()

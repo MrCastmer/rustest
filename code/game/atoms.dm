@@ -622,17 +622,20 @@ atom/proc/create_storage(
  * [COMSIG_ATOM_GET_EXAMINE_NAME] signal
  */
 /atom/proc/get_examine_name(mob/user)
-	. = "\a [src]"
-	var/list/override = list(gender == PLURAL ? "some" : "a", " ", "[name]")
+	. = "[src]"
+	var/list/override = list("", "", "[name]")
 	if(article)
-		. = "[article] [src]"
+		. = "[article] [src.name]"
 		override[EXAMINE_POSITION_ARTICLE] = article
 	if(SEND_SIGNAL(src, COMSIG_ATOM_GET_EXAMINE_NAME, user, override) & COMPONENT_EXNAME_CHANGED)
 		. = override.Join("")
 
 ///Generate the full examine string of this atom (including icon for goonchat)
 /atom/proc/get_examine_string(mob/user, thats = FALSE)
-	return "[icon2html(src, user)] [thats? "That's ":""][get_examine_name(user)]"
+	return "[icon2html(src, user)] <b>[capitalize(get_examine_name(user))]</b>"
+
+/atom/proc/get_name_chaser(mob/user, list/name_chaser = list())
+	return name_chaser
 
 /**
  * Called when a mob examines (shift click or verb) this atom
@@ -645,34 +648,43 @@ atom/proc/create_storage(
 /atom/proc/examine(mob/user)
 	. = list("[get_examine_string(user, TRUE)].")
 
+	. += get_name_chaser(user)
 	if(desc)
-		. += desc
+		. += "<hr>"
+		. += span_small("[desc]")
 
 	if(custom_materials)
+		. += "<hr>"
 		var/list/materials_list = list()
 		for(var/i in custom_materials)
 			var/datum/material/M = i
-			materials_list += "[M.name]"
-		. += "<u>It is made out of [english_list(materials_list)]</u>."
+			materials_list += "<font color='[M.color]'>[M.skloname]</font>"
+		. += span_small("Этот предмет создан из <u>[english_list(materials_list)]</u>.")
 	if(reagents)
+		. += "<hr>"
 		if(reagents.flags & TRANSPARENT)
-			. += "It contains:"
+			. += "Он содержит: "
 			if(length(reagents.reagent_list))
 				if(user.can_see_reagents()) //Show each individual reagent
 					for(var/datum/reagent/R in reagents.reagent_list)
-						. += "[R.volume] units of [R.name]"
+						. += "\n[round(R.volume, 0.01)] единиц [R.name]"
 				else //Otherwise, just show the total volume
 					var/total_volume = 0
 					for(var/datum/reagent/R in reagents.reagent_list)
 						total_volume += R.volume
-					. += "[total_volume] units of various reagents"
+					. += "[total_volume] единиц различных реагентов."
 			else
-				. += "Nothing."
+				. += "Ничего."
 		else if(reagents.flags & AMOUNT_VISIBLE)
 			if(reagents.total_volume)
-				. += "<span class='notice'>It has [reagents.total_volume] unit\s left.</span>"
+				. += span_notice("В нём ещё есть [reagents.total_volume] единиц.")
 			else
-				. += "<span class='danger'>It's empty.</span>"
+				. += span_danger("Он пуст.")
+
+	if(iscarbon(user))
+		var/mob/living/carbon/C = user
+		if(C.stat == CONSCIOUS && !C.eye_blind && !C.is_eyes_covered())
+			C.visible_message(span_small("<b>[C]</b> смотрит на <b>[skloname(name, VINITELNI, gender)]</b>."), span_small("Смотрю на <b>[src.name]</b>."), null, COMBAT_MESSAGE_RANGE)
 
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 
@@ -717,7 +729,7 @@ atom/proc/create_storage(
 /atom/proc/relaymove(mob/living/user, direction)
 	if(buckle_message_cooldown <= world.time)
 		buckle_message_cooldown = world.time + 50
-		to_chat(user, "<span class='warning'>You can't move while buckled to [src]!</span>")
+		to_chat(user, "<span class='warning'>Я не могу двигаться пока нахожусь на [src]!</span>")
 	return
 
 /// Handle what happens when your contents are exploded by a bomb
@@ -934,7 +946,7 @@ atom/proc/create_storage(
 	while (do_after(user, 10, TRUE, src, FALSE, CALLBACK(STR, /datum/component/storage.proc/handle_mass_item_insertion, things, src_object, user, progress)))
 		stoplag(1)
 	progress.end_progress()
-	to_chat(user, "<span class='notice'>You dump as much of [src_object.parent]'s contents [STR.insert_preposition]to [src] as you can.</span>")
+	to_chat(user, "<span class='notice'>Вытряхиваю всё из [src_object.parent] [STR.insert_preposition] [src].</span>")
 	STR.orient2hud(user)
 	src_object.orient2hud(user)
 	if(user.active_storage) //refresh the HUD to show the transfered contents
