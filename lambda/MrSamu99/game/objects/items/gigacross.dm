@@ -1,6 +1,6 @@
 /obj/item/gigacross
 	name = "Святой крест"
-	icon = 'lambda/icons/holy_eblo.dmi'
+	icon = 'lambda/MrSamu99/icons/holy_eblo.dmi'
 	icon_state = "krestik"
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BACK

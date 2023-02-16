@@ -40,11 +40,11 @@ export const Autolathe = (props, context) => {
     <Window title="Autolathe" width={600} height={600}>
       <Window.Content scrollable>
         <Section
-          title="Total Materials"
+          title="Всего материалов"
           buttons={
             <Button
               icon="eject"
-              content="Eject design disk"
+              content="Извлечь диск"
               disabled={!hasDisk}
               onClick={() => {
                 act('diskEject');
@@ -53,7 +53,7 @@ export const Autolathe = (props, context) => {
           }
         >
           <LabeledList>
-            <LabeledList.Item label="Total Materials">
+            <LabeledList.Item label="Всего материалов">
               <ProgressBar
                 value={materialtotal}
                 minValue={0}
@@ -69,7 +69,7 @@ export const Autolathe = (props, context) => {
             </LabeledList.Item>
             <LabeledList.Item>
               {filteredmaterials.length > 0 && (
-                <Collapsible title="Materials">
+                <Collapsible title="Материалы">
                   <LabeledList>
                     {filteredmaterials.map((material) => (
                       <MaterialRow
@@ -90,22 +90,22 @@ export const Autolathe = (props, context) => {
             </LabeledList.Item>
           </LabeledList>
         </Section>
-        <Section title="Search">
+        <Section title="Поиск">
           <Input
             fluid
-            placeholder="Search Recipes..."
+            placeholder="Поиск рецепта..."
             selfClear
             onChange={(e, value) => {
               if (value.length) {
                 act('search', {
                   to_search: value,
                 });
-                setCategory('results for "' + value + '"');
+                setCategory('результаты по запросу "' + value + '"');
               }
             }}
           />
         </Section>
-        <Section title="Categories">
+        <Section title="Категории">
           <Box>
             {categories.map((category) => (
               // eslint-disable-next-line react/jsx-key
@@ -124,11 +124,11 @@ export const Autolathe = (props, context) => {
         </Section>
         {current_category.toString() !== 'None' && (
           <Section
-            title={'Displaying ' + current_category.toString()}
+            title={'Показываем ' + current_category.toString()}
             buttons={
               <Button
                 icon="times"
-                content="Close Category"
+                content="Закрыть категорию"
                 onClick={() => {
                   act('menu');
                   setCategory('None');
@@ -139,7 +139,7 @@ export const Autolathe = (props, context) => {
             {active === 1 && (
               <Dimmer fontSize="32px">
                 <Icon name="cog" spin />
-                {'Building items...'}
+                {'Создаём...'}
               </Dimmer>
             )}
             <Flex direction="row" wrap="nowrap">
@@ -234,7 +234,7 @@ export const Autolathe = (props, context) => {
                     </Table.Row>
                   ))) || (
                   <Table.Row>
-                    <Table.Cell>{'No designs found.'}</Table.Cell>
+                    <Table.Cell>{'Схема не найдена.'}</Table.Cell>
                   </Table.Row>
                 )}
               </Table>
@@ -317,7 +317,7 @@ const MaterialRow = (props, context) => {
               backgroundColor={material.matcolour}
             >
               <div style={{ transform: 'scaleX(-1)' }}>
-                {material.mineral_amount + ' cm³'}
+                {material.mineral_amount + ' см³'}
               </div>
             </ProgressBar>
           </Table.Cell>
