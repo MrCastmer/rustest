@@ -1,7 +1,7 @@
 
 /obj/item/disk/tech_disk
-	name = "technology disk"
-	desc = "A disk for storing technology data for further research."
+	name = "технологический диск"
+	desc = "Диск для переноса технологических веток с одного сервера на другой. Вставляется в консоль РнД."
 	random_color = FALSE
 	color = "#973328"
 	custom_materials = list(/datum/material/iron=300, /datum/material/glass=100)
@@ -14,8 +14,8 @@
 	stored_research = new /datum/techweb
 
 /obj/item/disk/tech_disk/debug
-	name = "\improper CentCom technology disk"
-	desc = "A debug item for research"
+	name = "технологический диск - всё"
+	desc = "Многие ветки в одном диске - что может пойти не так."
 	illustration = "nt_n"
 	custom_materials = null
 
@@ -24,8 +24,8 @@
 	stored_research = new /datum/techweb/admin
 
 /obj/item/disk/tech_disk/major
-	name = "Reformatted technology disk"
-	desc = "A disk containing a new, completed tech from the B.E.P.I.S. Upload the disk to an R&D Console to redeem the tech."
+	name = "технологический диск - реформированный"
+	desc = "Диск с новыми ветками получеными из Б.Е.П.И.С. Загружается в РнД консоль."
 	color = "#FFBAFF"
 	illustration = "bepis"
 	custom_materials = list(/datum/material/iron=300, /datum/material/glass=100)
@@ -35,8 +35,8 @@
 	stored_research = new /datum/techweb/bepis
 
 /obj/item/research_notes
-	name = "research notes"
-	desc = "Valuable scientific data. Use it in a research console to scan it."
+	name = "научные записи"
+	desc = "Изучения учёных. Вставляется в РнД консоль для преоброзования в очки изучений."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper"
 	item_state = "paper"
@@ -58,24 +58,24 @@
 
 /obj/item/research_notes/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>It is worth [value] research points.</span>"
+	. += "<span class='notice'>Тут [value] очков изучений.</span>"
 
 /// proc that changes name and icon depending on value
 /obj/item/research_notes/proc/change_vol()
 	if(value >= 10000)
-		name = "revolutionary discovery in the field of [origin_type]"
+		name = "революционные изучения в области [origin_type]"
 		icon_state = "docs_verified"
 		return
 	else if(value >= 2500)
-		name = "essay about [origin_type]"
+		name = "записи и заметки в области [origin_type]"
 		icon_state = "paper_words"
 		return
 	else if(value >= 100)
-		name = "notes of [origin_type]"
+		name = "заметки в области [origin_type]"
 		icon_state = "paperslip_words"
 		return
 	else
-		name = "fragmentary data of [origin_type]"
+		name = "обрывки записей в области [origin_type]"
 		icon_state = "scrap"
 		return
 
@@ -85,7 +85,7 @@
 	value = value + new_paper.value
 	if(origin_type != new_paper.origin_type && !mixed)
 		value += bonus * 0.3
-		origin_type = "[origin_type] and [new_paper.origin_type]"
+		origin_type = "[origin_type] и [new_paper.origin_type]"
 		mixed = TRUE
 	change_vol()
 	qdel(new_paper)
@@ -99,7 +99,7 @@
 
 //research notes for ruins
 /obj/item/research_notes/loot
-	origin_type = "exotic particle physics"
+	origin_type = "физика экзотических частиц"
 
 /obj/item/research_notes/loot/tiny
 	value = 2000
