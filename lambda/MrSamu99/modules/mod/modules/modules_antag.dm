@@ -10,7 +10,7 @@
 	icon_state = "armor_booster"
 	module_type = MODULE_TOGGLE
 	active_power_cost = DEFAULT_CHARGE_DRAIN * 0.3
-	removable = FALSE
+	removable = TRUE
 	incompatible_modules = list(/obj/item/mod/module/armor_booster, /obj/item/mod/module/welding)
 	cooldown_time = 0.5 SECONDS
 	overlay_state_inactive = "module_armorbooster_off"
@@ -403,7 +403,7 @@
 	mod.righthand_file = initial(current_disguise.righthand_file)
 	//mod.mob_overlay_state = initial(current_disguise.mob_overlay_state)
 	mod.inhand_icon_state = initial(current_disguise.inhand_icon_state)
-	mod.wearer.update_clothing(mod.slot_flags)
+	mod.wearer.update_inv_back(mod.slot_flags)
 	RegisterSignal(mod, COMSIG_MOD_ACTIVATE, PROC_REF(return_look))
 
 /obj/item/mod/module/chameleon/proc/return_look()
@@ -418,7 +418,7 @@
 	mod.righthand_file = initial(mod.righthand_file)
 	//___callbacknewmod.worn_icon_state = null
 	mod.inhand_icon_state = null
-	mod.wearer.update_clothing(mod.slot_flags)
+	mod.wearer.update_inv_back(mod.slot_flags)
 	current_disguise = null
 	UnregisterSignal(mod, COMSIG_MOD_ACTIVATE)
 
