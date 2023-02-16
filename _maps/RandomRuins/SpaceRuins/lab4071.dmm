@@ -2905,7 +2905,7 @@
 "Mk" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/research_notes/loot/genius{
-	origin_type = "experimental chemistry and explosives"
+	origin_type = "эксперементальная химия и взрывотехника"
 	},
 /turf/open/floor/plating/asteroid/airless,
 /area/ruin/space/has_grav/crazylab/outside)
