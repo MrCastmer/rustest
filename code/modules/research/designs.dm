@@ -69,8 +69,8 @@ other types of metals and chemistry for reagents).
 ////////////////////////////////////////
 
 /obj/item/disk/design_disk
-	name = "Component Design Disk"
-	desc = "A disk for storing device design data for construction in lathes."
+	name = "диск проектирования компонентов"
+	desc = "Диск для хранения проектных данных устройства для воспроизводства на автолатах."
 	random_color = FALSE
 	color = "#8b70ff"
 	illustration = "design"
@@ -86,29 +86,29 @@ other types of metals and chemistry for reagents).
 		blueprints += null
 
 /obj/item/disk/design_disk/adv
-	name = "Advanced Component Design Disk"
+	name = "расширенный диск проектирования компонентов"
 	color = "#bed876"
-	desc = "A disk for storing device design data for construction in lathes. This one has a little bit of extra storage space."
+	desc = "Диск для хранения проектных данных устройства для воспроизводства на автолатах. Имеет три ячейки памяти."
 	custom_materials = list(/datum/material/iron =300, /datum/material/glass = 100, /datum/material/silver = 50)
 	max_blueprints = 3
 
 /obj/item/disk/design_disk/super
-	name = "Super Component Design Disk"
+	name = "улучшенный диск проектирования компонентов"
 	color = "#c25454"
-	desc = "A disk for storing device design data for construction in lathes. This one has more extra storage space."
+	desc = "Диск для хранения проектных данных устройства для воспроизводства на автолатах. Имеет пять ячеек памяти."
 	custom_materials = list(/datum/material/iron =300, /datum/material/glass = 100, /datum/material/silver = 50, /datum/material/gold = 50)
 	max_blueprints = 5
 
 /obj/item/disk/design_disk/elite
-	name = "Elite Component Design Disk"
+	name = "элитный диск проектирования компонентов"
 	color = "#333333"
-	desc = "A disk for storing device design data for construction in lathes. This one has absurd amounts of extra storage space."
+	desc = "Диск для хранения проектных данных устройства для воспроизводства на автолатах. Имеет десять ячеек памяти."
 	custom_materials = list(/datum/material/iron =300, /datum/material/glass = 100, /datum/material/silver = 100, /datum/material/gold = 100, /datum/material/bluespace = 50)
 	max_blueprints = 10
 
 //Disks with content
 /obj/item/disk/design_disk/ammo_38_hunting
-	name = "Design Disk - .38 Hunting Ammo"
+	name = "диск проектирования компонентов - .38 Hunting Ammo"
 	desc = "A design disk containing the pattern for a refill ammo box for Winchester rifles and Detective Specials."
 	illustration = "ammo"
 
@@ -118,7 +118,7 @@ other types of metals and chemistry for reagents).
 	blueprints[1] = M
 
 /obj/item/disk/design_disk/ammo_c10mm
-	name = "Design Disk - 10mm Ammo"
+	name = "диск проектирования компонентов - 10mm Ammo"
 	desc = "A design disk containing the pattern for a refill box of standard 10mm ammo, used in Stechkin pistols."
 
 /obj/item/disk/design_disk/ammo_c10mm/Initialize()
@@ -126,7 +126,7 @@ other types of metals and chemistry for reagents).
 	blueprints[1] = new /datum/design/c10mm()
 
 /obj/item/disk/design_disk/ammo_n762
-	name = "Design Disk - 7.62x38mmR Ammo"
+	name = "диск проектирования компонентов - 7.62x38mmR Ammo"
 	desc = "A design disk containing the pattern for an ammo holder of 7.62x38mmR ammo, used in Nagant revolvers. It's a wonder anybody still makes these."
 
 /obj/item/disk/design_disk/ammo_n762/Initialize()
@@ -134,7 +134,7 @@ other types of metals and chemistry for reagents).
 	blueprints[1] = new /datum/design/n762()
 
 /obj/item/disk/design_disk/adv/disposable_gun
-	name = "design disk - disposable gun"
+	name = "диск проектирования компонентов - disposable gun"
 	desc = "A design disk containing designs for a cheap and disposable gun."
 	illustration = "gun"
 
@@ -146,7 +146,7 @@ other types of metals and chemistry for reagents).
 	blueprints[2] = P
 
 /obj/item/disk/design_disk/cmm_mechs
-	name = "design disk - CMM mecha modifications"
+	name = "диск проектирования компонентов - CMM mecha modifications"
 	desc = "A design disk containing specifications for CMM-custom mecha conversions."
 	color = "#57b8f0"
 	max_blueprints = 3
