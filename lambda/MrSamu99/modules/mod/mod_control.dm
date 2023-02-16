@@ -4,23 +4,13 @@
 	desc = "Ты не должен видеть это, сообщи кодерам об этом!"
 	icon = 'icons/obj/clothing/modsuit/mod_clothing.dmi'
 	
-/obj/item/mod/on_object_saved(depth = 0)
-	if(depth >= 10)
-		return ""
-	var/dat = ""
-	for(var/obj/item in contents)
-		var/metadata = generate_tgm_metadata(item)
-		dat += "[dat ? ",\n" : ""][item.type][metadata]"
-		//Save the contents of things inside the things inside us, EG saving the contents of bags inside lockers
-		var/custom_data = item.on_object_saved(depth++)
-		dat += "[custom_data ? ",\n[custom_data]" : ""]"
-	return dat
-
 /obj/item/mod/control
 	name = "управляющий модуль"
 	desc = "Блок управления Модульного Устройства Внешней защиты, скафандр с питанием способный защитить от разных сред."
 	icon_state = "control"
-	inhand_icon_state = "control"
+	item_state = "mod_control"
+	//icon = 'icons/obj/clothing/modsuit/mod_clothing.dmi'
+	mob_overlay_icon = 'icons/mob/clothing/modsuit/mod_clothing.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
 	strip_delay = 10 SECONDS
@@ -39,8 +29,7 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_TEMP_PROTECT
 	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT
 	siemens_coefficient = 0.5
-	alternate_worn_layer = HANDS_LAYER+0.1 //we want it to go above generally everything, but not hands
-	mob_overlay_icon = 'icons/mob/clothing/modsuit/mod_clothing.dmi'
+	//alternate_worn_layer = HAND_LAYER+0.1 //we want it to go above generally everything, but not hands
 	/// The MOD's theme, decides on some stuff like armor and statistics.
 	var/datum/mod_theme/theme = /datum/mod_theme
 	var/ru_name = "блок управления МОД-Скафа"
@@ -452,7 +441,7 @@
 		. += module_icons
 
 /obj/item/mod/control/update_icon_state()
-	icon_state = "[skin]-control[active ? "-sealed" : ""]"
+	item_state = "[skin]-control[active ? "-sealed" : ""]"
 	return ..()
 
 /obj/item/mod/control/proc/set_wearer(mob/user)
@@ -642,7 +631,7 @@
 	var/list/skin_updating = mod_parts + src
 	for(var/obj/item/part as anything in skin_updating)
 		part.icon = used_skin[MOD_ICON_OVERRIDE] || 'icons/obj/clothing/modsuit/mod_clothing.dmi'
-		part.worn_icon = used_skin[MOD_WORN_ICON_OVERRIDE] || 'icons/mob/clothing/modsuit/mod_clothing.dmi'
+		//part.mob_overlay_icon = used_skin[MOD_WORN_ICON_OVERRIDE] || 'icons/mob/clothing/modsuit/mod_clothing.dmi'
 		part.icon_state = "[skin]-[initial(part.icon_state)]"
 	for(var/obj/item/clothing/part as anything in mod_parts)
 		var/used_category
