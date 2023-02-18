@@ -1,0 +1,29 @@
+{
+	"$schema": "https://raw.githubusercontent.com/shiptest-ss13/Shiptest/master/_maps/ship_config_schema.json",
+	"map_name": "Ripper-class Scavenger",
+	"map_short_name": "Ripper-class",
+	"prefix": "ISV",
+	"namelists": ["BEASTS", "SPACE"],
+	"map_path": "_maps/shuttles/shiptest/scrapper_ripper.dmm",
+	"roundstart": true,
+	"job_slots": {
+		"Salvage Leader": {
+			"outfit": "/datum/outfit/job/ce",
+			"officer": true,
+			"slots": 1
+		},
+		"Ship Technician": {
+			"outfit": "/datum/outfit/job/engineer/maintenancetechnician",
+			"slots": 3
+		},
+		"Weaponsmith": {
+			"outfit": "/datum/outfit/job/engineer",
+			"slots": 3
+		},
+		"Salvager": {
+			"outfit": "/datum/outfit/job/assistant/engineeringspecialist",
+			"slots": 3
+		}
+	},
+	"enabled": true
+}
