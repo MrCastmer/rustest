@@ -392,6 +392,7 @@
 			/turf/open/floor/plating/sandy_dirt,
 			/turf/open/floor/plating/ironsand,
 			/turf/open/floor/plating/ice,
+			/turf/open/floor/plating/moss,
 			/turf/open/indestructible/hierophant,
 			/turf/open/indestructible/boss,
 			/turf/open/indestructible/necropolis,
@@ -400,11 +401,13 @@
 		))
 
 /obj/item/mod/module/ash_accretion/on_suit_activation()
+	ADD_TRAIT(mod.wearer, TRAIT_SANDSTORM_IMMUNE, MOD_TRAIT)
 	ADD_TRAIT(mod.wearer, TRAIT_ASHSTORM_IMMUNE, MOD_TRAIT)
 	ADD_TRAIT(mod.wearer, TRAIT_SNOWSTORM_IMMUNE, MOD_TRAIT)
 	RegisterSignal(mod.wearer, COMSIG_MOVABLE_MOVED, PROC_REF(on_move))
 
 /obj/item/mod/module/ash_accretion/on_suit_deactivation(deleting = FALSE)
+	REMOVE_TRAIT(mod.wearer, TRAIT_SANDSTORM_IMMUNE, MOD_TRAIT)
 	REMOVE_TRAIT(mod.wearer, TRAIT_ASHSTORM_IMMUNE, MOD_TRAIT)
 	REMOVE_TRAIT(mod.wearer, TRAIT_SNOWSTORM_IMMUNE, MOD_TRAIT)
 	UnregisterSignal(mod.wearer, COMSIG_MOVABLE_MOVED)

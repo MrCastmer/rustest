@@ -443,7 +443,7 @@
 /obj/item/mod/module/hat_stabilizer/on_suit_activation()
 	RegisterSignal(mod.helmet, COMSIG_PARENT_EXAMINE, PROC_REF(add_examine))
 	RegisterSignal(mod.helmet, COMSIG_PARENT_ATTACKBY, PROC_REF(place_hat))
-	RegisterSignal(mod.helmet, COMSIG_ATOM_ATTACK_HAND_SECONDARY, PROC_REF(remove_hat))
+	RegisterSignal(mod.helmet, COMSIG_CLICK_ALT, PROC_REF(remove_hat))
 
 /obj/item/mod/module/hat_stabilizer/on_suit_deactivation(deleting = FALSE)
 	if(deleting)
@@ -452,12 +452,12 @@
 		remove_hat(src, mod.wearer)
 	UnregisterSignal(mod.helmet, COMSIG_PARENT_EXAMINE)
 	UnregisterSignal(mod.helmet, COMSIG_PARENT_ATTACKBY)
-	UnregisterSignal(mod.helmet, COMSIG_ATOM_ATTACK_HAND_SECONDARY)
+	UnregisterSignal(mod.helmet, COMSIG_CLICK_ALT)
 
 /obj/item/mod/module/hat_stabilizer/proc/add_examine(datum/source, mob/user, list/base_examine)
 	SIGNAL_HANDLER
 	if(attached_hat)
-		base_examine += span_notice("На шлеме закреплена[attached_hat]. Правый-клик для снятия.")
+		base_examine += span_notice("На шлеме закреплена [attached_hat]. Альт-клик для снятия.")
 	else
 		base_examine += span_notice("Ничего не закреплено. Пока-что.")
 
@@ -476,13 +476,13 @@
 		return
 	if(mod.wearer.transferItemToLoc(hitting_item, src, force = FALSE, silent = TRUE))
 		attached_hat = hitting_item
-		balloon_alert(user, "Шляпа закреплена. Правый-клик для снятия")
-		mod.wearer.update_clothing(mod.slot_flags)
+		balloon_alert(user, "Шляпа закреплена. Альт-клик для снятия")
+		mod.wearer.update_inv_back(mod.slot_flags)
 
 /obj/item/mod/module/hat_stabilizer/generate_worn_overlay()
 	. = ..()
 	if(attached_hat)
-		. += attached_hat.build_worn_icon(default_layer = VEHICLE_LAYER, default_icon_file = 'icons/mob/clothing/head.dmi')
+		. += attached_hat.build_worn_icon(default_layer = ABOVE_MOB_LAYER, default_icon_file = 'icons/mob/clothing/head.dmi')
 
 /obj/item/mod/module/hat_stabilizer/proc/remove_hat(datum/source, mob/user)
 	SIGNAL_HANDLER
@@ -495,7 +495,7 @@
 	else
 		balloon_alert_to_viewers("Шляпа падает на пол!")
 	attached_hat = null
-	mod.wearer.update_clothing(mod.slot_flags)
+	mod.wearer.update_inv_back(mod.slot_flags)
 
 ///Sign Language Translator - allows people to sign over comms using the modsuit's gloves.
 /obj/item/mod/module/signlang_radio

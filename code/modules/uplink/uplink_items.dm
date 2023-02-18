@@ -1387,7 +1387,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	desc = "An upgraded, elite version of the Syndicate MODsuit. It features fireproofing, and also \
 			provides the user with superior armor and mobility compared to the standard Syndicate hardsuit."
 	item = /obj/item/mod/control/pre_equipped/traitor_elite
-	cost = 12
+	cost = 16
 	exclude_modes = list(/datum/game_mode/nuclear, /datum/game_mode/nuclear/clown_ops) //you can't buy it in nuke, because the elite hardsuit costs the same while being better
 
 // Devices and Tools

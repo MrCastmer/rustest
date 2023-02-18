@@ -114,7 +114,7 @@
 	RegisterSignal(resolve_parent, COMSIG_MOUSEDROPPED_ONTO, .proc/on_mousedropped_onto)
 
 	RegisterSignal(resolve_parent, COMSIG_ATOM_EMP_ACT, .proc/on_emp_act)
-	RegisterSignal(resolve_parent, COMSIG_PARENT_ATTACKBY, .proc/on_attackby)
+	RegisterSignal(resolve_parent, list(COMSIG_PARENT_ATTACKBY, COMSIG_TRY_STORAGE_INSERT), .proc/on_attackby)
 	RegisterSignal(resolve_parent, COMSIG_ITEM_PRE_ATTACK, .proc/on_preattack)
 	RegisterSignal(resolve_parent, COMSIG_OBJ_DECONSTRUCT, .proc/on_deconstruct)
 

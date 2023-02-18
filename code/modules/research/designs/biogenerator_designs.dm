@@ -122,6 +122,14 @@
 	make_reagents = list(/datum/reagent/toxin/pestkiller = 25)
 	category = list("initial","Botany Chemicals")
 
+/datum/design/strange_seed
+	name = "Strange seed"
+	id = "strange_seed"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass= 2500)
+	build_path = /obj/item/seeds/random
+	category = list("initial","Botany Chemicals")
+
 /datum/design/cloth
 	name = "Roll of Cloth"
 	id = "cloth"

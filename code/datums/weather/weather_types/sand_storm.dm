@@ -19,6 +19,7 @@
 	protect_indoors = TRUE
 
 	immunity_type = "sand"
+	immunity_trait = TRAIT_SANDSTORM_IMMUNE
 
 /datum/weather/ash_storm/sand_storm/is_ash_immune(atom/L)
 	while (L && !isturf(L))

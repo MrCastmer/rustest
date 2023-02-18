@@ -18,6 +18,7 @@
 	protect_indoors = TRUE
 
 	immunity_type = "snow"
+	immunity_trait = TRAIT_SNOWSTORM_IMMUNE
 
 	barometer_predictable = TRUE
 	affects_underground = FALSE
