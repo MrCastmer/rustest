@@ -1,4 +1,4 @@
-"aa" = (/turf/open/space/basic,/area/space)
+"aa" = (/turf/template_noop,/area/template_noop)
 "ab" = (/obj/structure/sign/departments/medbay,/turf/closed/wall/mineral/titanium,/area/ship/medical)
 "ac" = (/turf/closed/wall/mineral/titanium,/area/ship/medical)
 "ad" = (/turf/open/floor/plating/catwalk_floor,/area/solar)

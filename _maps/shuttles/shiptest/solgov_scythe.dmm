@@ -1,4 +1,4 @@
-"aa" = (/turf/open/space/basic,/area)
+"aa" = (/turf/template_noop,/area/template_noop)
 "ab" = (/turf/closed/wall/mineral/plastitanium,/area/ship/crew/janitor)
 "ac" = (/obj/effect/turf_decal/siding/wood,/obj/structure/chair/comfy/brown{icon_state = "comfychair"; dir = 4},/obj/structure/sign/solgov_flag{step_y = 9},/obj/effect/landmark/start/assistant,/turf/open/floor/wood,/area/ship/crew/canteen)
 "ad" = (/turf/closed/wall/mineral/plastitanium,/area/ship/crew/canteen)
@@ -6,7 +6,7 @@
 "af" = (/obj/machinery/status_display{step_y = -3},/turf/closed/wall/mineral/plastitanium,/area/ship/crew/canteen)
 "ag" = (/obj/machinery/door/poddoor{id = 2221},/obj/structure/fans/tiny,/turf/open/floor/plasteel/tech/techmaint,/area/ship/science/robotics)
 "ah" = (/obj/machinery/button{id = 2221; step_y = 31},/turf/open/floor/plasteel/mono,/area/ship/science/robotics)
-"ai" = (/obj/structure/sign/solgov_seal{step_y = -27},/turf/closed/wall/mineral/plastitanium,/area)
+"ai" = (/obj/structure/sign/solgov_seal,/turf/template_noop,/area/template_noop)
 "aj" = (/turf/closed/wall/mineral/plastitanium,/area/ship/science/robotics)
 "ak" = (/obj/structure/closet/l3closet/janitor,/obj/item/clothing/head/bio_hood/janitor,/obj/item/clothing/suit/bio_suit/janitor,/obj/machinery/light{dir = 8},/obj/machinery/firealarm{step_y = 29},/turf/open/floor/plasteel/tech,/area/ship/crew/janitor)
 "al" = (/obj/structure/sign/solgov_seal{step_y = -27},/turf/closed/wall/mineral/plastitanium,/area/ship/medical)
@@ -176,7 +176,6 @@
 "dt" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{icon_state = "manifold-4"; dir = 1},/obj/machinery/airalarm/directional/north,/turf/open/floor/plating,/area/ship/cargo)
 "du" = (/obj/item/clothing/suit/armor/vest/lieutenant,/obj/item/clothing/head/caphat/nt{name = "Lietenant hat"},/obj/item/clothing/under/rank/security/constable,/obj/item/clothing/under/solgov/formal,/obj/item/clothing/accessory/holster/lieutenant,/obj/item/clothing/accessory/medal/gold/heroism,/obj/item/gps,/obj/item/gun/ballistic/automatic/pistol/commander,/obj/item/reagent_containers/food/drinks/bottle/grappa,/obj/item/storage/belt/security,/obj/item/ammo_box/c10mm,/obj/item/ammo_box/c10mm,/turf/open/floor/plasteel/dark,/area/ship/bridge)
 "dv" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{icon_state = "pipe11-4"; dir = 4},/obj/machinery/mineral/ore_redemption{icon_state = "ore_redemption"; dir = 4},/turf/open/floor/plating,/area/ship/cargo)
-"dw" = (/obj/structure/sign/solgov_seal,/turf/open/space/basic,/area)
 "dx" = (/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{icon_state = "vent_map_on-2"; dir = 4},/turf/open/floor/plasteel/tech/techmaint,/area/ship/science/robotics)
 "dy" = (/obj/machinery/holopad,/turf/open/floor/carpet/black,/area/ship/security/armory)
 "dz" = (/obj/structure/cable{icon_state = "4-8"},/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{icon_state = "vent_map_on-2"; dir = 8},/turf/open/floor/plasteel/tech/techmaint,/area/ship/science/robotics)
@@ -270,7 +269,7 @@
 "fj" = (/obj/machinery/holopad,/turf/open/floor/plating,/area/ship/engineering)
 
 (1,1,1) = {"
-aaaaaaaaaaaaaaaaadadadadadadafadadadadadadabababaiaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaadadadadadadafadadadadadadabababalaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaagajajajadadadadacaeaoapaqararavadakaEamatatatataaaaaaaaaaaaaaaaaa
 aaaaaaagagahawajaxayazaAaBaBaCaDaGaOaBaFadaMcbaTataHaIatatatataaaaaaaaaaaa
 aaaaagagauaJaKajaLaNaPadaQaRaSaDaUbNbSaVadabbIabataWaXaYbicfatalaaaaaaaaaa
@@ -279,8 +278,8 @@ aaajbubvbwaJdGbxbxbybxbxaQbzaSbAbBbCbDadbEbFbGbEbHbqbJbKbLbqbMatccbsbsaaaa
 ajajbObPbQaJcnbxbRbTbUbxbVbVbWbAbXbYbZbEcacedpcgbEcychctcjckclblcmcZbsbsaa
 ajcobtcqcrcscobxcDcucvbxcwcxfgczbXcAcBbEcCdycEcFbEatanascHatatatcKcLcMbscI
 cJcNdlcPcQcpcRbxcScTcUbxadadadadadadadbEcVdWdWcWbEcXcYdudadbdccGddbsbsbsbs
-ajdecOdfdgcpdhbxdidjdkbxdwaaaaaaaaaaaabEbEdmdmbEbEdndodXdqefdrcGdsdtdveXbs
-ajdBdxegdzdAdNbxdCdCdDdDaaaaaaaaaaaaaaaadwaaaadwcGdEdEdFfhdHdIcGdJdKcLeMbs
+ajdecOdfdgcpdhbxdidjdkbxaiaaaaaaaaaaaabEbEdmdmbEbEdndodXdqefdrcGdsdtdveXbs
+ajdBdxegdzdAdNbxdCdCdDdDaaaaaaaaaaaaaaaaaiaaaaaicGdEdEdFfhdHdIcGdJdKcLeMbs
 ajdecpdMaJcpdhbxdDdDdDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadEdEdEcGcGcGdUdUeYdLbs
 ajdOcpdMaJeedOajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbsbsbsdPbs
 ajdQbtdMerbtdQajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabsbseWbs
@@ -292,7 +291,7 @@ dReieAewexexeyeGdRdRaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 dReleVeBeCeDeEeReSecedaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 dRdReHeIfjeJeKeZfaecedaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aadRdReLffeNeOfbfaecedaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aadwdRdRdRePeQfcfdecedaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaidRdRdRePeQfcfdecedaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaadRdRdRdRdRdRaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}

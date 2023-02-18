@@ -1,4 +1,4 @@
-"aa" = (/turf/open/space/basic,/area/space)
+"aa" = (/turf/template_noop,/area/template_noop)
 "ab" = (/turf/open/floor/plating,/area/solar)
 "ac" = (/obj/machinery/atmospherics/components/unary/outlet_injector,/turf/open/floor/plating,/area/solar)
 "ad" = (/turf/closed/wall/mineral/plastitanium,/area/solar)
