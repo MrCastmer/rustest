@@ -70,6 +70,7 @@
 	var/aesthetic = FALSE
 	/// Used by mobs to prevent them from being affected by the weather
 	var/immunity_type = "storm"
+	var/immunity_trait = TRAIT_WEATHER_IMMUNE
 
 	/// The stage of the weather, from 1-4
 	var/stage = END_STAGE
@@ -274,6 +275,8 @@
 	if(mob_turf && !my_controller.mapzone.is_in_bounds(mob_turf))
 		return
 	if(immunity_type in L.weather_immunities)
+		return
+	if((immunity_trait && HAS_TRAIT(L, immunity_trait)) || HAS_TRAIT(L, TRAIT_WEATHER_IMMUNE))
 		return
 	if(!(get_area(L) in impacted_areas))
 		return
