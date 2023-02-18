@@ -20,7 +20,7 @@
 "at" = (/obj/machinery/power/solar,/obj/structure/cable,/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/plating/catwalk_floor,/area/solar)
 "au" = (/obj/machinery/power/solar,/obj/structure/cable{icon_state = "0-8"},/turf/open/floor/plating/catwalk_floor,/area/solar)
 "av" = (/obj/machinery/power/shuttle/engine/electric/premium{icon_state = "burst"; dir = 4},/turf/open/floor/plating,/area/ship/cargo)
-"aw" = (/obj/machinery/power/smes/shuttle/precharged{icon_state = "smes"; dir = 8},/obj/machinery/door/window{icon_state = "left"; dir = 4},/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/obj/structure/window/reinforced,/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 8},/turf/open/floor/plating,/area/ship/cargo)
+"aw" = (/obj/machinery/door/window{icon_state = "left"; dir = 4},/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 1},/obj/structure/window/reinforced,/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 8},/obj/machinery/power/smes/shuttle/precharged{icon_state = "smes"; dir = 4},/turf/open/floor/plating,/area/ship/cargo)
 "ax" = (/obj/machinery/power/terminal{dir = 8},/obj/structure/cable{icon_state = "0-4"},/turf/open/floor/pod/light,/area/ship/cargo)
 "ay" = (/obj/structure/cable{icon_state = "1-2"},/obj/structure/cable{icon_state = "2-8"},/turf/open/floor/pod/light,/area/ship/cargo)
 "az" = (/obj/structure/window/reinforced/survival_pod{icon_state = "pwindow"; dir = 4},/turf/open/floor/pod/light,/area/ship/cargo)
