@@ -630,7 +630,8 @@
 /obj/structure/window/reinforced/spawner{
 	dir = 1
 	},
-/obj/item/card/emag,
+/obj/item/card/emag/limited,
+/obj/item/card/emag/limited,
 /obj/item/melee/transforming/energy/sword/saber/blue,
 /obj/machinery/door/window{
 	dir = 4;
