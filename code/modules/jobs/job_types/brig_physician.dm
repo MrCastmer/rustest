@@ -50,3 +50,19 @@
 	suit = /obj/item/clothing/suit/toggle/labcoat/brig_phys
 	l_pocket = /obj/item/reagent_containers/syringe
 	alt_suit = null
+
+//Shiptest outfits
+/datum/outfit/job/brig_phys/syndicate
+	name = "Syndicate Trauma Team Technician"
+	
+	ears = /obj/item/radio/headset/syndicate/alt
+	uniform = /obj/item/clothing/under/syndicate/medic
+	head = /obj/item/clothing/head/soft/cybersun
+	shoes = /obj/item/clothing/shoes/combat
+	belt = /obj/item/storage/belt/military
+	back = /obj/item/storage/backpack/duffelbag
+	suit = /obj/item/clothing/suit/armor/vest/syndie
+	id = /obj/item/card/id/syndicate_command/crew_id
+	backpack_contents = list(/obj/item/storage/box/survival/syndie=1)
+	
+	implants = null
