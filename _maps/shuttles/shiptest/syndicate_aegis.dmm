@@ -568,9 +568,6 @@
 /area/ship/crew/hydroponics)
 "dY" = (
 /obj/structure/table/wood,
-/obj/item/scalpel/advanced,
-/obj/item/retractor/advanced,
-/obj/item/surgicaldrill/advanced,
 /obj/item/healthanalyzer/advanced,
 /obj/item/clothing/glasses/hud/health/sunglasses,
 /obj/item/clothing/under/rank/medical/chief_medical_officer/surgeon_general,
@@ -578,6 +575,9 @@
 /obj/item/clothing/shoes/combat,
 /obj/item/clothing/neck/stripedredscarf,
 /obj/item/clothing/neck/stripedbluescarf,
+/obj/item/mod/module/quick_carry/advanced,
+/obj/item/storage/backpack/duffelbag/syndie/surgery,
+/obj/item/card/emag/limited,
 /obj/structure/closet/wall/red{
 	name = "Lead Doctor's Locker";
 	pixel_y = 28
@@ -1313,8 +1313,12 @@
 	dir = 4
 	},
 /obj/machinery/suit_storage_unit/inherit,
-/obj/item/clothing/head/helmet/space/syndicate/black/med,
-/obj/item/clothing/suit/space/syndicate/black/med,
+/obj/item/clothing/head/helmet/space/syndicate/black/med{
+	name = "Medical EVA helmet"
+	},
+/obj/item/clothing/suit/space/syndicate/black/med{
+	name = "Medical EVA"
+	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/warning/vacuum{
 	pixel_x = -30
@@ -4683,14 +4687,12 @@
 	anchored = 1;
 	icon_state = "syndicate";
 	name = "ballistics locker";
-	req_access = list(3,150)
+	req_access = list(2,150)
 	},
 /obj/item/clothing/gloves/tackler/combat,
 /obj/item/clothing/gloves/tackler/combat,
 /obj/item/clothing/shoes/combat,
 /obj/item/clothing/shoes/combat,
-/obj/item/card/emag/limited,
-/obj/item/card/emag/limited,
 /obj/item/ammo_box/magazine/m10mm,
 /obj/item/ammo_box/magazine/m10mm,
 /obj/item/kitchen/knife/combat/survival,
