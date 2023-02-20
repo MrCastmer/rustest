@@ -34,6 +34,7 @@
 /obj/item/clothing/neck/stripedredscarf,
 /obj/item/clothing/neck/tie/red,
 /obj/item/clothing/shoes/combat,
+/obj/item/card/emag/limited,
 /obj/item/clothing/suit/armor/vest/security/hos{
 	name = "Syndicate jacket"
 	},
@@ -2892,16 +2893,10 @@
 /turf/open/floor/plasteel/tech,
 /area/ship/medical)
 "AJ" = (
-/obj/item/clothing/under/syndicate,
-/obj/item/clothing/under/syndicate/skirt,
-/obj/item/storage/fancy/cigarettes/cigpack_syndicate,
-/obj/structure/closet/syndicate{
-	desc = "It's a basic storage unit.";
-	name = "uniform closet"
-	},
-/obj/item/clothing/gloves/combat,
-/obj/item/clothing/shoes/combat,
-/obj/item/kitchen/knife/combat/survival,
+/obj/machinery/suit_storage_unit/syndicate{
+    name = "trauma team's suit storage unit";
+    suit_type = /obj/item/clothing/suit/space/hardsuit/syndi/elite
+    },
 /obj/machinery/light{
 	dir = 8
 	},
@@ -2913,15 +2908,9 @@
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
 	},
-/obj/item/clothing/under/syndicate,
-/obj/item/clothing/under/syndicate/skirt,
-/obj/item/storage/fancy/cigarettes/cigpack_syndicate,
-/obj/structure/closet/syndicate{
-	desc = "It's a basic storage unit.";
-	name = "uniform closet"
-	},
-/obj/item/clothing/gloves/combat,
-/obj/item/clothing/shoes/combat,
+/obj/machinery/vending/security/marine/syndicate{
+    all_items_free = 1
+    },
 /obj/effect/turf_decal/industrial/warning/full,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/hallway/central)
@@ -4687,17 +4676,25 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/item/clothing/under/syndicate,
-/obj/item/clothing/under/syndicate/skirt,
-/obj/item/storage/fancy/cigarettes/cigpack_syndicate,
-/obj/structure/closet/syndicate{
-	desc = "It's a basic storage unit.";
-	name = "uniform closet"
+/obj/item/clothing/under/syndicate/combat,
+/obj/item/clothing/under/syndicate/combat,
+/obj/structure/closet/secure_closet{
+	anchored = 1;
+	icon_state = "syndicate";
+	name = "ballistics locker";
+	req_access = list(3,150)
 	},
-/obj/item/clothing/gloves/combat,
+/obj/item/clothing/gloves/tackler/combat,
+/obj/item/clothing/gloves/tackler/combat,
 /obj/item/clothing/shoes/combat,
+/obj/item/clothing/shoes/combat,
+/obj/item/card/emag/limited,
+/obj/item/card/emag/limited,
 /obj/item/ammo_box/magazine/m10mm,
 /obj/item/ammo_box/magazine/m10mm,
+/obj/item/kitchen/knife/combat/survival,
+/obj/item/kitchen/knife/combat/survival,
+/obj/item/gun/ballistic/automatic/pistol,
 /obj/item/gun/ballistic/automatic/pistol,
 /obj/effect/turf_decal/industrial/warning/full,
 /turf/open/floor/mineral/plastitanium/red,
