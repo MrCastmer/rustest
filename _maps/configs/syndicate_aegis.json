@@ -10,6 +10,11 @@
 			"officer": true,
 			"slots": 1
 	},
+	"Syndicate Trauma Team Technician": {
+			"outfit": "/datum/outfit/job/brig_phys/syndicate",
+			"officer": true,
+			"slots": 2
+	},
 	"Lead Doctor": {
 		"outfit": "/datum/outfit/job/cmo/syndicate/nsv",
 		"slots": 1
