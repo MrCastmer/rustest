@@ -37,6 +37,17 @@
 	new /obj/item/stack/spacecash/c1000(src)
 	new /obj/item/stack/spacecash/c1000(src)
 	new /obj/item/stack/spacecash/c1000(src)
+	
+/obj/item/storage/box/tacmaid
+	name = "коробка с униформой Эскадрона Смерти"
+	desc = "Коробка. С формой. Не спрашивайте откуда и зачем."
+	illustration = "spbox"
+
+/obj/item/storage/box/tacmaid/PopulateContents()
+	new /obj/item/clothing/under/syndicate/skirt/maid(src)
+	new /obj/item/clothing/head/maidheadband/syndicate(src)
+	new /obj/item/clothing/gloves/combat/maid(src)
+	new /obj/item/clothing/shoes/combat/swat(src)
 
 /obj/item/uplink/emengercy
 	name = "экстренный аплинк"
@@ -117,6 +128,7 @@
 					/obj/item/storage/toolbox/syndicate,
 					/obj/item/gps,
 					/obj/item/storage/box/copytech,
+					/obj/item/storage/box/tacmaid,
 					/obj/item/uplink/emengercy
 						)
 	if(src.emagged == FALSE)
