@@ -42,5 +42,5 @@
 	reagents.add_reagent(/datum/reagent/medicine/morphine, 7)
 
 /obj/projectile/bullet/dart/syringe
-	name = "syringe"
+	name = "шприц"
 	icon_state = "syringeproj"

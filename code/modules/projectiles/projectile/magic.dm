@@ -11,7 +11,7 @@
 	name = "заряд смерти"
 	icon_state = "pulse1_bl"
 
-/obj/projectile/magic/death/on_hit(mob/living/target)
+/obj/projectile/magic/death/on_hit(target)
 	. = ..()
 	if(ismob(target))
 		var/mob/M = target
@@ -25,13 +25,13 @@
 					return BULLET_ACT_BLOCK
 				if(L.revive(full_heal = TRUE, admin_revive = TRUE))
 					L.grab_ghost(force = TRUE) // even suicides
+					to_chat(L, "<span class='notice'>Восстаю. Я НЕЖИТЬ!!!</span>")
 				else if(L.stat != DEAD)
+					to_chat(L, "<span class='notice'>Чувствую себя отлично!</span>")
 			else
 				L.death(0)
 		else
 			M.death(0)
-			to_chat(target, span_notice("Восстаю. Я НЕЖИТЬ!!!"))
-			to_chat(target, span_notice("Чувствую себя отлично!"))
 
 /obj/projectile/magic/resurrection
 	name = "заряд воскрешения"
@@ -53,9 +53,9 @@
 				return BULLET_ACT_BLOCK
 			if(target.revive(full_heal = TRUE, admin_revive = TRUE))
 				target.grab_ghost(force = TRUE) // even suicides
-				to_chat(target, span_notice("ЖИВУ!"))
+				to_chat(target, "<span class='notice'>Восстаю. Я ЖИВОЙ!!!</span>")
 			else if(target.stat != DEAD)
-				to_chat(target, span_notice("Чувствую себя прекрасно!"))
+				to_chat(target, "<span class='notice'>Чувствую себя отлично!</span>")
 
 /obj/projectile/magic/teleport
 	name = "заряд телепортации"
