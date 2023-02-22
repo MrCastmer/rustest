@@ -1,6 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/shiptest-ss13/Shiptest/master/_maps/ship_config_schema.json",
-	"map_name": "Kaledonia Cargonia Vessel СЛОМАНО НЕ СПАВНИТЬ",
+	"map_name": "Kaledonia Cargonia Vessel",
 	"prefix": "FCV",
 	"namelists": ["MERCANTILE", "NATURAL", "REVOLUTIONARY"],
 	"map_short_name": "Kaledonia-Class",
@@ -23,5 +23,6 @@
 			"outfit": "/datum/outfit/job/engineer/hazard",
 			"slots": 2
 		}
-	}
+	},
+	"enabled": true
 }
