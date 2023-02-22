@@ -1,6 +1,6 @@
 //Glasses
 /obj/item/clothing/glasses
-	name = "glasses"
+	name = "очки"
 	icon = 'icons/obj/clothing/glasses.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	flags_cover = GLASSESCOVERSEYES
@@ -27,7 +27,7 @@
 /obj/item/clothing/glasses/examine(mob/user)
 	. = ..()
 	if(glass_colour_type && ishuman(user))
-		. += "<span class='notice'>Alt-click to toggle its colors.</span>"
+		. += "<span class='notice'>Alt-клик чтобы переключить цвет.</span>"
 
 /obj/item/clothing/glasses/visor_toggling()
 	..()
@@ -50,7 +50,7 @@
 		var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
 		if(!H.is_blind())
 			if(H.glasses == src)
-				to_chat(H, "<span class='danger'>[src] overloads and blinds you!</span>")
+				to_chat(H, "<span class='danger'>[src] перегружается и слепит вас!</span>")
 				H.flash_act(visual = 1)
 				H.blind_eyes(3)
 				H.blur_eyes(5)
@@ -93,8 +93,8 @@
 	sharpness = IS_SHARP
 
 /obj/item/clothing/glasses/science
-	name = "science goggles"
-	desc = "A pair of snazzy goggles used to protect against chemical spills. Fitted with an analyzer for scanning items and reagents."
+	name = "научные защитные очки"
+	desc = "Шикарные очки, используемые для защиты от брызг химикатов. Оснащены анализатором для сканирования предметов и реагентов."
 	icon_state = "scigoggles"
 	item_state = "glasses"
 	clothing_flags = TRAIT_REAGENT_SCANNER //You can see reagents while wearing science goggles
@@ -444,8 +444,8 @@
 	glass_colour_type = /datum/client_colour/glass_colour/red
 
 /obj/item/clothing/glasses/godeye
-	name = "eye of god"
-	desc = "A strange eye, said to have been torn from an omniscient creature that used to roam the wastes."
+	name = "глаз Бога"
+	desc = "Странный глаз, вырванный из всезнающего существа, когда-то бродившего по пустошам."
 	icon_state = "godeye"
 	item_state = "godeye"
 	vision_flags = SEE_TURFS|SEE_MOBS|SEE_OBJS
@@ -463,12 +463,12 @@
 		if(W.icon_state == "godeye")
 			W.icon_state = "doublegodeye"
 			W.item_state = "doublegodeye"
-			W.desc = "A pair of strange eyes, said to have been torn from an omniscient creature that used to roam the wastes. There's no real reason to have two, but that isn't stopping you."
+			W.desc = "Пара странных глаз, вырванных из всезнающего существа, когда-то бродившего по пустошам. Нет никакой причины иметь сразу 2 глаза, но это тебя не остановит."
 			if(iscarbon(user))
 				var/mob/living/carbon/C = user
 				C.update_inv_wear_mask()
 		else
-			to_chat(user, "<span class='notice'>The eye winks at you and vanishes into the abyss, you feel really unlucky.</span>")
+			to_chat(user, "<span class='notice'>Глаз подмигивает тебе, а затем исчезает. Ты чувствуешь себя неудачником.</span>")
 		qdel(src)
 	..()
 
@@ -480,9 +480,9 @@
 				if(src == H.glasses)
 					H.client.prefs.uses_glasses_colour = !H.client.prefs.uses_glasses_colour
 					if(H.client.prefs.uses_glasses_colour)
-						to_chat(H, "<span class='notice'>You will now see glasses colors.</span>")
+						to_chat(H, "<span class='notice'>Вы будете видеть оттенок очков.</span>")
 					else
-						to_chat(H, "<span class='notice'>You will no longer see glasses colors.</span>")
+						to_chat(H, "<span class='notice'>Вы не будете видеть оттенок очков.</span>")
 					H.update_glasses_color(src, 1)
 	else
 		return ..()
@@ -505,8 +505,8 @@
 		remove_client_colour(G.glass_colour_type)
 
 /obj/item/clothing/glasses/debug
-	name = "debug glasses"
-	desc = "Medical, security and diagnostic hud. Alt click to toggle xray."
+	name = "дебаг-очки"
+	desc = "медицинский, охранный и диагностический дисплей. Alt + клик чтобы включить рентген."
 	icon_state = "nvgmeson"
 	item_state = "nvgmeson"
 	flags_cover = GLASSESCOVERSEYES

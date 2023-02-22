@@ -1,15 +1,6 @@
-
-//tropical ruins here
-
-//Knight's Rest
-
-/area/ruin/beachplanet/knight
-	name = "Knight's Rest"
-	icon_state = "dkyellow"
-
 //Ancient Complex
 
-/area/ruin/beach/complex //seems quite simple to me
+/area/ruin/beach/complex
 	name = "Cybersun Complex"
 	icon_state = "hallC"
 	ambientsounds = MAINTENANCE
@@ -21,11 +12,3 @@
 /area/ruin/beach/complex/shuttle
 	name = "Syndicate Shuttle"
 	icon_state = "green"
-
-
-
-//beach_treasure_cove, the beeginning
-
-/area/ruin/beach/treasure_cove
-	name = "Pirate Cavern"
-	icon_state = "purple"

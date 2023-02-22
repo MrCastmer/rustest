@@ -20,9 +20,9 @@
 
 /datum/component/bane/RegisterWithParent()
 	if(speciestype)
-		RegisterSignal(parent, COMSIG_ITEM_AFTERATTACK, PROC_REF(speciesCheck))
+		RegisterSignal(parent, COMSIG_ITEM_AFTERATTACK, .proc/speciesCheck)
 	else
-		RegisterSignal(parent, COMSIG_ITEM_AFTERATTACK, PROC_REF(mobCheck))
+		RegisterSignal(parent, COMSIG_ITEM_AFTERATTACK, .proc/mobCheck)
 
 /datum/component/bane/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_ITEM_AFTERATTACK)
@@ -47,4 +47,3 @@
 
 	var/extra_damage = max(0, source.force * damage_multiplier)
 	target.apply_damage(extra_damage, source.damtype, attacker.zone_selected)
-	SEND_SIGNAL(target, COMSIG_LIVING_BANED, source, attacker) // for extra effects when baned.

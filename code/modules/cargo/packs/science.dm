@@ -17,10 +17,3 @@
 		/obj/item/mod/core/standard,
 		/obj/item/mod/core/standard)
 	crate_name = "MOD core crate"
-
-/datum/supply_pack/science/choice_beacon_rnd
-	name = "Ящик с маяком выбора рнд плат"
-	desc = "Идёт вместе с маяком выбора рнд плат."
-	cost = 20000
-	contains = list(/obj/item/choice_beacon/rnd)
-	crate_name = "ящик с маяком рнд плат"

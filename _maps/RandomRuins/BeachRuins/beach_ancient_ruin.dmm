@@ -726,7 +726,9 @@
 	},
 /area/ruin/beach/complex)
 "mC" = (
-/turf/open/floor/plating/asteroid/sand/lit,
+/turf/open/floor/plating/beach/sand{
+	light_range = 2
+	},
 /area/ruin/unpowered)
 "mH" = (
 /obj/structure/flora/ausbushes/fernybush,
@@ -1059,12 +1061,6 @@
 	light_range = 2
 	},
 /area/ruin/beach/complex)
-"re" = (
-/obj/effect/turf_decal/weather/sand/corner{
-	dir = 1
-	},
-/turf/open/water/beach,
-/area/ruin/unpowered)
 "rA" = (
 /obj/machinery/light/small,
 /obj/structure/cable{
@@ -1308,12 +1304,6 @@
 /obj/structure/spacevine/weak,
 /turf/open/floor/concrete/slab_4,
 /area/ruin/beach/complex)
-"vf" = (
-/obj/effect/turf_decal/weather/sand/corner{
-	dir = 4
-	},
-/turf/open/water/beach,
-/area/ruin/unpowered)
 "vh" = (
 /obj/structure/spacevine/weak,
 /obj/structure/cable{
@@ -1656,12 +1646,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/mono,
 /area/ruin/beach/complex)
-"Ab" = (
-/obj/effect/turf_decal/weather/sand/corner{
-	dir = 8
-	},
-/turf/open/water/beach,
-/area/ruin/unpowered)
 "Ae" = (
 /mob/living/simple_animal/hostile/hivebot/strong{
 	name = "mechanoid";
@@ -1785,10 +1769,6 @@
 	light_range = 2
 	},
 /area/ruin/beach/complex)
-"BS" = (
-/obj/effect/turf_decal/weather/sand/corner,
-/turf/open/water/beach,
-/area/ruin/unpowered)
 "Cb" = (
 /obj/structure/table,
 /obj/item/reagent_containers/pill/patch/silver_sulf{
@@ -4256,13 +4236,12 @@ yF
 yF
 yF
 yF
-BS
+yF
 ad
 ad
 ad
 ad
 ad
-Ab
 yF
 yF
 yF
@@ -4270,11 +4249,12 @@ yF
 yF
 yF
 yF
-BS
+yF
+yF
 ad
 ad
 ad
-Ab
+yF
 yF
 yF
 yF
@@ -4329,7 +4309,7 @@ yF
 yF
 yF
 yF
-BS
+yF
 ad
 ad
 ad
@@ -4355,7 +4335,7 @@ mC
 Tu
 ad
 ad
-Ab
+yF
 yF
 yF
 yF
@@ -4403,7 +4383,7 @@ yF
 yF
 yF
 yF
-BS
+yF
 ad
 ad
 ad
@@ -4480,7 +4460,7 @@ yF
 yF
 yF
 yF
-BS
+yF
 HR
 mC
 mC
@@ -4512,7 +4492,7 @@ mC
 mC
 mC
 Tu
-Ab
+yF
 yF
 yF
 yF
@@ -4556,7 +4536,7 @@ yF
 yF
 yF
 yF
-BS
+yF
 ad
 HR
 mC
@@ -4632,7 +4612,7 @@ yF
 yF
 yF
 yF
-BS
+yF
 ad
 HR
 mC
@@ -4787,7 +4767,7 @@ yF
 yF
 yF
 yF
-BS
+yF
 HR
 mC
 mC
@@ -4864,7 +4844,7 @@ yF
 yF
 yF
 yF
-BS
+yF
 HR
 mC
 mC
@@ -4903,7 +4883,7 @@ uo
 mC
 mC
 Tu
-Ab
+yF
 yF
 yF
 yF
@@ -5019,7 +4999,7 @@ yF
 yF
 yF
 yF
-BS
+yF
 HR
 mC
 mC
@@ -5252,7 +5232,7 @@ yF
 yF
 yF
 yF
-BS
+yF
 HR
 mC
 mC
@@ -5371,7 +5351,7 @@ mC
 mC
 mC
 YD
-re
+yF
 yF
 yF
 yF
@@ -5407,7 +5387,7 @@ yF
 yF
 yF
 yF
-BS
+yF
 HR
 mC
 mC
@@ -5796,7 +5776,7 @@ yF
 yF
 yF
 yF
-BS
+yF
 HR
 mC
 uo
@@ -6150,7 +6130,7 @@ fC
 uo
 mC
 YD
-re
+yF
 yF
 yF
 yF
@@ -6420,7 +6400,7 @@ yF
 yF
 yF
 yF
-vf
+yF
 lw
 mC
 mC
@@ -6888,7 +6868,7 @@ yF
 yF
 yF
 yF
-BS
+yF
 HR
 mC
 uo
@@ -6930,7 +6910,7 @@ uo
 mC
 mC
 Tu
-Ab
+yF
 yF
 yF
 yF
@@ -7668,7 +7648,7 @@ yF
 yF
 yF
 yF
-vf
+yF
 lw
 mC
 Mt
@@ -7866,7 +7846,7 @@ mC
 mC
 mC
 YD
-re
+yF
 yF
 yF
 yF
@@ -7943,7 +7923,7 @@ Nq
 Nq
 Nq
 Nq
-re
+yF
 yF
 yF
 yF
@@ -7981,7 +7961,7 @@ yF
 yF
 yF
 yF
-vf
+yF
 lw
 mC
 mC
@@ -8016,7 +7996,7 @@ Nq
 Nq
 Nq
 Nq
-re
+yF
 yF
 yF
 yF
@@ -8060,7 +8040,7 @@ yF
 yF
 yF
 yF
-vf
+yF
 Nq
 Nq
 lw
@@ -8086,7 +8066,7 @@ YD
 Nq
 Nq
 Nq
-re
+yF
 yF
 yF
 yF
@@ -8141,26 +8121,26 @@ yF
 yF
 yF
 yF
-vf
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-Nq
-re
 yF
-vf
 Nq
 Nq
 Nq
 Nq
 Nq
-re
+Nq
+Nq
+Nq
+Nq
+Nq
+yF
+yF
+yF
+Nq
+Nq
+Nq
+Nq
+Nq
+yF
 yF
 yF
 yF

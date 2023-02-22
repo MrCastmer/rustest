@@ -15,8 +15,6 @@
 //
 //
 //
-
-// Старые технологии
 /datum/techweb_node/old_tech
 	id = "old_tech"
 	display_name = "Восстановление затерянных технологий"
@@ -26,56 +24,23 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 	export_price = 5000
 
-// Улучшенные старые технологии
 /datum/techweb_node/adv_old_tech
 	id = "adv_old_tech"
 	display_name = "Полное восстановление затерянных технологий"
 	description = "Технологии 20-21 века были восстановлены и улучшены при помощи технологий будущего."
 	prereq_ids = list("old_tech")
-	design_ids = list("smg9mm_handmade","rev357_handmade","rev357_handmade_rifle","single_handmade","m9mm_handmade")
+	design_ids = list()
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 25000)
 	export_price = 50000
 
-// MechComp, отсылка на Portal
 /datum/techweb_node/mechcomp_tech
 	id = "mechcomp_tech"
 	display_name = "MechComp машинерия"
-	description = "Используя данные полученные с паралельной вселенной где существовала лабаратория по изучению порталов, мы можем соеденить их вместе с нашими технологиями и научиться воспроизводить её."
+	description = "Используя данные полученные с паралельной вселенной (где существовала лабаратория по изучению порталов), мы можем соеденить их вместе с нашими технологиями и научиться воспроизводить её."
 	prereq_ids = list("old_tech", "adv_datatheory")
 	design_ids = list("mechcomp_button", "mechcomp_delay", "mechcomp_speaker", "mechcomp_textpad", "mechcomp_pressurepad", "mechcomp_grav_accelerator", "mechcomp_math", "mechcomp_list_packer", "mechcomp_list_extractor", "mechcomp_find_regex", "mechcomp_timer", "mechcomp_microphone", "mechcomp_teleport", "mechcomp_disposalconstruct", "mechcomp_multitool", "mechcomp_egunholder", "mechcomp_longrange")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
 	export_price = 10000
-
-// HEV, отсылка на Half Life
-// Для меня: в будущем допилить данную ветку
-/*/datum/techweb_node/black_mesa_tech
-	id = "black_mesa_tech"
-	display_name = "Восстановление технологий создания защиты"
-	description = "Первые шаги в восстановлении технологий из паралельной вселенной где существовала секретная исследовательская лабаратория по изучению телепортаций через транзитный мир."
-	prereq_ids = list("adv_old_tech")
-	design_ids = list()
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 50000)
-	export_price = 25000
-
-// PCV или же энергожилет ну и остальные броники HECUшников
-/datum/techweb_node/adv_black_mesa_tech
-	id = "black_mesa_tech"
-	display_name = "Восстановление технологий создания защиты ч.2"
-	description = "Восстановление военной брони и некоторых военных принадлежностей."
-	prereq_ids = list("black_mesa_tech")
-	design_ids = list()
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 10000)
-	export_price = 10000
-
-// Остальное
-/datum/techweb_node/valve_tech
-	id = "black_mesa_tech"
-	display_name = "Восстановление технологий создания защиты ч.3"
-	description = "Поняв что две вселенные это одна мы решили обьеденить данные и получили возможность синтезировать и воспроизводить ещё неизвестное всему миру оборудование."
-	prereq_ids = list("adv_black_mesa_tech")
-	design_ids = list()
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 20000)
-	export_price = 10000*/
 
 // Затем идут сами вещи после изучений в рнд
 // Генератор на дереве
@@ -94,7 +59,7 @@
 	id = "mechcomp_button"
 	build_path = /obj/item/mechcomp/button
 	materials = list(/datum/material/iron = 5000)
-	category = list("MechComp","Imported")
+	category = list("MechComp")
 	build_type = PROTOLATHE
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -104,7 +69,7 @@
 	id = "mechcomp_delay"
 	build_path = /obj/item/mechcomp/delay
 	materials = list(/datum/material/iron = 3000)
-	category = list("MechComp","Imported")
+	category = list("MechComp")
 	build_type = PROTOLATHE
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -114,7 +79,7 @@
 	id = "mechcomp_speaker"
 	build_path = /obj/item/mechcomp/speaker
 	materials = list(/datum/material/iron = 8000)
-	category = list("MechComp","Imported")
+	category = list("MechComp")
 	build_type = PROTOLATHE
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -124,7 +89,7 @@
 	id = "mechcomp_textpad"
 	build_path = /obj/item/mechcomp/textpad
 	materials = list(/datum/material/iron = 1000)
-	category = list("MechComp","Imported")
+	category = list("MechComp")
 	build_type = PROTOLATHE
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -134,7 +99,7 @@
 	id = "mechcomp_pressurepad"
 	build_path = /obj/item/mechcomp/pressurepad
 	materials = list(/datum/material/iron = 10000)
-	category = list("MechComp","Imported")
+	category = list("MechComp")
 	build_type = PROTOLATHE
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -144,7 +109,7 @@
 	id = "mechcomp_grav_accelerator"
 	build_path = /obj/item/mechcomp/grav_accelerator
 	materials = list(/datum/material/iron = 20300, /datum/material/glass = 1000)
-	category = list("MechComp","Imported")
+	category = list("MechComp")
 	build_type = PROTOLATHE
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -154,7 +119,7 @@
 	id = "mechcomp_math"
 	build_path = /obj/item/mechcomp/math
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 5000)
-	category = list("MechComp","Imported")
+	category = list("MechComp")
 	build_type = PROTOLATHE
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -164,7 +129,7 @@
 	id = "mechcomp_list_packer"
 	build_path = /obj/item/mechcomp/list_packer
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 5000)
-	category = list("MechComp","Imported")
+	category = list("MechComp")
 	build_type = PROTOLATHE
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -174,7 +139,7 @@
 	id = "mechcomp_list_extractor"
 	build_path = /obj/item/mechcomp/list_extractor
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 5000)
-	category = list("MechComp","Imported")
+	category = list("MechComp")
 	build_type = PROTOLATHE
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -184,7 +149,7 @@
 	id = "mechcomp_find_regex"
 	build_path = /obj/item/mechcomp/find_regex
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 5000)
-	category = list("MechComp","Imported")
+	category = list("MechComp")
 	build_type = PROTOLATHE
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -194,7 +159,7 @@
 	id = "mechcomp_timer"
 	build_path = /obj/item/mechcomp/timer
 	materials = list(/datum/material/iron = 3000)
-	category = list("MechComp","Imported")
+	category = list("MechComp")
 	build_type = PROTOLATHE
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -204,7 +169,7 @@
 	id = "mechcomp_microphone"
 	build_path = /obj/item/mechcomp/microphone
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 1000)
-	category = list("MechComp","Imported")
+	category = list("MechComp")
 	build_type = PROTOLATHE
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -214,7 +179,7 @@
 	id = "mechcomp_teleport"
 	build_path = /obj/item/mechcomp/teleport
 	materials = list(/datum/material/iron = 20000, /datum/material/uranium = 5000, /datum/material/gold = 1000)
-	category = list("MechComp","Imported")
+	category = list("MechComp")
 	build_type = PROTOLATHE
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -224,7 +189,7 @@
 	id = "mechcomp_disposalconstruct"
 	build_path = /obj/structure/disposalconstruct/mechcomp
 	materials = list(/datum/material/iron = 10000)
-	category = list("MechComp","Imported")
+	category = list("MechComp")
 	build_type = PROTOLATHE
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -234,7 +199,7 @@
 	id = "mechcomp_multitool"
 	build_path = /obj/item/multitool/mechcomp
 	materials = list(/datum/material/iron = 200, /datum/material/glass = 300)
-	category = list("MechComp","Imported")
+	category = list("MechComp")
 	build_type = PROTOLATHE
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -244,7 +209,7 @@
 	id = "mechcomp_egunholder"
 	build_path = /obj/item/mechcomp/egunholder
 	materials = list(/datum/material/iron = 10000, /datum/material/diamond = 1000, /datum/material/gold = 1000)
-	category = list("MechComp","Imported")
+	category = list("MechComp")
 	build_type = PROTOLATHE
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -254,61 +219,6 @@
 	id = "mechcomp_longrange"
 	build_path = /obj/item/mechcomp/teleport/longrange
 	materials = list(/datum/material/iron = 20000, /datum/material/bluespace = 10000, /datum/material/gold = 5000)
-	category = list("MechComp","Imported")
+	category = list("MechComp")
 	build_type = PROTOLATHE
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
-
-//                                                                                  //
-//                                      Оружие                                      //
-//                                                                                  //
-
-/datum/design/smg9mm_handmade
-	name = "самодельный пистолет-пулемёт"
-	desc = "Пистолет-пулемёт собраный из хлама и использующий 9мм SMG магазин. Плохо сделанный корпус затрудняет точную стрельбу."
-	id = "smg9mm_handmade"
-	build_type = PROTOLATHE | AUTOLATHE | MECHFAB
-	materials = list(/datum/material/iron = 95000)
-	build_path = /obj/item/gun/ballistic/automatic/fallout/smg9mm/handmade
-	category = list("Weapons","Imported")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_BALLISTICS
-
-/datum/design/rev357_handmade
-	name = "самодельный револьвер"
-	desc = "Револьвер, сделанный с нуля, который стреляет патронами калибра .357 с низкой скорострельностью и без особого пробития."
-	id = "rev357_handmade"
-	build_type = PROTOLATHE | AUTOLATHE | MECHFAB
-	materials = list(/datum/material/iron = 80000)
-	build_path = /obj/item/gun/ballistic/revolver/fallout/rev357/handmade
-	category = list("Weapons","Imported")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_BALLISTICS
-
-/datum/design/rev357_handmade_rifle
-	name = "самодельная револьверная винтовка"
-	desc = "Самодельная винтовка с револьверным цилиндром, стреляющим патронами калибра .357. Не слишком медленный, с приличным уроном и самодельным прицелом."
-	id = "rev357_handmade_rifle"
-	build_type = PROTOLATHE | AUTOLATHE | MECHFAB
-	materials = list(/datum/material/iron = 120000)
-	build_path = /obj/item/gun/ballistic/revolver/fallout/rev357/handmade/rifle
-	category = list("Weapons","Imported")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_BALLISTICS
-
-/datum/design/single_handmade
-	name = "самодельный дробовик"
-	desc = "Добовик, сделанный вручную, примерно такой же мощный, как и его брат. Но, может быть, не так надёжен."
-	id = "single_handmade"
-	build_type = PROTOLATHE | AUTOLATHE | MECHFAB
-	materials = list(/datum/material/iron = 80000)
-	build_path = /obj/item/gun/ballistic/revolver/fallout/single/handmade
-	category = list("Weapons","Imported")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_BALLISTICS
-
-
-/datum/design/m9mm_handmade
-	name = "самодельный пистолет"
-	desc = "Собран из подручных материалов. Стреляет очень медленно."
-	id = "m9mm_handmade"
-	build_type = PROTOLATHE | AUTOLATHE | MECHFAB
-	materials = list(/datum/material/iron = 60000)
-	build_path = /obj/item/gun/ballistic/automatic/pistol/fallout/m9mm/handmade
-	category = list("Weapons","Imported")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_BALLISTICS
