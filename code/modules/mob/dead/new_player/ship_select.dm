@@ -68,7 +68,7 @@ datum/ship_select
 		if("buy")
 			ui.close()
 			if(spawnee.client.player_age < BUY_MINIMUM_AGE)
-				to_chat(spawnee, "<span class='danger'>Тебе ещё рано иметь лицензию на владение кораблём, возращайся к покупке через [BUY_MINIMUM_AGE - user.client.player_age] дней.</span>")
+				to_chat(spawnee, "<span class='danger'>Тебе ещё рано иметь лицензию на владение кораблём, возращайся к покупке через [BUY_MINIMUM_AGE - spawnee.client.player_age] дней.</span>")
 				spawnee.new_player_panel()
 				return
 			var/datum/map_template/shuttle/template = SSmapping.ship_purchase_list[params["name"]]
