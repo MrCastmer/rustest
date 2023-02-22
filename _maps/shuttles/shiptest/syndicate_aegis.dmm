@@ -4509,19 +4509,13 @@
 /turf/closed/wall/r_wall/syndicate,
 /area/ship/medical)
 "Rm" = (
-/obj/item/clothing/under/syndicate,
-/obj/item/clothing/under/syndicate/skirt,
-/obj/item/storage/fancy/cigarettes/cigpack_syndicate,
-/obj/structure/closet/syndicate{
-	desc = "It's a basic storage unit.";
-	name = "uniform closet"
-	},
-/obj/item/clothing/gloves/combat,
-/obj/item/clothing/shoes/combat,
+/obj/machinery/suit_storage_unit/syndicate{
+    name = "trauma team's suit storage unit";
+    suit_type = /obj/item/clothing/suit/space/hardsuit/syndi/elite
+    },
 /obj/machinery/airalarm/all_access{
 	pixel_y = 24
 	},
-/obj/item/kitchen/knife/combat/survival,
 /obj/effect/turf_decal/industrial/warning/full,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/hallway/central)
