@@ -17,6 +17,7 @@
 	},
 	"Lead Doctor": {
 		"outfit": "/datum/outfit/job/cmo/syndicate/nsv",
+		"officer": true,
 		"slots": 1
 	},
 	"Ship Doctor":{
